@@ -2,15 +2,17 @@
 	background-color: $darkGreen;	
 	min-height: 387px;
 	position: relative;
-		
+	border-bottom: 2px solid $paleGreen;
 	&::after {
 		content: '';
 		position: absolute;
 		top: 0;
-		width: span(12);
+		left: 0;
+		width: 100%;
 		margin: 0;
-		background: url('../img/maincraft/grass.png') repeat center;
-		background-size: 287px 81px;
+		background: url('../img/minecraft/grass.png') repeat center;
+		background-size: 216px 175px;
+		height: 175px;
 	}
 	&.maincraft {
 	}

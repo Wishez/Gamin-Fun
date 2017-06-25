@@ -28,6 +28,11 @@ const Main = () => (
         			<section>It is fourth section!</section>
         		</FadeIn>
         	)} />
+            <Route path='/fifth' render={() => (
+                <FadeIn>
+                    <section>It is fifth section!</section>
+                </FadeIn>
+            )} />
         	<Route component={NotFound} />
         </Switch>
     </div>

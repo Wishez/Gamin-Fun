@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import Logo from './../components/Logo';
-import Navigation from './../components/Navigation'; 
+import NavContainer from './NavContainer.js'; 
  
 const Header = () => (
   <header className='header'>
       <div className='ui container'>
         <Logo />
-        <Navigation />
+        <NavContainer />
       </div>
   </header>
 );

@@ -1,27 +1,30 @@
-.visible {
-	display: none;
-	&-lg {
+.visible- {
+	&lg, &md, &sm, &xs, &xxs {
+		display: none;		
+	}
+	&lg {
 		@include breakpoint($lg) {
 			display: block;
-		};
+		}
 	}
-	&-md {
+	&md {
 		@include breakpoint($md) {
 			display: block;
-		};
+		}
 	}
-	&-sm {
+	&sm {
 		@include breakpoint($sm) {
 			display: block;
-		};
+		}
 	}
-	&-xs {
+	&xs {
 		@include breakpoint($xs) {
 			display: block;
-		};
-	&-xss {
+		}
+	}
+	&xss {
 		@include breakpoint($xxs) {
 			display: block;
-		};
+		}
 	}
 }

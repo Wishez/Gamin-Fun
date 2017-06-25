@@ -1,13 +1,18 @@
 @import '__refer.scss';
 
 .navItem {
-  width: 20%;
+  // @include span(2 last);
+  width: 15%;
+  display: inline-block;
+  text-align: center;
   @include breakpoint($xs) {
     width: 100%;
-    text-align: center;
   }
+  
   &.active .navItem__refer {
-    // background-color: $yellow;
-    // color: $red !important;
+	border-bottom: 3px solid $green;
+	&::after {
+		content: none;
+	}
   }
 } 

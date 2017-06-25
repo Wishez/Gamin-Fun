@@ -1,6 +1,8 @@
 .brand {
 	@include center-block;
 	max-width: 324px;
+	position: relative;
+	top: 100px;
 }
 
 

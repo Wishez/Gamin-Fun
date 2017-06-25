@@ -58,13 +58,19 @@ h2 {
   font-size: $secondSizeHeading;
   color: $gray;
 }
+ul {
+  list-style: none;
+}
 a {
+  border-radius: 5px;
+  @include smooth-transition-color;
   color: $baseLinkColor;
   &:hover, &:visited, &:active, &:focus {
     text-decoration: none;
   }
   &:hover {
     color: $baseHoverLinkColor;
+    background-color: $darkRed;
   }
   &:visited {
     color: $baseVisitedLinkColor;

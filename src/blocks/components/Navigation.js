@@ -1,131 +1,83 @@
-import React, { Component } from 'react';
+
+import React from 'react';
 import { Link } from 'react-router-dom';
-import classNames from 'classnames';
 import { Icon } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
-export default class Navigation extends Component {
-  constructor(props) {
-    super(props);
-    
-    this.state = {
-        isOpen: false,
-        activAbout: false,
-        activeSecond: false,
-        activeThird: false,
-        activeFourth: false
-    };
-
-    this.getActiveClass = this.getActiveClass.bind(this);
-    this.openMenu = this.openMenu.bind(this);
-    this.changeActiveSecond = this.changeActiveSecond.bind(this);
-    this.changeActiveFirst = this.changeActiveFirst.bind(this);
-    this.changeActiveThird = this.changeActiveThird.bind(this);
-    this.changeActiveFourth = this.changeActiveFourth.bind(this);
-    this.cleanActiveState = this.cleanActiveState.bind(this);
-  }
-  
-  openMenu() {
-    let $navList = $('#navList');
-    
-    if (!this.state.isOpen) {
-      this.setState({isOpen: true});
-      $navList.show('fast');
-    } else {
-      this.setState({isOpen: false});
-      $navList.hide('fast');
-    }
-  }
-
-  cleanActiveState() {
-    this.setState({
-      activeFirst: false,
-      activeSecond: false,
-      activeThird: false,
-      activeFourth: false
-    });
-
-  }
-
-  changeActiveFirst() {
-    this.cleanActiveState();
-
-    this.setState({activeFirst: true});
-  }
-  changeActiveSecond() {
-    this.cleanActiveState();
-
-    this.setState({activeSecond: true});
-  }
-  changeActiveThird() {
-    this.cleanActiveState();
-
-    this.setState({activeThird: true});
-
-  }
-  changeActiveFourth() {
-    this.cleanActiveState();
-
-    this.setState({activeFourth: true});
-
-  }
-
-  componentDidMount() {
-    this.changeActiveFirst();
-  }
-
-   
-  render() {
-
-    const { activeFirst, activeSecond, activeThird, activeFourth } = this.state;
-
-    return (
-        <nav className='navigaton'>
-          <button id='openMenuButton'
-            className='navigation__openMenuButton visible-xs'
-            onClick={this.openMenu}>
-            <Icon name='bars' size='big' />
-          </button>
-          <ul className='navList'
-              id='navList'>
-            <li className={this.getActiveClass(activeFirst)}>
-              <Link to='/'
-                className='navItem__refer'
-                onClick={this.changeActiveFirst}>
-                Fisrt nav item
-              </Link>
-            </li>
-            <li className={this.getActiveClass(activeSecond)}>
-              <Link to='/second'
-                className='navItem__refer'
-                onClick={this.changeActiveSecond}>
-                Second nav item
-              </Link>
-            </li>
-            <li className={this.getActiveClass(activeThird)}>
-              <Link to='/third'
-                className='navItem__refer'
-                onClick={this.changeActiveThird}>
-                Third nav item
-              </Link>
-            </li>
-            <li className={this.getActiveClass(activeFourth)}>
-              <Link to='/fourth' 
-                className='navItem__refer'
-                onClick={this.changeActiveFourth}>
-                Fourth nav item
-              </Link>
-            </li>
-          </ul>
-        </nav>
-    );
-  }
-
-
-  getActiveClass(state) {
-    return  classNames({
+const Navigation = ({
+    activeFirst,
+    activeSecond,
+    activeThird,
+    activeFourth,
+    activeFifth,
+    openMenu,
+    changeActiveFirst,
+    changeActiveSecond,
+    changeActiveThird,
+    changeActiveFourth,
+    changeActiveFifth
+}) => {
+  const getActiveClass = state => ( 
+    classNames({
       'navItem': true,
       'active': state
-    });
+    })
+  );
+  
+  return (
+    <nav className='navigaton'>
+      <button id='openMenuButton'
+        className='navigation__openMenuButton visible-xs'
+        onClick={openMenu}>
+        <Icon name='bars' size='big' />
+      </button>
+      <ul className='navList'
+          id='navList'>
+        <li className={getActiveClass(activeFirst)}>
+          <Link to='/'
+            className='navItem__refer'
+            onClick={changeActiveFirst}>
+            Главная
+          </Link>
+        </li>
+        <li className={getActiveClass(activeSecond)}>
+          <Link to='/second'
+            className='navItem__refer'
+            onClick={changeActiveSecond}>
+            Регистрация
+          </Link>
+        </li>
+        <li className={getActiveClass(activeThird)}>
+          <Link to='/third'
+            className='navItem__refer'
+            onClick={changeActiveThird}>
+            Начать играть
+          </Link>
+        </li>
+        <li className={getActiveClass(activeFourth)}>
+          <Link to='/fourth' 
+            className='navItem__refer'
+            onClick={changeActiveFourth}>
+            Контакты
+          </Link>
+        </li>
+        <li className={getActiveClass(activeFifth)}>
+          <Link to='/fifth' 
+            className='navItem__refer'
+            onClick={changeActiveFifth}>
+            Правила
+          </Link>
+        </li>
+        <li className='navItem'>
+          <a className='navItem__refer' 
+            href='#'>
+            Форум
+          </a>
+        </li>
+      </ul>
+    </nav>
+  )
+};
 
-  }
-}
+export default Navigation;
