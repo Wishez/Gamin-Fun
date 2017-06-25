@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load blog_filters %}
+{% block title %}<title>{{ title }}</title>{% endblock %} 
+{% block nav %}<nav class="navigaton"><button class="navigation__openMenuButton visible-xs" id="openMenuButton"><span class="sr-only">Toggle navigation</span><i class="fa fa-bars fa-2x"></i></button><ul class="navList" id="navList">{% if title == 'first' or props.article or props.search %}<li class="navItem active"><a class="navItem__refer" href="{% url 'first' %}">Блог</a></li>{% else %}<li class="navItem"><a class="navItem__refer" href="{% url 'first' %}">Блог</a></li>{% endif %}
+{% if title == 'second' %}<li class="navItem active"><a class="navItem__refer" href="{% url 'second' %}">Second nav item</a></li>{% else %}<li class="navItem"><a class="navItem__refer" href="{% url 'second' %}">Second nav item</a></li>{% endif %}
+{% if title == 'second' %}<li class="navItem active"><a class="navItem__refer" href="{% url 'third' %}">Third nav item</a></li>{% else %}<li class="navItem"><a class="navItem__refer" href="{% url 'third' %}">Third nav item</a></li>{% endif %}
+{% if title == 'third' %}<li class="navItem active"><a class="navItem__refer" href="{% url 'fourth' %}">Fourth nav item</a></li>{% else %}<li class="navItem"><a class="navItem__refer" href="{% url 'fourth' %}">Fourth nav item</a></li>{% endif %}  </ul></nav>{% endblock %}
+{% block content %}<main id="main" style="display: none;"></main><script>window.props = {{props|json}};
+window.react_mount = document.getElementById('main');
+</script><script async="async" src="/media/public/components/{{component}}"></script>{% endblock %}

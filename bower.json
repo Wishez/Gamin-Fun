@@ -1,0 +1,21 @@
+{
+  "name": "Template",
+  "version": "3.0.0",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Filipp Zhuravlev"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/Wishez/template",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {},
+  "devDependencies": {}
+}

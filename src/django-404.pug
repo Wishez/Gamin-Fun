@@ -1,0 +1,35 @@
+| {% extends 'base.html' %}
+| {% load blog_filters %}
+
+| {% block title %}
+title {{ title }}
+| {% endblock %} 
+
+| {% block nav %}
+nav.navigaton
+  button#openMenuButton.navigation__openMenuButton.visible-xs
+    span.sr-only Toggle navigation
+    i.fa.fa-bars.fa-2x
+  ul.navList#navList
+    li.navItem
+      a.navItem__refer(href="{% url 'first' %}") First nav item
+    li.navItem
+      a.navItem__refer(href="{% url 'second' %}") Second nav item
+    li.navItem
+      a.navItem__refer(href="{% url 'third' %}") Third nav item
+    li.navItem
+      a.navItem__refer(href="{% url 'fourth' %}") Fourth nav item  
+| {% endblock %}
+| {% block content %}
+
+
+main#main
+  i.fa.fa-spinner.fa-pulse.fa-3x.fa-fw.center-block
+    span.sr-only Загрузка
+  
+script.
+  window.props = {{props|json}};
+  window.react_mount = document.getElementById('main');
+
+script(src='/media/public/components/NotFound.js')
+| {% endblock %}

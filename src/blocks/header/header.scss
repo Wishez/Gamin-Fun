@@ -1,0 +1,20 @@
+.header {
+	background-color: $darkGreen;	
+	min-height: 387px;
+	position: relative;
+		
+	&::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		width: span(12);
+		margin: 0;
+		background: url('../img/maincraft/grass.png') repeat center;
+		background-size: 287px 81px;
+	}
+	&.maincraft {
+	}
+}
+
+@import 'brand/brand.scss';
+@import 'navigation/navigation.scss';

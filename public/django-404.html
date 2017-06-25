@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% load blog_filters %}
+{% block title %}<title>{{ title }}</title>{% endblock %} 
+{% block nav %}<nav class="navigaton"><button class="navigation__openMenuButton visible-xs" id="openMenuButton"><span class="sr-only">Toggle navigation</span><i class="fa fa-bars fa-2x"></i></button><ul class="navList" id="navList"><li class="navItem"><a class="navItem__refer" href="{% url 'first' %}">First nav item</a></li><li class="navItem"><a class="navItem__refer" href="{% url 'second' %}">Second nav item</a></li><li class="navItem"><a class="navItem__refer" href="{% url 'third' %}">Third nav item</a></li><li class="navItem"><a class="navItem__refer" href="{% url 'fourth' %}">Fourth nav item  </a></li></ul></nav>{% endblock %}
+{% block content %}<main id="main"><i class="fa fa-spinner fa-pulse fa-3x fa-fw center-block"><span class="sr-only">Загрузка</span></i></main><script>window.props = {{props|json}};
+window.react_mount = document.getElementById('main');
+</script><script src="/media/public/components/NotFound.js"></script>{% endblock %}

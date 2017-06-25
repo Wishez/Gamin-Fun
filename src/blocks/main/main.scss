@@ -1,0 +1,6 @@
+#main  {
+	padding: 5% 0;
+	@include breakpoint($xs) {
+		padding: 15% 0;
+	}
+} 

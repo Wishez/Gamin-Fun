@@ -1,0 +1,16 @@
+@import 'breakpoint';
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+// For ie10
+	.servicesStock {
+		display: flex;
+		flex-flow: column wrap;
+		height: 170px;
+		@include breakpoint(max-width 800px) {
+			height: auto;
+		}
+	}
+
+	.footer, .header {
+		background-attachment: scroll;
+	}
+}

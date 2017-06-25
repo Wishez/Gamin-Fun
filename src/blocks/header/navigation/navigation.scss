@@ -1,0 +1,20 @@
+.navigaton {
+  @include span(12);
+  margin-top: (60% / 568) * 100;
+  @include breakpoint($sm) {
+    margin-top: (120% / 568) * 100;
+  }
+  @include breakpoint($xs) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; 
+    margin: 0;
+    height: 44px;
+    background-color: #9e3c9c;;
+  }
+  
+}
+
+@import '__openMenuButton.scss';
+@import 'navList/navList.scss';

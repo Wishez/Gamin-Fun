@@ -1,0 +1,53 @@
+| {% extends 'base.html' %}
+| {% load blog_filters %}
+
+| {% block title %}
+title {{ title }}
+| {% endblock %} 
+
+| {% block nav %}
+nav.navigaton
+	button#openMenuButton.navigation__openMenuButton.visible-xs
+		span.sr-only Toggle navigation
+		i.fa.fa-bars.fa-2x
+	ul.navList#navList
+		| {% if title == 'first' or props.article or props.search %}
+		li.navItem.active
+			a.navItem__refer(href="{% url 'first' %}") Блог
+		| {% else %}
+		li.navItem
+			a.navItem__refer(href="{% url 'first' %}") Блог
+		| {% endif %}
+		| {% if title == 'second' %}
+		li.navItem.active
+			a.navItem__refer(href="{% url 'second' %}") Second nav item
+		| {% else %}
+		li.navItem
+			a.navItem__refer(href="{% url 'second' %}") Second nav item
+		| {% endif %}
+		| {% if title == 'second' %}
+		li.navItem.active
+			a.navItem__refer(href="{% url 'third' %}") Third nav item
+		| {% else %}
+		li.navItem
+			a.navItem__refer(href="{% url 'third' %}") Third nav item
+		| {% endif %}
+		| {% if title == 'third' %}
+		li.navItem.active
+			a.navItem__refer(href="{% url 'fourth' %}") Fourth nav item
+		| {% else %}
+		li.navItem
+			a.navItem__refer(href="{% url 'fourth' %}") Fourth nav item
+		| {% endif %}  
+| {% endblock %}
+| {% block content %}
+
+
+main#main(style='display: none')
+  
+script.
+	window.props = {{props|json}};
+	window.react_mount = document.getElementById('main');
+
+script(async, src='/media/public/components/{{component}}')
+| {% endblock %}

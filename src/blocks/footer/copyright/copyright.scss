@@ -1,0 +1,10 @@
+.copyright {
+	padding-top: 20px;
+	@include breakpoint($xs) {
+		font-size: (13em / 16);
+	}
+	@include breakpoint($xxs) {
+		padding-top: 10px;
+		font-size: 3vw;
+	}
+}

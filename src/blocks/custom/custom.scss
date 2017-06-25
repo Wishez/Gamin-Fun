@@ -1,0 +1,83 @@
+
+@import 'config/grid.scss';
+@import 'config/fonts.scss';
+@import 'config/colors.scss';
+@import 'config/breakpoints.scss';
+@import 'config/mixins.scss';
+@import 'config/sizes.scss';
+@import 'config/animation.scss';
+
+// Custom styles
+html, body {
+  min-height: 100%;
+  width: 100%;
+}
+body {
+  & * {
+    // Styles for testing 
+    // background: #000 !important;
+    // color: #0f0 !important;
+    // outline: solid #f00 1px !important;
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    border: 0;
+    &:active {
+      outline: 0;
+    }
+    &:focus {
+      outline: 0;
+    }
+  }
+  position: relative;
+  font: {
+    family: $mainFont;
+    size: #{$baseSizeFont}px;
+  }
+  text-rendering: optimizeLegibility;
+  font-kerning: normal;
+  font-variant-ligatures: common-ligatures contextual;
+  font-feauture-settings: "kern", "ling", "clig", "calt";
+  line-height: 145%;
+  font-size-adjust: 100%;
+  word-break: break-word;
+  hyphens: auto;
+  -webkit-hyphenate-before: 2;
+  -webkit-hyphenate-after: 3;
+  hyphenate-lines: 3;
+  color: $baseColorFont;
+  background-color: $lightGray;
+}
+// button, a {
+//   cursor: pointer;
+// }
+h1 {
+  font-size: $firstSizeHeading;
+}
+h2 {
+  font-size: $secondSizeHeading;
+  color: $gray;
+}
+a {
+  color: $baseLinkColor;
+  &:hover, &:visited, &:active, &:focus {
+    text-decoration: none;
+  }
+  &:hover {
+    color: $baseHoverLinkColor;
+  }
+  &:visited {
+    color: $baseVisitedLinkColor;
+  }
+  &:active {
+    color: $baseActiveLinkColor;
+  }
+  &:focus {
+    color: $baseFocusLinkColor;
+  }
+}
+
+@import 'config/flex.scss';
+@import 'short_hand_classes/visible.scss';
+@import 'short_hand_classes/title.scss';
+@import 'short_hand_classes/paragraph.scss';

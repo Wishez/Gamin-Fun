@@ -1,0 +1,6 @@
+// If there is modernizr library.
+.flexbox {
+	.navItem {
+	  @include flexable('inline-flex', 'row nowrap', 'center', 'center');
+	}  
+}
