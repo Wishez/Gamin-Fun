@@ -89425,6 +89425,47 @@ exports.default = Logo;
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _ProjectSwitcher = require('./ProjectSwitcher');
+
+var _ProjectSwitcher2 = _interopRequireDefault(_ProjectSwitcher);
+
+var _semanticUiReact = require('semantic-ui-react');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+var NavBetweenProjects = function NavBetweenProjects(_ref) {
+	var rest = _objectWithoutProperties(_ref, []),
+	    getClasses = _ref.getClasses;
+
+	return _react2.default.createElement(
+		'nav',
+		{ className: 'projectsNav' },
+		_react2.default.createElement(_ProjectSwitcher2.default, _extends({}, rest, {
+			content: 'Samp',
+			href: '#' })),
+		_react2.default.createElement(_ProjectSwitcher2.default, _extends({}, rest, {
+			content: 'Minecraft',
+			href: '#' }))
+	);
+};
+
+exports.default = NavBetweenProjects;
+
+},{"./ProjectSwitcher":1310,"react":1000,"semantic-ui-react":1194}],1308:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
@@ -89459,11 +89500,6 @@ var Navigation = function Navigation(_ref) {
       changeActiveFourth = _ref.changeActiveFourth,
       changeActiveFifth = _ref.changeActiveFifth;
 
-  console.log(activeFirst, 'first  act state navItem');
-  console.log(activeSecond, 'second  act state navItem');
-  console.log(activeThird, 'third  act state navItem');
-  console.log(activeFourth, 'fourth  act state navItem');
-  console.log(activeFifth, 'fifth  act state navItem');
   var getActiveClass = function getActiveClass(state) {
     return (0, _classnames2.default)({
       'navItem': true,
@@ -89556,7 +89592,7 @@ var Navigation = function Navigation(_ref) {
 
 exports.default = Navigation;
 
-},{"classnames":24,"prop-types":803,"react":1000,"react-router-dom":961,"semantic-ui-react":1194}],1308:[function(require,module,exports){
+},{"classnames":24,"prop-types":803,"react":1000,"react-router-dom":961,"semantic-ui-react":1194}],1309:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -89588,7 +89624,35 @@ var NotFound = function NotFound() {
 
 exports.default = NotFound;
 
-},{"react":1000}],1309:[function(require,module,exports){
+},{"react":1000}],1310:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var ProjectSwitcher = function ProjectSwitcher(_ref) {
+	var site = _ref.site,
+	    content = _ref.content,
+	    getClasses = _ref.getClasses,
+	    href = _ref.href;
+	return _react2.default.createElement(
+		'a',
+		{ href: href,
+			className: getClasses(content, site) },
+		content
+	);
+};
+
+exports.default = ProjectSwitcher;
+
+},{"react":1000}],1311:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -89610,7 +89674,7 @@ var VisibilityFilters = exports.VisibilityFilters = {
 	SHOW_ACTIVE: 'SHOW_ACTIVE'
 };
 
-},{}],1310:[function(require,module,exports){
+},{}],1312:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -89662,7 +89726,7 @@ var App = function (_Component) {
       return _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement(_Header2.default, null),
+        _react2.default.createElement(_Header2.default, { site: 'minecraft' }),
         _react2.default.createElement(_Main2.default, null),
         _react2.default.createElement(_Footer2.default, null)
       );
@@ -89674,7 +89738,7 @@ var App = function (_Component) {
 
 exports.default = App;
 
-},{"./Footer":1311,"./Header":1312,"./Main":1313,"react":1000}],1311:[function(require,module,exports){
+},{"./Footer":1313,"./Header":1314,"./Main":1315,"react":1000}],1313:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -89694,8 +89758,8 @@ var Footer = function Footer() {
     'footer',
     { className: 'footer' },
     _react2.default.createElement(
-      'div',
-      { className: 'ui container' },
+      _semanticUiReact.Container,
+      null,
       _react2.default.createElement(
         'ul',
         { className: 'footerContacts' },
@@ -89745,7 +89809,7 @@ var Footer = function Footer() {
 
 exports.default = Footer;
 
-},{"react":1000,"semantic-ui-react":1194}],1312:[function(require,module,exports){
+},{"react":1000,"semantic-ui-react":1194}],1314:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -89764,24 +89828,32 @@ var _NavContainer = require('./NavContainer.js');
 
 var _NavContainer2 = _interopRequireDefault(_NavContainer);
 
+var _NavBetweenProjectsContainer = require('./NavBetweenProjectsContainer');
+
+var _NavBetweenProjectsContainer2 = _interopRequireDefault(_NavBetweenProjectsContainer);
+
+var _semanticUiReact = require('semantic-ui-react');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Header = function Header() {
+var Header = function Header(_ref) {
+  var site = _ref.site;
   return _react2.default.createElement(
     'header',
-    { className: 'header' },
+    { className: 'header header--' + site },
     _react2.default.createElement(
-      'div',
-      { className: 'ui container' },
-      _react2.default.createElement(_Logo2.default, null),
-      _react2.default.createElement(_NavContainer2.default, null)
+      _semanticUiReact.Container,
+      null,
+      _react2.default.createElement(_Logo2.default, { site: site }),
+      _react2.default.createElement(_NavBetweenProjectsContainer2.default, { site: site }),
+      _react2.default.createElement(_NavContainer2.default, { site: site })
     )
   );
 };
 
 exports.default = Header;
 
-},{"./../components/Logo":1306,"./NavContainer.js":1314,"react":1000}],1313:[function(require,module,exports){
+},{"./../components/Logo":1306,"./NavBetweenProjectsContainer":1316,"./NavContainer.js":1317,"react":1000,"semantic-ui-react":1194}],1315:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -89802,6 +89874,8 @@ var _reactFadeIn = require('react-fade-in');
 
 var _reactFadeIn2 = _interopRequireDefault(_reactFadeIn);
 
+var _semanticUiReact = require('semantic-ui-react');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Main = function Main() {
@@ -89809,8 +89883,8 @@ var Main = function Main() {
         'main',
         null,
         _react2.default.createElement(
-            'div',
-            { className: 'ui container' },
+            _semanticUiReact.Container,
+            null,
             _react2.default.createElement(
                 _reactRouterDom.Switch,
                 null,
@@ -89877,7 +89951,91 @@ var Main = function Main() {
 
 exports.default = Main;
 
-},{"./../components/NotFound":1308,"react":1000,"react-fade-in":934,"react-router-dom":961}],1314:[function(require,module,exports){
+},{"./../components/NotFound":1309,"react":1000,"react-fade-in":934,"react-router-dom":961,"semantic-ui-react":1194}],1316:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.default = undefined;
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _NavBetweenProjects = require('./../components/NavBetweenProjects');
+
+var _NavBetweenProjects2 = _interopRequireDefault(_NavBetweenProjects);
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _classnames = require('classnames');
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var NavBetweenProjectsContainer = function (_Component) {
+	_inherits(NavBetweenProjectsContainer, _Component);
+
+	function NavBetweenProjectsContainer() {
+		var _ref;
+
+		var _temp, _this, _ret;
+
+		_classCallCheck(this, NavBetweenProjectsContainer);
+
+		for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+			args[_key] = arguments[_key];
+		}
+
+		return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = NavBetweenProjectsContainer.__proto__ || Object.getPrototypeOf(NavBetweenProjectsContainer)).call.apply(_ref, [this].concat(args))), _this), _this.getClasses = function (content, site) {
+			var _classNames;
+
+			var siteButtonClass = 'projectsNav__button--' + site;
+			return (0, _classnames2.default)((_classNames = {
+
+				'text-center projectsNav__button': true
+			}, _defineProperty(_classNames, siteButtonClass, true), _defineProperty(_classNames, siteButtonClass + '_active', content.toLowerCase() === site), _classNames));
+		}, _temp), _possibleConstructorReturn(_this, _ret);
+	}
+
+	_createClass(NavBetweenProjectsContainer, [{
+		key: 'render',
+		value: function render() {
+			return _react2.default.createElement(
+				'div',
+				{ className: 'projects' },
+				_react2.default.createElement(_NavBetweenProjects2.default, _extends({}, this.props, {
+					getClasses: this.getClasses
+				}))
+			);
+		}
+	}]);
+
+	return NavBetweenProjectsContainer;
+}(_react.Component);
+
+NavBetweenProjectsContainer.PropTypes = {
+	site: _propTypes2.default.string.isRequired
+};
+exports.default = NavBetweenProjectsContainer;
+
+},{"./../components/NavBetweenProjects":1307,"classnames":24,"prop-types":803,"react":1000}],1317:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -89989,7 +90147,7 @@ var NavContainer = function (_Component) {
 
 exports.default = NavContainer;
 
-},{"./../components/Navigation":1307,"react":1000}],1315:[function(require,module,exports){
+},{"./../components/Navigation":1308,"react":1000}],1318:[function(require,module,exports){
 'use strict';
 
 // $(window).resize(() => {
@@ -90030,7 +90188,7 @@ $(function () {
   }); // end click
 }); // end ready
 
-},{}],1316:[function(require,module,exports){
+},{}],1319:[function(require,module,exports){
 'use strict';
 
 var _react = require('react');
@@ -90065,7 +90223,7 @@ var store = (0, _configureStore2.default)();
   )
 ), document.getElementById('root'));
 
-},{"./containers/App":1310,"./store/configureStore.js":1320,"react":1000,"react-dom":805,"react-redux":944,"react-router-dom":961}],1317:[function(require,module,exports){
+},{"./containers/App":1312,"./store/configureStore.js":1323,"react":1000,"react-dom":805,"react-redux":944,"react-router-dom":961}],1320:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -90080,7 +90238,7 @@ var connect_form = {
 
 exports.default = connect_form;
 
-},{"redux-form":1046}],1318:[function(require,module,exports){
+},{"redux-form":1046}],1321:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -90106,7 +90264,7 @@ var rootReducer = (0, _redux.combineReducers)({
 
 exports.default = rootReducer;
 
-},{"./connect_form.js":1317,"./visibilityFilter.js":1319,"redux":1089}],1319:[function(require,module,exports){
+},{"./connect_form.js":1320,"./visibilityFilter.js":1322,"redux":1089}],1322:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -90129,7 +90287,7 @@ var visibilityFilter = function visibilityFilter() {
 
 exports.default = visibilityFilter;
 
-},{"./../constants/actionTypes.js":1309}],1320:[function(require,module,exports){
+},{"./../constants/actionTypes.js":1311}],1323:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -90157,7 +90315,7 @@ function configureStore(initialState) {
   return store;
 }
 
-},{"../reducers/index.js":1318,"redux":1089,"redux-thunk":1083}],1321:[function(require,module,exports){
+},{"../reducers/index.js":1321,"redux":1089,"redux-thunk":1083}],1324:[function(require,module,exports){
 'use strict';
 
 require('jquery');
@@ -90172,6 +90330,6 @@ require('./../blocks/custom/custom.js');
 
 require('./../blocks/index.js');
 
-},{"./../blocks/custom/custom.js":1315,"./../blocks/index.js":1316,"babel-polyfill":1,"bootstrap-sass":23,"jquery":450,"whatwg-fetch":1305}]},{},[1321])
+},{"./../blocks/custom/custom.js":1318,"./../blocks/index.js":1319,"babel-polyfill":1,"bootstrap-sass":23,"jquery":450,"whatwg-fetch":1305}]},{},[1324])
 
 //# sourceMappingURL=main.js.map

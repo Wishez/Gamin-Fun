@@ -22,7 +22,7 @@
     }
   }
   @include breakpoint($sm) {
-     
+     font-size: (18em / 16);
   }
   @include breakpoint(max-width 992px) {
     

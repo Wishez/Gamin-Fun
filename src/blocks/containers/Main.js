@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom'
 import NotFound from './../components/NotFound';
 import FadeIn from 'react-fade-in';
+import { Container } from 'semantic-ui-react';
 
 
 const Main = () => (
   <main>
-    <div className='ui container'>
+    <Container>
       	<Switch>         
         	<Route exact path='/' render={() => (
         		<FadeIn>
@@ -35,7 +36,7 @@ const Main = () => (
             )} />
         	<Route component={NotFound} />
         </Switch>
-    </div>
+    </Container>
   </main>
 );
 

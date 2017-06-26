@@ -19,9 +19,9 @@
   }
 }
 @mixin center-block {
-  margin-left: auto !important;
-  margin-right: auto !important;
-  display: block !important;
+  margin-left: auto;
+  margin-right: auto ;
+  display: block;
 }
 @mixin responsive-background($padding-bottom: false, $url: false, $attachment: false) {
   background: center top no-repeat;
@@ -39,11 +39,15 @@
 @mixin smooth-transition-color {
   transition: color 0.5s;
 }
-@mixin smooth-transition-button($font-color, $background-color) {
+@mixin smooth-transition-button($font-color: false, $background-color: false) {
   transition: color 0.5s, background-color 0.5s, transform 0.1s;
   &:hover {
-    color: #{$font-color};
-    background-color: #{$background-color};
+    @if $font-color {
+      color: #{$font-color};
+    }
+    @if $background-color {
+      background-color: #{$background-color};
+    }
   }
   &:active {
     transform: translateY(3px);

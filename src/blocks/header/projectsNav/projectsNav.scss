@@ -1,0 +1,13 @@
+
+
+.projects {
+	margin-top: 119px;
+	width: span(4);
+	@include center-block;
+} 
+
+.projectsNav {
+	width: 100%;
+	justify-content: space-around ;
+}
+@import '__button.scss';

@@ -3,20 +3,19 @@
   // position: absolute;
   // right: 0;
   // bottom: 40px;
-  margin-top: (60% / 387) * 100;
+  margin-top: (14% / 387) * 100;
   @include breakpoint($sm) {
     // margin-top: (120% / 387) * 100;
   }
   @include breakpoint($xs) {
-    position: fixed;
-    top: 0;
+    position: absolute;
+    bottom: 0;
     left: 0;
     width: 100%; 
     margin: 0;
     height: 44px;
     background-color: #9e3c9c;
   }
-  
 }
 
 @import '__openMenuButton.scss';

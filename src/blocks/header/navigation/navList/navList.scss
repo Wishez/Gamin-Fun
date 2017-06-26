@@ -1,8 +1,10 @@
+
 .navList {
   @include span(10 last);
-  @include flexable('inline-flex', 'row nowrap', 'space-between', 'center');
   @include breakpoint($sm) {
-    font-size: (20em / 16);
+    font-size: (15em / 16);
+    width: 100%;
+    float: none;
   }
   @include breakpoint($xs) {
     display: none;

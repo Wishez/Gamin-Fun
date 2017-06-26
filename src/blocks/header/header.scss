@@ -18,5 +18,10 @@
 	}
 }
 
+// Общие классы
+.projectsNav, .navList {
+  @include flexable('inline-flex', 'row nowrap', 'space-between', 'center');
+}
 @import 'brand/brand.scss';
+@import 'projectsNav/projectsNav.scss';
 @import 'navigation/navigation.scss';
