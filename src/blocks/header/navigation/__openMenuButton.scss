@@ -1,7 +1,16 @@
+.navigation__closeMenuButton, .navigation__openMenuButton {
+	position: absolute;
+	color: $lightGray;
+}
 .navigation__openMenuButton {
-  position: absolute;
   top: 6px;
-  left: 19px;
+  left: 100%;
+  margin-left: calc(-48.5% + -27px);
   background-color: transparent;
-  color: #fff;
+}
+
+.navigation__closeMenuButton {
+	display: none;
+	top: 15px;
+	right: 15px;
 }

@@ -13,7 +13,9 @@
     bottom: -3px;
     width: 0;
     transition: width 0.5s, left 0.5s;
-    
+    @include breakpoint($xs) {
+      content: none;
+    }
   }
   &:hover {
     &::after {
@@ -21,14 +23,12 @@
       left: 0;
     }
   }
-  @include breakpoint($sm) {
+  @include breakpoint($md-less) {
      font-size: (18em / 16);
   }
-  @include breakpoint(max-width 992px) {
-    
-  }
   @include breakpoint($xs) {
-    
+    padding-bottom: 0;
+    font-size: $firstSizeHeading;
   }
   @include breakpoint($xxs) {
     

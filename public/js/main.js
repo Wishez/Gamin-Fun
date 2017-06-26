@@ -89396,6 +89396,30 @@ module.exports = warning;
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Figure = function Figure(_ref) {
+	var name = _ref.name;
+	return _react2.default.createElement(
+		'div',
+		{ className: 'figure figure--' + name },
+		_react2.default.createElement('figure', { className: 'figure__img figure__img--' + name })
+	);
+};
+
+exports.default = Figure;
+
+},{"react":1000}],1307:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
@@ -89421,7 +89445,7 @@ var Logo = function Logo() {
 
 exports.default = Logo;
 
-},{"react":1000}],1307:[function(require,module,exports){
+},{"react":1000}],1308:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -89462,7 +89486,7 @@ var NavBetweenProjects = function NavBetweenProjects(_ref) {
 
 exports.default = NavBetweenProjects;
 
-},{"./ProjectSwitcher":1310,"react":1000,"semantic-ui-react":1194}],1308:[function(require,module,exports){
+},{"./ProjectSwitcher":1311,"react":1000,"semantic-ui-react":1194}],1309:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -89481,11 +89505,9 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _classnames = require('classnames');
-
-var _classnames2 = _interopRequireDefault(_classnames);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// import classNames from 'classnames';
 
 var Navigation = function Navigation(_ref) {
   var activeFirst = _ref.activeFirst,
@@ -89498,15 +89520,9 @@ var Navigation = function Navigation(_ref) {
       changeActiveSecond = _ref.changeActiveSecond,
       changeActiveThird = _ref.changeActiveThird,
       changeActiveFourth = _ref.changeActiveFourth,
-      changeActiveFifth = _ref.changeActiveFifth;
-
-  var getActiveClass = function getActiveClass(state) {
-    return (0, _classnames2.default)({
-      'navItem': true,
-      'active': state
-    });
-  };
-
+      changeActiveFifth = _ref.changeActiveFifth,
+      closeMenu = _ref.closeMenu,
+      getActiveClasses = _ref.getActiveClasses;
   return _react2.default.createElement(
     'nav',
     { className: 'navigaton' },
@@ -89521,9 +89537,15 @@ var Navigation = function Navigation(_ref) {
       'ul',
       { className: 'navList',
         id: 'navList' },
+      _react2.default.createElement(_semanticUiReact.Icon, { id: 'closeMenuButton',
+        className: 'navigation__closeMenuButton',
+        name: 'close',
+        size: 'big',
+        color: 'white',
+        onClick: closeMenu }),
       _react2.default.createElement(
         'li',
-        { className: getActiveClass(activeFirst) },
+        { className: getActiveClasses(activeFirst) },
         _react2.default.createElement(
           _reactRouterDom.Link,
           { to: '/',
@@ -89534,7 +89556,7 @@ var Navigation = function Navigation(_ref) {
       ),
       _react2.default.createElement(
         'li',
-        { className: getActiveClass(activeSecond) },
+        { className: getActiveClasses(activeSecond) },
         _react2.default.createElement(
           _reactRouterDom.Link,
           { to: '/second',
@@ -89545,7 +89567,7 @@ var Navigation = function Navigation(_ref) {
       ),
       _react2.default.createElement(
         'li',
-        { className: getActiveClass(activeThird) },
+        { className: getActiveClasses(activeThird) },
         _react2.default.createElement(
           _reactRouterDom.Link,
           { to: '/third',
@@ -89556,7 +89578,7 @@ var Navigation = function Navigation(_ref) {
       ),
       _react2.default.createElement(
         'li',
-        { className: getActiveClass(activeFourth) },
+        { className: getActiveClasses(activeFourth) },
         _react2.default.createElement(
           _reactRouterDom.Link,
           { to: '/fourth',
@@ -89567,7 +89589,7 @@ var Navigation = function Navigation(_ref) {
       ),
       _react2.default.createElement(
         'li',
-        { className: getActiveClass(activeFifth) },
+        { className: getActiveClasses(activeFifth) },
         _react2.default.createElement(
           _reactRouterDom.Link,
           { to: '/fifth',
@@ -89592,7 +89614,7 @@ var Navigation = function Navigation(_ref) {
 
 exports.default = Navigation;
 
-},{"classnames":24,"prop-types":803,"react":1000,"react-router-dom":961,"semantic-ui-react":1194}],1309:[function(require,module,exports){
+},{"prop-types":803,"react":1000,"react-router-dom":961,"semantic-ui-react":1194}],1310:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -89624,7 +89646,7 @@ var NotFound = function NotFound() {
 
 exports.default = NotFound;
 
-},{"react":1000}],1310:[function(require,module,exports){
+},{"react":1000}],1311:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -89652,7 +89674,7 @@ var ProjectSwitcher = function ProjectSwitcher(_ref) {
 
 exports.default = ProjectSwitcher;
 
-},{"react":1000}],1311:[function(require,module,exports){
+},{"react":1000}],1312:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -89674,7 +89696,7 @@ var VisibilityFilters = exports.VisibilityFilters = {
 	SHOW_ACTIVE: 'SHOW_ACTIVE'
 };
 
-},{}],1312:[function(require,module,exports){
+},{}],1313:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -89738,7 +89760,7 @@ var App = function (_Component) {
 
 exports.default = App;
 
-},{"./Footer":1313,"./Header":1314,"./Main":1315,"react":1000}],1313:[function(require,module,exports){
+},{"./Footer":1314,"./Header":1315,"./Main":1316,"react":1000}],1314:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -89809,7 +89831,7 @@ var Footer = function Footer() {
 
 exports.default = Footer;
 
-},{"react":1000,"semantic-ui-react":1194}],1314:[function(require,module,exports){
+},{"react":1000,"semantic-ui-react":1194}],1315:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -89832,6 +89854,10 @@ var _NavBetweenProjectsContainer = require('./NavBetweenProjectsContainer');
 
 var _NavBetweenProjectsContainer2 = _interopRequireDefault(_NavBetweenProjectsContainer);
 
+var _Figure = require('./../components/Figure');
+
+var _Figure2 = _interopRequireDefault(_Figure);
+
 var _semanticUiReact = require('semantic-ui-react');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -89846,14 +89872,16 @@ var Header = function Header(_ref) {
       null,
       _react2.default.createElement(_Logo2.default, { site: site }),
       _react2.default.createElement(_NavBetweenProjectsContainer2.default, { site: site }),
-      _react2.default.createElement(_NavContainer2.default, { site: site })
+      _react2.default.createElement(_NavContainer2.default, { site: site }),
+      _react2.default.createElement(_Figure2.default, { name: 'steve' }),
+      _react2.default.createElement(_Figure2.default, { name: 'squid' })
     )
   );
 };
 
 exports.default = Header;
 
-},{"./../components/Logo":1306,"./NavBetweenProjectsContainer":1316,"./NavContainer.js":1317,"react":1000,"semantic-ui-react":1194}],1315:[function(require,module,exports){
+},{"./../components/Figure":1306,"./../components/Logo":1307,"./NavBetweenProjectsContainer":1317,"./NavContainer.js":1318,"react":1000,"semantic-ui-react":1194}],1316:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -89951,7 +89979,7 @@ var Main = function Main() {
 
 exports.default = Main;
 
-},{"./../components/NotFound":1309,"react":1000,"react-fade-in":934,"react-router-dom":961,"semantic-ui-react":1194}],1316:[function(require,module,exports){
+},{"./../components/NotFound":1310,"react":1000,"react-fade-in":934,"react-router-dom":961,"semantic-ui-react":1194}],1317:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -90035,7 +90063,7 @@ NavBetweenProjectsContainer.PropTypes = {
 };
 exports.default = NavBetweenProjectsContainer;
 
-},{"./../components/NavBetweenProjects":1307,"classnames":24,"prop-types":803,"react":1000}],1317:[function(require,module,exports){
+},{"./../components/NavBetweenProjects":1308,"classnames":24,"prop-types":803,"react":1000}],1318:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -90054,6 +90082,10 @@ var _react2 = _interopRequireDefault(_react);
 var _Navigation = require('./../components/Navigation');
 
 var _Navigation2 = _interopRequireDefault(_Navigation);
+
+var _classnames = require('classnames');
+
+var _classnames2 = _interopRequireDefault(_classnames);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -90085,15 +90117,17 @@ var NavContainer = function (_Component) {
       activeFourth: false
     }, _this.openMenu = function () {
       var $navList = $('#navList');
-
+      var $closeButton = $('#closeMenuButton');
       if (!_this.state.isOpen) {
         _this.setState({ isOpen: true });
+        $closeButton.show();
         $navList.show('fast');
       } else {
         _this.setState({ isOpen: false });
         $navList.hide('fast');
+        $closeButton.hide();
       }
-    }, _this.cleanActiveState = function () {
+    }, _this.cleanActiveStateAndCloseMenuIfNeed = function () {
       _this.setState({
         activeFirst: false,
         activeSecond: false,
@@ -90101,26 +90135,33 @@ var NavContainer = function (_Component) {
         activeFourth: false,
         activeFifth: false
       });
+      _this.closeMenu();
     }, _this.changeActiveFirst = function () {
-      _this.cleanActiveState();
+      _this.cleanActiveStateAndCloseMenuIfNeed();
 
       _this.setState({ activeFirst: true });
     }, _this.changeActiveSecond = function () {
-      _this.cleanActiveState();
+      _this.cleanActiveStateAndCloseMenuIfNeed();
 
       _this.setState({ activeSecond: true });
     }, _this.changeActiveThird = function () {
-      _this.cleanActiveState();
+      _this.cleanActiveStateAndCloseMenuIfNeed();
 
       _this.setState({ activeThird: true });
     }, _this.changeActiveFourth = function () {
-      _this.cleanActiveState();
-
+      _this.cleanActiveStateAndCloseMenuIfNeed();
       _this.setState({ activeFourth: true });
     }, _this.changeActiveFifth = function () {
-      _this.cleanActiveState();
-
+      _this.cleanActiveStateAndCloseMenuIfNeed();
       _this.setState({ activeFifth: true });
+    }, _this.getActiveClasses = function (state) {
+      return (0, _classnames2.default)({
+        'navItem': true,
+        'active': state
+      });
+    }, _this.closeMenu = function () {
+      var $navList = $('#navList');
+      if (window.innerWidth < 767) $navList.hide('fast');
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
@@ -90137,7 +90178,10 @@ var NavContainer = function (_Component) {
         changeActiveSecond: this.changeActiveSecond,
         changeActiveThird: this.changeActiveThird,
         changeActiveFourth: this.changeActiveFourth,
-        changeActiveFifth: this.changeActiveFifth
+        changeActiveFifth: this.changeActiveFifth,
+        getActiveClasses: this.getActiveClasses,
+        openMenu: this.openMenu,
+        closeMenu: this.closeMenu
       }));
     }
   }]);
@@ -90147,7 +90191,7 @@ var NavContainer = function (_Component) {
 
 exports.default = NavContainer;
 
-},{"./../components/Navigation":1308,"react":1000}],1318:[function(require,module,exports){
+},{"./../components/Navigation":1309,"classnames":24,"react":1000}],1319:[function(require,module,exports){
 'use strict';
 
 // $(window).resize(() => {
@@ -90183,12 +90227,14 @@ $(function () {
   } // end openUrlInNewWindow
 
 
-  $(document).on('click', '.navItem__refer', function (e) {
-    if (window.innerWidth < 767) $navList.hide('fast');
-  }); // end click
+  // $(document).on('click', '.navItem__refer, .navItem, #closeMenuButton', (e) => {
+  //   let $navList = $('#navList');
+  //   if (window.innerWidth < 767) $navList.hide('fast');
+
+  // }); // end click
 }); // end ready
 
-},{}],1319:[function(require,module,exports){
+},{}],1320:[function(require,module,exports){
 'use strict';
 
 var _react = require('react');
@@ -90223,7 +90269,7 @@ var store = (0, _configureStore2.default)();
   )
 ), document.getElementById('root'));
 
-},{"./containers/App":1312,"./store/configureStore.js":1323,"react":1000,"react-dom":805,"react-redux":944,"react-router-dom":961}],1320:[function(require,module,exports){
+},{"./containers/App":1313,"./store/configureStore.js":1324,"react":1000,"react-dom":805,"react-redux":944,"react-router-dom":961}],1321:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -90238,7 +90284,7 @@ var connect_form = {
 
 exports.default = connect_form;
 
-},{"redux-form":1046}],1321:[function(require,module,exports){
+},{"redux-form":1046}],1322:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -90264,7 +90310,7 @@ var rootReducer = (0, _redux.combineReducers)({
 
 exports.default = rootReducer;
 
-},{"./connect_form.js":1320,"./visibilityFilter.js":1322,"redux":1089}],1322:[function(require,module,exports){
+},{"./connect_form.js":1321,"./visibilityFilter.js":1323,"redux":1089}],1323:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -90287,7 +90333,7 @@ var visibilityFilter = function visibilityFilter() {
 
 exports.default = visibilityFilter;
 
-},{"./../constants/actionTypes.js":1311}],1323:[function(require,module,exports){
+},{"./../constants/actionTypes.js":1312}],1324:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -90315,7 +90361,7 @@ function configureStore(initialState) {
   return store;
 }
 
-},{"../reducers/index.js":1321,"redux":1089,"redux-thunk":1083}],1324:[function(require,module,exports){
+},{"../reducers/index.js":1322,"redux":1089,"redux-thunk":1083}],1325:[function(require,module,exports){
 'use strict';
 
 require('jquery');
@@ -90330,6 +90376,6 @@ require('./../blocks/custom/custom.js');
 
 require('./../blocks/index.js');
 
-},{"./../blocks/custom/custom.js":1318,"./../blocks/index.js":1319,"babel-polyfill":1,"bootstrap-sass":23,"jquery":450,"whatwg-fetch":1305}]},{},[1324])
+},{"./../blocks/custom/custom.js":1319,"./../blocks/index.js":1320,"babel-polyfill":1,"bootstrap-sass":23,"jquery":450,"whatwg-fetch":1305}]},{},[1325])
 
 //# sourceMappingURL=main.js.map

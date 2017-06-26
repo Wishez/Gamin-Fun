@@ -6,13 +6,32 @@
   display: inline-block;
   text-align: center;
   @include breakpoint($xs) {
-    width: 100%;
+    width: span(8);
+    padding: 5%;
+    @include center-block;
+    border-radius: 10px;
   }
-  
+  transition: background-color 0.5s;
+  $darkenDrakGray: darken($darkGray, 5%);
+  &:hover {
+    @include breakpoint($xs) {
+       background-color: $darkenDrakGray;
+    }
+  }
+  &.active {
+    @include breakpoint($xs) {
+      
+      background-color: $darkenDrakGray;
+    }
+    
+  }
   &.active .navItem__refer {
-	border-bottom: 3px solid $green;
-	&::after {
-		content: none;
-	}
+    border-bottom: 3px solid $green;
+    @include breakpoint($xs) {
+      border: none;
+    }
+  	&::after {
+  		content: none;
+  	}
   }
 } 

@@ -1,0 +1,19 @@
+.figure {
+	position: absolute;
+	width: 100%;
+	z-index: -1;
+	@include breakpoint($xs) { 
+		display: none;
+	}
+	&--steve {
+		max-width: 187px;
+		top: (99% / 387) * 100;
+		left: 110px;	
+	}
+	&--squid {
+		max-width: 139px;
+		top: (99% / 387) * 100;
+		right: 117px;
+	}
+}
+@import '__img.scss';

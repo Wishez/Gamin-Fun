@@ -1,20 +1,13 @@
 .navigaton {
   width: span(12);
-  // position: absolute;
-  // right: 0;
-  // bottom: 40px;
   margin-top: (14% / 387) * 100;
-  @include breakpoint($sm) {
-    // margin-top: (120% / 387) * 100;
-  }
   @include breakpoint($xs) {
     position: absolute;
-    bottom: 0;
+    bottom: 25px;
     left: 0;
     width: 100%; 
     margin: 0;
     height: 44px;
-    background-color: #9e3c9c;
   }
 }
 

@@ -1,7 +1,10 @@
 .header {
+	position: relative;
+	z-index: 0;
+}
+.header--minecraft {
 	background-color: $darkGreen;	
 	min-height: 387px;
-	position: relative;
 	border-bottom: 2px solid $paleGreen;
 	&::after {
 		content: '';
@@ -14,8 +17,6 @@
 		background-size: 216px 175px;
 		height: 175px;
 	}
-	&.maincraft {
-	}
 }
 
 // Общие классы
@@ -25,3 +26,4 @@
 @import 'brand/brand.scss';
 @import 'projectsNav/projectsNav.scss';
 @import 'navigation/navigation.scss';
+@import 'figure/figure.scss';

@@ -1,0 +1,12 @@
+.figure__img {
+	@include responsive-background;
+	width: 100%;
+	&--steve {
+		padding-bottom: (249% / 187 * 100);
+		background-image: url('../img/minecraft/steve.png');			
+	}
+	&--squid {
+		padding-bottom: (171% / 139 * 100);
+		background-image: url('../img/minecraft/squid.png');				
+	}
+}

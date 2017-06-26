@@ -31,9 +31,9 @@ $(function() {
   }// end openUrlInNewWindow
 
 
-  $(document).on('click', '.navItem__refer', (e) => {
-    if (window.innerWidth  < 767)
-      $navList.hide('fast');
+  // $(document).on('click', '.navItem__refer, .navItem, #closeMenuButton', (e) => {
+  //   let $navList = $('#navList');
+  //   if (window.innerWidth < 767) $navList.hide('fast');
 
-  }); // end click
+  // }); // end click
 });// end ready

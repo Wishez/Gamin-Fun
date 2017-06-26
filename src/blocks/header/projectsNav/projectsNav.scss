@@ -4,6 +4,9 @@
 	margin-top: 119px;
 	width: span(4);
 	@include center-block;
+	@include breakpoint($xs) {
+		width: span(10);
+	}
 } 
 
 .projectsNav {

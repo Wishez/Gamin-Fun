@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Navigation from './../components/Navigation';
+import classNames from 'classnames';
 
 export default class NavContainer extends Component {
   state = {
@@ -16,17 +17,19 @@ export default class NavContainer extends Component {
 
   openMenu = () => {
     let $navList = $('#navList');
-    
+    let $closeButton = $('#closeMenuButton');
     if (!this.state.isOpen) {
       this.setState({isOpen: true});
+      $closeButton.show();
       $navList.show('fast');
     } else {
       this.setState({isOpen: false});
       $navList.hide('fast');
+      $closeButton.hide();
     }
   }
 
-  cleanActiveState = () => {
+  cleanActiveStateAndCloseMenuIfNeed = () => {
     this.setState({
       activeFirst: false,
       activeSecond: false,
@@ -34,39 +37,47 @@ export default class NavContainer extends Component {
       activeFourth: false,
       activeFifth: false
     });
+    this.closeMenu();
 
   }
 
   changeActiveFirst = () => {
-    this.cleanActiveState();
+    this.cleanActiveStateAndCloseMenuIfNeed();
 
     this.setState({activeFirst: true});
   }
   changeActiveSecond = () => {
-    this.cleanActiveState();
+    this.cleanActiveStateAndCloseMenuIfNeed();
 
     this.setState({activeSecond: true});
   }
   changeActiveThird = () => {
-    this.cleanActiveState();
+    this.cleanActiveStateAndCloseMenuIfNeed();
 
     this.setState({activeThird: true});
 
   }
   changeActiveFourth = () => {
-    this.cleanActiveState();
-
+    this.cleanActiveStateAndCloseMenuIfNeed();
     this.setState({activeFourth: true});
 
   }
-
-
   changeActiveFifth = () => {
-    this.cleanActiveState();
-
+    this.cleanActiveStateAndCloseMenuIfNeed();
     this.setState({activeFifth: true});    
   }
+
+  getActiveClasses = state => ( 
+    classNames({
+      'navItem': true,
+      'active': state
+    })
+  );
    
+  closeMenu = () => {
+    let $navList = $('#navList');
+    if (window.innerWidth < 767) $navList.hide('fast');
+  }
   render() {
     return (
         <Navigation {...this.state} 
@@ -75,6 +86,9 @@ export default class NavContainer extends Component {
             changeActiveThird={this.changeActiveThird}
             changeActiveFourth={this.changeActiveFourth}
             changeActiveFifth={this.changeActiveFifth}
+            getActiveClasses={this.getActiveClasses}
+            openMenu={this.openMenu}
+            closeMenu={this.closeMenu}
         />
     );
   }
