@@ -1,0 +1,16 @@
+.smallGrayButton {
+	border-radius: 0 !important;
+	width: 100%;
+	max-width: 100px;
+	padding: 2% 0 !important;
+	height: 35px;
+	background-color: $gray !important;
+	font-size: (12em / 16) !important;
+	font: {
+		family: $mainFont;
+		size: (12em / 16) !important;
+		weight: bold;
+	}
+	color: $lightGray !important;
+	@extend .text-center;
+}	

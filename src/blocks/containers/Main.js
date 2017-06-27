@@ -5,30 +5,30 @@ import FadeIn from 'react-fade-in';
 import { Container } from 'semantic-ui-react';
 import NewsContainer from './NewsContainer';
 
-const Main = () => (
-  <main>
+const Main = ({...rest}) => (
+  <main className='main'>
   	<Switch>         
     	<Route exact path='/' render={() => (
     		<FadeIn>
-    			<NewsContainer />
+    			<NewsContainer {...rest} />
     		</FadeIn>
     	)} />
-    	<Route path='/second' render={() => (
+    	<Route path='/register' render={() => (
     		<FadeIn>
     			<section>It is second section!</section>
     		</FadeIn>
     	)} />
-    	<Route path='/third' render={() => (
+    	<Route path='/strat_playing' render={() => (
     		<FadeIn>
     			<section>It is third section!</section>
     		</FadeIn>
     	)} />
-    	<Route path='/fourth' render={() => (
+    	<Route path='/contacts' render={() => (
     		<FadeIn>
     			<section>It is fourth section!</section>
     		</FadeIn>
     	)} />
-        <Route path='/fifth' render={() => (
+        <Route path='/rules' render={() => (
             <FadeIn>
                 <section>It is fifth section!</section>
             </FadeIn>

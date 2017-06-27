@@ -1,0 +1,7 @@
+.logInFormButtons {
+	position: relative;
+	@extend .prettyTopMargin;
+}
+
+@import '__button.scss';
+@import '__forgotPass.scss';

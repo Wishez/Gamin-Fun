@@ -42,35 +42,35 @@ const Navigation = ({
           </Link>
         </li>
         <li className={getActiveClasses(activeSecond)}>
-          <Link to='/second'
+          <Link to='/register'
             className='navItem__refer'
             onClick={changeActiveSecond}>
             Регистрация
           </Link>
         </li>
         <li className={getActiveClasses(activeThird)}>
-          <Link to='/third'
+          <Link to='/strat_playing'
             className='navItem__refer'
             onClick={changeActiveThird}>
             Начать играть
           </Link>
         </li>
         <li className={getActiveClasses(activeFourth)}>
-          <Link to='/fourth' 
+          <Link to='/contacts' 
             className='navItem__refer'
             onClick={changeActiveFourth}>
             Контакты
           </Link>
         </li>
         <li className={getActiveClasses(activeFifth)}>
-          <Link to='/fifth' 
+          <Link to='/rules' 
             className='navItem__refer'
             onClick={changeActiveFifth}>
             Правила
           </Link>
         </li>
         <li className='navItem'>
-          <a className='navItem__refer' 
+          <a className='navItem__refer not-follow' 
             href='#'>
             Форум
           </a>

@@ -6,6 +6,16 @@
 @import 'config/mixins.scss';
 @import 'config/sizes.scss';
 @import 'config/animation.scss';
+@import 'config/flex.scss';
+
+@import 'short_hand_classes/margins.scss';
+@import 'short_hand_classes/visible.scss';
+@import 'short_hand_classes/title.scss';
+@import 'short_hand_classes/paragraph.scss';
+@import 'short_hand_classes/aligned.scss';
+@import 'short_hand_classes/buttons.scss';
+@import 'short_hand_classes/float.scss';
+@import 'short_hand_classes/formInput.scss';
 
 // Custom styles
 html, body {
@@ -75,8 +85,6 @@ a {
   }
 }
 
-@import 'config/flex.scss';
-@import 'short_hand_classes/visible.scss';
-@import 'short_hand_classes/title.scss';
-@import 'short_hand_classes/paragraph.scss';
-@import 'short_hand_classes/aligned.scss';
+::-webkit-input-placeholder {
+    color: $gray;
+}

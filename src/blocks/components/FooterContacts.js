@@ -5,7 +5,7 @@ const FooterContacts = ({
 	site
 }) => (
 	<div className={'text-center footerContacts footerContacts--' + site}>
-		<a href='#' 
+		<a href='https://vk.com/gamingprivateminecraft' 
 		   className={'footerContacts__icon footerContacts__icon--' + site}>
 			<Icon 
 				name='vk' 

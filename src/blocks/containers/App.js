@@ -13,7 +13,7 @@ export default class App extends Component {
     return (
     	<div>
       	<Header site={site} />
-      	<Main />	
+      	<Main site={site}/>	
       	<Footer site={site} />
       </div>
     );

@@ -6,7 +6,7 @@ import crossDomainRequest from './../constants/crossDomainRequest.js';
 const required = value => value ? undefined : 'Заполните, пожалуйста, это поле, и спасибо',
 	  email = value => value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value) ? 'Неправильный e-mail адрес' : undefined;
 
-const renderField = ({ input, type, label, meta: { touched, error, warning }, textarea, maxLength, placeholder}) => {
+const renderField = ({ input, type, label, meta: { touched, error, warning }, textarea}) => {
 	let field;
 
 	if (!textarea)
@@ -15,7 +15,6 @@ const renderField = ({ input, type, label, meta: { touched, error, warning }, te
 			type={type}
 			placeholder={placeholder}
 			className='connectFormController__item'
-			maxLength={maxLength}
 		/>
 	else
 	 	field = <textarea 

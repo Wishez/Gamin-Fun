@@ -1,16 +1,25 @@
 import React, {Component} from 'react';
 import UserPanel from './../components/UserPanel';
+import PropTypes from 'prop-types';
 
 export default class UserPanelContainer extends Component {
+	static PropTypes = {
+		site: PropTypes.string.isRequired
+	}
+	
 	showStatus = (amountPeople, totalPeople) => (
-		totalPeople / amountPeople * 100
+		amountPeople / totalPeople * 100 
 	)
+	submitLogInForm = (values, dispatch) => {
+		console.log(values);
+	}
 	render() {
 		return (
-			<UserPanel totalPeople='40' 
+			<UserPanel {...this.props}
+				totalPeople='40' 
 				amountPeople='20' 
-				site='minecraft'
-				showStatus={this.showStatus} />
+				showStatus={this.showStatus}
+				submitLogInForm={this.submitLogInForm} />
 		);
 	}
 }

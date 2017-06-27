@@ -1,0 +1,14 @@
+.userPanel {
+	@include span(4 last);
+	padding-top: 75px;
+	min-height: 100vh;
+	& .container{
+		width: 80%;
+	}
+	border-left: 10px solid $darkenLightGray;
+}
+
+@import 'server/server.scss';
+// If you see it, try to replace name of a folder 'loginFrom' as 'logInForm'
+// and change this path as well. I could not do it.
+@import 'loginFrom/logInForm.scss';

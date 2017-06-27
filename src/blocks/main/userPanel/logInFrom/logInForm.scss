@@ -1,0 +1,6 @@
+.logInForm {
+	@extend .defaultTopMargin;
+}
+
+@import 'logInFormController/logInFormController.scss';
+@import 'logInFormButtons/logInFormButtons.scss';

@@ -1,6 +1,15 @@
-#main  {
-	padding: 5% 0;
+.main  {
+	position: relative;
+	
 	@include breakpoint($xs) {
 		padding: 15% 0;
 	}
 } 
+
+.contentWrapper {
+	@include susy-clearfix;
+	// min-height: 500px;
+}
+
+
+@import 'userPanel/userPanel.scss';

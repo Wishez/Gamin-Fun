@@ -98024,7 +98024,7 @@ var FooterContacts = function FooterContacts(_ref) {
 		{ className: 'text-center footerContacts footerContacts--' + site },
 		_react2.default.createElement(
 			'a',
-			{ href: '#',
+			{ href: 'https://vk.com/gamingprivateminecraft',
 				className: 'footerContacts__icon footerContacts__icon--' + site },
 			_react2.default.createElement(_semanticUiReact.Icon, {
 				name: 'vk',
@@ -98049,6 +98049,100 @@ var FooterContacts = function FooterContacts(_ref) {
 exports.default = FooterContacts;
 
 },{"react":1059,"semantic-ui-react":1254}],1385:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reduxForm = require('redux-form');
+
+var _semanticUiReact = require('semantic-ui-react');
+
+var _reactRouterDom = require('react-router-dom');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var required = function required(value) {
+	return value ? undefined : 'Это поле &mdash; обязательно';
+};
+
+var renderController = function renderController(_ref) {
+	var input = _ref.input,
+	    _ref$meta = _ref.meta,
+	    touched = _ref$meta.touched,
+	    error = _ref$meta.error,
+	    warning = _ref$meta.warning;
+	return _react2.default.createElement(
+		'div',
+		{ className: 'logInFormController' },
+		_react2.default.createElement('input', _extends({}, input, {
+			className: 'logInFormController__input' })),
+		touched && (error && _react2.default.createElement(
+			'span',
+			{ className: 'c' },
+			error
+		) || warning && _react2.default.createElement(
+			'span',
+			{ className: 'logInFormController__error' },
+			warning
+		))
+	);
+};
+
+var LogInForm = function LogInForm(_ref2) {
+	var submitLogInForm = _ref2.submitLogInForm;
+	return _react2.default.createElement(
+		'form',
+		{ id: 'logInForm',
+			onSubmit: submitLogInForm,
+			className: 'logInForm' },
+		_react2.default.createElement(_reduxForm.Field, { component: renderController,
+			name: 'login',
+			validate: [required],
+			placeholder: '\u041B\u043E\u0433\u0438\u043D/Login',
+			maxLength: '75'
+		}),
+		_react2.default.createElement(_reduxForm.Field, { component: renderController,
+			name: 'password',
+			validate: [required],
+			placeholder: '\u041F\u0430\u0440\u043E\u043B\u044C/Password',
+			maxLength: '75'
+		}),
+		_react2.default.createElement(
+			'div',
+			{ className: 'logInFormButtons' },
+			_react2.default.createElement(_semanticUiReact.Button, { className: 'logInFormButtons__button logInFormButtons__button--submit',
+				content: '\u0412\u043E\u0439\u0442\u0438'
+			}),
+			_react2.default.createElement(
+				_reactRouterDom.Link,
+				{ to: '/register',
+					className: 'logInFormButtons__button logInFormButtons__button--register' },
+				'\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044F'
+			),
+			_react2.default.createElement('br', null),
+			_react2.default.createElement(
+				_reactRouterDom.Link,
+				{ to: '/remember_password',
+					className: 'logInFormButtons__forgotPass' },
+				'\u0417\u0430\u0431\u044B\u043B\u0438 \u043F\u0430\u0440\u043E\u043B\u044C?'
+			)
+		)
+	);
+};
+
+exports.default = (0, _reduxForm.reduxForm)({
+	form: 'LogInForm'
+})(LogInForm);
+
+},{"react":1059,"react-router-dom":1020,"redux-form":1105,"semantic-ui-react":1254}],1386:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -98077,7 +98171,7 @@ var Logo = function Logo() {
 
 exports.default = Logo;
 
-},{"react":1059}],1386:[function(require,module,exports){
+},{"react":1059}],1387:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -98118,7 +98212,7 @@ var NavBetweenProjects = function NavBetweenProjects(_ref) {
 
 exports.default = NavBetweenProjects;
 
-},{"./ProjectSwitcher":1389,"react":1059,"semantic-ui-react":1254}],1387:[function(require,module,exports){
+},{"./ProjectSwitcher":1390,"react":1059,"semantic-ui-react":1254}],1388:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -98188,7 +98282,7 @@ var Navigation = function Navigation(_ref) {
         { className: getActiveClasses(activeSecond) },
         _react2.default.createElement(
           _reactRouterDom.Link,
-          { to: '/second',
+          { to: '/register',
             className: 'navItem__refer',
             onClick: changeActiveSecond },
           '\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044F'
@@ -98199,7 +98293,7 @@ var Navigation = function Navigation(_ref) {
         { className: getActiveClasses(activeThird) },
         _react2.default.createElement(
           _reactRouterDom.Link,
-          { to: '/third',
+          { to: '/strat_playing',
             className: 'navItem__refer',
             onClick: changeActiveThird },
           '\u041D\u0430\u0447\u0430\u0442\u044C \u0438\u0433\u0440\u0430\u0442\u044C'
@@ -98210,7 +98304,7 @@ var Navigation = function Navigation(_ref) {
         { className: getActiveClasses(activeFourth) },
         _react2.default.createElement(
           _reactRouterDom.Link,
-          { to: '/fourth',
+          { to: '/contacts',
             className: 'navItem__refer',
             onClick: changeActiveFourth },
           '\u041A\u043E\u043D\u0442\u0430\u043A\u0442\u044B'
@@ -98221,7 +98315,7 @@ var Navigation = function Navigation(_ref) {
         { className: getActiveClasses(activeFifth) },
         _react2.default.createElement(
           _reactRouterDom.Link,
-          { to: '/fifth',
+          { to: '/rules',
             className: 'navItem__refer',
             onClick: changeActiveFifth },
           '\u041F\u0440\u0430\u0432\u0438\u043B\u0430'
@@ -98232,7 +98326,7 @@ var Navigation = function Navigation(_ref) {
         { className: 'navItem' },
         _react2.default.createElement(
           'a',
-          { className: 'navItem__refer',
+          { className: 'navItem__refer not-follow',
             href: '#' },
           '\u0424\u043E\u0440\u0443\u043C'
         )
@@ -98243,7 +98337,7 @@ var Navigation = function Navigation(_ref) {
 
 exports.default = Navigation;
 
-},{"prop-types":834,"react":1059,"react-router-dom":1020,"semantic-ui-react":1254}],1388:[function(require,module,exports){
+},{"prop-types":834,"react":1059,"react-router-dom":1020,"semantic-ui-react":1254}],1389:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -98275,7 +98369,7 @@ var NotFound = function NotFound() {
 
 exports.default = NotFound;
 
-},{"react":1059}],1389:[function(require,module,exports){
+},{"react":1059}],1390:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -98303,7 +98397,7 @@ var ProjectSwitcher = function ProjectSwitcher(_ref) {
 
 exports.default = ProjectSwitcher;
 
-},{"react":1059}],1390:[function(require,module,exports){
+},{"react":1059}],1391:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -98335,20 +98429,22 @@ var ServerStatus = function ServerStatus(_ref) {
 		_react2.default.createElement(
 			_semanticUiReact.Progress,
 			{ percent: showStatus(amountPeople, totalPeople),
-				value: amountPeople,
-				total: totalPeople,
 				size: 'medium',
 				className: 'server__status server__status--' + site,
 				active: true
 			},
-			amountPeople + '/' + totalPeople
+			_react2.default.createElement(
+				'span',
+				{ className: 'server__status--text' },
+				amountPeople + '/' + totalPeople
+			)
 		)
 	);
 };
 
 exports.default = ServerStatus;
 
-},{"./Title":1391,"react":1059,"semantic-ui-react":1254}],1391:[function(require,module,exports){
+},{"./Title":1392,"react":1059,"semantic-ui-react":1254}],1392:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -98377,7 +98473,7 @@ var Title = function Title(_ref) {
 
 exports.default = Title;
 
-},{"react":1059,"react-html-parser":975}],1392:[function(require,module,exports){
+},{"react":1059,"react-html-parser":975}],1393:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -98392,6 +98488,12 @@ var _ServerStatus = require('./ServerStatus');
 
 var _ServerStatus2 = _interopRequireDefault(_ServerStatus);
 
+var _semanticUiReact = require('semantic-ui-react');
+
+var _LogInForm = require('./LogInForm');
+
+var _LogInForm2 = _interopRequireDefault(_LogInForm);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -98405,13 +98507,18 @@ var UserPanel = function UserPanel(_ref) {
 	return _react2.default.createElement(
 		'aside',
 		{ className: 'userPanel' },
-		_react2.default.createElement(_ServerStatus2.default, rest)
+		_react2.default.createElement(
+			_semanticUiReact.Container,
+			null,
+			_react2.default.createElement(_ServerStatus2.default, rest),
+			_react2.default.createElement(_LogInForm2.default, rest)
+		)
 	);
 };
 
 exports.default = UserPanel;
 
-},{"./ServerStatus":1390,"react":1059}],1393:[function(require,module,exports){
+},{"./LogInForm":1385,"./ServerStatus":1391,"react":1059,"semantic-ui-react":1254}],1394:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -98433,7 +98540,7 @@ var VisibilityFilters = exports.VisibilityFilters = {
 	SHOW_ACTIVE: 'SHOW_ACTIVE'
 };
 
-},{}],1394:[function(require,module,exports){
+},{}],1395:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -98487,7 +98594,7 @@ var App = function (_Component) {
         'div',
         null,
         _react2.default.createElement(_Header2.default, { site: site }),
-        _react2.default.createElement(_Main2.default, null),
+        _react2.default.createElement(_Main2.default, { site: site }),
         _react2.default.createElement(_Footer2.default, { site: site })
       );
     }
@@ -98498,7 +98605,7 @@ var App = function (_Component) {
 
 exports.default = App;
 
-},{"./Footer":1395,"./Header":1396,"./Main":1397,"react":1059}],1395:[function(require,module,exports){
+},{"./Footer":1396,"./Header":1397,"./Main":1398,"react":1059}],1396:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -98538,7 +98645,7 @@ var Footer = function Footer(_ref) {
 
 exports.default = Footer;
 
-},{"./../components/Figure":1383,"./../components/FooterContacts":1384,"react":1059,"semantic-ui-react":1254}],1396:[function(require,module,exports){
+},{"./../components/Figure":1383,"./../components/FooterContacts":1384,"react":1059,"semantic-ui-react":1254}],1397:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -98588,7 +98695,7 @@ var Header = function Header(_ref) {
 
 exports.default = Header;
 
-},{"./../components/Figure":1383,"./../components/Logo":1385,"./NavBetweenProjectsContainer":1398,"./NavContainer.js":1399,"react":1059,"semantic-ui-react":1254}],1397:[function(require,module,exports){
+},{"./../components/Figure":1383,"./../components/Logo":1386,"./NavBetweenProjectsContainer":1399,"./NavContainer.js":1400,"react":1059,"semantic-ui-react":1254}],1398:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -98617,10 +98724,14 @@ var _NewsContainer2 = _interopRequireDefault(_NewsContainer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Main = function Main() {
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+var Main = function Main(_ref) {
+    var rest = _objectWithoutProperties(_ref, []);
+
     return _react2.default.createElement(
         'main',
-        null,
+        { className: 'main' },
         _react2.default.createElement(
             _reactRouterDom.Switch,
             null,
@@ -98628,10 +98739,10 @@ var Main = function Main() {
                     return _react2.default.createElement(
                         _reactFadeIn2.default,
                         null,
-                        _react2.default.createElement(_NewsContainer2.default, null)
+                        _react2.default.createElement(_NewsContainer2.default, rest)
                     );
                 } }),
-            _react2.default.createElement(_reactRouterDom.Route, { path: '/second', render: function render() {
+            _react2.default.createElement(_reactRouterDom.Route, { path: '/register', render: function render() {
                     return _react2.default.createElement(
                         _reactFadeIn2.default,
                         null,
@@ -98642,7 +98753,7 @@ var Main = function Main() {
                         )
                     );
                 } }),
-            _react2.default.createElement(_reactRouterDom.Route, { path: '/third', render: function render() {
+            _react2.default.createElement(_reactRouterDom.Route, { path: '/strat_playing', render: function render() {
                     return _react2.default.createElement(
                         _reactFadeIn2.default,
                         null,
@@ -98653,7 +98764,7 @@ var Main = function Main() {
                         )
                     );
                 } }),
-            _react2.default.createElement(_reactRouterDom.Route, { path: '/fourth', render: function render() {
+            _react2.default.createElement(_reactRouterDom.Route, { path: '/contacts', render: function render() {
                     return _react2.default.createElement(
                         _reactFadeIn2.default,
                         null,
@@ -98664,7 +98775,7 @@ var Main = function Main() {
                         )
                     );
                 } }),
-            _react2.default.createElement(_reactRouterDom.Route, { path: '/fifth', render: function render() {
+            _react2.default.createElement(_reactRouterDom.Route, { path: '/rules', render: function render() {
                     return _react2.default.createElement(
                         _reactFadeIn2.default,
                         null,
@@ -98682,7 +98793,7 @@ var Main = function Main() {
 
 exports.default = Main;
 
-},{"./../components/NotFound":1388,"./NewsContainer":1400,"react":1059,"react-fade-in":965,"react-router-dom":1020,"semantic-ui-react":1254}],1398:[function(require,module,exports){
+},{"./../components/NotFound":1389,"./NewsContainer":1401,"react":1059,"react-fade-in":965,"react-router-dom":1020,"semantic-ui-react":1254}],1399:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -98766,7 +98877,7 @@ NavBetweenProjectsContainer.PropTypes = {
 };
 exports.default = NavBetweenProjectsContainer;
 
-},{"./../components/NavBetweenProjects":1386,"classnames":28,"prop-types":834,"react":1059}],1399:[function(require,module,exports){
+},{"./../components/NavBetweenProjects":1387,"classnames":28,"prop-types":834,"react":1059}],1400:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -98894,7 +99005,7 @@ var NavContainer = function (_Component) {
 
 exports.default = NavContainer;
 
-},{"./../components/Navigation":1387,"classnames":28,"react":1059}],1400:[function(require,module,exports){
+},{"./../components/Navigation":1388,"classnames":28,"react":1059}],1401:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -98913,6 +99024,10 @@ var _semanticUiReact = require('semantic-ui-react');
 var _UserPanelContainer = require('./UserPanelContainer');
 
 var _UserPanelContainer2 = _interopRequireDefault(_UserPanelContainer);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -98935,9 +99050,10 @@ var NewsContainer = function (_Component) {
 		key: 'render',
 		value: function render() {
 			return _react2.default.createElement(
-				_semanticUiReact.Container,
-				null,
-				_react2.default.createElement(_UserPanelContainer2.default, null)
+				'div',
+				{ className: 'contentWrapper' },
+				_react2.default.createElement(_semanticUiReact.Container, null),
+				_react2.default.createElement(_UserPanelContainer2.default, this.props)
 			);
 		}
 	}]);
@@ -98945,15 +99061,20 @@ var NewsContainer = function (_Component) {
 	return NewsContainer;
 }(_react.Component);
 
+NewsContainer.PropTypes = {
+	site: _propTypes2.default.string.isRequired
+};
 exports.default = NewsContainer;
 
-},{"./UserPanelContainer":1401,"react":1059,"semantic-ui-react":1254}],1401:[function(require,module,exports){
+},{"./UserPanelContainer":1402,"prop-types":834,"react":1059,"semantic-ui-react":1254}],1402:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 exports.default = undefined;
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -98964,6 +99085,10 @@ var _react2 = _interopRequireDefault(_react);
 var _UserPanel = require('./../components/UserPanel');
 
 var _UserPanel2 = _interopRequireDefault(_UserPanel);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -98988,26 +99113,32 @@ var UserPanelContainer = function (_Component) {
 		}
 
 		return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = UserPanelContainer.__proto__ || Object.getPrototypeOf(UserPanelContainer)).call.apply(_ref, [this].concat(args))), _this), _this.showStatus = function (amountPeople, totalPeople) {
-			return totalPeople / amountPeople * 100;
+			return amountPeople / totalPeople * 100;
+		}, _this.submitLogInForm = function (values, dispatch) {
+			console.log(values);
 		}, _temp), _possibleConstructorReturn(_this, _ret);
 	}
 
 	_createClass(UserPanelContainer, [{
 		key: 'render',
 		value: function render() {
-			return _react2.default.createElement(_UserPanel2.default, { totalPeople: '20',
-				amountPeople: '40',
-				site: 'minecraft',
-				showStatus: this.showStatus });
+			return _react2.default.createElement(_UserPanel2.default, _extends({}, this.props, {
+				totalPeople: '40',
+				amountPeople: '20',
+				showStatus: this.showStatus,
+				submitLogInForm: this.submitLogInForm }));
 		}
 	}]);
 
 	return UserPanelContainer;
 }(_react.Component);
 
+UserPanelContainer.PropTypes = {
+	site: _propTypes2.default.string.isRequired
+};
 exports.default = UserPanelContainer;
 
-},{"./../components/UserPanel":1392,"react":1059}],1402:[function(require,module,exports){
+},{"./../components/UserPanel":1393,"prop-types":834,"react":1059}],1403:[function(require,module,exports){
 'use strict';
 
 $(function () {
@@ -99031,7 +99162,7 @@ $(function () {
   } // end openUrlInNewWindow
 }); // end ready
 
-},{}],1403:[function(require,module,exports){
+},{}],1404:[function(require,module,exports){
 'use strict';
 
 var _react = require('react');
@@ -99066,7 +99197,7 @@ var store = (0, _configureStore2.default)();
   )
 ), document.getElementById('root'));
 
-},{"./containers/App":1394,"./store/configureStore.js":1407,"react":1059,"react-dom":836,"react-redux":1003,"react-router-dom":1020}],1404:[function(require,module,exports){
+},{"./containers/App":1395,"./store/configureStore.js":1408,"react":1059,"react-dom":836,"react-redux":1003,"react-router-dom":1020}],1405:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -99081,7 +99212,7 @@ var connect_form = {
 
 exports.default = connect_form;
 
-},{"redux-form":1105}],1405:[function(require,module,exports){
+},{"redux-form":1105}],1406:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -99107,7 +99238,7 @@ var rootReducer = (0, _redux.combineReducers)({
 
 exports.default = rootReducer;
 
-},{"./connect_form.js":1404,"./visibilityFilter.js":1406,"redux":1148}],1406:[function(require,module,exports){
+},{"./connect_form.js":1405,"./visibilityFilter.js":1407,"redux":1148}],1407:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -99130,7 +99261,7 @@ var visibilityFilter = function visibilityFilter() {
 
 exports.default = visibilityFilter;
 
-},{"./../constants/actionTypes.js":1393}],1407:[function(require,module,exports){
+},{"./../constants/actionTypes.js":1394}],1408:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -99158,7 +99289,7 @@ function configureStore(initialState) {
   return store;
 }
 
-},{"../reducers/index.js":1405,"redux":1148,"redux-thunk":1142}],1408:[function(require,module,exports){
+},{"../reducers/index.js":1406,"redux":1148,"redux-thunk":1142}],1409:[function(require,module,exports){
 'use strict';
 
 require('jquery');
@@ -99173,6 +99304,6 @@ require('./../blocks/custom/custom.js');
 
 require('./../blocks/index.js');
 
-},{"./../blocks/custom/custom.js":1402,"./../blocks/index.js":1403,"babel-polyfill":1,"bootstrap-sass":24,"jquery":480,"whatwg-fetch":1382}]},{},[1408])
+},{"./../blocks/custom/custom.js":1403,"./../blocks/index.js":1404,"babel-polyfill":1,"bootstrap-sass":24,"jquery":480,"whatwg-fetch":1382}]},{},[1409])
 
 //# sourceMappingURL=main.js.map

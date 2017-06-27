@@ -4,7 +4,7 @@
  }
 // Общие стили
 .footerContacts__icon--minecraft i, .author__refer--minecraft {
-	@include link-colors($oneColor: $green);
+	@include link-colors($one-color: $green);
 	&:hover {
 		color: darken($green, 5%);
 	}

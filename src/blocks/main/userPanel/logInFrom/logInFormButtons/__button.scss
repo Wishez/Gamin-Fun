@@ -1,0 +1,13 @@
+.logInFormButtons__button {
+	
+	@extend .smallGrayButton;
+	
+	&--submit {
+		left: 0;
+		@extend .floatLeft;
+	}
+	&--register {
+		right: 0;
+		@extend .floatRight;
+	}
+}

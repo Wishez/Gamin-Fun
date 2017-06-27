@@ -66,15 +66,15 @@
   $active-color: $baseActiveLinkColor,
   $visited-color: $baseVisitedLinkColor,
   $focus-color: $baseFocusLinkColor,
-  $oneColor: false
+  $one-color: false
 ) {
-  
-  @if ($oneColor) {
-    $color: $oneColor;
-    $hover-color: $oneColor;
-    $active-color: $oneColor;
-    $visited-color: $oneColor;
-    $focus-color: $oneColor;
+
+  @if ($one-color) {
+    $color: $one-color;
+    $hover-color: $one-color;
+    $active-color: $one-color;
+    $visited-color: $one-color;
+    $focus-color: $one-color;
   }
 
   color: #{$color};
