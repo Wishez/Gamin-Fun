@@ -7,9 +7,10 @@
   text-align: center;
   @include breakpoint($xs) {
     width: span(8);
-    padding: 5%;
+    padding: 4%;
     @include center-block;
     border-radius: 10px;
+    max-height: 80px;
   }
   transition: background-color 0.5s;
   $darkenDrakGray: darken($darkGray, 5%);

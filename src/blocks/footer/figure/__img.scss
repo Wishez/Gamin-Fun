@@ -1,0 +1,11 @@
+.figure__img-- {
+	&steve_with_bow {
+		background-image: url('../img/minecraft/steve_with_bow.png');
+		padding-bottom: (225% / 299 * 100);
+		// transform: rotate(-10deg);
+	}
+	&chicken {
+		background-image: url('../img/minecraft/chicken.png');
+		padding-bottom: (153% / 127 * 100);		
+	}
+}

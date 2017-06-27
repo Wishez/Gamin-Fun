@@ -1,20 +1,9 @@
-// $(window).resize(() => {
-//   let $navList = $('#navList'),
-//       navListStyle = $navList[0].style;
-  
-//   if (window.innerWidth > 767) 
-//     navListStyle.display = 'inline-flex';
-//   else  
-//     navListStyle.display = 'none';
-// });
 
 $(function() {
 
   // $('.header').fadeIn('slow');
   // $('#main').fadeIn('slow');
   // $('footer').fadeIn('slow');
-
-  // $(document).on('click', '#openMenuButton', openMenu);
 
   $(document).on('click', '.not-follow', openUrlInNewWindow);
 
@@ -30,10 +19,4 @@ $(function() {
     window.open(url);
   }// end openUrlInNewWindow
 
-
-  // $(document).on('click', '.navItem__refer, .navItem, #closeMenuButton', (e) => {
-  //   let $navList = $('#navList');
-  //   if (window.innerWidth < 767) $navList.hide('fast');
-
-  // }); // end click
 });// end ready

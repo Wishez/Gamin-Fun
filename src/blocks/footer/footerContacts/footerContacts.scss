@@ -1,14 +1,19 @@
 .footerContacts {
+	color: $lightGray;
+	font-size: $firstSizeHeading;
  }
-
-.footerContactsItem {
-
+// Общие стили
+.footerContacts__icon--minecraft i, .author__refer--minecraft {
+	@include link-colors($oneColor: $green);
+	&:hover {
+		color: darken($green, 5%);
+	}
+}
+.footerContacts__icon, .author__refer {
+	&:hover {
+		background-color: transparent;
+	}
 }
 
-.footerContactsItem__refer {
-
-}
-
-.footerContactsItem__icon {
-	
-}
+@import '__icon.scss';
+@import 'author/author.scss';

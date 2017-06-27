@@ -3,7 +3,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Icon } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-// import classNames from 'classnames';
 
 const Navigation = ({
     activeFirst,
@@ -33,7 +32,6 @@ const Navigation = ({
           className='navigation__closeMenuButton'
           name='close'
           size='big'
-          color='white'
           onClick={closeMenu} />
         
         <li className={getActiveClasses(activeFirst)}>

@@ -9,11 +9,12 @@ export default class App extends Component {
 	}
 
   render() {
+    const site = 'minecraft';
     return (
     	<div>
-      	<Header site='minecraft' />
+      	<Header site={site} />
       	<Main />	
-      	<Footer />
+      	<Footer site={site} />
       </div>
     );
   }

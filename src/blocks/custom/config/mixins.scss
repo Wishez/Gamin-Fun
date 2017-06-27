@@ -19,8 +19,8 @@
   }
 }
 @mixin center-block {
-  margin-left: auto;
-  margin-right: auto ;
+  margin-left: auto !important;
+  margin-right: auto !important;
   display: block;
 }
 @mixin responsive-background($padding-bottom: false, $url: false, $attachment: false) {
@@ -58,4 +58,36 @@
   flex-flow: #{$dir_wrap};
   justify-content: #{$content};
   align-items: #{$align};
+}
+
+@mixin link-colors(
+  $color: $baseLinkColor,
+  $hover-color: $baseHoverLinkColor,
+  $active-color: $baseActiveLinkColor,
+  $visited-color: $baseVisitedLinkColor,
+  $focus-color: $baseFocusLinkColor,
+  $oneColor: false
+) {
+  
+  @if ($oneColor) {
+    $color: $oneColor;
+    $hover-color: $oneColor;
+    $active-color: $oneColor;
+    $visited-color: $oneColor;
+    $focus-color: $oneColor;
+  }
+
+  color: #{$color};
+  &:hover {
+    color: #{$hover-color};
+  }
+  &:active {
+    color: #{$active-color}; 
+  }
+  &:visited {
+    color: #{$visited-color};  
+  }
+  &:focus {
+    color: #{$focus-color}; 
+  }
 }

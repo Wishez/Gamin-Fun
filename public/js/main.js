@@ -89420,6 +89420,52 @@ exports.default = Figure;
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _semanticUiReact = require('semantic-ui-react');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var FooterContacts = function FooterContacts(_ref) {
+	var site = _ref.site;
+	return _react2.default.createElement(
+		'div',
+		{ className: 'text-center footerContacts footerContacts--' + site },
+		_react2.default.createElement(
+			'a',
+			{ href: '#',
+				className: 'footerContacts__icon footerContacts__icon--' + site },
+			_react2.default.createElement(_semanticUiReact.Icon, {
+				name: 'vk',
+				className: 'not-follow'
+			})
+		),
+		_react2.default.createElement('br', null),
+		_react2.default.createElement(
+			'p',
+			{ className: 'author' },
+			'Developed\xA0by\xA0',
+			_react2.default.createElement(
+				'a',
+				{ href: 'https://web-renome.ru',
+					className: 'not-follow author__refer author__refer--' + site },
+				'Renome'
+			)
+		)
+	);
+};
+
+exports.default = FooterContacts;
+
+},{"react":1000,"semantic-ui-react":1194}],1308:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
@@ -89445,7 +89491,7 @@ var Logo = function Logo() {
 
 exports.default = Logo;
 
-},{"react":1000}],1308:[function(require,module,exports){
+},{"react":1000}],1309:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -89486,7 +89532,7 @@ var NavBetweenProjects = function NavBetweenProjects(_ref) {
 
 exports.default = NavBetweenProjects;
 
-},{"./ProjectSwitcher":1311,"react":1000,"semantic-ui-react":1194}],1309:[function(require,module,exports){
+},{"./ProjectSwitcher":1312,"react":1000,"semantic-ui-react":1194}],1310:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -89506,8 +89552,6 @@ var _propTypes = require('prop-types');
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-// import classNames from 'classnames';
 
 var Navigation = function Navigation(_ref) {
   var activeFirst = _ref.activeFirst,
@@ -89541,7 +89585,6 @@ var Navigation = function Navigation(_ref) {
         className: 'navigation__closeMenuButton',
         name: 'close',
         size: 'big',
-        color: 'white',
         onClick: closeMenu }),
       _react2.default.createElement(
         'li',
@@ -89614,7 +89657,7 @@ var Navigation = function Navigation(_ref) {
 
 exports.default = Navigation;
 
-},{"prop-types":803,"react":1000,"react-router-dom":961,"semantic-ui-react":1194}],1310:[function(require,module,exports){
+},{"prop-types":803,"react":1000,"react-router-dom":961,"semantic-ui-react":1194}],1311:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -89646,7 +89689,7 @@ var NotFound = function NotFound() {
 
 exports.default = NotFound;
 
-},{"react":1000}],1311:[function(require,module,exports){
+},{"react":1000}],1312:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -89674,7 +89717,7 @@ var ProjectSwitcher = function ProjectSwitcher(_ref) {
 
 exports.default = ProjectSwitcher;
 
-},{"react":1000}],1312:[function(require,module,exports){
+},{"react":1000}],1313:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -89696,7 +89739,7 @@ var VisibilityFilters = exports.VisibilityFilters = {
 	SHOW_ACTIVE: 'SHOW_ACTIVE'
 };
 
-},{}],1313:[function(require,module,exports){
+},{}],1314:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -89745,12 +89788,13 @@ var App = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
+      var site = 'minecraft';
       return _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement(_Header2.default, { site: 'minecraft' }),
+        _react2.default.createElement(_Header2.default, { site: site }),
         _react2.default.createElement(_Main2.default, null),
-        _react2.default.createElement(_Footer2.default, null)
+        _react2.default.createElement(_Footer2.default, { site: site })
       );
     }
   }]);
@@ -89760,7 +89804,7 @@ var App = function (_Component) {
 
 exports.default = App;
 
-},{"./Footer":1314,"./Header":1315,"./Main":1316,"react":1000}],1314:[function(require,module,exports){
+},{"./Footer":1315,"./Header":1316,"./Main":1317,"react":1000}],1315:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -89773,65 +89817,34 @@ var _react2 = _interopRequireDefault(_react);
 
 var _semanticUiReact = require('semantic-ui-react');
 
+var _FooterContacts = require('./../components/FooterContacts');
+
+var _FooterContacts2 = _interopRequireDefault(_FooterContacts);
+
+var _Figure = require('./../components/Figure');
+
+var _Figure2 = _interopRequireDefault(_Figure);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Footer = function Footer() {
+var Footer = function Footer(_ref) {
+  var site = _ref.site;
   return _react2.default.createElement(
     'footer',
-    { className: 'footer' },
+    { className: 'footer footer--' + site },
     _react2.default.createElement(
       _semanticUiReact.Container,
       null,
-      _react2.default.createElement(
-        'ul',
-        { className: 'footerContacts' },
-        _react2.default.createElement(
-          'li',
-          { className: 'footerContactsItem' },
-          _react2.default.createElement(
-            'a',
-            { href: 'mailto:renome@intrenalmail.ru',
-              className: 'footerContactsItem__refer' },
-            _react2.default.createElement(_semanticUiReact.Icon, { name: 'envelope',
-              size: 'tiny',
-              className: 'footerContacts__icon' }),
-            _react2.default.createElement(
-              'span',
-              null,
-              'shiningfinger@list.ru'
-            )
-          )
-        ),
-        _react2.default.createElement(
-          'li',
-          { className: 'footerContactsItem' },
-          _react2.default.createElement(
-            'a',
-            { href: 'skype:shiningfinger?chat',
-              className: 'not-follow footerContactsItem__refer' },
-            _react2.default.createElement(_semanticUiReact.Icon, { name: 'skype',
-              size: 'tiny',
-              className: 'footerContacts__icon' }),
-            _react2.default.createElement(
-              'span',
-              null,
-              'shiningfinger'
-            )
-          )
-        )
-      ),
-      _react2.default.createElement(
-        'p',
-        { className: 'copyright' },
-        '\xA9\xA0Filipp Zhuravlev \u2014 my template for quickly starting new project'
-      )
+      _react2.default.createElement(_FooterContacts2.default, { site: site }),
+      _react2.default.createElement(_Figure2.default, { name: 'steve_with_bow' }),
+      _react2.default.createElement(_Figure2.default, { name: 'chicken' })
     )
   );
 };
 
 exports.default = Footer;
 
-},{"react":1000,"semantic-ui-react":1194}],1315:[function(require,module,exports){
+},{"./../components/Figure":1306,"./../components/FooterContacts":1307,"react":1000,"semantic-ui-react":1194}],1316:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -89881,7 +89894,7 @@ var Header = function Header(_ref) {
 
 exports.default = Header;
 
-},{"./../components/Figure":1306,"./../components/Logo":1307,"./NavBetweenProjectsContainer":1317,"./NavContainer.js":1318,"react":1000,"semantic-ui-react":1194}],1316:[function(require,module,exports){
+},{"./../components/Figure":1306,"./../components/Logo":1308,"./NavBetweenProjectsContainer":1318,"./NavContainer.js":1319,"react":1000,"semantic-ui-react":1194}],1317:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -89979,7 +89992,7 @@ var Main = function Main() {
 
 exports.default = Main;
 
-},{"./../components/NotFound":1310,"react":1000,"react-fade-in":934,"react-router-dom":961,"semantic-ui-react":1194}],1317:[function(require,module,exports){
+},{"./../components/NotFound":1311,"react":1000,"react-fade-in":934,"react-router-dom":961,"semantic-ui-react":1194}],1318:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -90063,7 +90076,7 @@ NavBetweenProjectsContainer.PropTypes = {
 };
 exports.default = NavBetweenProjectsContainer;
 
-},{"./../components/NavBetweenProjects":1308,"classnames":24,"prop-types":803,"react":1000}],1318:[function(require,module,exports){
+},{"./../components/NavBetweenProjects":1309,"classnames":24,"prop-types":803,"react":1000}],1319:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -90191,26 +90204,14 @@ var NavContainer = function (_Component) {
 
 exports.default = NavContainer;
 
-},{"./../components/Navigation":1309,"classnames":24,"react":1000}],1319:[function(require,module,exports){
+},{"./../components/Navigation":1310,"classnames":24,"react":1000}],1320:[function(require,module,exports){
 'use strict';
-
-// $(window).resize(() => {
-//   let $navList = $('#navList'),
-//       navListStyle = $navList[0].style;
-
-//   if (window.innerWidth > 767) 
-//     navListStyle.display = 'inline-flex';
-//   else  
-//     navListStyle.display = 'none';
-// });
 
 $(function () {
 
   // $('.header').fadeIn('slow');
   // $('#main').fadeIn('slow');
   // $('footer').fadeIn('slow');
-
-  // $(document).on('click', '#openMenuButton', openMenu);
 
   $(document).on('click', '.not-follow', openUrlInNewWindow);
 
@@ -90225,16 +90226,9 @@ $(function () {
 
     window.open(url);
   } // end openUrlInNewWindow
-
-
-  // $(document).on('click', '.navItem__refer, .navItem, #closeMenuButton', (e) => {
-  //   let $navList = $('#navList');
-  //   if (window.innerWidth < 767) $navList.hide('fast');
-
-  // }); // end click
 }); // end ready
 
-},{}],1320:[function(require,module,exports){
+},{}],1321:[function(require,module,exports){
 'use strict';
 
 var _react = require('react');
@@ -90269,7 +90263,7 @@ var store = (0, _configureStore2.default)();
   )
 ), document.getElementById('root'));
 
-},{"./containers/App":1313,"./store/configureStore.js":1324,"react":1000,"react-dom":805,"react-redux":944,"react-router-dom":961}],1321:[function(require,module,exports){
+},{"./containers/App":1314,"./store/configureStore.js":1325,"react":1000,"react-dom":805,"react-redux":944,"react-router-dom":961}],1322:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -90284,7 +90278,7 @@ var connect_form = {
 
 exports.default = connect_form;
 
-},{"redux-form":1046}],1322:[function(require,module,exports){
+},{"redux-form":1046}],1323:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -90310,7 +90304,7 @@ var rootReducer = (0, _redux.combineReducers)({
 
 exports.default = rootReducer;
 
-},{"./connect_form.js":1321,"./visibilityFilter.js":1323,"redux":1089}],1323:[function(require,module,exports){
+},{"./connect_form.js":1322,"./visibilityFilter.js":1324,"redux":1089}],1324:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -90333,7 +90327,7 @@ var visibilityFilter = function visibilityFilter() {
 
 exports.default = visibilityFilter;
 
-},{"./../constants/actionTypes.js":1312}],1324:[function(require,module,exports){
+},{"./../constants/actionTypes.js":1313}],1325:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -90361,7 +90355,7 @@ function configureStore(initialState) {
   return store;
 }
 
-},{"../reducers/index.js":1322,"redux":1089,"redux-thunk":1083}],1325:[function(require,module,exports){
+},{"../reducers/index.js":1323,"redux":1089,"redux-thunk":1083}],1326:[function(require,module,exports){
 'use strict';
 
 require('jquery');
@@ -90376,6 +90370,6 @@ require('./../blocks/custom/custom.js');
 
 require('./../blocks/index.js');
 
-},{"./../blocks/custom/custom.js":1319,"./../blocks/index.js":1320,"babel-polyfill":1,"bootstrap-sass":23,"jquery":450,"whatwg-fetch":1305}]},{},[1325])
+},{"./../blocks/custom/custom.js":1320,"./../blocks/index.js":1321,"babel-polyfill":1,"bootstrap-sass":23,"jquery":450,"whatwg-fetch":1305}]},{},[1326])
 
 //# sourceMappingURL=main.js.map

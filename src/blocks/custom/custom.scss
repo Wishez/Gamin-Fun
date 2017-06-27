@@ -13,6 +13,7 @@ html, body {
   width: 100%;
 }
 body {
+  z-index: 0;
   & * {
     // Styles for testing 
     // background: #000 !important;
@@ -64,22 +65,13 @@ ul {
 a {
   border-radius: 5px;
   @include smooth-transition-color;
-  color: $baseLinkColor;
+  // Без параметров - базовые цвета ссылок по умолчанию.
+  @include link-colors;
   &:hover, &:visited, &:active, &:focus {
     text-decoration: none;
   }
   &:hover {
-    color: $baseHoverLinkColor;
     background-color: $darkRed;
-  }
-  &:visited {
-    color: $baseVisitedLinkColor;
-  }
-  &:active {
-    color: $baseActiveLinkColor;
-  }
-  &:focus {
-    color: $baseFocusLinkColor;
   }
 }
 
