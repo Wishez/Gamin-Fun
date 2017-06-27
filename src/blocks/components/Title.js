@@ -5,7 +5,7 @@ const Title = ({
 	text,
 	block
 }) => (	
-	<h2 className={block + '__title title'}>
+	<h2 className={block + '__title'}>
 		{ ReactHtmlParser(text) }
 	</h2>
 );
