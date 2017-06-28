@@ -6,10 +6,13 @@
 	& .container{
 		width: 80%;
 	}
-	border-left: 10px solid $darkenLightGray;
+	$borderUserPanelStyles: 10px solid $darkenLightGray;
+	border-left: $borderUserPanelStyles;
 	@include breakpoint($xs) {
 		width: 100%;
 		max-width: none;
+		margin: 0;
+		border-right: $borderUserPanelStyles;
 	}
 }
 

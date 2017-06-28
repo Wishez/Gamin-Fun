@@ -6,7 +6,7 @@ const Paragraph = ({
 	 block 
 }) => (
 		
-	<p className={block + '__paragraph paragraph'}>
+	<p className={block + '__paragraph'}>
 		{ ReactHtmlParser(text) }
 	</p>
 );
