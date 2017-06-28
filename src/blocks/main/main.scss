@@ -7,10 +7,6 @@
 	}
 } 
 
-.contentWrapper {
-	@include susy-clearfix;
-	// min-height: 500px;
-}
-
-
-@import 'userPanel/userPanel.scss';
+@import './contentWrapper.scss';
+@import './userPanel/userPanel.scss';
+@import './news/news.scss';

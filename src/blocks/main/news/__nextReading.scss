@@ -1,0 +1,10 @@
+.news__nextReading {
+	color: $gray !important;
+	@extend .onePercentSidePaddings;
+	@extend .prettyTopMargin;
+	display: block;
+	max-width: 160px;
+	&:hover {
+		color: $lightGray !important;
+	}
+}

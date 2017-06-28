@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom'
 import NotFound from './../components/NotFound';
 import FadeIn from 'react-fade-in';
-import { Container } from 'semantic-ui-react';
 import NewsContainer from './NewsContainer';
+import RulesContainer from './RulesContainer';
 
 const Main = ({...rest}) => (
   <main className='main'>
@@ -30,7 +30,7 @@ const Main = ({...rest}) => (
     	)} />
         <Route path='/rules' render={() => (
             <FadeIn>
-                <section>It is fifth section!</section>
+                <RulesContainer {...rest}/>
             </FadeIn>
         )} />
     	<Route component={NotFound} />

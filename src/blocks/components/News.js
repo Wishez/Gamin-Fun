@@ -11,8 +11,8 @@ const News = ({
 		<Title block='news'
 			text={news.title}
 		/>
-		<NewsMeta date={news.date} />
-		<div> 
+		<NewsMeta date={news.created_at} />
+		<div className='news__body'> 
 			{ReactHtmlParser(news.text)}
 		</div>
 		<a href='#' 

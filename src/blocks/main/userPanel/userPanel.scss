@@ -1,18 +1,28 @@
 .userPanel {
 	@include span(4 last);
-	padding-top: 75px;
-	min-height: 100vh;
+	@extend .defaultTopPadding;
+	min-height: 137vh;
 	max-width: 300px;
+	@include breakpoint($lg) {
+		min-height: 214vh;
+	}
 	& .container{
 		width: 80%;
+		@include breakpoint($xs) {
+			max-width: 400px !important;
+			@include center-block;
+		}
 	}
 	$borderUserPanelStyles: 10px solid $darkenLightGray;
 	border-left: $borderUserPanelStyles;
 	@include breakpoint($xs) {
 		width: 100%;
 		max-width: none;
+		min-height: 0;
+		border: 0;
+		border-bottom: $borderUserPanelStyles;
 		margin: 0;
-		border-right: $borderUserPanelStyles;
+		padding-bottom: 75px;
 	}
 }
 

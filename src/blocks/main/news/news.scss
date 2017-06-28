@@ -1,0 +1,8 @@
+.news {
+	@extend .defaultTopMargin;
+}
+
+@import '__title.scss';
+@import '__meta.scss';
+@import '__body.scss';
+@import '__nextReading.scss';
