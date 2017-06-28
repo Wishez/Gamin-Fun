@@ -4,7 +4,7 @@ import { Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 
-const required = value => value ? undefined : 'Это поле &mdash; обязательно';
+const required = value => value ? undefined : 'Это поле обязательно';
 
 const renderController = ({
 	input,
@@ -12,39 +12,44 @@ const renderController = ({
 		touched,
 		error,
 		warning
-	}
-
+	},
+	...rest
 }) => (
 	<div className='logInFormController'>
 		<input {...input}
-			 className='logInFormController__input' />
+			{...rest}
+			className='logInFormController__input' />
 		 {touched && 
 		 	((error && 
-		 		<span className='c'>{error}</span>) || 
+		 		<span className='logInFormController__error'>{error}</span>) || 
 		 		(warning && <span className='logInFormController__error'>{warning}</span>))}
 	</div>
 );
 
 const LogInForm = ({
-	submitLogInForm
+	submitLogInForm,
+	account,
+	handleSubmit
 }) => (
 	<form id='logInForm'
-		onSubmit={submitLogInForm}
+		onSubmit={handleSubmit(submitLogInForm.bind(this))}
 		className='logInForm'>
 			<Field component={renderController}
 				name='login'
+				type='text'
 				validate={[required]}
 				placeholder='Логин/Login'
 				maxLength='75'
 			 />
 			 <Field component={renderController}
 			 	name='password'
+			 	type='password'
 				validate={[required]}
 				placeholder='Пароль/Password'
 				maxLength='75'
 			 />
 			 <div className='logInFormButtons'>
-			 	<Button className='logInFormButtons__button logInFormButtons__button--submit' 
+			 	<Button className='logInFormButtons__button logInFormButtons__button--submit submit' 
 			 	   	content='Войти'
 			 	/>
 			 	<Link to='/register'
@@ -60,6 +65,8 @@ const LogInForm = ({
 		</form>
 );
 
+
 export default reduxForm({
-	form: 'LogInForm'
+	form: 'logInForm'
 })(LogInForm);
+ 

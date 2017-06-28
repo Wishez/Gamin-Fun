@@ -1,21 +1,27 @@
 import React, {Component} from 'react';
 import UserPanel from './../components/UserPanel';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-export default class UserPanelContainer extends Component {
+class UserPanelContainer extends Component {
 	static PropTypes = {
 		site: PropTypes.string.isRequired
+		// login: PropTypes.string.isRequired,
+		// password: PropTypes.string.isRequired
 	}
-	
+
 	showStatus = (amountPeople, totalPeople) => (
 		amountPeople / totalPeople * 100 
 	)
 	submitLogInForm = (values, dispatch) => {
-		console.log(values);
+		console.log(values, 'values'); 
+		
 	}
 	render() {
+		const { site } = this.props;
 		return (
-			<UserPanel {...this.props}
+			<UserPanel site={site}
 				totalPeople='40' 
 				amountPeople='20' 
 				showStatus={this.showStatus}
@@ -23,3 +29,13 @@ export default class UserPanelContainer extends Component {
 		);
 	}
 }
+
+
+const mapStateToProps = state => {
+	console.log(state);
+	return {
+		
+	}
+};
+
+export default connect(mapStateToProps)(UserPanelContainer);

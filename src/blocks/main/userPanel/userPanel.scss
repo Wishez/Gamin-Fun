@@ -2,10 +2,15 @@
 	@include span(4 last);
 	padding-top: 75px;
 	min-height: 100vh;
+	max-width: 300px;
 	& .container{
 		width: 80%;
 	}
 	border-left: 10px solid $darkenLightGray;
+	@include breakpoint($xs) {
+		width: 100%;
+		max-width: none;
+	}
 }
 
 @import 'server/server.scss';

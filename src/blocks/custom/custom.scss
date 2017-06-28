@@ -15,6 +15,7 @@
 @import 'short_hand_classes/aligned.scss';
 @import 'short_hand_classes/buttons.scss';
 @import 'short_hand_classes/float.scss';
+@import 'short_hand_classes/paddings.scss';
 @import 'short_hand_classes/formInput.scss';
 
 // Custom styles
@@ -74,9 +75,9 @@ ul {
 }
 a {
   border-radius: 5px;
-  @include smooth-transition-color;
-  // Без параметров - базовые цвета ссылок по умолчанию.
+  @include smooth-transition-link;
   @include link-colors;
+  // Без параметров - базовые цвета ссылок по умолчанию.
   &:hover, &:visited, &:active, &:focus {
     text-decoration: none;
   }

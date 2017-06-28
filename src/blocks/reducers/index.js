@@ -1,10 +1,10 @@
 import { createStore, combineReducers } from 'redux';
-import connect_form from './connect_form.js';
+import form from './form.js';
 import visibilityFilter from './visibilityFilter.js';
+import { reducer as formReducer } from 'redux-form';
 
 const rootReducer = combineReducers({
-	connect_form,
-	visibilityFilter
+	form: formReducer
 });
 
 

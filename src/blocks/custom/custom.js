@@ -1,3 +1,12 @@
+$(window).resize(() => {
+
+    let $navList = $('#navList');
+    if (window.innerWidth > 799)
+        $navList.show('fast');
+    else 
+      $navList.hide('fast');
+}); 
+
 
 $(function() {
 

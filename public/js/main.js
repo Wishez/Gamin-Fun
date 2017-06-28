@@ -98069,8 +98069,10 @@ var _reactRouterDom = require('react-router-dom');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
 var required = function required(value) {
-	return value ? undefined : 'Это поле &mdash; обязательно';
+	return value ? undefined : 'Это поле обязательно';
 };
 
 var renderController = function renderController(_ref) {
@@ -98078,15 +98080,17 @@ var renderController = function renderController(_ref) {
 	    _ref$meta = _ref.meta,
 	    touched = _ref$meta.touched,
 	    error = _ref$meta.error,
-	    warning = _ref$meta.warning;
+	    warning = _ref$meta.warning,
+	    rest = _objectWithoutProperties(_ref, ['input', 'meta']);
+
 	return _react2.default.createElement(
 		'div',
 		{ className: 'logInFormController' },
-		_react2.default.createElement('input', _extends({}, input, {
+		_react2.default.createElement('input', _extends({}, input, rest, {
 			className: 'logInFormController__input' })),
 		touched && (error && _react2.default.createElement(
 			'span',
-			{ className: 'c' },
+			{ className: 'logInFormController__error' },
 			error
 		) || warning && _react2.default.createElement(
 			'span',
@@ -98097,20 +98101,24 @@ var renderController = function renderController(_ref) {
 };
 
 var LogInForm = function LogInForm(_ref2) {
-	var submitLogInForm = _ref2.submitLogInForm;
+	var submitLogInForm = _ref2.submitLogInForm,
+	    account = _ref2.account,
+	    handleSubmit = _ref2.handleSubmit;
 	return _react2.default.createElement(
 		'form',
 		{ id: 'logInForm',
-			onSubmit: submitLogInForm,
+			onSubmit: handleSubmit(submitLogInForm.bind(undefined)),
 			className: 'logInForm' },
 		_react2.default.createElement(_reduxForm.Field, { component: renderController,
 			name: 'login',
+			type: 'text',
 			validate: [required],
 			placeholder: '\u041B\u043E\u0433\u0438\u043D/Login',
 			maxLength: '75'
 		}),
 		_react2.default.createElement(_reduxForm.Field, { component: renderController,
 			name: 'password',
+			type: 'password',
 			validate: [required],
 			placeholder: '\u041F\u0430\u0440\u043E\u043B\u044C/Password',
 			maxLength: '75'
@@ -98118,7 +98126,7 @@ var LogInForm = function LogInForm(_ref2) {
 		_react2.default.createElement(
 			'div',
 			{ className: 'logInFormButtons' },
-			_react2.default.createElement(_semanticUiReact.Button, { className: 'logInFormButtons__button logInFormButtons__button--submit',
+			_react2.default.createElement(_semanticUiReact.Button, { className: 'logInFormButtons__button logInFormButtons__button--submit submit',
 				content: '\u0412\u043E\u0439\u0442\u0438'
 			}),
 			_react2.default.createElement(
@@ -98139,7 +98147,7 @@ var LogInForm = function LogInForm(_ref2) {
 };
 
 exports.default = (0, _reduxForm.reduxForm)({
-	form: 'LogInForm'
+	form: 'logInForm'
 })(LogInForm);
 
 },{"react":1059,"react-router-dom":1020,"redux-form":1105,"semantic-ui-react":1254}],1386:[function(require,module,exports){
@@ -98524,21 +98532,19 @@ exports.default = UserPanel;
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
-//- counter
-var INCREMENT = exports.INCREMENT = 'INCREMENT';
-var DECREMENT = exports.DECREMENT = 'DECREMENT';
-//- todos
-var ADD_TODO = exports.ADD_TODO = 'ADD_TODO';
-var TOGGLE_TODO = exports.TOGGLE_TODO = 'TOGGLE_TODO';
+
 //- articles
 var SET_VISIBILITY_FILTER = exports.SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER';
-var FETCH_POSTS = exports.FETCH_POSTS = 'FETCH_POSTS';
-var FETCH_ARTICLE = exports.FETCH_ARTICLE = 'FETCH_ARTICLE';
 var VisibilityFilters = exports.VisibilityFilters = {
 	SHOW_ALL: 'SHOW_ALL',
 	SHOW_COMPLETED: 'SHOW_COMPLETED',
 	SHOW_ACTIVE: 'SHOW_ACTIVE'
 };
+
+var LOGIN = exports.LOGIN = 'LOGIN';
+var LOGOUT = exports.LOGOUT = 'LOGOUT';
+var REGISTER = exports.REGISTER = 'REGISTER';
+var CHECK_ACCESS = exports.CHECK_ACCESS = 'REGISTER';
 
 },{}],1395:[function(require,module,exports){
 'use strict';
@@ -99072,9 +99078,6 @@ exports.default = NewsContainer;
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
-exports.default = undefined;
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -99089,6 +99092,10 @@ var _UserPanel2 = _interopRequireDefault(_UserPanel);
 var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _reactRouterDom = require('react-router-dom');
+
+var _reactRedux = require('react-redux');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -99115,18 +99122,20 @@ var UserPanelContainer = function (_Component) {
 		return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = UserPanelContainer.__proto__ || Object.getPrototypeOf(UserPanelContainer)).call.apply(_ref, [this].concat(args))), _this), _this.showStatus = function (amountPeople, totalPeople) {
 			return amountPeople / totalPeople * 100;
 		}, _this.submitLogInForm = function (values, dispatch) {
-			console.log(values);
+			console.log(values, 'values');
 		}, _temp), _possibleConstructorReturn(_this, _ret);
 	}
 
 	_createClass(UserPanelContainer, [{
 		key: 'render',
 		value: function render() {
-			return _react2.default.createElement(_UserPanel2.default, _extends({}, this.props, {
+			var site = this.props.site;
+
+			return _react2.default.createElement(_UserPanel2.default, { site: site,
 				totalPeople: '40',
 				amountPeople: '20',
 				showStatus: this.showStatus,
-				submitLogInForm: this.submitLogInForm }));
+				submitLogInForm: this.submitLogInForm });
 		}
 	}]);
 
@@ -99135,11 +99144,26 @@ var UserPanelContainer = function (_Component) {
 
 UserPanelContainer.PropTypes = {
 	site: _propTypes2.default.string.isRequired
+	// login: PropTypes.string.isRequired,
+	// password: PropTypes.string.isRequired
 };
-exports.default = UserPanelContainer;
 
-},{"./../components/UserPanel":1393,"prop-types":834,"react":1059}],1403:[function(require,module,exports){
+
+var mapStateToProps = function mapStateToProps(state) {
+	console.log(state);
+	return {};
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps)(UserPanelContainer);
+
+},{"./../components/UserPanel":1393,"prop-types":834,"react":1059,"react-redux":1003,"react-router-dom":1020}],1403:[function(require,module,exports){
 'use strict';
+
+$(window).resize(function () {
+
+  var $navList = $('#navList');
+  if (window.innerWidth > 799) $navList.show('fast');else $navList.hide('fast');
+});
 
 $(function () {
 
@@ -99206,11 +99230,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _reduxForm = require('redux-form');
 
-var connect_form = {
+var form = {
 	form: _reduxForm.reducer
 };
 
-exports.default = connect_form;
+exports.default = form;
 
 },{"redux-form":1105}],1406:[function(require,module,exports){
 'use strict';
@@ -99221,24 +99245,25 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = require('redux');
 
-var _connect_form = require('./connect_form.js');
+var _form = require('./form.js');
 
-var _connect_form2 = _interopRequireDefault(_connect_form);
+var _form2 = _interopRequireDefault(_form);
 
 var _visibilityFilter = require('./visibilityFilter.js');
 
 var _visibilityFilter2 = _interopRequireDefault(_visibilityFilter);
 
+var _reduxForm = require('redux-form');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var rootReducer = (0, _redux.combineReducers)({
-	connect_form: _connect_form2.default,
-	visibilityFilter: _visibilityFilter2.default
+	form: _reduxForm.reducer
 });
 
 exports.default = rootReducer;
 
-},{"./connect_form.js":1405,"./visibilityFilter.js":1407,"redux":1148}],1407:[function(require,module,exports){
+},{"./form.js":1405,"./visibilityFilter.js":1407,"redux":1148,"redux-form":1105}],1407:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

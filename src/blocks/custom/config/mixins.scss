@@ -36,8 +36,8 @@
     background-image: url('#{$url}');
   }
 }
-@mixin smooth-transition-color {
-  transition: color 0.5s;
+@mixin smooth-transition-link {
+  transition: color 0.5s, background-color 0.5s;
 }
 @mixin smooth-transition-button($font-color: false, $background-color: false) {
   transition: color 0.5s, background-color 0.5s, transform 0.1s;

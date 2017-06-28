@@ -1,8 +1,9 @@
+
+
 .main  {
-	position: relative;
-	
+	@extend .header;
+	z-index: 1;
 	@include breakpoint($xs) {
-		padding: 15% 0;
 	}
 } 
 

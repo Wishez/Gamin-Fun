@@ -1,6 +1,7 @@
 .navigaton {
   width: span(12);
   margin-top: (14% / 387) * 100;
+  z-index: 3;
   @include breakpoint($xs) {
     position: absolute;
     bottom: 25px;
