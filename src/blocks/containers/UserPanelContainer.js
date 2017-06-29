@@ -21,17 +21,19 @@ class UserPanelContainer extends Component {
 		
 	}
 	render() {
-		const { site } = this.props;
 		const user = {
 			name: 'Джон Галт',
 			avatar: '../img/cat.png',
 			balance: 30,
 			status: 'Не активированно'
 		};
+		console.log(Math.round(Math.random() * 40));
 		return (
-			<UserPanel site={site}
+			<UserPanel {...this.props}
 				totalPeople='40' 
-				amountPeople='20' 
+				amountPeople={
+					Math.round(Math.random() * 40)
+				} 
 				showStatus={this.showStatus}
 				submitLogInForm={this.submitLogInForm} 
 				isLogged={true}
@@ -44,8 +46,8 @@ class UserPanelContainer extends Component {
 const mapStateToProps = state => {
 	console.log(state);
 	return {
-		
+		site: 'minecraft'
 	}
 };
 
-export default connect(mapStateToProps)(UserPanelContainer);
+export default withRouter(connect(mapStateToProps)(UserPanelContainer));

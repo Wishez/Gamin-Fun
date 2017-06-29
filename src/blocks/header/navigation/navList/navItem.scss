@@ -9,6 +9,7 @@
     width: span(8);
     padding: 4%;
     @include center-block;
+    display: block !important;
     border-radius: 10px;
     max-height: 80px;
   }

@@ -31,41 +31,6 @@ img/logo.png
 img/logo_main.png
 js/main.js
 js/main.js.map
-fonts/Comfortaa/Comfortaa-Bold.eot
-fonts/Comfortaa/Comfortaa-Bold.otf
-fonts/Comfortaa/Comfortaa-Bold.svg
-fonts/Comfortaa/Comfortaa-Bold.ttf
-fonts/Comfortaa/Comfortaa-Bold.woff
-fonts/Comfortaa/Comfortaa-Light.eot
-fonts/Comfortaa/Comfortaa-Light.otf
-fonts/Comfortaa/Comfortaa-Light.svg
-fonts/Comfortaa/Comfortaa-Light.ttf
-fonts/Comfortaa/Comfortaa-Light.woff
-fonts/Comfortaa/Comfortaa-Regular.eot
-fonts/Comfortaa/Comfortaa-Regular.otf
-fonts/Comfortaa/Comfortaa-Regular.svg
-fonts/Comfortaa/Comfortaa-Regular.ttf
-fonts/Comfortaa/Comfortaa-Regular.woff
-fonts/inglobal/inglobal.eot
-fonts/inglobal/inglobal.otf
-fonts/inglobal/inglobal.svg
-fonts/inglobal/inglobal.ttf
-fonts/inglobal/inglobal.woff
-fonts/inglobal/inglobalb.eot
-fonts/inglobal/inglobalb.otf
-fonts/inglobal/inglobalb.svg
-fonts/inglobal/inglobalb.ttf
-fonts/inglobal/inglobalb.woff
-fonts/inglobal/inglobalbi.eot
-fonts/inglobal/inglobalbi.otf
-fonts/inglobal/inglobalbi.svg
-fonts/inglobal/inglobalbi.ttf
-fonts/inglobal/inglobalbi.woff
-fonts/inglobal/inglobali.eot
-fonts/inglobal/inglobali.otf
-fonts/inglobal/inglobali.svg
-fonts/inglobal/inglobali.ttf
-fonts/inglobal/inglobali.woff
 fonts/Tahoma/Tahoma-Bold.eot
 fonts/Tahoma/Tahoma-Bold.otf
 fonts/Tahoma/Tahoma-Bold.svg
@@ -93,4 +58,4 @@ NETWORK:
 SETTINGS:
 prefer-online
 
-# hash: 30431c98879a03f0cf2d1aff9002300a3807800165635ac0a64d7746b9c687bb
+# hash: 088cc4664ff130fd33a1ea33906e98e39133f026dca7d1d3eb1c168c56f5032f
