@@ -49,7 +49,7 @@ const Navigation = ({
           </Link>
         </li>
         <li className={getActiveClasses(activeThird)}>
-          <Link to='/strat_playing'
+          <Link to='/download'
             className='navItem__refer'
             onClick={changeActiveThird}>
             Скачать

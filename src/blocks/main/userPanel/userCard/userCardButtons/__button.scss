@@ -1,0 +1,16 @@
+.userCardButtons__button {
+	font-size: (14em / 16);
+	&--minecraft {
+		color: $lightGray !important;
+	}
+	&--samp {
+		color: $orange !important;
+	}
+	&--personalRoom {
+		@extend .floatLeft;
+	}
+	&--logout {
+		@extend .floatRight;
+
+	}
+}

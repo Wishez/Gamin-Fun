@@ -1,13 +1,18 @@
+
 .userPanel {
 	@include span(4 last);
+	// width: span(4);
+	// position: absolute;
+	// top: 0;
+	// right: 0;
 	@extend .defaultTopPadding;
-	min-height: 137vh;
+	height: 200vh;
 	max-width: 300px;
 	@include breakpoint($lg) {
-		min-height: 214vh;
+		// min-height: 214vh;
 	}
 	& .container{
-		width: 80%;
+		width: 80% !important;
 		@include breakpoint($xs) {
 			max-width: 400px !important;
 			@include center-block;
@@ -17,9 +22,11 @@
 	border-left: $borderUserPanelStyles;
 	@include breakpoint($xs) {
 		width: 100%;
+		position: relative;
 		max-width: none;
 		min-height: 0;
 		border: 0;
+		height: auto;
 		border-bottom: $borderUserPanelStyles;
 		margin: 0;
 		padding-bottom: 75px;
@@ -30,3 +37,4 @@
 // If you see it, try to replace name of a folder 'loginFrom' as 'logInForm'
 // and change this path as well. I could not do it.
 @import 'loginFrom/logInForm.scss';
+@import 'userCard/userCard.scss';

@@ -4,6 +4,7 @@ import NotFound from './../components/NotFound';
 import FadeIn from 'react-fade-in';
 import NewsContainer from './NewsContainer';
 import RulesContainer from './RulesContainer';
+import DownloadContainer from './DownloadContainer';
 
 const Main = ({...rest}) => (
   <main className='main'>
@@ -18,9 +19,9 @@ const Main = ({...rest}) => (
     			<section>It is second section!</section>
     		</FadeIn>
     	)} />
-    	<Route path='/strat_playing' render={() => (
+    	<Route path='/download' render={() => (
     		<FadeIn>
-    			<section>It is third section!</section>
+    			<DownloadContainer {...rest} />
     		</FadeIn>
     	)} />
     	<Route path='/contacts' render={() => (

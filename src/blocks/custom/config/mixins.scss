@@ -18,10 +18,13 @@
     background-color: #{$color};
   }
 }
+.center-block {
+   margin-left: auto !important;
+   margin-right: auto !important;
+   display: block;
+}
 @mixin center-block {
-  margin-left: auto !important;
-  margin-right: auto !important;
-  display: block;
+  @extend .center-block;
 }
 @mixin responsive-background($padding-bottom: false, $url: false, $attachment: false) {
   background: center top no-repeat;

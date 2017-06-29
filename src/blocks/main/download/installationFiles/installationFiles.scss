@@ -1,0 +1,6 @@
+.installationFiles {
+	@extend .defaultTopMargin
+}
+
+@import 'installationSteps/instalationSteps.scss';
+@import '__title.scss';

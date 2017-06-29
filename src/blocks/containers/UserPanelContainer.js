@@ -8,7 +8,9 @@ class UserPanelContainer extends Component {
 	static PropTypes = {
 		site: PropTypes.string.isRequired
 		// login: PropTypes.string.isRequired,
-		// password: PropTypes.string.isRequired
+		// password: PropTypes.string.isRequired,
+		// isLogged: PropTypes.bool.isRequired,
+		// user: PropTypes.object.isRequired
 	}
 
 	showStatus = (amountPeople, totalPeople) => (
@@ -20,12 +22,20 @@ class UserPanelContainer extends Component {
 	}
 	render() {
 		const { site } = this.props;
+		const user = {
+			name: 'Джон Галт',
+			avatar: '../img/cat.png',
+			balance: 30,
+			status: 'Не активированно'
+		};
 		return (
 			<UserPanel site={site}
 				totalPeople='40' 
 				amountPeople='20' 
 				showStatus={this.showStatus}
-				submitLogInForm={this.submitLogInForm} />
+				submitLogInForm={this.submitLogInForm} 
+				isLogged={true}
+				user={user}/>
 		);
 	}
 }
