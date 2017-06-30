@@ -6,37 +6,20 @@ import { connect } from 'react-redux';
 
 class UserPanelContainer extends Component {
 	static PropTypes = {
-		site: PropTypes.string.isRequired
+		site: PropTypes.string.isRequired,
 		// login: PropTypes.string.isRequired,
 		// password: PropTypes.string.isRequired,
-		// isLogged: PropTypes.bool.isRequired,
+		isLogged: PropTypes.bool.isRequired,
+		submitLogInForm: PropTypes.func.isRequired,
+		logOut: PropTypes.func.isRequired
 		// user: PropTypes.object.isRequired
 	}
-	state = {
-		login: 'admin',
-		password: 'demonstration',
-		isLogged: false
-	};
+
 
 	showStatus = (amountPeople, totalPeople) => (
 		amountPeople / totalPeople * 100 
 	)
-	submitLogInForm = (values, dispatch) => {
-		console.log(values, 'values'); 
-		const { login, password } = this.state;
-		if (login === values.login &&
-			password === values.password) {
-			this.setState({
-				isLogged: true
-			});
-		}
-	}
 
-	logOut = () => {
-		this.setState({
-			isLogged: false
-		});
-	}
 	render() {
 		const user = {
 			name: 'Джон Галт',
@@ -45,6 +28,7 @@ class UserPanelContainer extends Component {
 			status: 'Не активированно'
 		};
 		console.log(Math.round(Math.random() * 40));
+
 		return (
 			<UserPanel {...this.props}
 				totalPeople='40' 
@@ -52,10 +36,8 @@ class UserPanelContainer extends Component {
 					Math.round(Math.random() * 40)
 				} 
 				showStatus={this.showStatus}
-				submitLogInForm={this.submitLogInForm} 
-				isLogged={this.state.isLogged}
 				user={user}
-				logOut={this.logOut}/>
+				/>
 		);
 	}
 }

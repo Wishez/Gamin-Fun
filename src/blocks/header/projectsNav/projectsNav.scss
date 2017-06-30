@@ -1,9 +1,15 @@
 
 
 .projects {
-	margin-top: 119px;
 	width: span(4);
 	@include center-block;
+	margin-top: 120px;
+	@include breakpoint($md) {
+		margin-top: 125px;
+	}
+	@include breakpoint($sm) {
+		margin-top: 130px;
+	}
 	@include breakpoint($xs) {
 		width: span(10);
 	}

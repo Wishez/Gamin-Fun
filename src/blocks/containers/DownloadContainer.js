@@ -5,7 +5,8 @@ import UserPanelContainer from './UserPanelContainer';
 import Download from './../components/Download';
 export default class DownloadContainer extends Component {
 	static PropTypes = {
-		site: PropTypes.string.isRequired
+		site: PropTypes.string.isRequired,
+		isLogged: PropTypes.bool.isRequired
 	}
 
 	render() {

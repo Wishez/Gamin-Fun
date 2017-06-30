@@ -4,13 +4,20 @@ import { Container } from 'semantic-ui-react';
 
 const NavBetweenProjects = ({
 	...rest,
-	getClasses
+	getClasses,
+	changeSite
 }) => (
 	<nav className='projectsNav'>
 		<ProjectSwitcher {...rest} 
 			content='Samp'
+			changeSite={() => {
+				changeSite('samp')
+			}}
 			href='#' />
 		<ProjectSwitcher {...rest} 
+			changeSite={() => {
+				changeSite('minecraft')
+			}}
 			content='Minecraft'
 			href='#' />	
 	</nav>

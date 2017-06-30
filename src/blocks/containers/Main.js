@@ -7,28 +7,36 @@ import RegisterContainer from './RegisterContainer';
 import RulesContainer from './RulesContainer';
 import DownloadContainer from './DownloadContainer';
 import ContactsContainer from './ContactsContainer';
-
-const Main = ({...rest}) => (
+import PersonalRoomContainer from './PersonalRoomContainer';
+// isLogged будет извлекаться из состояния пользователя
+const Main = ({
+    ...rest,
+    isLogged
+}) => (
   <main className='main'>
     <Switch>         
         <Route exact path='/' render={() => (
             <FadeIn>
-                <NewsContainer {...rest} />
+                <NewsContainer {...rest} 
+                    isLogged={isLogged} />
             </FadeIn>
         )} />
-        <Route path='/register' render={() => (
+        <Route path='/registration' render={() => (
             <FadeIn>
-                <RegisterContainer {...rest} />
+                <RegisterContainer {...rest} 
+                    isLogged={isLogged}/>
     		</FadeIn>
     	)} />
     	<Route path='/download' render={() => (
     		<FadeIn>
-    			<DownloadContainer {...rest} />
+    			<DownloadContainer {...rest} 
+                    isLogged={isLogged}/>
     		</FadeIn>
     	)} />
     	<Route path='/contacts' render={() => (
     		<FadeIn>
-    			<ContactsContainer {...rest} />
+    			<ContactsContainer {...rest}
+                    isLogged={isLogged} />
     		</FadeIn>
     	)} />
         <Route path='/rules' render={() => (
@@ -36,6 +44,13 @@ const Main = ({...rest}) => (
                 <RulesContainer {...rest}/>
             </FadeIn>
         )} />
+        {isLogged ?
+            <Route path='/personal_room' render={() => (
+                 <FadeIn>
+                    <PersonalRoomContainer {...rest}
+                        isLogged={isLogged} />
+                </FadeIn>
+             )} /> : ''}
     	<Route component={NotFound} />
     </Switch>
   </main>

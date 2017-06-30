@@ -8,7 +8,8 @@ import Register from './../components/Register';
 
 export default class RegisterContainer extends Component {
 	static PropTypes = {
-		site: PropTypes.string.isRequired
+		site: PropTypes.string.isRequired,
+		isLogged: PropTypes.bool.isRequired
 		// newsList: PropTypes.array.isRequired
 		// message: PropTypes.string.isRequired
 		// registered: PropTypes.bool.isRequired
@@ -53,7 +54,7 @@ export default class RegisterContainer extends Component {
 		console.log(...this.state);
 		return (
 			<div className='contentWrapper'>
-				<UserPanelContainer />
+				<UserPanelContainer {...this.props} />
 				<Container>
 					<Register {...this.props}
 						{...this.state}

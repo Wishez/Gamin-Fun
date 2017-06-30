@@ -34,7 +34,7 @@ const LogInForm = ({
 			 	<Button className='logInFormButtons__button logInFormButtons__button--submit submit' 
 			 	   	content='Войти'
 			 	/>
-			 	<Link to='/register'
+			 	<Link to='/registration'
 			 		className='logInFormButtons__button logInFormButtons__button--register'>
 			 		Регистрация
 			 	</Link>

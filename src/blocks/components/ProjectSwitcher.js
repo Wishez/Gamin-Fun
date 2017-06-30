@@ -4,10 +4,12 @@ const ProjectSwitcher = ({
 	site,
 	content,
 	getClasses,
-	href
+	href,
+	changeSite
 }) => (
 	<a href={href}
-	   className={getClasses(content, site)}>
+	   className={getClasses(content, site)}
+	   onClick={changeSite}>
 		{content}
 	</a>
 );

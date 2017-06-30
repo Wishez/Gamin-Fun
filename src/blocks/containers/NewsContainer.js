@@ -7,7 +7,8 @@ import NewsList from './../components/NewsList';
 
 export default class NewsContainer extends Component {
 	static PropTypes = {
-		site: PropTypes.string.isRequired
+		site: PropTypes.string.isRequired,
+		isLogged: PropTypes.bool.isRequired
 		// newsList: PropTypes.array.isRequired
 	}
 

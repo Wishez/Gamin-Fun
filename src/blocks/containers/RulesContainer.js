@@ -6,7 +6,8 @@ import PropTypes from 'prop-types';
 export default class RulesContainer extends Component {
 
 	static PropTypes = {
-		site: PropTypes.string.isRequired
+		site: PropTypes.string.isRequired,
+		isLogged: PropTypes.bool.isRequired
 		// newsList: PropTypes.array.isRequired
 	}
 	render() {

@@ -42,7 +42,7 @@ const Navigation = ({
           </Link>
         </li>
         <li className={getActiveClasses(activeSecond)}>
-          <Link to='/register'
+          <Link to='/registration'
             className='navItem__refer'
             onClick={changeActiveSecond}>
             Регистрация

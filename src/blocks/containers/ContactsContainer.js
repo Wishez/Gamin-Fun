@@ -6,7 +6,8 @@ import Contacts from './../components/Contacts';
 
 export default class ContactsContainer extends Component {
 	static PropTypes = {
-		site: PropTypes.string.isRequired
+		site: PropTypes.string.isRequired,
+		isLogged: PropTypes.bool.isRequired
 	}
 
 	render() {

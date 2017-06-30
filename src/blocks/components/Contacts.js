@@ -15,24 +15,24 @@ const Constacts = ({
 			</h3>
 			<ul className='visitCard__contactsList'>
 				<li className='visitCardContact'>
-					Мы в вк:&nbsp;
+					Мы в вк:&thinsp;
 					<a className={`not-follow visitCardContact__refer visitCardContact__refer--${site}`}
 					   href='https://vk.com/gamingprivateminecraft'>
 						vk.com/gamingprivateminecraft
 					</a>
 				</li>
 				<li className='visitCardContact'>
-					Тех-поддержка:&nbsp;
+					Тех-поддержка:&thinsp;
 					<a className={`not-follow visitCardContact__refer visitCardContact__refer--${site}`}
-					   href='https://vk.com/gamingprivateminecraft'>
-						tech-supprot@domain.ru
+					   href='mailto:tech-supprot@domain.ru'>
+						tech-&nbsp;supprot@domain.ru
 					</a>
 				</li>
 				<li className='visitCardContact'>
-					Сотрудничество:&nbsp;
+					Сотрудничество:&thinsp;
 					<a className={`not-follow visitCardContact__refer visitCardContact__refer--${site}`}
-					   href='https://vk.com/gamingprivateminecraft'>
-						will-be-friends@domain.ru
+					   href='mailto:will-be-friends@domain.ru'>
+						will-&nbsp;be-&nbsp;friends@domain.ru
 					</a>
 				</li>
 			</ul>
