@@ -1,0 +1,12 @@
+.subscribtionFormController__dropdown {
+	@extend .registerFormController__input;
+	background-color: $darkenLightGray !important;
+	padding-top: 3% !important;
+	border: 0 !important;
+	border-radius: 0 !important;
+	& i.dropdown.icon {
+		font-size: 50px !important;
+		padding: 0 !important;
+		top: 30px !important;
+	}
+}

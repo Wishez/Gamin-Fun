@@ -45,9 +45,9 @@ class UserPanelContainer extends Component {
 
 const mapStateToProps = state => {
 	console.log(state);
+	// 	site: 'minecraft'
 	return {
-		site: 'minecraft'
-	}
+	};
 };
 
 export default withRouter(connect(mapStateToProps)(UserPanelContainer));

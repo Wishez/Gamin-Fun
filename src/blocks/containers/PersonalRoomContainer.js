@@ -27,6 +27,10 @@ export default class PersonalRoomContainer extends Component {
 		console.log(values);	
 	}
 
+	submitChangeEmailForm = (values, dispatch) => {
+		console.log(values);	
+	}
+
 	render() {
 		return (
 			<div className='contentWrapper'>
@@ -36,6 +40,7 @@ export default class PersonalRoomContainer extends Component {
 						submitChangePassword={this.submitChangePassword} 
 						submitReplanishBalance={this.submitReplanishBalance} 
 						submitSubscribtionForm={this.submitSubscribtionForm}
+						submitChangeEmailForm={this.submitChangeEmailForm}
 					/>
 				</Container>
 			</div>

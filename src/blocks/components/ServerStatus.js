@@ -8,14 +8,14 @@ const ServerStatus = ({
 	showStatus,
 	site
 }) => (
-	<div className={'server server--' + site}>
+	<div className={`server server--${site}`}>
 		<Title block='server'
 			text='Статус сервера'/>
 		<Progress percent={
 				showStatus(amountPeople, totalPeople)
 		}	
 			size='medium'
-			className={'server__status server__status--' + site}
+			className={`server__status server__status--${site}`}
 			active
 		>
 			<span className='server__status--text'>{amountPeople + '/' + totalPeople}</span>

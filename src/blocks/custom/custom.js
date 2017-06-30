@@ -13,6 +13,7 @@ $(function() {
   // $('.header').fadeIn('slow');
   // $('#main').fadeIn('slow');
   // $('footer').fadeIn('slow');
+  $('#closeMenuButton').hide();
 
   $(document).on('click', '.not-follow', openUrlInNewWindow);
 

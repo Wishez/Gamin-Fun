@@ -3,8 +3,8 @@ import { Field, reduxForm } from 'redux-form';
 import { Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import RenderController from './RenderController';
+import { required } from './../constants/validation.js';
 
-const required = value => value ? undefined : 'Это поле обязательно';
 
 const LogInForm = ({
 	submitLogInForm,
