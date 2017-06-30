@@ -9,7 +9,8 @@ const required = value => value ? undefined : 'Это поле обязател�
 const LogInForm = ({
 	submitLogInForm,
 	account,
-	handleSubmit
+	handleSubmit,
+	error
 }) => (
 	<form id='logInForm'
 		onSubmit={handleSubmit(submitLogInForm.bind(this))}
@@ -43,6 +44,7 @@ const LogInForm = ({
 		 		className='logInFormButtons__forgotPass'>
 		 		Забыли пароль?
 		 	</Link>
+		 	{error ? <strong>{error}</strong> : ''}
 		</form>
 );
 

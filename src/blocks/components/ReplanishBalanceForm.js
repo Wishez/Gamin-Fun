@@ -15,7 +15,7 @@ const ReplanishBalanceForm = ({
 			type='number'
 			min='1'
 			max='1000000'
-			block='registerFormController'
+			block='replanishBalanceFormController'
 			placeholder='Количество кредитов'
 		 />
 	 	<Button content='Пополнить'

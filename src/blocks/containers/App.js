@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import Main from './Main';
+import { SubmitionError } from 'react-redux';
 
 // Состояние берётся из redux состояния
 export default class App extends Component {
@@ -24,6 +25,10 @@ export default class App extends Component {
       this.setState({
         isLogged: true
       });
+    } else {
+        throw new SubmitionError({
+          __error: 'Неправильный логин или пароль'
+        });
     }
     console.log(this.state.isLogged);
   }
