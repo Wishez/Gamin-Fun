@@ -12,13 +12,30 @@ class UserPanelContainer extends Component {
 		// isLogged: PropTypes.bool.isRequired,
 		// user: PropTypes.object.isRequired
 	}
+	state = {
+		login: 'admin',
+		password: 'demonstration',
+		isLogged: false
+	};
 
 	showStatus = (amountPeople, totalPeople) => (
 		amountPeople / totalPeople * 100 
 	)
 	submitLogInForm = (values, dispatch) => {
 		console.log(values, 'values'); 
-		
+		const { login, password } = this.state;
+		if (login === values.login &&
+			password === values.password) {
+			this.setState({
+				isLogged: true
+			});
+		}
+	}
+
+	logOut = () => {
+		this.setState({
+			isLogged: false
+		});
 	}
 	render() {
 		const user = {
@@ -36,8 +53,9 @@ class UserPanelContainer extends Component {
 				} 
 				showStatus={this.showStatus}
 				submitLogInForm={this.submitLogInForm} 
-				isLogged={true}
-				user={user}/>
+				isLogged={this.state.isLogged}
+				user={user}
+				logOut={this.logOut}/>
 		);
 	}
 }

@@ -1,5 +1,10 @@
 .userCardButtons__button {
 	font-size: (14em / 16);
+	&:hover {
+		background-color: transparent !important;
+		color: darken($lightGray, 10%) !important;
+		
+	}
 	&--minecraft {
 		color: $lightGray !important;
 	}

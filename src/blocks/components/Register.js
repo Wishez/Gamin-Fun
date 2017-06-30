@@ -12,13 +12,13 @@ const Register = ({
 		<Title block='register'
 			text='Регистрация' 
 		/>
- 		<RegisterForm {...rest} />
+		{registered ?
+			<p className='register__message register__message--succes'>
+				{message}
+			</p> :
+ 			<RegisterForm {...rest} />
+		}
 	</section>
 );
-		// {registered ?
-		// 	<p className='register__message register__message--succes'>
-		// 		{message}
-		// 	</p> :
-		// }
 
 export default Register;

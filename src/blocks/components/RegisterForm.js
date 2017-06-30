@@ -6,8 +6,13 @@ import ReactHtmlParser from 'react-html-parser'
 
 const required = value => value ? undefined : 'Это поле обязательно';
 const email = value => value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value) ? 'Неправильный e-mail адрес' : undefined;
-const login = value => value && /[a-zA-Z0-9\-_]+/ig.test(value) ? undefined :
-	'Логин записывается без пробелов, латинскими буквами, со знаками "_-", остальное запрещено';
+const login = value => value && /^[a-z0-9_-]{0,16}$/i.test(value) ? undefined :
+	'Вы можете использовать символы "_-", латинские буквы A-Za-z и цифры 0-9.'
+const logingLength = value => value && !(value.length < 3) ? undefined :
+	'Логин должен быть не меньше 3 символов и не больше 24.';
+const passwordLength = value => value && value.length > 8? undefined :
+	'Минимальная длина пароля — 8 символов. Максимальная — 30 символов.';
+
 const RegisterForm = ({
 	submitRegisterForm,
 	account,
@@ -15,7 +20,7 @@ const RegisterForm = ({
 	registered,
 	message,
 	allowRegister,
-	knewRules
+	knowRules
 }) => (
 	<form id='registerForm'
 		onSubmit={handleSubmit(submitRegisterForm.bind(this))}
@@ -24,7 +29,7 @@ const RegisterForm = ({
 			name='login'
 			type='text'
 			block='registerFormController'
-			validate={[required, login]}
+			validate={[required, login, logingLength]}
 			placeholder='Логин/Login'
 			maxLength='24'
 		 />
@@ -32,17 +37,17 @@ const RegisterForm = ({
 		 	name='password'
 		 	type='password'
 		 	block='registerFormController'
-			validate={[required]}
+			validate={[required, passwordLength]}
 			placeholder='Пароль/Password'
-			maxLength='75'
+			maxLength='30'
 		 />
 		 <Field component={RenderController}
-		 	name='repeated_password'
+		 	name='repeatedPassword'
 		 	type='password'
 		 	block='registerFormController'
 			validate={[required]}
 			placeholder='Повторить пароль/Repeat password'
-			maxLength='75'
+			maxLength='30'
 		 />
 		 <Field component={RenderController}
 		 	name='email'
@@ -50,7 +55,7 @@ const RegisterForm = ({
 		 	block='registerFormController'
 			validate={[required, email]}
 			placeholder='Email'
-			maxLength='75'
+			maxLength='100'
 		 />
 		 <div className='registerFormController'>
 			 <Checkbox onClick={allowRegister}
@@ -59,7 +64,7 @@ const RegisterForm = ({
 			 	'Вы ознакомились с <a href="http://localhost:9000/" class="not-follow">правилами</a> проекта')} />
 		 </div>
 		 <div className='registerFormButtons'>
-		 	<Button disabled={!knewRules}
+		 	<Button disabled={!knowRules}
 		 		className='registerFormButtons__button registerFormButtons__button--submit submit' 
 		 	   	content='Зарегистрироваться'
 		 	/>

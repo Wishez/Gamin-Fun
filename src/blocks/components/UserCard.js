@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 
 const UserCard = ({
 	user,
-	site
+	site,
+	logOut
 }) => (
 	<Card className={`userCard userCard--${site}`}>
 		<Image src={user.avatar} 
@@ -32,7 +33,7 @@ const UserCard = ({
 			</Link>
 			<Link to='/'
 				className={`userCardButtons__button userCardButtons__button--${site} userCardButtons__button--logout`}
-				onClick={() => {}}>
+				onClick={logOut}>
 				Выход
 			</Link>
 		</Card.Content>
