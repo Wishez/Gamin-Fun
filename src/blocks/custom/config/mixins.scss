@@ -26,9 +26,15 @@
 @mixin center-block {
   @extend .center-block;
 }
-@mixin responsive-background($padding-bottom: false, $url: false, $attachment: false) {
+
+.responsiveBackground {
   background: center top no-repeat;
   background-size: cover;
+  
+}
+@mixin responsive-background($padding-bottom: false, $url: false, $attachment: false) {
+  @extend .responsiveBackground;
+
   @if $attachment {
 	background-attachment: $attachment;
   }
@@ -39,11 +45,19 @@
     background-image: url('#{$url}');
   }
 }
-@mixin smooth-transition-link {
+
+.colorsTransition {
   transition: color 0.5s, background-color 0.5s;
 }
-@mixin smooth-transition-button($font-color: false, $background-color: false) {
+@mixin smooth-transition-link {
+  @extend .colorsTransition;
+}
+
+.colorsTransitionsWithTransofm {
   transition: color 0.5s, background-color 0.5s, transform 0.1s;
+}
+@mixin smooth-transition-button($font-color: false, $background-color: false) {
+  @extend .colorsTransitionsWithTransofm;
   &:hover {
     @if $font-color {
       color: #{$font-color};
@@ -56,6 +70,7 @@
     transform: translateY(3px);
   }
 }
+
 @mixin flexable($flex, $dir_wrap, $content, $align) {
   display: #{$flex};
   flex-flow: #{$dir_wrap};

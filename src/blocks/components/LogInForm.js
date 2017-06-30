@@ -38,12 +38,11 @@ const LogInForm = ({
 			 		className='logInFormButtons__button logInFormButtons__button--register'>
 			 		Регистрация
 			 	</Link>
-			 	<br/>
-			 	<Link to='/remember_password'
-			 		className='logInFormButtons__forgotPass'>
-			 		Забыли пароль?
-			 	</Link>
 			 </div>
+		 	<Link to='/remember_password'
+		 		className='logInFormButtons__forgotPass'>
+		 		Забыли пароль?
+		 	</Link>
 		</form>
 );
 

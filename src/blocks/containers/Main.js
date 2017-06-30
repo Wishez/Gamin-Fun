@@ -6,6 +6,7 @@ import NewsContainer from './NewsContainer';
 import RegisterContainer from './RegisterContainer';
 import RulesContainer from './RulesContainer';
 import DownloadContainer from './DownloadContainer';
+import ContactsContainer from './ContactsContainer';
 
 const Main = ({...rest}) => (
   <main className='main'>
@@ -27,7 +28,7 @@ const Main = ({...rest}) => (
     	)} />
     	<Route path='/contacts' render={() => (
     		<FadeIn>
-    			<section>It is fourth section!</section>
+    			<ContactsContainer {...rest} />
     		</FadeIn>
     	)} />
         <Route path='/rules' render={() => (

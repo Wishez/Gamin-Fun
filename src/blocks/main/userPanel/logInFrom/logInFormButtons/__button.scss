@@ -1,9 +1,6 @@
 .logInFormButtons__button {
 	
 	@extend .smallGrayButton;
-	$darekenGray: darken($gray, 5%) !important;
-	$darkenlightGray: #{$darkenLightGray} !important;
-	@include smooth-transition-button($background-color: $darekenGray);
 	&--submit {
 		left: 0;
 		@extend .floatLeft;

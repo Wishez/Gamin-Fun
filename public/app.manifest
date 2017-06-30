@@ -41,16 +41,17 @@ fonts/Tahoma/Tahoma-Regular.otf
 fonts/Tahoma/Tahoma-Regular.svg
 fonts/Tahoma/Tahoma-Regular.ttf
 fonts/Tahoma/Tahoma-Regular.woff
+img/minecraft/chicken.png
+img/minecraft/decor_contacts.png
+img/minecraft/grass.png
+img/minecraft/squid.png
+img/minecraft/steve.png
+img/minecraft/steve_with_bow.png
 img/samp/car.png
 img/samp/helicopter.png
 img/samp/man.png
 img/samp/Nigga.png
 img/samp/woman.png
-img/minecraft/chicken.png
-img/minecraft/grass.png
-img/minecraft/squid.png
-img/minecraft/steve.png
-img/minecraft/steve_with_bow.png
 
 NETWORK:
 *
@@ -58,4 +59,4 @@ NETWORK:
 SETTINGS:
 prefer-online
 
-# hash: f324f85561d5ba733126ba1ebe649bf47762d1070a86747710cecdcddb0ef274
+# hash: d5213ea690d49dd05cd92957746b25e8cdb2ca21456dd9926a697175ee4b3375

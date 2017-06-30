@@ -13,4 +13,6 @@
 	}
 	color: $lightGray !important;
 	@extend .text-center;
+	$darkenGray: darken($gray, 5%) !important;
+	@include smooth-transition-button($background-color: $darkenGray);
 }	
