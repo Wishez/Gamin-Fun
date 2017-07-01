@@ -3,33 +3,33 @@ import {Container } from 'semantic-ui-react';
 import UserPanelContainer from './UserPanelContainer';
 import PropTypes from 'prop-types';
 import Title from './../components/Title';
-import NewsList from './../components/NewsList';
+import SingleNews from './../components/SingleNews';
 import { changeHeightAwesomeBorder } from './../constants/pureFunctions.js';
 
 export default class NewsContainer extends Component {
 	static PropTypes = {
 		site: PropTypes.string.isRequired,
 		isLogged: PropTypes.bool.isRequired,
-		news: PropTypes.array.isRequired
+		news: PropTypes.array.isRequired,
+		match: PropTypes.object.isRequired
 	}
 	componentDidMount() {
 	    changeHeightAwesomeBorder();
     }
 
     componentDidUpdate() {
+       
        changeHeightAwesomeBorder();
     }
 	render() {
-
-
+		const { newsId } = this.props.match.params;
+		const { news } = this.props;
+		console.log(this.props.match);
 		return (
 			<div className='contentWrapper'>
 				<UserPanelContainer {...this.props} />
 				<Container>
-					<Title block='contentWrapper' 
-						text='Новости'
-					/>
-					<NewsList newsList={this.props.news} />	
+					<SingleNews singleNews={news[newsId - 1]} />	
 				</Container>
 			</div>
 		)

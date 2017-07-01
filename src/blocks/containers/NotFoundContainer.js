@@ -1,37 +1,32 @@
 import React, {Component} from 'react';
-import {Container } from 'semantic-ui-react';
+import { Container } from 'semantic-ui-react';
 import UserPanelContainer from './UserPanelContainer';
 import PropTypes from 'prop-types';
-import Title from './../components/Title';
-import NewsList from './../components/NewsList';
+import NotFound from './../components/NotFound';
 import { changeHeightAwesomeBorder } from './../constants/pureFunctions.js';
 
-export default class NewsContainer extends Component {
+export default class PersonalRoomContainer extends Component {
 	static PropTypes = {
 		site: PropTypes.string.isRequired,
-		isLogged: PropTypes.bool.isRequired,
-		news: PropTypes.array.isRequired
+		isLogged: PropTypes.bool.isRequired
 	}
+
 	componentDidMount() {
-	    changeHeightAwesomeBorder();
+   	    changeHeightAwesomeBorder();
     }
 
     componentDidUpdate() {
        changeHeightAwesomeBorder();
     }
+
 	render() {
-
-
 		return (
 			<div className='contentWrapper'>
 				<UserPanelContainer {...this.props} />
 				<Container>
-					<Title block='contentWrapper' 
-						text='Новости'
-					/>
-					<NewsList newsList={this.props.news} />	
+					<NotFound />
 				</Container>
 			</div>
-		)
+		);
 	}
 }

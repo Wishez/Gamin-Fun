@@ -1,12 +1,6 @@
 $lightGray: #ececec;
 $darkenLightGray: #e0e0e0;
 $darkGray:  #1c1b1b;
-$baseColorFont: $darkGray;
-$baseLinkColor: $darkGray;
-$baseHoverLinkColor: $lightGray !important;
-$baseVisitedLinkColor:$darkGray;
-$baseActiveLinkColor: $darkGray;
-$baseFocusLinkColor: $darkGray;
 // $baseColor: '#000';
 $darkGreen: #185c47;
 $green: #56cca6;
@@ -29,3 +23,10 @@ $whiteYellow: #fff8c9;
 $whiteOrange: #fad17a;
 $limon: #f5ff9a;
 $purple: #5f4575;
+// font
+$baseColorFont: $darkGray;
+$baseLinkColor: $gray !important;
+$baseHoverLinkColor: $lightGray !important;
+$baseVisitedLinkColor:$darkGray;
+$baseActiveLinkColor: $darkGray;
+$baseFocusLinkColor: $darkGray;

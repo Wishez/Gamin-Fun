@@ -1,23 +1,40 @@
 import React, { Component } from 'react'; 
 import { Route, Switch } from 'react-router-dom'
-import NotFound from './../components/NotFound';
 import FadeIn from 'react-fade-in';
+import NotFoundContainer from './NotFoundContainer';
 import NewsContainer from './NewsContainer';
+import SingleNewsContainer from './SingleNewsContainer';
 import RegisterContainer from './RegisterContainer';
-import RulesContainer from './RulesContainer';
 import DownloadContainer from './DownloadContainer';
 import ContactsContainer from './ContactsContainer';
+import RulesContainer from './RulesContainer';
 import PersonalRoomContainer from './PersonalRoomContainer';
+import ForgotPasswordContainer from './ForgotPasswordContainer';
+// Нужно абстрагировать в компонент, но  это не работает.;c
+// Решу позже.
+// import FadeInRoute from './../components/FadeInRoute';
+        // <FadeInRoute exact path='/'
+        //     {...rest}
+        //     isLogged={isLogged}
+        //     component={NewsContainer} 
+        // />        
 // isLogged будет извлекаться из состояния пользователя
 const Main = ({
     ...rest,
     isLogged
 }) => (
   <main className='main'>
-    <Switch>         
+    <Switch>
         <Route exact path='/' render={() => (
             <FadeIn>
                 <NewsContainer {...rest} 
+                    isLogged={isLogged} />                   
+            </FadeIn>
+        )} />
+        <Route path='/news/:newsId' render={props => (
+            <FadeIn>
+                <SingleNewsContainer {...rest} 
+                    {...props}
                     isLogged={isLogged} />
             </FadeIn>
         )} />
@@ -51,7 +68,19 @@ const Main = ({
                         isLogged={isLogged} />
                 </FadeIn>
              )} /> : ''}
-    	<Route component={NotFound} />
+        {!isLogged ?
+            <Route path='/remember_password' render={() => (
+                 <FadeIn>
+                    <ForgotPasswordContainer {...rest}
+                        isLogged={isLogged} />
+                </FadeIn>
+         )} /> : ''}
+    	<Route render={() => (
+            <FadeIn>
+                <NotFoundContainer {...rest}
+                    isLogged={isLogged}/>
+            </FadeIn>
+        )} />
     </Switch>
   </main>
 );

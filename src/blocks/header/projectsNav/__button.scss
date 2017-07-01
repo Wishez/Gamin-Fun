@@ -4,6 +4,7 @@
 	border-radius: 10px;
 	width: span(5);
 	max-width: 100px;
+	color: $darkGray !important;
 	@include smooth-transition-button();
 
 	&--minecraft {

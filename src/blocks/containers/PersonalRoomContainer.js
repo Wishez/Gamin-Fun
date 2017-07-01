@@ -15,12 +15,10 @@ export default class PersonalRoomContainer extends Component {
 		// registered: PropTypes.bool.isRequired
 	}
 	componentDidMount() {
-        console.log('Did mount')
-	    changeHeightAwesomeBorder();
+   	    changeHeightAwesomeBorder();
     }
 
     componentDidUpdate() {
-       console.log('Did update')
        changeHeightAwesomeBorder();
     }
 	submitChangePassword = (values, dispatch) => {

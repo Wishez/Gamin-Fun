@@ -3,7 +3,7 @@ import Header from './Header';
 import Footer from './Footer';
 import Main from './Main';
 import { SubmitionError } from 'react-redux';
-// import { changeHeightAwesomeBorder } from './../constants/pureFunctions.js';
+import { text } from './../constants/actionTypes.js';
 
 // Состояние берётся из redux состояния
 export default class App extends Component {
@@ -11,15 +11,35 @@ export default class App extends Component {
     isLogged: false,
     site: 'minecraft',
     login: 'admin',
-    password: 'demonstration'
+    password: 'demonstration',
+    news: [
+      {
+        id: 1,
+        title: 'First Intro',
+        text:  text,
+        created_at: '23.06.2017, 11:50'
+      },
+      {
+        id: 2,
+        title: 'Double Intro',
+        text: text,
+        created_at: '23.06.2017, 11:50'
+      },
+      {
+        id: 3,
+        title: 'Third Intro',
+        text:  text,
+        created_at: '23.06.2017, 11:50'
+      }
+    ]
   }
 
 	componentDidMount() {
-		// changeHeightAwesomeBorder();
+
 	}
 
   componentDidUpdate() {
-     // changeHeightAwesomeBorder();
+
   }
 
   submitLogInForm = (values, dispatch) => {
@@ -53,17 +73,21 @@ export default class App extends Component {
   }
 
   render() {
-    const { isLogged, site } = this.state;
+    const { isLogged, site, news } = this.state;
     return (
     	<div>
       	<Header site={site} 
           changeSite={this.changeSite}/>
+
         <div id='awesomeBorder'
           className='awesomeBorder'></div>
+
       	<Main site={site} 
           submitLogInForm={this.submitLogInForm}
           isLogged={isLogged}
-          logOut={this.logOut} />	
+          logOut={this.logOut} 
+          news={news} />	
+
       	<Footer site={site} />
       </div>
     );

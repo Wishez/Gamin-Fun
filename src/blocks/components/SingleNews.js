@@ -5,22 +5,22 @@ import NewsMeta from './NewsMeta';
 import ReactHtmlParser from 'react-html-parser';
 import { Link } from 'react-router-dom';
 
-const News = ({
-	news
+const SingleNews = ({
+	singleNews
 }) => (
 	<article className='news'>
 		<Title block='news'
-			text={news.title}
+			text={singleNews.title}
 		/>
-		<NewsMeta date={news.created_at} />
+		<NewsMeta date={singleNews.created_at} />
 		<div className='news__body'> 
-			{ReactHtmlParser(`${news.text.slice(0, 255)}...`)}
+			{ReactHtmlParser(singleNews.text)}
 		</div>
-		<Link to={`/news/${news.id}`}
-			className='news__nextReading'>
-			Читать полностью
+		<Link to='/' 
+			className='news__toMainPage'>
+			На главную
 		</Link>
 	</article>
 );
 
-export default News;
+export default SingleNews;
