@@ -5,9 +5,10 @@ import { Container } from 'semantic-ui-react';
 const NavBetweenProjects = ({
 	...rest,
 	getClasses,
-	changeSite
+	changeSite,
+	site
 }) => (
-	<nav className='projectsNav'>
+	<nav className={`projectsNav projectsNav--${site}`}>
 		<ProjectSwitcher {...rest} 
 			content='Samp'
 			changeSite={() => {

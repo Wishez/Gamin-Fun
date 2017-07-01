@@ -15,4 +15,12 @@
 		}		
 
 	}
+	&--samp {
+		background-color: $brown;
+
+		&_active, &:hover  {
+			background-color: $orange;
+		}		
+
+	}
 }

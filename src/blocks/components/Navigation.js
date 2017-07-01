@@ -17,9 +17,10 @@ const Navigation = ({
     changeActiveFourth,
     changeActiveFifth,
     closeMenu,
-    getActiveClasses
+    getActiveClasses,
+    site
 }) => (
-    <nav className='navigaton'>
+    <nav className={`navigaton navigation--${site}`}>
       <button id='openMenuButton'
         className='navigation__openMenuButton visible-xs'
         onClick={openMenu}>
@@ -34,43 +35,43 @@ const Navigation = ({
           size='big'
           onClick={closeMenu} />
         
-        <li className={getActiveClasses(activeFirst)}>
+        <li className={getActiveClasses(activeFirst, site)}>
           <Link to='/'
-            className='navItem__refer'
+            className={`navItem__refer navItem__refer--${site}`}
             onClick={changeActiveFirst}>
             Главная
           </Link>
         </li>
-        <li className={getActiveClasses(activeSecond)}>
+        <li className={getActiveClasses(activeSecond, site)}>
           <Link to='/registration'
-            className='navItem__refer'
+            className={`navItem__refer navItem__refer--${site}`}
             onClick={changeActiveSecond}>
             Регистрация
           </Link>
         </li>
-        <li className={getActiveClasses(activeThird)}>
+        <li className={getActiveClasses(activeThird, site)}>
           <Link to='/download'
-            className='navItem__refer'
+            className={`navItem__refer navItem__refer--${site}`}
             onClick={changeActiveThird}>
             Скачать
           </Link>
         </li>
-        <li className={getActiveClasses(activeFourth)}>
+        <li className={getActiveClasses(activeFourth, site)}>
           <Link to='/contacts' 
-            className='navItem__refer'
+            className={`navItem__refer navItem__refer--${site}`}
             onClick={changeActiveFourth}>
             Контакты
           </Link>
         </li>
-        <li className={getActiveClasses(activeFifth)}>
+        <li className={getActiveClasses(activeFifth, site)}>
           <Link to='/rules' 
-            className='navItem__refer'
+            className={`navItem__refer navItem__refer--${site}`}
             onClick={changeActiveFifth}>
             Правила
           </Link>
         </li>
-        <li className='navItem'>
-          <a className='navItem__refer not-follow' 
+        <li className={`navItem navItem--${site}`}>
+          <a className={`navItem__refer navItem__refer--${site}`}
             href='#'>
             Форум
           </a>

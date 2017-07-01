@@ -13,6 +13,7 @@
 @import 'short_hand_classes/title.scss';
 @import 'short_hand_classes/paragraph.scss';
 @import 'short_hand_classes/aligned.scss';
+@import 'short_hand_classes/links.scss';
 @import 'short_hand_classes/buttons.scss';
 @import 'short_hand_classes/float.scss';
 @import 'short_hand_classes/paddings.scss';
@@ -91,5 +92,17 @@ a {
 }
 
 ::-webkit-input-placeholder {
+    color: $gray;
+}
+
+:-ms-input-placeholder {
+    color: $gray;
+}
+
+::-moz-placeholder {
+    color: $gray;
+}
+
+:-moz-placeholder {
     color: $gray;
 }

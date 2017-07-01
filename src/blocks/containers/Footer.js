@@ -2,14 +2,16 @@ import React, { Component } from 'react';
 import { Icon } from 'semantic-ui-react';
 import { Container } from 'semantic-ui-react';
 import FooterContacts from './../components/FooterContacts';
-import Figure from './../components/Figure';
+import FiguresList from './../components/FiguresList';
 
 const Footer = ({site}) => (
   <footer className={'footer footer--' + site}> 
     <Container>
       <FooterContacts site={site} />
-      <Figure name='steve_with_bow' />
-      <Figure name='chicken' />
+      {site === 'minecraft' ?
+          <FiguresList figuresNames={['steve_with_bow', 'chicken']} /> : ''}
+        {site === 'samp' ?
+          <FiguresList figuresNames={['woman', 'nigga']} /> : ''}
     </Container>
   </footer>
 );

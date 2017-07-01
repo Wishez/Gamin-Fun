@@ -9,7 +9,7 @@ import { text } from './../constants/actionTypes.js';
 export default class App extends Component {
   state = {
     isLogged: false,
-    site: 'minecraft',
+    site: 'samp',
     login: 'admin',
     password: 'demonstration',
     news: [

@@ -1,0 +1,13 @@
+.hoverStyleLink--mincraft {
+    &:hover {
+       background-color: $darkRed;
+    }
+
+}
+
+.hoverStyleLink--samp {
+	&:hover {
+       background-color: $paleOrange;
+    }
+
+}

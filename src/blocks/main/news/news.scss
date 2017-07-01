@@ -1,5 +1,6 @@
 .news {
 	@extend .defaultTopMargin;
+	max-width: 600px;
 }
 
 @import '__title.scss';

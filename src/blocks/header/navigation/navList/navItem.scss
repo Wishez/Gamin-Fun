@@ -28,7 +28,13 @@
     
   }
   &.active .navItem__refer {
-    border-bottom: 3px solid $green;
+    border-bottom: 3px solid;
+    &--minecraft {
+      border-bottom-color: $green;
+    }
+    &--samp {
+      border-bottom-color: $orange;
+    }
     @include breakpoint($xs) {
       border: none;
     }

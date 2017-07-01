@@ -25,6 +25,7 @@ fonts/slick.eot
 fonts/slick.svg
 fonts/slick.ttf
 fonts/slick.woff
+img/cap.jpg
 img/cat.png
 img/favicon.ico
 img/logo.png
@@ -48,9 +49,10 @@ img/minecraft/squid.png
 img/minecraft/steve.png
 img/minecraft/steve_with_bow.png
 img/samp/car.png
+img/samp/decor_contacts.png
 img/samp/helicopter.png
 img/samp/man.png
-img/samp/Nigga.png
+img/samp/nigga.png
 img/samp/woman.png
 
 NETWORK:
@@ -59,4 +61,4 @@ NETWORK:
 SETTINGS:
 prefer-online
 
-# hash: c90ac06004a591bf5f2dc5c0db5f9ca2ced2bb882dbb3767bffef15d051bdb31
+# hash: 0e62db958bf8903f74511dcff0a04c65c3cefc372da65140873d88a74edb7ebe

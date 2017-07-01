@@ -4,9 +4,15 @@
  }
 // Общие стили
 .footerContacts__icon--minecraft i, .author__refer--minecraft {
-	@include link-colors($one-color: $green);
+	@include link-colors($one-color: $green !important);
 	&:hover {
-		color: darken($green, 5%);
+		color: lighten($green, 15%) !important;
+	}
+}
+.footerContacts__icon--samp i, .author__refer--samp {
+	@include link-colors($one-color: $orange !important);
+	&:hover {
+		color: lighten($orange, 15%) !important;
 	}
 }
 .footerContacts__icon, .author__refer {

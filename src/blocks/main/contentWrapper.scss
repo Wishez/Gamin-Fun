@@ -2,7 +2,7 @@
 	@include susy-clearfix;
 	& > .container {
 		@include span(9);
-		padding: 75px 0 10% 20%;
+		padding: 75px 0 75px 20%;
 		@include breakpoint($lg) {
 			padding-left: 30%;
 		}

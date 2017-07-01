@@ -1,5 +1,6 @@
 .footer {
     @extend .header;
+      border: 0 !important;
     width: 100%;
     min-height: 185px;
     padding-top: 45px;
@@ -13,6 +14,9 @@
 	&--minecraft {
   		background-color: $darkGreen;	
 	}
+  &--samp {
+      background-color: $blue; 
+  }
 }
 
 @import 'footerContacts/footerContacts.scss';

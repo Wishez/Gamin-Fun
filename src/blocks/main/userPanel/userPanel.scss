@@ -3,7 +3,7 @@
 	@include span(4 last);
 
 	@extend .defaultTopPadding;
-	height: 500px;
+	height: 700px;
 	max-width: 300px;
 	@include breakpoint($lg) {
 		// min-height: 214vh;
@@ -16,7 +16,6 @@
 		}
 	}
 	$borderUserPanelStyles: 10px solid $darkenLightGray;
-	// border-left: $borderUserPanelStyles;
 	@include breakpoint($xs) {
 		width: 100%;
 		position: relative;

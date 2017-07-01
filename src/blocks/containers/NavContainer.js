@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import Navigation from './../components/Navigation';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 export default class NavContainer extends Component {
+  static PropTypes = { 
+      site: PropTypes.string.isRequired
+  }
+
+
   state = {
       isOpen: false,
       activAbout: false,
@@ -67,9 +73,10 @@ export default class NavContainer extends Component {
     this.setState({activeFifth: true});    
   }
 
-  getActiveClasses = state => ( 
+  getActiveClasses = (state, site) => ( 
     classNames({
       'navItem': true,
+      [`navItem--${site}`]: true,
       'active': state
     })
   );
@@ -80,7 +87,8 @@ export default class NavContainer extends Component {
   }
   render() {
     return (
-        <Navigation {...this.state} 
+        <Navigation {...this.props}
+            {...this.state} 
             changeActiveFirst={this.changeActiveFirst}
             changeActiveSecond={this.changeActiveSecond}
             changeActiveThird={this.changeActiveThird}

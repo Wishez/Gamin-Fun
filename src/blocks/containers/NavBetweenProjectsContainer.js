@@ -19,7 +19,7 @@ export default class NavBetweenProjectsContainer extends Component {
 	}
 	render() {
 		return (
-			<div className='projects'>
+			<div className={`projects projects--${this.props.site}`}>
 				<NavBetweenProjects {...this.props}
 					getClasses={this.getClasses}
 				/>

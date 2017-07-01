@@ -19,6 +19,9 @@
 	&--minecraft {
 		background-color: $paleGreen !important;
 	}
+	&--samp {
+		background-color: $blue !important;
+	}
 }
 @import 'userCardInfo/userCardInfo.scss';
 @import 'userCardButtons/userCardButtons.scss';

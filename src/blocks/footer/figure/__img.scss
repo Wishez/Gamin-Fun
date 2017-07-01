@@ -8,4 +8,13 @@
 		background-image: url('../img/minecraft/chicken.png');
 		padding-bottom: (153% / 127 * 100);		
 	}
+	&woman {
+		background-image: url('../img/samp/woman.png');
+		padding-bottom: (212% / 100 * 100);
+		// transform: rotate(-10deg);
+	}
+	&nigga {
+		background-image: url('../img/samp/nigga.png');
+		padding-bottom: (208% / 134 * 100);		
+	}
 }

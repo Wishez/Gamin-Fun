@@ -2,14 +2,13 @@
 	font-size: (14em / 16);
 	&:hover {
 		background-color: transparent !important;
-		color: darken($lightGray, 10%) !important;
-		
+		color: darken($lightGray, 10%) !important;	
 	}
 	&--minecraft {
 		color: $lightGray !important;
 	}
 	&--samp {
-		color: $orange !important;
+		color: lighten($orange, 10%) !important;
 	}
 	&--personalRoom {
 		@extend .floatLeft;

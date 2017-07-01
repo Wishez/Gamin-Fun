@@ -2,10 +2,13 @@
 	position: relative;
 	z-index: 2;
 }
+.header--minecraft, .header--samp {
+	border-bottom: 3px solid;
+}	
 .header--minecraft {
-	background-color: $darkGreen;	
 	min-height: 387px;
-	border-bottom: 2px solid $paleGreen;
+	background-color: $darkGreen;	
+	border-bottom-color: $paleGreen;
 	&::after {
 		content: '';
 		position: absolute;
@@ -18,6 +21,12 @@
 		height: 175px;
 		z-index: -1;
 	}
+}
+
+.header--samp {
+	background-color: $blue;	
+	min-height: 368px;
+	border-bottom-color: $darkBlue;
 }
 
 // Общие классы
