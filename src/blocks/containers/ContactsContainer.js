@@ -3,6 +3,7 @@ import {Container} from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import UserPanelContainer from './UserPanelContainer';
 import Contacts from './../components/Contacts';
+import { changeHeightAwesomeBorder } from './../constants/pureFunctions.js';
 
 export default class ContactsContainer extends Component {
 	static PropTypes = {
@@ -10,6 +11,16 @@ export default class ContactsContainer extends Component {
 		isLogged: PropTypes.bool.isRequired
 	}
 
+	componentDidMount() {
+        console.log('Did mount')
+	    changeHeightAwesomeBorder();
+    }
+
+    componentDidUpdate() {
+       console.log('Did update')
+       changeHeightAwesomeBorder();
+    }
+	
 	render() {
 		return(
 			<div className='contentWrapper'>

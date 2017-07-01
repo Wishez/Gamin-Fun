@@ -4,6 +4,7 @@ import UserPanelContainer from './UserPanelContainer';
 import PropTypes from 'prop-types';
 import Title from './../components/Title';
 import NewsList from './../components/NewsList';
+import { changeHeightAwesomeBorder } from './../constants/pureFunctions.js';
 
 export default class NewsContainer extends Component {
 	static PropTypes = {
@@ -11,7 +12,15 @@ export default class NewsContainer extends Component {
 		isLogged: PropTypes.bool.isRequired
 		// newsList: PropTypes.array.isRequired
 	}
+	componentDidMount() {
+        console.log('Did mount')
+	    changeHeightAwesomeBorder();
+    }
 
+    componentDidUpdate() {
+       console.log('Did update')
+       changeHeightAwesomeBorder();
+    }
 	render() {
 
 		const text = '<p>В теле новости будет размещаться информация для игрока, к примеру, о технических' +

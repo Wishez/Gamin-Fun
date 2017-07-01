@@ -11,6 +11,10 @@ css/ie9.css
 css/main.css
 css/print.css
 css/screen.css
+img/cat.png
+img/favicon.ico
+img/logo.png
+img/logo_main.png
 fonts/fontawesome-webfont.eot
 fonts/fontawesome-webfont.svg
 fonts/fontawesome-webfont.ttf
@@ -25,22 +29,8 @@ fonts/slick.eot
 fonts/slick.svg
 fonts/slick.ttf
 fonts/slick.woff
-img/cat.png
-img/favicon.ico
-img/logo.png
-img/logo_main.png
 js/main.js
 js/main.js.map
-fonts/Tahoma/Tahoma-Bold.eot
-fonts/Tahoma/Tahoma-Bold.otf
-fonts/Tahoma/Tahoma-Bold.svg
-fonts/Tahoma/Tahoma-Bold.ttf
-fonts/Tahoma/Tahoma-Bold.woff
-fonts/Tahoma/Tahoma-Regular.eot
-fonts/Tahoma/Tahoma-Regular.otf
-fonts/Tahoma/Tahoma-Regular.svg
-fonts/Tahoma/Tahoma-Regular.ttf
-fonts/Tahoma/Tahoma-Regular.woff
 img/minecraft/chicken.png
 img/minecraft/decor_contacts.png
 img/minecraft/grass.png
@@ -52,6 +42,16 @@ img/samp/helicopter.png
 img/samp/man.png
 img/samp/Nigga.png
 img/samp/woman.png
+fonts/Tahoma/Tahoma-Bold.eot
+fonts/Tahoma/Tahoma-Bold.otf
+fonts/Tahoma/Tahoma-Bold.svg
+fonts/Tahoma/Tahoma-Bold.ttf
+fonts/Tahoma/Tahoma-Bold.woff
+fonts/Tahoma/Tahoma-Regular.eot
+fonts/Tahoma/Tahoma-Regular.otf
+fonts/Tahoma/Tahoma-Regular.svg
+fonts/Tahoma/Tahoma-Regular.ttf
+fonts/Tahoma/Tahoma-Regular.woff
 
 NETWORK:
 *
@@ -59,4 +59,4 @@ NETWORK:
 SETTINGS:
 prefer-online
 
-# hash: 74a5b532196a9148274619ab846cc716c7c62154d8ec908e92c61e2ff33375a6
+# hash: 21778d2b73a9645038366e65ef692f8d8d517a2294d019b5eb8edc8d97122706

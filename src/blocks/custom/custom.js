@@ -5,11 +5,18 @@ $(window).resize(() => {
         $navList.show('fast');
     else 
       $navList.hide('fast');
-}); 
-
+});
 
 $(function() {
-
+  console.log('loaded');
+  // $(document).on('change', '.contentWrapper', () => {
+  //   consle.log('contentWrapper was changed');
+  //   // let $root = $('#root');
+    
+  // });
+  // const changeHeightAwesomeBorder = () => {
+  //   $('#awesomeBorder').css('height', $('#root').innerHeight());
+  // };
   // $('.header').fadeIn('slow');
   // $('#main').fadeIn('slow');
   // $('footer').fadeIn('slow');

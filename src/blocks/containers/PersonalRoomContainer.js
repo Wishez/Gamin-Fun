@@ -4,7 +4,7 @@ import { SubmissionError } from 'redux-form';
 import UserPanelContainer from './UserPanelContainer';
 import PropTypes from 'prop-types';
 import PersonalRoom from './../components/PersonalRoom';
-
+import { changeHeightAwesomeBorder } from './../constants/pureFunctions.js';
 
 export default class PersonalRoomContainer extends Component {
 	static PropTypes = {
@@ -14,7 +14,15 @@ export default class PersonalRoomContainer extends Component {
 		// message: PropTypes.string.isRequired
 		// registered: PropTypes.bool.isRequired
 	}
+	componentDidMount() {
+        console.log('Did mount')
+	    changeHeightAwesomeBorder();
+    }
 
+    componentDidUpdate() {
+       console.log('Did update')
+       changeHeightAwesomeBorder();
+    }
 	submitChangePassword = (values, dispatch) => {
 		console.log(values);
 	}

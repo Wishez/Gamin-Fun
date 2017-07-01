@@ -3,6 +3,7 @@ import Header from './Header';
 import Footer from './Footer';
 import Main from './Main';
 import { SubmitionError } from 'react-redux';
+// import { changeHeightAwesomeBorder } from './../constants/pureFunctions.js';
 
 // Состояние берётся из redux состояния
 export default class App extends Component {
@@ -14,8 +15,12 @@ export default class App extends Component {
   }
 
 	componentDidMount() {
-		
+		// changeHeightAwesomeBorder();
 	}
+
+  componentDidUpdate() {
+     // changeHeightAwesomeBorder();
+  }
 
   submitLogInForm = (values, dispatch) => {
     console.log(values, 'values'); 
@@ -53,6 +58,8 @@ export default class App extends Component {
     	<div>
       	<Header site={site} 
           changeSite={this.changeSite}/>
+        <div id='awesomeBorder'
+          className='awesomeBorder'></div>
       	<Main site={site} 
           submitLogInForm={this.submitLogInForm}
           isLogged={isLogged}

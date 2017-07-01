@@ -8,6 +8,7 @@ import 'jquery';
 import 'bootstrap-sass';
 import 'babel-polyfill';
 import 'whatwg-fetch';
+// import './../libs/object-watch.js';
 // import './modernizr.min.js';
 //  const mask = require('jquery-mask-plugin'),
 //        jqueryColor = require('jquery-color'),

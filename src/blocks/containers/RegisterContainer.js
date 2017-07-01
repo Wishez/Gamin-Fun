@@ -4,7 +4,7 @@ import { SubmissionError } from 'redux-form';
 import UserPanelContainer from './UserPanelContainer';
 import PropTypes from 'prop-types';
 import Register from './../components/Register';
-
+import { changeHeightAwesomeBorder } from './../constants/pureFunctions.js';
 
 export default class RegisterContainer extends Component {
 	static PropTypes = {
@@ -19,6 +19,16 @@ export default class RegisterContainer extends Component {
 		registered: false,
 		message: ''
 	}
+
+	componentDidMount() {
+        console.log('Did mount')
+	    changeHeightAwesomeBorder();
+    }
+
+    componentDidUpdate() {
+       console.log('Did update')
+       changeHeightAwesomeBorder();
+    }
 	submitRegisterForm = (values, dispatch) => {
 		console.log(values);
 		
