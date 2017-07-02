@@ -13,14 +13,12 @@ const NavBetweenProjects = ({
 			content='Samp'
 			changeSite={() => {
 				changeSite('samp')
-			}}
-			href='#' />
+			}} />
 		<ProjectSwitcher {...rest} 
 			changeSite={() => {
 				changeSite('minecraft')
 			}}
-			content='Minecraft'
-			href='#' />	
+			content='Minecraft' />	
 	</nav>
 );
 

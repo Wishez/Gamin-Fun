@@ -9,7 +9,7 @@ import { text } from './../constants/actionTypes.js';
 export default class App extends Component {
   state = {
     isLogged: false,
-    site: 'samp',
+    site: '',
     login: 'admin',
     password: 'demonstration',
     news: [
@@ -76,19 +76,20 @@ export default class App extends Component {
     const { isLogged, site, news } = this.state;
     return (
     	<div>
-      	<Header site={site} 
-          changeSite={this.changeSite}/>
-
-        <div id='awesomeBorder'
-          className='awesomeBorder'></div>
+        { site ?
+        	<Header site={site} 
+            changeSite={this.changeSite}/> : ''}
+        {site ? <div id='awesomeBorder'
+             className='awesomeBorder'></div> : ''}
 
       	<Main site={site} 
           submitLogInForm={this.submitLogInForm}
           isLogged={isLogged}
           logOut={this.logOut} 
-          news={news} />	
+          news={news} 
+          changeSite={this.changeSite}/>	
 
-      	<Footer site={site} />
+      	{site ? <Footer site={site} /> : ''}
       </div>
     );
   }

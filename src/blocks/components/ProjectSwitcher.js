@@ -1,17 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ProjectSwitcher = ({
 	site,
 	content,
 	getClasses,
-	href,
 	changeSite
 }) => (
-	<a href={href}
+	<Link to={`/${site}`}
 	   className={getClasses(content, site)}
 	   onClick={changeSite}>
 		{content}
-	</a>
+	</Link>
 );
 
 export default ProjectSwitcher;

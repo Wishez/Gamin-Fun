@@ -1,0 +1,8 @@
+.mainPageContentChief__title {
+	font-size: (30em / 16);
+	font-weight: normal;
+	color: inherit !important;
+	@include breakpoint($xxs) {
+		font-size: (21em / 16);
+	}
+}

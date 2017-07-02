@@ -24,7 +24,7 @@ export default class PersonalRoomContainer extends Component {
 			<div className='contentWrapper'>
 				<UserPanelContainer {...this.props} />
 				<Container>
-					<NotFound />
+					<NotFound {...this.props} />
 				</Container>
 			</div>
 		);

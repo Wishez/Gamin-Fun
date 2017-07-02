@@ -1,0 +1,15 @@
+.mainPageBrand {
+	max-width: 575px;
+	@include center-block;
+	width: 	50vw;
+	min-width: 465px;
+	// @include border-rig
+	@include breakpoint($xxs) {
+		min-width:  330px;
+	}
+	@include breakpoint($xxs-iphone) {
+		min-width:  290px;	
+	}	
+}
+
+@import '__img.scss';

@@ -1,0 +1,22 @@
+.mainPageHeader {
+	min-height: 1300px;
+	@include breakpoint($xxs) {
+		min-height: auto;
+	}
+	@include breakpoint($xs) {
+		min-height: auto;
+	 	background: -webkit-linear-gradient(top,  $purple 0%, $purple 50%, lighten($darkGray, 5%) 50%, lighten($darkGray, 5%) 100%);
+	 	padding: 10% 0 20%;
+	}	
+	&::after {
+		top: 0;
+		@include responsive-background($url: '../img/header.png');
+		background-size: 100% 55%;	
+		@include breakpoint($sm) {
+			background-size: 100% 60%;	
+		}
+	}
+}
+
+@import 'mainPageBrand/mainPageBrand.scss';
+@import 'mainPageNav/mainPageNav.scss';

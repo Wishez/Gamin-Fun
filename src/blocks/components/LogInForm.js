@@ -10,7 +10,8 @@ const LogInForm = ({
 	submitLogInForm,
 	account,
 	handleSubmit,
-	error
+	error,
+	site
 }) => (
 	<form id='logInForm'
 		onSubmit={handleSubmit(submitLogInForm.bind(this))}
@@ -35,12 +36,12 @@ const LogInForm = ({
 			 	<Button className='logInFormButtons__button logInFormButtons__button--submit submit' 
 			 	   	content='Войти'
 			 	/>
-			 	<Link to='/registration'
+			 	<Link to={`/${site}/registration`}
 			 		className='logInFormButtons__button logInFormButtons__button--register'>
 			 		Регистрация
 			 	</Link>
 			 </div>
-		 	<Link to='/remember_password'
+		 	<Link to={`/${site}/remember_password`}
 		 		className='logInFormButtons__forgotPass'>
 		 		Забыли пароль?
 		 	</Link>

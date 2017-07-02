@@ -14,15 +14,16 @@ const ChangeEmailForm = ({
 		className='replanishBalanceForm'>
 		<Field component={RenderController}
 			name='newEmail'
-			type='text'
+			type='email'
 			block='changeEmailFormController'
 			validate={[required, email]}
-			placeholder='Старый пароль'
+			placeholder='Новый email'
 		 />
 		 <Field component={RenderController}
 			name='password'
 			type='password'
 			block='changeEmailFormController'
+			validate={[required]}
 			placeholder='Пароль'
 		 />
 	 	<Button content='Сохранить'

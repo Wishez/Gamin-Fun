@@ -36,42 +36,42 @@ const Navigation = ({
           onClick={closeMenu} />
         
         <li className={getActiveClasses(activeFirst, site)}>
-          <Link to='/'
+          <Link to={`/${site}`}
             className={`navItem__refer navItem__refer--${site}`}
             onClick={changeActiveFirst}>
             Главная
           </Link>
         </li>
         <li className={getActiveClasses(activeSecond, site)}>
-          <Link to='/registration'
+          <Link to={`/${site}/registration`}
             className={`navItem__refer navItem__refer--${site}`}
             onClick={changeActiveSecond}>
             Регистрация
           </Link>
         </li>
         <li className={getActiveClasses(activeThird, site)}>
-          <Link to='/download'
+          <Link to={`/${site}/download`}
             className={`navItem__refer navItem__refer--${site}`}
             onClick={changeActiveThird}>
             Скачать
           </Link>
         </li>
         <li className={getActiveClasses(activeFourth, site)}>
-          <Link to='/contacts' 
+          <Link to={`/${site}/contacts`} 
             className={`navItem__refer navItem__refer--${site}`}
             onClick={changeActiveFourth}>
             Контакты
           </Link>
         </li>
         <li className={getActiveClasses(activeFifth, site)}>
-          <Link to='/rules' 
+          <Link to={`/${site}/rules`}
             className={`navItem__refer navItem__refer--${site}`}
             onClick={changeActiveFifth}>
             Правила
           </Link>
         </li>
         <li className={`navItem navItem--${site}`}>
-          <a className={`navItem__refer navItem__refer--${site}`}
+          <a className={`navItem__refer navItem__refer--${site} not-follow`}
             href='#'>
             Форум
           </a>

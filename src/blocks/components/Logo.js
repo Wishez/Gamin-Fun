@@ -2,11 +2,15 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 const Logo = ({
-	site
+	site,
+	changeSite
 }) => (
   <div className={`brand brand--${site}`}>
     <Link to='/' 
-       className='brand__refer'>
+       className='brand__refer'
+       onClick={() => {
+       		changeSite('');
+       }}>
       <figure className='brand__name'></figure>
     </Link>
   </div>

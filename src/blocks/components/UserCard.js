@@ -27,11 +27,11 @@ const UserCard = ({
 			</Card.Description>
 		</Card.Content>
 		<Card.Content className={`userCardButtons userCardButtons--${site}`} >
-			<Link to='/personal_room'
+			<Link to={`/${site}/personal_room`} 
 				className={`userCardButtons__button userCardButtons__button--${site} userCardButtons__button--personalRoom`}>
 				Личный кабинет
 			</Link>
-			<Link to='/'
+			<Link to={`/${site}`}
 				className={`userCardButtons__button userCardButtons__button--${site} userCardButtons__button--logout`}
 				onClick={logOut}>
 				Выход

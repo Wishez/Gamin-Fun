@@ -28,8 +28,12 @@ fonts/slick.woff
 img/cap.jpg
 img/cat.png
 img/favicon.ico
+img/footer.png
+img/header.png
 img/logo.png
 img/logo_main.png
+img/minecraft_icon.png
+img/samp_icon.png
 js/main.js
 js/main.js.map
 fonts/Tahoma/Tahoma-Bold.eot
@@ -61,4 +65,4 @@ NETWORK:
 SETTINGS:
 prefer-online
 
-# hash: 0e62db958bf8903f74511dcff0a04c65c3cefc372da65140873d88a74edb7ebe
+# hash: 5716ccd6f3eb235c858e0ec175b4c9ac26e99807cbde18eefa389fd9aeca9720

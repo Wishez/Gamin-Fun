@@ -1,0 +1,9 @@
+.mainPageNavItem__img-- {
+	&samp {
+		@include responsive-background((528% / 501 * 100),'../img/samp_icon.png');
+	}
+	&minecraft {
+		@include responsive-background((274% / 305 * 100),'../img/minecraft_icon.png');
+		
+	}
+}
