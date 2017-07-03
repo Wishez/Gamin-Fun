@@ -2,6 +2,7 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 from django.utils import timezone
+from datetime import datetime
 
 class MinecraftNews(models.Model):
     title = models.CharField(
@@ -32,7 +33,10 @@ class MinecraftUser(models.Model):
         unique=True
     )
 
-    balance = models.IntegerField(_('Количество кредитов'))
+    balance = models.IntegerField(
+        _('Количество кредитов'),
+        default='0'
+    )
 
     statusOptions = (
         (_('Оплачено'), 'Оплачено'),
@@ -41,11 +45,14 @@ class MinecraftUser(models.Model):
     status = models.CharField(
         _('Статус подписки на сервер'),
         choices=statusOptions,
-        max_length=10
+        max_length=10,
+        default='Не оплачено'
+
     )
     avatar = models.FileField(
         _('Аватар игрока'),
-        upload_to='avatars/users/'
+        upload_to='avatars/users/',
+        default='/media/avatars/users/default_avatar.png'
     )
     active_until = models.DateTimeField(
         _('Дата окончания подписки'),
@@ -57,6 +64,43 @@ class MinecraftUser(models.Model):
         _('Зарегистрировался'),
         auto_now=True
     )
+
+    def subscribe(self, quantity_monthes=0):
+        if quantity_monthes == 6:
+            pass
+        elif quantity_monthes == 12:
+            pass
+        else:
+            if self.creadits >= (quantity_monthes * 150):
+                self.status = 'Оплачено'
+
+                # Расчитай скидку 13% и вычти стоимость из общей суммы баланса пользователя
+                # Сделай рассчёты для всех пользователей - расчёты их времени подписки и кредитов
+                # Для уже оплативших пользователей и новеньких.
+                def getSubscribeTime(self=self):
+                    currActiveTime = self.active_until
+                    year = currActiveTime.year
+                    month = currActiveTime.month
+                    day = currActiveTime.day
+                    hour = currActiveTime.hour
+                    minute = currActiveTime.minute
+
+                    if quantity_monthes == 12:
+                        self.active_until = datetime(year + 1, month, day, hour, minute)
+                    elif quantity_monthes == 6:
+                        pass
+
+                if self.active_until is not None:
+                    pass
+                else:
+                    self.active_until = timezone.now()
+
+
+
+
+
+    #def
+
     def __str__(self):
         return self.user.username
 
