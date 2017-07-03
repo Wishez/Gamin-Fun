@@ -23,7 +23,9 @@ def register(request):
         email = data['email']
         site = data['site']
         # Проверка на существуещего пользователя
-        if User.objcects.all(username=username):
+        if User.objcects.all(username=username) is not None:
+            # Если есть пользователь с таким именем,
+            # возвращается уведомление об этом.
             return HttpResponse(False)
         else:
             # Регистрируется один пользователь
@@ -57,8 +59,6 @@ def register(request):
             user.email_user(subject, message)
             # Возвращается ответ об успешной регистрации.
             return HttpResponse(True)
-
-
 
 def logIn(request):
     if request.method == 'POST':
@@ -140,28 +140,24 @@ def changeEmail(request):
     # Не удалось поменять email
     return HttpResponse(False)
 
-
 def subscribe(request):
     if request.method == 'POST':
         data = request.POST
         # Получаем имя пользователя, пароль и новый email.
-        monthes = data['quantityMonthes']
+        quantity_monthes = data['quantityMonthes']
         username = data['username']
         site = data['site']
 
-        user = MinecraftUser.objects.get(username=username)
-        if site == 'minecraft':
-            MinecraftUser.objects.get(user=user.id)
-
-        if site == 'samp':
-            SampUser.objects.get(user=user.id)
-
 
         user = User.objects.get(username=username)
+        if site == 'minecraft':
+            userSite= MinecraftUser.objects.get(user=user.id)
 
-
-
-
-        return HttpResponse(True)
+        if site == 'samp':
+            userSite=SampUser.objects.get(user=user.id)
+        # Пользователь подписывает и возвращается сообщение об успехе,
+        # либо провале, из-за того, что не хватает денег на счету.
+        # Но также это проверяется на стороне клиента.
+        return HttpResponse(userSite.subscribe(quantity_monthes))
         # Не удалось поменять email
     return HttpResponse(False)
