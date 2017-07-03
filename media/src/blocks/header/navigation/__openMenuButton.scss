@@ -1,0 +1,19 @@
+.navigation__closeMenuButton, .navigation__openMenuButton {
+	position: absolute;
+	color: $lightGray;
+}
+.navigation__openMenuButton {
+  top: 6px;
+  left: 100%;
+  margin-left: calc(-48.5% + -27px);
+  background-color: transparent;
+}
+
+.navigation__closeMenuButton {
+	z-index: -1000;
+	top: 15px;
+	right: 15px;
+	@include breakpoint($xs) {
+		z-index: 0;
+	}
+}
