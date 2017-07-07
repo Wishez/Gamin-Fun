@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Button } from 'semantic-ui-react';
-import crossDomainRequest from './../constants/crossDomainRequest.js';
+import customAjaxRequest from './../constants/ajax.js';
 
 const required = value => value ? undefined : 'Заполните, пожалуйста, это поле, и спасибо',
 	  email = value => value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value) ? 'Неправильный e-mail адрес' : undefined;

@@ -6,6 +6,7 @@ import Title from './../components/Title';
 import SingleNews from './../components/SingleNews';
 import { changeHeightAwesomeBorder } from './../constants/pureFunctions.js';
 import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 class SingleNewsContainer extends Component {
 	static PropTypes = {
@@ -24,17 +25,36 @@ class SingleNewsContainer extends Component {
     }
 	render() {
 		const { newsId } = this.props.match.params;
-		const { news } = this.props;
-		console.log(this.props.match);
+		const { news, site } = this.props;
+		console.log(newsId, 'newsId is matched');
+		console.log(news, 'news from SingleNewsC')
 		return (
 			<div className='contentWrapper'>
 				<UserPanelContainer {...this.props} />
 				<Container>
-					<SingleNews singleNews={news[newsId - 1]} />	
+					<SingleNews site={site}
+						singleNews={news[newsId]} />	
 				</Container>
 			</div>
 		)
 	}
 }
+const mapStateToProps = state => {
+  const { 
+    selectedSite,
+    dataBySite
+  } = state;
 
-export default withRouter(SingleNewsContainer);
+  const {
+    news,
+    isLogged
+  } = dataBySite[selectedSite];
+  
+  return {
+    news,
+    site: selectedSite,
+    isLogged
+  };
+}
+
+export default withRouter(connect(mapStateToProps)(SingleNewsContainer));

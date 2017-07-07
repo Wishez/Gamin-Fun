@@ -87,7 +87,7 @@ WSGI_APPLICATION = 'GamingFun.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'gamingfun',
+        'NAME': 'new',
         'USER': 'gm',
         'PASSWORD': 'demonstration',
         'HOST': '',

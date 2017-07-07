@@ -45,14 +45,14 @@ class MinecraftUser(models.Model):
     status = models.CharField(
         _('Статус подписки на сервер'),
         choices=statusOptions,
-        max_length=10,
+        max_length=30,
         default='Не оплачено'
 
     )
     avatar = models.FileField(
         _('Аватар игрока'),
         upload_to='avatars/users/',
-        default='/media/avatars/users/default_avatar.png'
+        default='avatars/default/default_avatar.jpg'
     )
     active_until = models.DateTimeField(
         _('Дата окончания подписки'),

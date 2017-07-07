@@ -12,12 +12,10 @@ class DownloadContainer extends Component {
 		isLogged: PropTypes.bool.isRequired
 	}
 	componentDidMount() {
-        console.log('Did mount')
 	    changeHeightAwesomeBorder();
     }
 
     componentDidUpdate() {
-       console.log('Did update')
        changeHeightAwesomeBorder();
     }
 	

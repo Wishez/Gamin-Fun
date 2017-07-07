@@ -9,7 +9,7 @@ const Logo = ({
     <Link to='/' 
        className='brand__refer'
        onClick={() => {
-       		changeSite('');
+       		changeSite('main');
        }}>
       <figure className='brand__name'></figure>
     </Link>

@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from minecraft.models import MinecraftUser
@@ -14,16 +14,36 @@ def index(request):
         'index.html',
         {}
     )
-
 def register(request):
     if request.method == 'POST':
+
         data = request.POST
-        username = data['username']
         password = data['password']
+        repeated_password = data['repeatedPassword']
+        # Проверяем тождество паролей, после чего либо работа продолжается,
+        # либо пользователь пойдёт отождествлять пароли.
+        if password != repeated_password:
+            return HttpResponse('Пароли не совпадают')
+        username = data['username']
         email = data['email']
         site = data['site']
+        print(site)
+        isMinecraftSite = site == 'minecraft'
+        isSampSite = site == 'samp'
+
+        print(isSampSite, 'samp site')
+        print(isMinecraftSite, 'minecraft site')
+        # Если регистрация на samp сервер
+        if isSampSite:
+            # То учитываем два дополнительных поля.
+            name = data['name']
+            surname = data['surname']
+            # Возможно игрок с таким именем и фамилией уже существует
+            # в реальной жизни мира San Andreas.
+            if User.objects.filter(first_name__iexact=name).exists() and User.objects.filter(last_name__iexact=surname).exists():
+                return HttpResponse(False)
         # Проверка на существуещего пользователя
-        if User.objcects.all(username=username) is not None:
+        if User.objects.filter(username=username).exists():
             # Если есть пользователь с таким именем,
             # возвращается уведомление об этом.
             return HttpResponse(False)
@@ -31,38 +51,45 @@ def register(request):
             # Регистрируется один пользователь
             user = User(
                 username=username,
-                password=password,
                 email=email
             )
+            user.set_password(password)
 
             # В форме регистрации на samp сервер
             # есть первое и второе имя.
-            if site == 'samp':
-                user.fist_name = data['name']
-                user.last_name = data['surname']
-
+            if isSampSite:
+                user.first_name = name
+                user.last_name = surname
             user.save()
 
             # Создаются аккаунты  для двух игр
-            if site == 'minecraft':
+            print(user, 'it is user')
+            if isMinecraftSite:
                 MinecraftUser(user=user).save()
                 server = 'Minecraft-a'
-
-            if site == 'samp':
+            elif isSampSite:
                 SampUser(user=user).save()
                 server = 'SAMP-a'
+                print('samp user saved')
 
+
+            return HttpResponse(True)
             subject =  'Успешная регистрация'
             message = 'Вы зарегистрировались как — %s на сервере %s нашего проекта.' \
                       'Удачной охоты!' % (username, server)
-            # Посылается сообщение об успехе на почту
-            user.email_user(subject, message)
-            # Возвращается ответ об успешной регистрации.
-            return HttpResponse(True)
 
-def logIn(request):
-    if request.method == 'POST':
-        data = request.POST
+
+            # Посылается сообщение об успехе на почту
+            #user.email_user(subject, message)
+
+            # Возможно отправлю ответ с помощью оперетора yelld или как там его.
+
+            # Возвращается ответ об успешной регистрации.
+        return HttpResponse('')
+
+def log_in(request):
+    if request.method == 'GET':
+        data = request.GET
 
         username = data['username']
         password = data['password']
@@ -72,26 +99,45 @@ def logIn(request):
             username=username,
             password=password
         )
+        print(user , '\nis user')
         if user is not None:
             login(request, user)
             # Буду получать имя сайта, с которого сделан запрос
             site = data['site']
             # Есть ли у переменной user свойство id?
             if site == 'minecraft':
-                userData = MinecraftUser.objects.get(user=user.id)
+                siteUser = MinecraftUser.objects.filter(user=user.id)
 
             if site == 'samp':
-                userData = SampUser.objects.get(user=user.id)
-            # Возвращаются данные пользователе
-            return HttpResponse(userData)
-     # Не удалось залогинисться.
-    return HttpResponse(False)
+                # if SampUser.objects.get(user=user.id).exist
+                siteUser = SampUser.objects.filter(user=user.id)
+            # Если есть аккаунт, то не факт, что пользователь
+            # логинится на нужном сайте. Он, может быть, очень рассееный
+            # или же у него случилось что-то плохое и он решил поиграть
+            # в какую-нибудь игру, чтобы на время уйти из реальности.
+            if siteUser.exists():
+                siteUser = siteUser[0]
+                userData = {
+                    'avatar': siteUser.avatar.url,
+                    'email': siteUser.user.email,
+                    'balance': siteUser.balance,
+                    'status': siteUser.status,
+                    'activeUntil': siteUser.active_until,
+                    'name': siteUser.user.first_name,
+                    'sureface': siteUser.user.last_name
+                }
+                # Возвращаются данные пользователе
 
-def logOut(request):
+                return JsonResponse(userData)
+
+     # Не удалось залогинисться.
+    return HttpResponse('')
+
+def log_out(request):
     logout(request)
     return HttpResponse(True)
 
-def changePassword(request):
+def change_password(request):
     if request.method == 'POST':
         data = request.POST
         # Получаем имя пользователя и пароль,
@@ -115,7 +161,7 @@ def changePassword(request):
     # Не удалось поменять пароль
     return HttpResponse(False)
 
-def changeEmail(request):
+def change_email(request):
     if request.method == 'POST':
         data = request.POST
         # Получаем имя пользователя, пароль и новый email.
@@ -152,12 +198,31 @@ def subscribe(request):
         user = User.objects.get(username=username)
         if site == 'minecraft':
             userSite= MinecraftUser.objects.get(user=user.id)
-
-        if site == 'samp':
+        elif site == 'samp':
             userSite=SampUser.objects.get(user=user.id)
         # Пользователь подписывает и возвращается сообщение об успехе,
         # либо провале, из-за того, что не хватает денег на счету.
         # Но также это проверяется на стороне клиента.
         return HttpResponse(userSite.subscribe(quantity_monthes))
         # Не удалось поменять email
+    return HttpResponse(False)
+
+def replanishBalanace(request):
+    if request.method == 'POST':
+        data = request.POST
+        site = data['site']
+        username = data['username']
+        credits = data['quantityCredits']
+
+        user = User.objects.get(username=username)
+
+        if site == 'minecraft':
+            siteUser = MinecraftUser.objects.get(user=user.id)
+        elif site == 'samp':
+            siteUser = SampUser.objects.get(user=user.id)
+
+        siteUser.replanishBalance(credits)
+
+        return HttpResponse(True)
+
     return HttpResponse(False)

@@ -6,7 +6,8 @@ import ReactHtmlParser from 'react-html-parser';
 import { Link } from 'react-router-dom';
 
 const News = ({
-	news
+	news,
+	site
 }) => (
 	<article className='news'>
 		<Title block='news'
@@ -16,7 +17,7 @@ const News = ({
 		<div className='news__body'> 
 			{ReactHtmlParser(`${news.text.slice(0, 255)}...`)}
 		</div>
-		<Link to={`/news/${news.id}`}
+		<Link to={`/${site}/news/${news.id}`}
 			className='news__nextReading'>
 			Читать полностью
 		</Link>

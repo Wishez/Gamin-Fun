@@ -9,3 +9,12 @@ export const passwordLength = value => value && value.length > 8 ? undefined :
 
 export const password = value => value && /^[a-z0-9_-]{0,30}$/i.test(value) ? undefined :
 	'Вы можете использовать символы "_-", латинские и кириллические буквы А-Яа-яA-Za-z, также цифры 0-9.';
+
+
+export const nameValidation = value => value && /^[a-z]+$/i.test(value) ? undefined :
+	'Используйте латинские буквы верхнего и нижнего регистра — a-zA-Z .';
+
+export const surnameLength = value => value && !(value.length < 2) ? undefined :
+	'Фамилия должна  быть не меньше 2 символов и не больше 25.';
+export const nameLength = value => value && !(value.length < 2) ? undefined :
+	'Имя должно быть не меньше 2символов и не больше 20.';

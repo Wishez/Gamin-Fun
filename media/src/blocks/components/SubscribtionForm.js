@@ -8,6 +8,7 @@ import { subsctibtionOptions } from './../constants/options.js';
 const SubscribtionForm = ({
 	submitSubscribtionForm,
 	handleSubmit,
+	onQuantityMothesChange
 }) => (
 	<form id='subscribtionForm'
 		onSubmit={handleSubmit(submitSubscribtionForm.bind(this))}

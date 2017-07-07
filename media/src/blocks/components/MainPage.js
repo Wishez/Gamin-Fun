@@ -14,7 +14,9 @@ const MainPage = ({
 			<Container>
 				<LinkImage block='mainPageBrand'
 					site=''
-					changeSite={changeSite}
+					changeSite={() => { 
+						changeSite('main');
+					}}
 					modifier='brand'
 				/>
 				<nav className='mainPageNav'>
@@ -50,10 +52,16 @@ const MainPage = ({
 						вам комфортное времяпровождение на серверах 
 						доступных 24 часа в сутки.</p>
 						<p>У каждого мира есть свои правила &mdash; (
-						<Link to='/samp/rules' className='mainPage__refer'>
+						<Link onClick={() => {
+								changeSite('samp');
+							}}
+							to='/samp/rules' className='mainPage__refer'>
 							samp
 						</Link>/
-						<Link to='/minecraft/rules' className='mainPage__refer'>
+						<Link onClick={() => {
+							changeSite('minecraft');
+						}}
+						to='/minecraft/rules' className='mainPage__refer'>
 							minecraft
 						</Link>
 						). Вы можете задавать технические вопросы

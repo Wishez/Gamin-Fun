@@ -1,5 +1,5 @@
 import React, { Component } from 'react'; 
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, Redirect } from 'react-router-dom'
 import FadeIn from 'react-fade-in';
 import NotFoundContainer from './NotFoundContainer';
 import NewsContainer from './NewsContainer';
@@ -91,12 +91,8 @@ const Main = ({
                         isLogged={isLogged} />
                 </FadeIn>
          )} /> : ''}
-    	<Route render={props => (
-            <FadeIn>
-                <NotFoundContainer {...rest}
-                    isLogged={isLogged}
-                    {...props} />
-            </FadeIn>
+    	<Route render={() => (
+           <Redirect to="/" />
         )} />
     </Switch>
   </main>

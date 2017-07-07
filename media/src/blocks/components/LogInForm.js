@@ -10,14 +10,15 @@ const LogInForm = ({
 	submitLogInForm,
 	account,
 	handleSubmit,
-	error,
-	site
+	message,
+	site,
+	isLogining
 }) => (
 	<form id='logInForm'
 		onSubmit={handleSubmit(submitLogInForm.bind(this))}
 		className='logInForm'>
 			<Field component={RenderController}
-				name='login'
+				name='username'
 				type='text'
 				block='logInFormController'
 				validate={[required]}
@@ -32,9 +33,11 @@ const LogInForm = ({
 				placeholder='Пароль/Password'
 				maxLength='75'
 			 />
+		 	{message ? <strong className='logInFormController__error'>{message}</strong> : ''}
 			 <div className='logInFormButtons'>
 			 	<Button className='logInFormButtons__button logInFormButtons__button--submit submit' 
 			 	   	content='Войти'
+			 	   	loading={isLogining}
 			 	/>
 			 	<Link to={`/${site}/registration`}
 			 		className='logInFormButtons__button logInFormButtons__button--register'>
@@ -45,7 +48,6 @@ const LogInForm = ({
 		 		className='logInFormButtons__forgotPass'>
 		 		Забыли пароль?
 		 	</Link>
-		 	{error ? <strong>{error}</strong> : ''}
 		</form>
 );
 

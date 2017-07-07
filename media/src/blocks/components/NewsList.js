@@ -2,12 +2,14 @@ import React from 'react';
 import News from './News.js'
 
 const NewsList = ({
-	newsList
+	newsList,
+	...rest
 }) => (
 	<ul className='newsList'>
-		{newsList.map(news => (
+		{Object.assign([], newsList).map(news => (
 			<li className='newsList__item' key={news.id}>
-				<News news={news} />
+				<News news={news} 
+					{...rest}/>
 			</li>
 		))}
 	</ul>

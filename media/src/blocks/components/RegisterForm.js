@@ -10,29 +10,53 @@ import {
  	loginLength,
  	passwordLength,
  	password,
- 	email
+ 	email,
+ 	nameValidation,
+ 	surnameLength,
+ 	nameLength
 } from './../constants/validation.js';
 
 const RegisterForm = ({
 	submitRegisterForm,
 	account,
 	handleSubmit,
-	registered,
-	message,
+	error,
 	allowRegister,
-	knowRules
+	knowRules,
+	isRegistering,
+	site
 }) => (
 	<form id='registerForm'
 		onSubmit={handleSubmit(submitRegisterForm.bind(this))}
 		className='registerForm'>
+		{error ? <strong className='formError'>{error}</strong> : ''}
 		<Field component={RenderController}
-			name='login'
+			name='username'
 			type='text'
 			block='registerFormController'
 			validate={[required, login, loginLength]}
 			placeholder='Логин/Login'
 			maxLength='24'
 		 />
+		 { site == 'samp' ?
+		 	<Field component={RenderController}
+				name='name'
+				type='text'
+				block='registerFormController'
+				validate={[required, nameValidation]}
+				placeholder='Имя/Name'
+				maxLength='20'
+		 	/> : ''
+		 }
+		 { site == 'samp' ? <Field component={RenderController}
+				name='surname'
+				type='text'
+				block='registerFormController'
+				validate={[required, nameValidation, surnameLength]}
+				placeholder='Фамилия/Surname'
+				maxLength='25'
+		 	/> : ''
+		 }
 		 <Field component={RenderController}
 		 	name='password'
 		 	type='password'
@@ -61,10 +85,11 @@ const RegisterForm = ({
 			 <Checkbox onClick={allowRegister}
 			 	className='registerFormController__check'
 			    label={ReactHtmlParser(
-			 	'Вы ознакомились с <a href="http://localhost:9000/" class="not-follow">правилами</a> проекта')} />
+			 	'Вы ознакомились с <a href=`/${site}/rules/` class="not-follow">правилами</a> проекта')} />
 		 </div>
 		 <div className='registerFormButtons'>
 		 	<Button disabled={!knowRules}
+		 		loading={isRegistering}
 		 		className='registerFormButtons__button registerFormButtons__button--submit submit' 
 		 	   	content='Зарегистрироваться'
 		 	/>

@@ -1,29 +1,34 @@
 import React from 'react';
 import { Card, Icon, Image } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+import { convertDate } from './../constants/pureFunctions.js';
 
 const UserCard = ({
-	user,
+	userData,
 	site,
-	logOut
+	logOut,
+	username
 }) => (
 	<Card className={`userCard userCard--${site}`}>
-		<Image src={user.avatar} 
+		<Image src={userData.avatar}
 			className='userCard__avatar'/>
 		<Card.Content className={`userCardInfo userCardInfo--${site}`}>
 			<Card.Header className={`userCardInfo__name userCardInfo__name--${site}`}>
-				{user.name}
+				{username}
 			</Card.Header>
 			<Card.Meta className={`userCardInfo__status userCardInfo__status--${site}`}>
 				<strong>Статус подписки</strong>
 				<br/>
-				{user.status}
+				{userData.status}
+				<br/>
+				{userData.activeUntil ? 
+					convertDate(userData.activeUntil) : ''}
 			</Card.Meta>
 			<Card.Meta>
 				
 			</Card.Meta>
 			<Card.Description className={`userCardInfo__balance  userCardInfo__balance--${site}`}>
-				{`Баланс: ${user.balance} кредитов`}
+				{`Баланс: ${userData.balance} кредитов`}
 			</Card.Description>
 		</Card.Content>
 		<Card.Content className={`userCardButtons userCardButtons--${site}`} >

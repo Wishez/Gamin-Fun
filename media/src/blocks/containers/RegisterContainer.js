@@ -6,54 +6,37 @@ import PropTypes from 'prop-types';
 import Register from './../components/Register';
 import { changeHeightAwesomeBorder } from './../constants/pureFunctions.js';
 import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { tryRegister } from './../actions/accountActions.js';
 
 class RegisterContainer extends Component {
 	static PropTypes = {
 		site: PropTypes.string.isRequired,
-		isLogged: PropTypes.bool.isRequired
-		// newsList: PropTypes.array.isRequired
-		// message: PropTypes.string.isRequired
-		// registered: PropTypes.bool.isRequired
+		isLogged: PropTypes.bool.isRequired,
+		message: PropTypes.string.isRequired,
+		dispatch: PropTypes.func.isRequired,
+		registered: PropTypes.bool.isRequired,
+		isRegistering: PropTypes.bool.isRequired
 	}
+	// Переменная для чек-бокса.
 	state = {
-		knowRules: false,
-		registered: false,
-		message: ''
+		knowRules: false
 	}
 
 	componentDidMount() {
-        console.log('Did mount')
 	    changeHeightAwesomeBorder();
     }
 
     componentDidUpdate() {
-       console.log('Did update')
        changeHeightAwesomeBorder();
     }
 	submitRegisterForm = (values, dispatch) => {
 		console.log(values);
-		
-		const { 
-			password,
-			repeatedPassword,
-			login,
-			email
-		 } = values;
+		const { site } = this.props;
+		values.site = site;
 
-		if (password !== repeatedPassword) {
-			throw new SubmissionError({ 
-				repeatedPassword: 'Пароли не совпадают',
-				_error: 'Где это будт отображаться?'});
-			this.setState({
-				message: '',
-				registered: false
-			});
-		} else {
-			this.setState({
-				registered: true,
-				message: 'Вы успешно прошли регистрацию'
-			});
-		}
+		dispatch(tryRegister(site, values));
+		
 	}
 
 	allowRegister = () => {
@@ -62,10 +45,9 @@ class RegisterContainer extends Component {
 		});
 	}
 	render() {
-		console.log(...this.state);
 		return (
 			<div className='contentWrapper'>
-				<UserPanelContainer {...this.props} />
+				<UserPanelContainer />
 				<Container>
 					<Register {...this.props}
 						{...this.state}
@@ -78,4 +60,27 @@ class RegisterContainer extends Component {
 	}
 }
 
-export default withRouter(RegisterContainer);
+const mapStateToProps = state => {
+	const { 
+		selectedSite,
+		dataBySite
+	} = state;
+		
+	const { 
+		isLogged,
+		isRegistering,
+		registered,
+		registerMessage
+	} = dataBySite[selectedSite];
+
+
+	return {
+		site: selectedSite,
+		isLogged,
+		isRegistering,
+		registered,
+		message: registerMessage
+	};
+}
+
+export default withRouter(connect(mapStateToProps)(RegisterContainer));
