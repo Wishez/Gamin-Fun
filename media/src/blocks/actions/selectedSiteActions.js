@@ -1,6 +1,11 @@
 import { SELECT_SITE } from './../constants/actionTypes.js';
 
-export const selectSite = site => ({
+const selectSite = site => ({
 	type: SELECT_SITE,
 	filter: site
 });
+
+
+export const changeSite = site => dispatch => {
+   dispatch(selectSite(site));
+}

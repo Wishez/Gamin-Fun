@@ -35,7 +35,6 @@ ALLOWED_HOSTS = [
 INSTALLED_APPS = [
     'grappelli',
     'rest_framework',
-    # 'my_models.apps.MyModelsConfig',
     'api_v0.apps.ApiV0Config',
     'app.apps.AppConfig',
     'minecraft.apps.MinecraftConfig',

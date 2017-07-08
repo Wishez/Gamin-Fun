@@ -11,62 +11,8 @@ import RulesContainer from './../containers/RulesContainer';
 import PersonalRoomContainer from './../containers/PersonalRoomContainer';
 import RecoverPasswordContainer from './../containers/RecoverPasswordContainer';
 import MainPageContainer from './../containers/MainPageContainer';
-// Нужно абстрагировать в компонент, но  это не работает.;c
-// Решу позже.
 import FadeInRoute from './../components/FadeInRoute';
-        // <FadeInRoute exact path='/'
-        //     {...rest}
-        //     isLogged={isLogged}
-        //     component={NewsContainer} 
-        // />        
-// isLogged будет извлекаться из состояния пользователя
-        // <Route exact path='/:site' render={props => (
-        //     <FadeIn>
-        //         <NewsContainer {...rest} 
-        //             {...props}
-        //         />                   
-        //     </FadeIn>
-        // )} />
-        // <Route path='/:site/news/:newsId' render={props => (
-        //     <FadeIn>
-        //         <SingleNewsContainer {...rest} 
-        //             {...props} />
-        //     </FadeIn>
-        // )} />
-        // <Route path='/:site/registration' render={props => (
-        //     <FadeIn>
-        //         <RegisterContainer {...rest}  
-        //             {...props} />
-        //     </FadeIn>
-        // )} />
-        // <Route path='/:site/download' render={props => (
-        //     <FadeIn>
-        //         <DownloadContainer {...rest} 
-        //             {...props} 
-        //              isLogged={isLogged}/>
-        //     </FadeIn>
-        // )} />
-        // <Route path='/:site/contacts' render={props => (
-        //     <FadeIn>
-        //         <ContactsContainer {...rest}
-        //             {...props}
-        //             isLogged={isLogged} />
-        //     </FadeIn>
-        // )} />
-        //  <Route path='/:site/rules' render={props => (
-        //     <FadeIn>
-        //         <RulesContainer {...rest}
-        //         isLogged={isLogged}
-        //         {...props} />
-        //     </FadeIn>
-        // )} />
-        //  <Route path='/:site/personal_room' render={props => (
-             //     <FadeIn>
-             //        <PersonalRoomContainer {...rest}
-             //            {...props} />
-                        
-             //    </FadeIn>
-             // )} /> 
+
 const Main = ({
     ...rest,
     isLogged,

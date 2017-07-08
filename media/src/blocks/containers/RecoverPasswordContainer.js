@@ -32,7 +32,7 @@ class RecoverPasswordContainer extends Component {
 			<div className='contentWrapper'>
 				<UserPanelContainer/>
 				<Container>
-					<ForgotPassword {...this.props}
+					<RecoverPassword {...this.props}
 						submitRecoverPasswordForm={this.submitRecoverPasswordForm}
 					/>
 				</Container>

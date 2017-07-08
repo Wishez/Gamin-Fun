@@ -14,7 +14,8 @@ import {
 } from './../constants/actionTypes.js';
 import customAjaxRequest from './../constants/ajax.js';
 import dataBySite from './../reducers/dataBySite.js';
-/* User
+import { convertDate } from './../constants/pureFunctions.js';
+/* User 
  * 
  * username
  * password
@@ -268,11 +269,15 @@ export const tryChangeAccountEmail = (site, data) => dispatch => {
 
 const subscribe = (
 	site,
-	subscirbeMessage
+	subscribeMessage,
+	userData
 ) => ({
 	type: SUBSCRIBE,
 	site,
-	subscirbeMessage
+	subscribeMessage,
+	userData: {
+		...userData
+	}
 });
 
 
@@ -284,8 +289,15 @@ export const trySubscribeAccount = (site, data) => dispatch => {
 	customAjaxRequest('/subscribe/', data, 'POST');
 	
     return $.ajax({
-		success: (subscirbeMessage) => {
-			dispatch(subscribe(site, subscirbeMessage));
+		success: (data) => {
+			// Копируется сообщение.
+			const subscribeMessage = data.message;
+			// Удаляется сообщение из возвращенных данных, которые будут распляться
+			// в объект userData  - данные об аккаунте пользователя.
+			delete data.message;
+			// Преобразование даты в более читаем формат.
+			data.activeUntil = convertDate(data.activeUntil);
+			dispatch(subscribe(site, subscribeMessage, data));
 		},
 		error: (xhr, errmsg, err) => {
 			dispatch(subscribe(site, 'Внутрянняя ошибка сервера'));

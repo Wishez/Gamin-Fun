@@ -206,8 +206,8 @@ def subscribe(request):
         # Пользователь подписывает и возвращается сообщение об успехе,
         # либо провале, из-за того, что не хватает денег на счету.
         # Но также это проверяется на стороне клиента.
-        return HttpResponse(userSite.subscribe(quantity_monthes))
-        # Не удалось подписаться или продлить подписку на сервер.
+        return JsonResponse(userSite.subscribe(quantity_monthes))
+    # Ошибка сервера?
     return HttpResponse('Не удалось подписаться на сервер')
 
 def replanishBalanace(request):

@@ -2,11 +2,9 @@ import React, { Component } from 'react';
 import Header from './../components/Header';
 import Footer from './../components/Footer';
 import Main from './../components/Main';
-import { SubmitionError } from 'react-redux';
-// import { text } from './../constants/actionTypes.js';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { selectSite } from './../actions/selectedSiteActions.js';
+import { changeSite } from './../actions/selectedSiteActions.js';
 import { withRouter } from 'react-router-dom';
 import { testSuccesRegister } from './../tests/accountTests.js';
 import { tryLogin, logOut } from './../actions/accountActions.js'
@@ -22,19 +20,10 @@ class App extends Component {
     dispatch: PropTypes.func.isRequired
   }
 
-	componentDidMount() {
-    // Tests
-    testSuccesRegister();
-	}
-
-  componentDidUpdate() {
-
-  }
-
   changeSite = site => {
     const { dispatch } = this.props;
 
-    dispatch(selectSite(site));
+    dispatch(changeSite(site));
   }
 
   render() {
@@ -67,7 +56,6 @@ const mapStateToProps = state => {
   const {
     isLogged
   } = dataBySite[selectedSite];
-  console.log('current the state in App\n', state);
 
   return {
     isLogged,

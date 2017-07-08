@@ -1,19 +1,17 @@
 $(window).resize(() => {
 
     let $navList = $('#navList');
-    if (window.innerWidth > 799)
-        $navList.show('fast');
-    else 
+    let $closeMenuButton = $('#closeMenuButton');
+    if (window.innerWidth > 799) {
+      $navList.show('fast');
+      $closeMenuButton.hide();
+    } else  {
       $navList.hide('fast');
+      $closeMenuButton.show();
+    }
 });
 
 $(function() {
-  console.log('loaded');
-  // };
-  // $('.header').fadeIn('slow');
-  // $('#main').fadeIn('slow');
-  // $('footer').fadeIn('slow');
-  $('#closeMenuButton').hide();
 
   $(document).on('click', '.not-follow', openUrlInNewWindow);
 

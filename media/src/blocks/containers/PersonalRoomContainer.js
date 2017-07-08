@@ -7,7 +7,11 @@ import PersonalRoom from './../components/PersonalRoom';
 import { changeHeightAwesomeBorder } from './../constants/pureFunctions.js';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { tryChangeAccountPassword, tryChangeAccountEmail } from './../actions/accountActions.js';
+import { 
+	tryChangeAccountPassword,
+	tryChangeAccountEmail,
+	trySubscribeAccount 
+} from './../actions/accountActions.js';
 
 class PersonalRoomContainer extends Component {
 	static PropTypes = {
@@ -35,7 +39,7 @@ class PersonalRoomContainer extends Component {
     // Функция высшего порядка, принимающая полученные с формы значения(values).
     // dispatch - перенаправление к состоянию и 
     // функцию как действие, вызваемое внутри dispatch.
-	changePasswordOrEmail = (values, dispatch, func) => {
+	executeActionInPersonalRoom = (values, dispatch, func) => {
 		const { username, password, site } = this.props;
 		values.username = username;
 		values.currentPassword = password;
@@ -43,49 +47,43 @@ class PersonalRoomContainer extends Component {
 		dispatch(func(site, values));
 	}
 	submitChangePassword = (values, dispatch) => {
-		this.changePasswordOrEmail(values, dispatch, tryChangeAccountPassword);
-		// const { username, password, site } = this.props;
-		// values.username = username;
-		// values.currentPassword = password;
-
-		// dispatch(tryChangeAccountPassword(site, values));
+		this.executeActionInPersonalRoom(values, dispatch, tryChangeAccountPassword);
 	}
 	submitChangeEmailForm = (values, dispatch) => {
-		this.changePasswordOrEmail(values, dispatch, tryChangeAccountEmail);
-		// const { username, password, site } = this.props;
-		// values.username = username;
-		// values.currentPassword = password;
-
-		// dispatch(tryChangeAccountEmail(site, values));
+		this.executeActionInPersonalRoom(values, dispatch, tryChangeAccountEmail);
 	}
 
 	submitReplanishBalance = (values, dispatch) => {
 	}
 
 	submitSubscribtionForm = (values, dispatch) => {
-		console.log(values);	
+		this.executeActionInPersonalRoom(
+			values,
+		 	dispatch, 
+		 	trySubscribeAccount
+		 )
+
 	}
 
 	onChangeReplanishCost = e => {
 		let target = e.target;
 		let value = target.value;
-		let caseRubles = '';
-		let caseCredits = '';
-		// Если цифра заканчивается от 2 до 4, то устанавливается 
-		// нужный падеж.
-		// const checkValue = value.slice(value.length - 1);
-		// Выбирается падеж.
+		let declinationRubles = '';
+		let declinationCredits = '';
+
+		// Выбирается склонение.
 		if (+value === 1 || !value) {
-			caseRubles = 'рубль';
-			caseCredits = 'кредит'
+			declinationRubles = 'рубль';
+			declinationCredits = 'кредит'
 			value = 1;
 		} else if (value > 1 && value < 5) {
-			caseRubles = 'рубля';
-			caseCredits = 'кредита';
+			declinationRubles = 'рубля';
+			declinationCredits = 'кредита';
 		} else {
-			caseRubles = 'рублей';
-			caseCredits = 'кредитов';
+			declinationRubles = 'рублей';
+			declinationCredits = 'кредитов';
 		}
+
 		// Ограничивает длину строки в целочисленном поле.
 		if (value && value.length > 20) { 
 			// Обновление установленного значения.
@@ -94,7 +92,7 @@ class PersonalRoomContainer extends Component {
 		// Устанавливается состояние сообщеня. Показывает количество кредитов, 
 		// которое получит игрок.
 		this.setState({
-			replanishCost: `${value} ${caseRubles} = ${value} ${caseCredits}`
+			replanishCost: `${value} ${declinationRubles} = ${value} ${declinationCredits}`
 		});
 
 	}

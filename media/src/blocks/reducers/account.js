@@ -111,7 +111,13 @@ const account = (
 		case SUBSCRIBE:
 			return {
 				...state,
-				subscribeMessage: action.subscribeMessage
+				subscribeMessage: action.subscribeMessage,
+				isChanging: false,
+				userData: {
+					...state.userData,
+					...action.userData
+				}
+
 			};
 		case REPLANISH_BALANCE:
 			return {
