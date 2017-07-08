@@ -7,26 +7,18 @@ import { changeHeightAwesomeBorder } from './../constants/pureFunctions.js';
 import { withRouter } from 'react-router-dom';
 
 class RulesContainer extends Component {
-
-	static PropTypes = {
-		site: PropTypes.string.isRequired,
-		isLogged: PropTypes.bool.isRequired
-		// newsList: PropTypes.array.isRequired
-	}
-
 	componentDidMount() {
-        console.log('Did mount')
 	    changeHeightAwesomeBorder();
     }
 
     componentDidUpdate() {
-       console.log('Did update')
+
        changeHeightAwesomeBorder();
     }
 	render() {
 		return (
 			<div className='contentWrapper'>
-				<UserPanelContainer {...this.props}/>
+				<UserPanelContainer />
 				<Container>
 					<Rules />
 				</Container>

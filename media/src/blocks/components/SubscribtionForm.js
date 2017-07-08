@@ -8,7 +8,9 @@ import { subsctibtionOptions } from './../constants/options.js';
 const SubscribtionForm = ({
 	submitSubscribtionForm,
 	handleSubmit,
-	onQuantityMothesChange
+	subscribeMessage,
+	isChanging,
+	onQuantityMonthesChange
 }) => (
 	<form id='subscribtionForm'
 		onSubmit={handleSubmit(submitSubscribtionForm.bind(this))}
@@ -18,8 +20,13 @@ const SubscribtionForm = ({
 			block='subscribtionFormController'
 			placeholder='Количество месяцев'
 			options={subsctibtionOptions}
+			onQuantityMonthesChange={onQuantityMonthesChange}
 		 />
-	 	<Button content='Подписаться'
+		{subscribeMessage ? 
+			<strong className='formError'>{subscribeMessage}</strong> : ''}
+		<br />
+	 	<Button loading={isChanging}
+	 		content='Подписаться'
 	 		className='subscribtionForm__button submit' 
 	 	/>
 	 </form>

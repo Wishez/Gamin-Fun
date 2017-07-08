@@ -68,7 +68,7 @@ const mapStateToProps = state => {
 	return {
 		isLogged,
 		news: news,
-		stie: selectedSite
+		site: selectedSite
 	};
 }
 

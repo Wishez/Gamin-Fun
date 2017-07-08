@@ -1,20 +1,14 @@
-import {Route} from 'react-router-dom';
 import React from 'react';
+import {Route} from 'react-router-dom';
 import FadeIn from 'react-fade-in';
 
-const FadeInRoute  = ({
-	...rest,
-	isLogged,
-	...route,
-	component: Component
-}) => (
-	<Route {...route} render={props => (
-        <FadeIn>
-            <Component {...rest} 
-            	{...props}
-            	isLogged={isLogged} />
-        </FadeIn>
-     )} />
-);
-
+const FadeInRoute = ({ 
+    component: Component, 
+    ...rest }) => (
+  <Route {...rest} render={props => (
+    <FadeIn>
+      <Component {...props}/>
+    </FadeIn>
+  )}/>
+)
 export default FadeInRoute;

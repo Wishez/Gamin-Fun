@@ -8,7 +8,9 @@
  	REPLANISH_BALANCE,
  	REQUEST_LOGIN_IN,
  	REQUEST_REGISTER,
- 	SET_USER_TO_COOKIES
+ 	SET_USER_TO_COOKIES,
+ 	REQUEST_IN_PERSONAL_ROOM,
+ 	SUBSCRIBE
  } from './../constants/actionTypes.js';
 import { cookiesHandler } from './../constants/pureFunctions.js';
 
@@ -17,10 +19,20 @@ export const initAccountState = {
 	password: '',
 	isLogged: false,
 	userData: {},
+	// Обычное message для формы входа.
 	message: '',
+	registerMessage: '',
+	changeEmailMessage: '',
+	changePasswordMessage: '',
+	subscribeMessage: '',
+	replanishBalanceMessage: '',
+	recoverPasswordMessage: '',
 	registered: false,
 	isLogining: false,
-	isRegistering: false
+	isRegistering: false,
+	// Распространяется на все кнопки личного кабинета.
+	// А также присуще кнопке восстановления пароль.
+	isChanging: false
 };
 
 
@@ -67,25 +79,44 @@ const account = (
 				registerMessage: action.registerMessage,
 				isRegistering: false
 			};
+		case REQUEST_IN_PERSONAL_ROOM:
+			return { 
+				...state,
+				isChanging: true
+			};
 		case RECOVER_PASSWORD:
 			return {
 				...state,
-				message: action.message
+				recoverPasswordMessage: action.recoverPasswordMessage,
+				isChanging: false
 			};
 		case CHANGE_EMAIL:
 			return {
 				...state,
 				userData: {
-					...state['userData'],
+					...state.userData,
 					email: action.email
 				},
-				message: action.message
+				changeEmailMessage: action.changeEmailMessage,
+				isChanging: false
+
 			};
 		case CHANGE_PASSWORD:
 			return {
 				...state,
 				password: action.password,
-				message: action.message
+				changePasswordMessage: action.changePasswordMessage,
+				isChanging: false
+			};
+		case SUBSCRIBE:
+			return {
+				...state,
+				subscribeMessage: action.subscribeMessage
+			};
+		case REPLANISH_BALANCE:
+			return {
+				...state,
+				replanishBalanceMessage: action.replanishBalanceMessage
 			};
 		case SET_USER_TO_COOKIES:
 			/* Если пользователь удачно залогинился, то 
@@ -97,7 +128,6 @@ const account = (
 			 * }
 			 * action.type не принимается внутри функции, но также передаётся
 			 * в спецификацию объекта.
-			 * Внутри этой функции есть тесты, их нужно удалить 
 			 */
 			cookiesHandler.setUsernameAndPasswordToCookies({...action});
 

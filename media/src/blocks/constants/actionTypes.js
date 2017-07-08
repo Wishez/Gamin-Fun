@@ -16,12 +16,13 @@ export const RECOVER_PASSWORD = 'RECOVER_PASSWORD';
 export const CHANGE_EMAIL = 'CHANGE_EMAIL';
 export const CHANGE_PASSWORD = 'CHANGE_PASSWORD';
 export const REPLANISH_BALANCE = 'REPLANISH_BALANCE';
+export const SUBSCRIBE = 'SUBSCRIBE';
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
 export const REGISTER = 'REGISTER';
 export const REQUEST_REGISTER = 'REQUEST_REGISTER';
+export const REQUEST_IN_PERSONAL_ROOM = 'REQUEST_IN_PERSONAL_ROOM';
 
-export const CHECK_ACCESS = 'CHECK_ACCESS';
 // Plain text for test. I will remove it.
 export const text = '<p>В теле новости будет размещаться информация для игрока, к примеру, о технических' +
 					  'неполадках сервера. Или же информировать игрока о нововведениях на  сервере.</p>' +

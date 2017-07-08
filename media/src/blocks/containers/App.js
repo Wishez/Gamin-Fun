@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Header from './Header';
-import Footer from './Footer';
-import Main from './Main';
+import Header from './../components/Header';
+import Footer from './../components/Footer';
+import Main from './../components/Main';
 import { SubmitionError } from 'react-redux';
 // import { text } from './../constants/actionTypes.js';
 import PropTypes from 'prop-types';
@@ -35,26 +35,24 @@ class App extends Component {
     const { dispatch } = this.props;
 
     dispatch(selectSite(site));
-    // Сделай функцию, которая меняет даныне при смене сайта
-    dispatch(logOut());
   }
 
   render() {
     const { isLogged, site } = this.props;
-    const isSite = site && site !== 'main';
+    const isNotMainSite = site && site !== 'main';
     return (
     	<div>
-        {isSite ?
+        {isNotMainSite ?
         	<Header site={site} 
             changeSite={this.changeSite}/> : ''}
-        {isSite ? <div id='awesomeBorder'
+        {isNotMainSite ? <div id='awesomeBorder'
              className='awesomeBorder'></div> : ''}
 
       	<Main site={site} 
           isLogged={isLogged}
           changeSite={this.changeSite}/>	
 
-      	{isSite ? <Footer site={site} /> : ''}
+      	{isNotMainSite ? <Footer site={site} /> : ''}
       </div>
     );
   }

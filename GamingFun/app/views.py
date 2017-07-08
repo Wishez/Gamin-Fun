@@ -27,12 +27,11 @@ def register(request):
         username = data['username']
         email = data['email']
         site = data['site']
-        print(site)
+
         isMinecraftSite = site == 'minecraft'
         isSampSite = site == 'samp'
 
-        print(isSampSite, 'samp site')
-        print(isMinecraftSite, 'minecraft site')
+
         # Если регистрация на samp сервер
         if isSampSite:
             # То учитываем два дополнительных поля.
@@ -41,12 +40,12 @@ def register(request):
             # Возможно игрок с таким именем и фамилией уже существует
             # в реальной жизни мира San Andreas.
             if User.objects.filter(first_name__iexact=name).exists() and User.objects.filter(last_name__iexact=surname).exists():
-                return HttpResponse(False)
+                return HttpResponse('Игрок с таким именем и фамилией есть в мире San Andreas')
         # Проверка на существуещего пользователя
         if User.objects.filter(username=username).exists():
             # Если есть пользователь с таким именем,
             # возвращается уведомление об этом.
-            return HttpResponse(False)
+            return HttpResponse('Пользователь с таким именем пользователя уже существует')
         else:
             # Регистрируется один пользователь
             user = User(
@@ -73,7 +72,8 @@ def register(request):
                 print('samp user saved')
 
 
-            return HttpResponse(True)
+            # Возвращается ответ об успешной регистрации.
+            return HttpResponse('Вы успешно прошли регистрацию')
             subject =  'Успешная регистрация'
             message = 'Вы зарегистрировались как — %s на сервере %s нашего проекта.' \
                       'Удачной охоты!' % (username, server)
@@ -84,8 +84,7 @@ def register(request):
 
             # Возможно отправлю ответ с помощью оперетора yelld или как там его.
 
-            # Возвращается ответ об успешной регистрации.
-        return HttpResponse('')
+        return HttpResponse('Что-то пошло не так...')
 
 def log_in(request):
     if request.method == 'GET':
@@ -99,7 +98,7 @@ def log_in(request):
             username=username,
             password=password
         )
-        print(user , '\nis user')
+
         if user is not None:
             login(request, user)
             # Буду получать имя сайта, с которого сделан запрос
@@ -155,9 +154,10 @@ def change_password(request):
             user.set_password(newPassword)
             # Сохраняем изменение.
             user.save()
-
+            return HttpResponse('Пароль был успешно изменён')
+        else:
+            return HttpResponse('Не удалось изменить пароль')
         # Возвращение об успехе изменения пароля
-        return HttpResponse(True)
     # Не удалось поменять пароль
     return HttpResponse(False)
 
@@ -166,6 +166,7 @@ def change_email(request):
         data = request.POST
         # Получаем имя пользователя, пароль и новый email.
         username = data['username']
+
         oldPassword = data['password']
         newEmail = data['newEmail']
 
@@ -174,17 +175,19 @@ def change_email(request):
         # На стороне клиента проходит валидация
         # старого пароля.
         # Но всё же, на всякий случай проверяется сатрый пароль,
-        #  который ввёл пользователь, с текущим.
+        # который ввёл пользователь, с текущим.
         if user is not None and user.check_password(oldPassword):
             # Изменение email-a
             user.email = newEmail
             # Сохранение новых данных пользователя.
             user.save()
-
-        # Возвращение об успехе изменения email-a.
-        return HttpResponse(True)
+            # Возвращение сообщение об успехе изменения email-a.
+            return HttpResponse('Email успешно изменён')
+        else:
+            # Возвращение сообщение об не успехе изменения email-a.
+            return HttpResponse('Не удалось изменить email')
     # Не удалось поменять email
-    return HttpResponse(False)
+    return HttpResponse('Не удалось изменить email.')
 
 def subscribe(request):
     if request.method == 'POST':
@@ -204,8 +207,8 @@ def subscribe(request):
         # либо провале, из-за того, что не хватает денег на счету.
         # Но также это проверяется на стороне клиента.
         return HttpResponse(userSite.subscribe(quantity_monthes))
-        # Не удалось поменять email
-    return HttpResponse(False)
+        # Не удалось подписаться или продлить подписку на сервер.
+    return HttpResponse('Не удалось подписаться на сервер')
 
 def replanishBalanace(request):
     if request.method == 'POST':
@@ -226,3 +229,8 @@ def replanishBalanace(request):
         return HttpResponse(True)
 
     return HttpResponse(False)
+
+def recoverPassword(request):
+    if request.method == 'GET':
+        data = request.GET
+        email = data['email']

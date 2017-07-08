@@ -32,10 +32,7 @@ class UserPanelContainer extends Component {
   	loginInIfMay = () => {
   		const { dispatch, isLogged, site } = this.props;
   		// Функция, возвращающая кэшированные данные пользователя.
-  		const data = {
-  			...cookiesHandler.getUsernameAndPasswordFromCookies(site),
-  			site: site
-  		};
+  		const data = cookiesHandler.getUsernameAndPasswordFromCookies(site);
 
   		// Проверка на уже залогинивщегося в свой аккаунт пользователя
   		// и логинился ли он хоть раз на сайте.
@@ -49,9 +46,7 @@ class UserPanelContainer extends Component {
 	)
 
 	submitLogInForm = (values, dispatch) => {
-
 		const { site } = this.props; 	
-		values.site = site;
 	
 		dispatch(tryLogin(site, values));
 	}
@@ -74,7 +69,7 @@ class UserPanelContainer extends Component {
 					Math.round(Math.random() * 40)
 				} 
 				showStatus={this.showStatus}
-				/>
+			/>
 		);
 	}
 }

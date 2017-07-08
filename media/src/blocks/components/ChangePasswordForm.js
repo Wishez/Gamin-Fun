@@ -11,7 +11,9 @@ import {
 
 const ChangePasswordForm = ({
 	submitChangePassword,
-	handleSubmit
+	handleSubmit,
+	changePasswordMessage,
+	isChanging
 }) => (
 	<form id='сhangePasswordForm'
 		onSubmit={handleSubmit(submitChangePassword.bind(this))}
@@ -22,6 +24,7 @@ const ChangePasswordForm = ({
 			block='сhangePasswordFormController'
 			validate={[required]}
 			placeholder='Старый пароль'
+			maxLength='30'
 		 />
 		 <Field component={RenderController}
 			name='newPassword'
@@ -29,6 +32,7 @@ const ChangePasswordForm = ({
 			block='сhangePasswordFormController'
 			validate={[required, passwordLength, password]}
 			placeholder='Новый пароль'
+			maxLength='30'
 		 />
 		 <Field component={RenderController}
 			name='newPasswordRepeated'
@@ -36,8 +40,13 @@ const ChangePasswordForm = ({
 			block='сhangePasswordFormController'
 			validate={[required]}
 			placeholder='Повторите новый пароль'
+			maxLength='30'
 		 />
-	 	<Button content='Сохранить'
+		{changePasswordMessage ? 
+			<strong className='formError'>{changePasswordMessage}</strong> : ''}
+		<br />
+	 	<Button loading={isChanging}
+	 		content='Сохранить'
 	 		className='сhangePasswordForm__button submit' 
 	 	/>	
 	 </form>

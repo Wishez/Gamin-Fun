@@ -5,7 +5,7 @@ import MainPage from './../components/MainPage';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-export default class MainPageContainer extends Component {
+class MainPageContainer extends Component {
 	static PropTypes = {
 		site: PropTypes.string.isRequired,
 		changeSite: PropTypes.func.isRequired
@@ -21,3 +21,15 @@ export default class MainPageContainer extends Component {
 		);
 	}
 }
+
+const mapStateToProps = state => {
+	const {
+		selectedSite
+	} = state;
+
+	return {
+		site: selectedSite
+	}
+};
+
+export default withRouter(connect(mapStateToProps)(MainPageContainer));

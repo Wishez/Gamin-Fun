@@ -9,13 +9,17 @@ const DropdownController = ({
 		warning
 	},
 	block,
+	onQuantityMonthesChange,
 	...rest
 }) => (
 	<div className={block}>
 		<Dropdown className={`${block}__dropdown`}
 			selection {...input}
 			value={input.value}
-			onChange={(param, data) => input.onChange(data.value)}
+			onChange={(param, data) => { 
+				input.onChange(data.value) ;
+				onQuantityMonthesChange(data.value);
+			}}
 			{...rest}
 		/>
 	</div>

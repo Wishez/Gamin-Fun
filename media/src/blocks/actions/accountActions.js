@@ -8,9 +8,10 @@ import {
  	REPLANISH_BALANCE,
  	REQUEST_LOGIN_IN,
  	REQUEST_REGISTER,
- 	SET_USER_TO_COOKIES
+ 	SET_USER_TO_COOKIES,
+ 	REQUEST_IN_PERSONAL_ROOM,
+ 	SUBSCRIBE
 } from './../constants/actionTypes.js';
-import { SubmissionError } from 'redux-form';
 import customAjaxRequest from './../constants/ajax.js';
 import dataBySite from './../reducers/dataBySite.js';
 /* User
@@ -52,6 +53,7 @@ const loggining = site => ({
 	type: REQUEST_LOGIN_IN,
 	site
 });
+
 // Аргумент data - это логин и пароль 
 // входящего в свой аккаунт пользователя,
 // используещего форму logInForm.
@@ -65,73 +67,50 @@ const setUserToCookies = (
 	password: data.password
 });
 
-
-// Меняет состояние на удачный заход пользователя в аккаунт
-// userData - данные об аккаунте игрока на сайте.
-const showLoginSucces = (site, data, userData, dispatch) => {
-	dispatch(logIn(site, data, userData, true, ''));
-	dispatch(setUserToCookies(site, data))
-};
-
-// Показывает сообщение об неудаче залогиниться.
-const showLoginFailure = (site, dispatch, message) => {
-
-	const data = {
-		username: '',
-		password: ''
-	};
-	// Меняется только сообщение в состояние аккаунта,
-	// не устанавливая не правильно введённый или 
-	// не подходящий логин с паролем.
-	dispatch(logIn(site, data, {}, false, message));	
-};
-
+// Делает запрос на сервер, после изменяет состояние приложения
+// в зависимости от ответа сервера.
 export const tryLogin = (site, data) => dispatch => {
 
-	customAjaxRequest('/log_in/', data, 'GET');
-
 	dispatch(loggining(site));
+	data.site = site;
+
+	customAjaxRequest('/log_in/', data, 'GET');
 
 	return $.ajax({
 		success: (userData) => {
 			if (userData) {
-				showLoginSucces(site, data, userData, dispatch);
+				// Меняет состояние на удачный заход пользователя в аккаунт
+				dispatch(logIn(site, data, userData, true, ''));
+				dispatch(setUserToCookies(site, data))
 			} else {
-				showLoginFailure(site, dispatch);
+				
+				const data = {
+					username: '',
+					password: ''
+				};
+				// Меняется только сообщение в состояние аккаунта,
+				// не устанавливая неправильно введённый или 
+				// не подходящий логин с паролем.
+				dispatch(logIn(site, data, {}, false, 'Не правильный логин или пароль'));	
 			}
 
 		},
 		error: (xhr, errmsg, err) => {
+			const data = {
+				username: '',
+				password: ''
+			};
+
+			dispatch(logIn(site, data, {}, false, 'Внутренняя ошибка сервера'));	
 			console.log('fail\n', err);
 		}
 	});
-	// rp(options)
-	// 	.then(userData => {
-
-	// 		if (userData) {
-	// 			console.log('userData ====>', userData);
-	// 			showLoginSucces(site, data, userData, dispatch);
-	// 		} else {
-	// 			showLoginFailure(site, dispatch, 'Неправильные имя пользователя или пароль');
-	// 		}
-	// 	})
-	// 	.catch(err => {
-	// 		showLoginFailure(site, dispatch, 'Внутрення ошибка сервера');
-	// 		console.log('fail\n', err);
-	// 	});
-
-};
-
-// Функция захода в аккаун, если пользователь залогинился и в кэше остались данные
-const logInIfMay = () => {
-
 };
 
 export const logOut = site => ({
 	type: LOGOUT,
 	site
 });
-
 
 export const register = (
 	site,
@@ -151,53 +130,169 @@ const registering = site => ({
 	site
 });
 
-const showRegisterSucces = (site, dispatch) => {
-	const message = 'Вы успешно прошли регистрацию';
-	console.log('dispatch to register with\n', message, site);
-	dispatch(register(site, true, message));
-	console.log('end');
-};
-
-// Показывает сообщение об неудаче залогиниться.
-const showRegisterFailure = (site, dispatch, registeredResponse) => {
-	// От полученного с сервера сообщени,
-	// зависит сообщнение отображаемое пользователю
-	// при неудачной регистрации.
-	let registrMessage = '';
-	if (registeredResponse === '') {
-		registrMessage = 'Не подходящее имя пользователя';
-	} else if (registeredRespond === 'Пароли не совпадают') {
-		registrMessage = registeredRespond;
-	} else {
-		// Эта ошибка вряд ли появится.
-		registrMessage = registeredResponse
-	}
-
-	dispatch(register(site, false, registrMessage));	
-			
-};
 
 export const tryRegister = (site, data) => dispatch => {
-
+	
 	dispatch(registering(site));
+
+	data.site = site;
 	customAjaxRequest('/register/', data, 'POST');
 	
     return $.ajax({
-		success: (registeredResponse) => {
-			console.log(registeredResponse === 'True', '\nregisteredResponse === \'True\'');
-			// При не совпадение паролей выкидывается ошибка
-			if (registeredResponse === 'True') {
-				console.log('i\'m in success');
-				showRegisterSucces(site, dispatch);
+		success: (registerMessage) => {
+		
+			// Сервер возвращает Вы успешно прошли регистрацию, если пользователь успешно зарегистрировался.
+			// В остальных случаях он возвращает другое сообщение.
+			if (registerMessage === 'Вы успешно прошли регистрацию') {
+				dispatch(register(site, true, registerMessage));
 			} else {
-				showRegisterFailure(site, dispatch, registeredResponse);
+				dispatch(register(site, false, registerMessage));
 			}
 		},
 		error: (xhr, errmsg, err) => {
 			console.log('fail\n', err);
+			dispatch(register(site, false, 'Внутренняя ошибка сервера'));
 		}
 	});
 }
 
 
+const changing = (
+	site
+) => ({
+	type: REQUEST_IN_PERSONAL_ROOM,
+	site
+});
 
+
+const changePassword = (
+	site,
+	changePasswordMessage,
+	password
+) => ({
+	type: CHANGE_PASSWORD,
+	site,
+	changePasswordMessage,
+	password
+});
+
+export const tryChangeAccountPassword = (site, data) => dispatch => {
+	// Показывает обработку изменения пароля
+	dispatch(changing(site));
+	// Не делает запрос на сервер, если текущий пароль введён не правильно.
+	const oldPassword = data.oldPassword;
+	const newPassword = data.newPassword;
+
+	if (data.currentPassword !== oldPassword) {
+		dispatch(changePassword(
+			site, 
+			'Неправильный текущий пароль', 
+			oldPassword
+		));
+		return false;
+	} else if (newPassword !== data.newPasswordRepeated) {
+		// Проверяется совпадение паролей.
+		dispatch(changePassword(
+			site, 
+			'Пароли не совпадают', 
+			oldPassword
+		));
+		return false;
+	} else
+
+	customAjaxRequest('/change_password/', data, 'POST');
+	
+    return $.ajax({
+		success: (changePasswordMessage) => {
+			dispatch(changePassword(
+				site,
+				changePasswordMessage, 
+				newPassword
+			));
+			dispatch(setUserToCookies(
+				site,
+				{
+					username: data.username,
+					password: newPassword
+				}
+			));
+		},
+		error: (xhr, errmsg, err) => {
+			dispatch(changePassword(
+				site,
+			 	'Внутрянняя ошибка сервера',
+			 	oldPassword
+			 ));
+		}
+	});
+};
+
+const changeEmail = (
+	site,
+	changeEmailMessage,
+	email
+) => ({
+	type: CHANGE_EMAIL,
+	site,
+	changeEmailMessage,
+	email
+});
+
+export const tryChangeAccountEmail = (site, data) => dispatch => {
+	dispatch(changing(site));
+	const oldEmail = data.oldEmail;
+	if (data.currentPassword !== data.password) {
+		dispatch(changeEmail(site, 'Неправильный пароль', oldEmail));
+		return false;
+	}
+
+	customAjaxRequest('/change_email/', data, 'POST');
+	
+    return $.ajax({
+		success: (changeEmailMessage) => {
+			dispatch(changeEmail(
+				site, 
+				changeEmailMessage, 
+				data.newEmail
+			));
+		},
+		error: (xhr, errmsg, err) => {
+			dispatch(changeEmail(
+				site, 
+				'Внутрянняя ошибка сервера', 
+				oldEmail
+			));
+		}
+	});
+};
+
+const subscribe = (
+	site,
+	subscirbeMessage
+) => ({
+	type: SUBSCRIBE,
+	site,
+	subscirbeMessage
+});
+
+
+export const trySubscribeAccount = (site, data) => dispatch => {
+	dispatch(changing(site));
+	// Серверному сценарию нужно знать о сайте, с которого идёт запрос.
+	data.site = site;
+
+	customAjaxRequest('/subscribe/', data, 'POST');
+	
+    return $.ajax({
+		success: (subscirbeMessage) => {
+			dispatch(subscribe(site, subscirbeMessage));
+		},
+		error: (xhr, errmsg, err) => {
+			dispatch(subscribe(site, 'Внутрянняя ошибка сервера'));
+		}
+	});
+};
+
+export const tryReplanishAccountBalance = (site, data) => dispatch => {
+
+};

@@ -5,27 +5,25 @@ import UserPanelContainer from './UserPanelContainer';
 import Contacts from './../components/Contacts';
 import { changeHeightAwesomeBorder } from './../constants/pureFunctions.js';
 import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 class ContactsContainer extends Component {
 	static PropTypes = {
-		site: PropTypes.string.isRequired,
-		isLogged: PropTypes.bool.isRequired
+		site: PropTypes.string.isRequired
 	}
 
 	componentDidMount() {
-        console.log('Did mount')
 	    changeHeightAwesomeBorder();
     }
 
     componentDidUpdate() {
-       console.log('Did update')
        changeHeightAwesomeBorder();
     }
 	
 	render() {
 		return(
 			<div className='contentWrapper'>
-				<UserPanelContainer {...this.props} />
+				<UserPanelContainer />
 				<Container>
 					<Contacts {...this.props} />
 				</Container>
@@ -33,5 +31,14 @@ class ContactsContainer extends Component {
 		);
 	}
 }
+const mapStateToProps = state => {
+	const {
+		selectedSite
+	} = state;
 
-export default withRouter(ContactsContainer);
+	return {
+		site: selectedSite
+	}
+};
+
+export default withRouter(connect(mapStateToProps)(ContactsContainer));

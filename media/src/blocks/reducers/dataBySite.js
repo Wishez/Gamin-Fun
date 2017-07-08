@@ -11,7 +11,9 @@ import {
  	REPLANISH_BALANCE,
  	REQUEST_LOGIN_IN,
  	REQUEST_REGISTER,
- 	SET_USER_TO_COOKIES
+ 	SET_USER_TO_COOKIES,
+ 	SUBSCRIBE,
+ 	REQUEST_IN_PERSONAL_ROOM
 } from './../constants/actionTypes.js';
 
 import news, { initNewsState} from './news.js';
@@ -99,7 +101,7 @@ const dataBySite = (
 					...state[site],
 					...account(state[site], action)
 				}
-			}
+			};
 		case REQUEST_REGISTER:
 			return {
 				...state,
@@ -107,7 +109,7 @@ const dataBySite = (
 					...state[site],
 					...account(state[site], action)
 				}
-			}
+			};
 		case REGISTER:
 			return {
 				...state,
@@ -115,7 +117,15 @@ const dataBySite = (
 					...state[site],
 					...account(state[site], action)
 				}
-			}
+			};
+		case REQUEST_IN_PERSONAL_ROOM:
+			return {
+				...state,
+				[site]: {
+					...state[site],
+					...account(state[site], action)
+				}
+			};
 		case RECOVER_PASSWORD:
 			return {
 				...state,
@@ -123,7 +133,7 @@ const dataBySite = (
 					...state[site],
 					...account(state[site], action)
 				}
-			}
+			};
 		case CHANGE_EMAIL:
 			return {
 				...state,
@@ -131,7 +141,7 @@ const dataBySite = (
 					...state[site],
 					...account(state[site], action)
 				}
-			}
+			};
 		case CHANGE_PASSWORD:
 			return {
 				...state,
@@ -139,7 +149,31 @@ const dataBySite = (
 					...state[site],
 					...account(state[site], action)
 				}
-			}
+			};
+		case CHANGE_PASSWORD:
+			return {
+				...state,
+				[site]: {
+					...state[site],
+					...account(state[site], action)
+				}
+			};
+		case SUBSCRIBE:
+			return {
+				...state,
+				[site]: {
+					...state[site],
+					...account(state[site], action)
+				}
+			};
+		case REPLANISH_BALANCE:
+			return {
+				...state,
+				[site]: {
+					...state[site],
+					...account(state[site], action)
+				}
+			};
 		default:
 			return state;
 	} 

@@ -5,7 +5,10 @@ import RenderController from './RenderController';
 
 const ReplanishBalanceForm = ({
 	submitReplanishBalance,
-	handleSubmit
+	handleSubmit,
+	replanishBalanceMessage,
+	isChanging,
+	onChangeReplanishCost
 }) => (
 	<form id='replanishBalanceForm'
 		onSubmit={handleSubmit(submitReplanishBalance.bind(this))}
@@ -17,8 +20,15 @@ const ReplanishBalanceForm = ({
 			max='1000000'
 			block='replanishBalanceFormController'
 			placeholder='Количество кредитов'
+			onChange={onChangeReplanishCost}
+			maxLength='17'
+			id='replanishBalanceInput'
 		 />
-	 	<Button content='Пополнить'
+		{replanishBalanceMessage ? 
+			<strong className='formError'>{replanishBalanceMessage}</strong> : ''}
+		 <br />
+	 	<Button loading={isChanging}
+	 		content='Пополнить'
 	 		className='replanishBalanceForm__button submit' 
 	 	/>	
 	 </form>

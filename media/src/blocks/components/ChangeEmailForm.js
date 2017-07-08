@@ -7,7 +7,9 @@ import { required, email } from './../constants/validation.js';
 
 const ChangeEmailForm = ({
 	submitChangeEmailForm,
-	handleSubmit
+	handleSubmit,
+	changeEmailMessage,
+	isChanging
 }) => (
 	<form id='changeEmailForm'
 		onSubmit={handleSubmit(submitChangeEmailForm.bind(this))}
@@ -18,6 +20,7 @@ const ChangeEmailForm = ({
 			block='changeEmailFormController'
 			validate={[required, email]}
 			placeholder='Новый email'
+			maxLength='100'
 		 />
 		 <Field component={RenderController}
 			name='password'
@@ -25,8 +28,13 @@ const ChangeEmailForm = ({
 			block='changeEmailFormController'
 			validate={[required]}
 			placeholder='Пароль'
+			maxLength='30'
 		 />
-	 	<Button content='Сохранить'
+		{changeEmailMessage ? 
+			<strong className='formError'>{changeEmailMessage}</strong> : ''}
+		<br />
+	 	<Button loading={isChanging}
+	 		content='Сохранить'
 	 		className='changeEmailForm__button submit' 
 	 	/>	
 	 </form>
