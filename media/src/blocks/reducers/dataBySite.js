@@ -13,7 +13,8 @@ import {
  	REQUEST_REGISTER,
  	SET_USER_TO_COOKIES,
  	SUBSCRIBE,
- 	REQUEST_IN_PERSONAL_ROOM
+ 	REQUEST_IN_PERSONAL_ROOM,
+ 	CHANGE_USER_AVATAR
 } from './../constants/actionTypes.js';
 
 import news, { initNewsState} from './news.js';
@@ -167,6 +168,14 @@ const dataBySite = (
 				}
 			};
 		case REPLANISH_BALANCE:
+			return {
+				...state,
+				[site]: {
+					...state[site],
+					...account(state[site], action)
+				}
+			};
+		case CHANGE_USER_AVATAR:
 			return {
 				...state,
 				[site]: {

@@ -12,7 +12,6 @@ $(window).resize(() => {
 });
 
 $(function() {
-
   $(document).on('click', '.not-follow', openUrlInNewWindow);
 
   function openUrlInNewWindow(e) {
@@ -26,5 +25,6 @@ $(function() {
     
     window.open(url);
   }// end openUrlInNewWindow
+  $('#closeMenuButton').hide()
 
 });// end ready

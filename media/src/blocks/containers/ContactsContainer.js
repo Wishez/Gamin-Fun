@@ -6,18 +6,23 @@ import Contacts from './../components/Contacts';
 import { changeHeightAwesomeBorder } from './../constants/pureFunctions.js';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { changeSiteIfNeeded } from './../actions/selectedSiteActions.js';
 
 class ContactsContainer extends Component {
 	static PropTypes = {
-		site: PropTypes.string.isRequired
+		site: PropTypes.string.isRequired,
+		match: PropTypes.object.isRequired,
+		dispatch: PropTypes.func.isRequired
 	}
 
 	componentDidMount() {
+	    changeSiteIfNeeded(this.props);
 	    changeHeightAwesomeBorder();
     }
 
     componentDidUpdate() {
-       changeHeightAwesomeBorder();
+        changeSiteIfNeeded(this.props);
+        changeHeightAwesomeBorder();
     }
 	
 	render() {

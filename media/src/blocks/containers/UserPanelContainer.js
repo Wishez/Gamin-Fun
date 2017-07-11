@@ -3,10 +3,12 @@ import UserPanel from './../components/UserPanel';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { tryLogin, logOut } from './../actions/accountActions.js'
+import { tryLogin, logOut, tryChangeUserAvatar} from './../actions/accountActions.js'
+// tryChangeUserAvatar
 import { initAccountState } from './../reducers/account.js';
-import { cookiesHandler } from './../constants/pureFunctions.js'
-// username, password, isLogged
+import { cookiesHandler } from './../constants/pureFunctions.js';
+
+
 class UserPanelContainer extends Component {
 
 	static PropTypes = {
@@ -58,11 +60,24 @@ class UserPanelContainer extends Component {
 		
 	}
 
-	render() {
+	submitChangeAvatar = (avatars) => {
+		const { username, site, dispatch, userData} = this.props;	
 
+		const data = {
+			"site": site,
+			"username": username,
+			"oldAvatar": userData.avatar,
+			"newAvatar": avatars[0]
+		};
+
+		dispatch(tryChangeUserAvatar(site, data));
+	};
+
+	render() {
 		return (
 			<UserPanel {...this.props}
 				submitLogInForm={this.submitLogInForm}
+				submitChangeAvatar={this.submitChangeAvatar}
 				logOut={this.logOut}
 				totalPeople='40' 
 				amountPeople={

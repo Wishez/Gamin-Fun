@@ -4,10 +4,10 @@ import Footer from './../components/Footer';
 import Main from './../components/Main';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { changeSite } from './../actions/selectedSiteActions.js';
 import { withRouter } from 'react-router-dom';
 import { testSuccesRegister } from './../tests/accountTests.js';
 import { tryLogin, logOut } from './../actions/accountActions.js'
+import { changeSite } from './../actions/selectedSiteActions.js';
 
 // Состояние берётся из redux состояния
 // При загрузки выбранного компонента на сайте,
@@ -19,7 +19,7 @@ class App extends Component {
     isLogged: PropTypes.bool.isRequired,
     dispatch: PropTypes.func.isRequired
   }
-
+  
   changeSite = site => {
     const { dispatch } = this.props;
 

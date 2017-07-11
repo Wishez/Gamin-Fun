@@ -6,6 +6,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from minecraft.models import MinecraftUser
 from samp.models import SampUser
+from django.middleware.csrf import get_token
 # Create your views here.
 
 def index(request):
@@ -30,7 +31,6 @@ def register(request):
 
         isMinecraftSite = site == 'minecraft'
         isSampSite = site == 'samp'
-
 
         # Если регистрация на samp сервер
         if isSampSite:
@@ -62,28 +62,21 @@ def register(request):
             user.save()
 
             # Создаются аккаунты  для двух игр
-            print(user, 'it is user')
             if isMinecraftSite:
                 MinecraftUser(user=user).save()
-                server = 'Minecraft-a'
+                server = 'Minecraft'
             elif isSampSite:
                 SampUser(user=user).save()
-                server = 'SAMP-a'
-                print('samp user saved')
+                server = 'SAMP'
 
 
+            subject =  'Успешная регистрация'
+            message = 'Вы зарегистрировались под логином — %s, на %s сервере нашего проекта.' \
+                      'Удачной охоты!' % (username, server)
+            #user.email_user(subject, message)
             # Возвращается ответ об успешной регистрации.
             return HttpResponse('Вы успешно прошли регистрацию')
-            subject =  'Успешная регистрация'
-            message = 'Вы зарегистрировались как — %s на сервере %s нашего проекта.' \
-                      'Удачной охоты!' % (username, server)
-
-
             # Посылается сообщение об успехе на почту
-            #user.email_user(subject, message)
-
-            # Возможно отправлю ответ с помощью оперетора yelld или как там его.
-
         return HttpResponse('Что-то пошло не так...')
 
 def log_in(request):
@@ -190,6 +183,7 @@ def change_email(request):
     return HttpResponse('Не удалось изменить email.')
 
 def subscribe(request):
+
     if request.method == 'POST':
         data = request.POST
         # Получаем имя пользователя, пароль и новый email.
@@ -200,9 +194,9 @@ def subscribe(request):
 
         user = User.objects.get(username=username)
         if site == 'minecraft':
-            userSite= MinecraftUser.objects.get(user=user.id)
+            userSite = user.minecraftuser
         elif site == 'samp':
-            userSite=SampUser.objects.get(user=user.id)
+            userSite = user.sampuser
         # Пользователь подписывает и возвращается сообщение об успехе,
         # либо провале, из-за того, что не хватает денег на счету.
         # Но также это проверяется на стороне клиента.
@@ -210,7 +204,7 @@ def subscribe(request):
     # Ошибка сервера?
     return HttpResponse('Не удалось подписаться на сервер')
 
-def replanishBalanace(request):
+def replanish_balance(request):
     if request.method == 'POST':
         data = request.POST
         site = data['site']
@@ -230,7 +224,41 @@ def replanishBalanace(request):
 
     return HttpResponse(False)
 
-def recoverPassword(request):
+def recover_password(request):
     if request.method == 'GET':
         data = request.GET
         email = data['email']
+        site = data['site']
+        user = User.objects.get(email=email)
+        if user is not None:
+            newPassword = User.objects.make_random_password()
+            user.set_password(newPassword)
+            #user.email_user('Новый пароль для %s аккаунта' % site, 'Ваш новый пароль %s' % newPassword)
+            return HttpResponse('На почту %s был выслан новый пароль' % email)
+        else:
+            return HttpResponse('Аккаунта с таким email-ом не существует')
+    return HttpResponse('Ошибка' )
+
+def change_user_avatar(request):
+    if request.method == 'POST':
+        data =  request.POST
+        username = data['username']
+        avatar = data['newAvatar']
+        site = data['site']
+
+        user = User.objects.get(username=username)
+
+        if site == 'minecraft':
+            siteUser= user.minecraftuser
+        elif site == 'samp':
+            siteUser = user.sampuser
+
+        siteUser.avatar.save(avatar['name'], avatar)
+        siteUser.save()
+
+        response = {
+            'avatar': siteUser.avatar,
+        }
+
+        return JsonResponse(response)
+    return HttpResponse('Не удалось изменить аватар')

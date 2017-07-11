@@ -31,19 +31,17 @@ const Main = ({
             component={SingleNewsContainer} />
         <FadeInRoute path='/:site/registration'
             component={RegisterContainer} />
-        <FadeInRoute path='/:site/download'
-            component={DownloadContainer} />  
         <FadeInRoute path='/:site/contacts'
             component={ContactsContainer} />
         <FadeInRoute path='/:site/rules'
-            component={RulesContainer} /> 	
+            component={RulesContainer} />   
         {isLogged ?
             <FadeInRoute path='/:site/personal_room'
                 component={PersonalRoomContainer} /> : ''}
         {!isLogged ?
             <FadeInRoute path='/:site/remember_password'
                 component={RecoverPasswordContainer} /> : ''}
-    	<Route render={() => (
+        <Route render={() => (
            <Redirect to="/" />
         )} />
     </Switch>
@@ -51,3 +49,5 @@ const Main = ({
 );
 
 export default Main;
+// <FadeInRoute path='/:site/download'
+//     component={DownloadContainer} />  

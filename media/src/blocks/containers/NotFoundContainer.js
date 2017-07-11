@@ -5,19 +5,25 @@ import PropTypes from 'prop-types';
 import NotFound from './../components/NotFound';
 import { changeHeightAwesomeBorder } from './../constants/pureFunctions.js';
 import { withRouter } from 'react-router-dom';
-
+import { changeSiteIfNeeded } from './../actions/selectedSiteActions.js';
+// match: PropTypes.object.isRequired,
+// 		dispatch: PropTypes.func.isRequired
  class NotFoundContainer extends Component {
 	static PropTypes = {
 		site: PropTypes.string.isRequired,
-		isLogged: PropTypes.bool.isRequired
+		isLogged: PropTypes.bool.isRequired,
+		match: PropTypes.object.isRequired,
+		dispatch: PropTypes.func.isRequired
 	}
 
 	componentDidMount() {
+		changeSiteIfNeeded(this.props);
    	    changeHeightAwesomeBorder();
     }
 
     componentDidUpdate() {
-       changeHeightAwesomeBorder();
+    	changeSiteIfNeeded(this.props);
+        changeHeightAwesomeBorder();
     }
 
 	render() {

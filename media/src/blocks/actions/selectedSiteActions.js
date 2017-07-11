@@ -9,3 +9,21 @@ const selectSite = site => ({
 export const changeSite = site => dispatch => {
    dispatch(selectSite(site));
 }
+
+
+const changeSiteByMatch = props => {
+	const { dispatch, match } = props; 
+	const { site } = match.params;
+	dispatch(changeSite(site));
+
+	return;
+};
+
+export const changeSiteIfNeeded = props => {
+	// Извлекается текузий выбранный сайт.
+	const { site } = props;
+	// Загрузилась  не  главная страница, а стили не изменились
+	// из-за значения выбранного сайта. Устанавливаем стили.
+	if (site === 'mine')
+		return changSiteByMatch(props);	
+};

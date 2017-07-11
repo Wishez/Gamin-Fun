@@ -8,6 +8,7 @@ import NewsList from './../components/NewsList';
 import { changeHeightAwesomeBorder } from './../constants/pureFunctions.js';
 import { withRouter } from 'react-router-dom';
 import { fetchNewsIfNeeded } from './../actions/newsActions.js';
+import { changeSiteIfNeeded } from './../actions/selectedSiteActions.js';
 
 
 class NewsContainer extends Component {
@@ -15,12 +16,13 @@ class NewsContainer extends Component {
 		site: PropTypes.string.isRequired,
 		isLogged: PropTypes.bool.isRequired,
 		news: PropTypes.array.isRequired,
-		dispatch: PropTypes.func.isRequired
+		dispatch: PropTypes.func.isRequired,
+		match: PropTypes.object.isRequired
 	}
 
 	componentDidMount() {
 		const { dispatch, site } = this.props;
-
+		changeSiteIfNeeded(this.props);
 	    changeHeightAwesomeBorder();
 
 		dispatch(fetchNewsIfNeeded(site));

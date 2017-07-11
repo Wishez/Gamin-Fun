@@ -10,7 +10,8 @@
  	REQUEST_REGISTER,
  	SET_USER_TO_COOKIES,
  	REQUEST_IN_PERSONAL_ROOM,
- 	SUBSCRIBE
+ 	SUBSCRIBE,
+ 	CHANGE_USER_AVATAR
  } from './../constants/actionTypes.js';
 import { cookiesHandler } from './../constants/pureFunctions.js';
 
@@ -123,6 +124,14 @@ const account = (
 			return {
 				...state,
 				replanishBalanceMessage: action.replanishBalanceMessage
+			};
+		case CHANGE_USER_AVATAR: 
+			return {
+				...state,
+				userData: {
+					...state.userData,
+					...action.userData
+				}
 			};
 		case SET_USER_TO_COOKIES:
 			/* Если пользователь удачно залогинился, то 

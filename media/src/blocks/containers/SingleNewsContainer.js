@@ -7,27 +7,30 @@ import SingleNews from './../components/SingleNews';
 import { changeHeightAwesomeBorder } from './../constants/pureFunctions.js';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-
+import { changeSiteIfNeeded } from './../actions/selectedSiteActions.js';
+// match: PropTypes.object.isRequired,
+// 		dispatch: PropTypes.func.isRequired
 class SingleNewsContainer extends Component {
 	static PropTypes = {
 		site: PropTypes.string.isRequired,
 		isLogged: PropTypes.bool.isRequired,
 		news: PropTypes.array.isRequired,
-		match: PropTypes.object.isRequired
+		match: PropTypes.object.isRequired,
+		dispatch: PropTypes.func.isRequired
 	}
 	componentDidMount() {
+		changeSiteIfNeeded(this.props);
 	    changeHeightAwesomeBorder();
     }
 
     componentDidUpdate() {
-       
+       changeSiteIfNeeded(this.props);
        changeHeightAwesomeBorder();
     }
 	render() {
 		const { newsId } = this.props.match.params;
 		const { news, site } = this.props;
-		console.log(newsId, 'newsId is matched');
-		console.log(news, 'news from SingleNewsC')
+
 		return (
 			<div className='contentWrapper'>
 				<UserPanelContainer {...this.props} />
@@ -39,6 +42,7 @@ class SingleNewsContainer extends Component {
 		)
 	}
 }
+
 const mapStateToProps = state => {
   const { 
     selectedSite,

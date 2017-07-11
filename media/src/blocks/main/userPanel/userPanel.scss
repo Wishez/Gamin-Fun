@@ -30,7 +30,5 @@
 }
 
 @import 'server/server.scss';
-// If you see it, try to replace name of a folder 'loginFrom' as 'logInForm'
-// and change this path as well. I could not do it.
-@import 'loginFrom/logInForm.scss';
+@import 'logInFrom/logInForm.scss';
 @import 'userCard/userCard.scss';

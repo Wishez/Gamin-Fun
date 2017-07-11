@@ -20,6 +20,7 @@ export const SUBSCRIBE = 'SUBSCRIBE';
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
 export const REGISTER = 'REGISTER';
+export const CHANGE_USER_AVATAR = 'CHANGE_USER_AVATAR';
 export const REQUEST_REGISTER = 'REQUEST_REGISTER';
 export const REQUEST_IN_PERSONAL_ROOM = 'REQUEST_IN_PERSONAL_ROOM';
 

@@ -12,6 +12,7 @@ import {
 	tryChangeAccountEmail,
 	trySubscribeAccount 
 } from './../actions/accountActions.js';
+import { changeSiteIfNeeded } from './../actions/selectedSiteActions.js';
 
 class PersonalRoomContainer extends Component {
 	static PropTypes = {
@@ -22,7 +23,9 @@ class PersonalRoomContainer extends Component {
 		changePasswordMessage: PropTypes.string.isRequired,
 		isChanging: PropTypes.bool.isRequired,
 		username: PropTypes.string.isRequired,
-		password: PropTypes.string.isRequired
+		password: PropTypes.string.isRequired,
+		match: PropTypes.object.isRequired,
+		dispatch: PropTypes.func.isRequired
 	}
 	state =  {
 		subscribeState: '1 месяц = 150 кредитов',
@@ -30,10 +33,12 @@ class PersonalRoomContainer extends Component {
 	};
 
 	componentDidMount() {
+		changeSiteIfNeeded(this.props);
    	    changeHeightAwesomeBorder();
     }
 
     componentDidUpdate() {
+       changeSiteIfNeeded(this.props);
        changeHeightAwesomeBorder();
     }
     // Функция высшего порядка, принимающая полученные с формы значения(values).

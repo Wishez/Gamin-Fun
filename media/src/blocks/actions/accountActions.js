@@ -10,11 +10,13 @@ import {
  	REQUEST_REGISTER,
  	SET_USER_TO_COOKIES,
  	REQUEST_IN_PERSONAL_ROOM,
- 	SUBSCRIBE
+ 	SUBSCRIBE,
+ 	CHANGE_USER_AVATAR
 } from './../constants/actionTypes.js';
 import customAjaxRequest from './../constants/ajax.js';
 import dataBySite from './../reducers/dataBySite.js';
 import { convertDate } from './../constants/pureFunctions.js';
+import request from 'superagent';
 /* User 
  * 
  * username
@@ -289,7 +291,7 @@ export const trySubscribeAccount = (site, data) => dispatch => {
 	customAjaxRequest('/subscribe/', data, 'POST');
 	
     return $.ajax({
-		success: (data) => {
+		success: data => {
 			// Копируется сообщение.
 			const subscribeMessage = data.message;
 			// Удаляется сообщение из возвращенных данных, которые будут распляться
@@ -307,4 +309,66 @@ export const trySubscribeAccount = (site, data) => dispatch => {
 
 export const tryReplanishAccountBalance = (site, data) => dispatch => {
 
+};
+
+const changeUserAvatar = (
+	site, 
+	avatar
+) => ({
+	type: CHANGE_USER_AVATAR,
+	site,
+	userData: {
+		avatar: avatar
+	}
+});
+
+export const tryChangeUserAvatar = (site, data) => dispatch => {
+	
+	customAjaxRequest(
+		'/change_user_avatar/',
+		 data, 'POST',
+		{
+			cache: false,
+        	dataType: 'json',
+        	processData: false, 
+       		 contentType: false
+      });
+
+
+	return $.ajax({
+		success: response => {
+			console.log('success');
+			dispatch(changeUserAvatar(site, response.avatar))
+		},
+		error: (xhr, errmsg, err) => {
+			console.log('err ====>', err);
+			dispatch(changeUserAvatar(site, data.oldAvatar))
+		}
+	});
+};
+
+const recoverPassword = (
+	site,
+	recoverPasswordMessage
+) => ({
+	type: RECOVER_PASSWORD,
+	site,
+	recoverPasswordMessage
+});
+
+export const tryRecoverPassword = (site, data) => dispatch => {
+	dispatch(changing(site));
+	data.site = site;
+
+	customAjaxRequest('/recover_password/', data, 'POST');
+
+	return $.ajax({
+		success: responseMessage => {
+			dispatch(recoverPassword(site, responseMessage));
+		},
+		error: (xhr, errmsg, err) => {
+			dispatch(recoverPassword(site, 'Внутренняя ошибка сервера'));
+			console.log('failure ======>\n', err);
+		}
+	});
 };

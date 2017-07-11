@@ -8,6 +8,8 @@ import { changeHeightAwesomeBorder } from './../constants/pureFunctions.js';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { tryRegister } from './../actions/accountActions.js';
+import { changeSiteIfNeeded } from './../actions/selectedSiteActions.js';
+// match: PropTypes.object.isRequired,
 
 class RegisterContainer extends Component {
 	static PropTypes = {
@@ -16,7 +18,8 @@ class RegisterContainer extends Component {
 		message: PropTypes.string.isRequired,
 		dispatch: PropTypes.func.isRequired,
 		registered: PropTypes.bool.isRequired,
-		isRegistering: PropTypes.bool.isRequired
+		isRegistering: PropTypes.bool.isRequired,
+		match: PropTypes.object.isRequired
 	}
 	// Переменная для чек-бокса.
 	state = {
@@ -24,14 +27,17 @@ class RegisterContainer extends Component {
 	}
 
 	componentDidMount() {
+		changeSiteIfNeeded(this.props);
 	    changeHeightAwesomeBorder();
     }
 
     componentDidUpdate() {
+       changeSiteIfNeeded(this.props);
        changeHeightAwesomeBorder();
     }
+
 	submitRegisterForm = (values, dispatch) => {
-		console.log(values);
+
 		const { site } = this.props;
 		values.site = site;
 

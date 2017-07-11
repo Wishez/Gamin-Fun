@@ -1,4 +1,4 @@
-# -*- encoding: urf-8 -*-
+# -*- encoding: utf-8 -*-
 from django.utils import timezone
 from datetime import datetime
 

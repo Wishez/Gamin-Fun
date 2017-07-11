@@ -2,16 +2,24 @@ import React from 'react';
 import { Card, Icon, Image } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { convertDate } from './../constants/pureFunctions.js';
+import Dropzone from 'react-dropzone';
 
 const UserCard = ({
 	userData,
 	site,
 	logOut,
-	username
+	username,
+	submitChangeAvatar
 }) => (
 	<Card className={`userCard userCard--${site}`}>
 		<Image src={userData.avatar}
 			className='userCard__avatar'/>
+		<div className='changeAvatarZone'>
+			<Dropzone className='changeAvatarZone__zone'
+					onDrop={submitChangeAvatar}>
+					<p>Изменить аватар</p>
+			</Dropzone>
+		</div>
 		<Card.Content className={`userCardInfo userCardInfo--${site}`}>
 			<Card.Header className={`userCardInfo__name userCardInfo__name--${site}`}>
 				{username}

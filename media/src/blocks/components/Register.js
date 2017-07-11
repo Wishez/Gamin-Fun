@@ -16,7 +16,8 @@ const Register = ({
 			<p className='register__message register__message--succes'>
 				{message}
 			</p> :
- 			<RegisterForm {...rest} />
+ 			<RegisterForm registerMessage={message} 
+ 				{...rest} />
 		}
 	</section>
 );

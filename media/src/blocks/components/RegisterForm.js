@@ -24,12 +24,12 @@ const RegisterForm = ({
 	allowRegister,
 	knowRules,
 	isRegistering,
-	site
+	site,
+	registerMessage
 }) => (
 	<form id='registerForm'
 		onSubmit={handleSubmit(submitRegisterForm.bind(this))}
 		className='registerForm'>
-		{error ? <strong className='formError'>{error}</strong> : ''}
 		<Field component={RenderController}
 			name='username'
 			type='text'
@@ -88,6 +88,8 @@ const RegisterForm = ({
 			 	'Вы ознакомились с <a href=`/${site}/rules/` class="not-follow">правилами</a> проекта')} />
 		 </div>
 		 <div className='registerFormButtons'>
+			{registerMessage ? <strong className='formError'>{registerMessage}</strong> : ''}
+			<br />
 		 	<Button disabled={!knowRules}
 		 		loading={isRegistering}
 		 		className='registerFormButtons__button registerFormButtons__button--submit submit' 

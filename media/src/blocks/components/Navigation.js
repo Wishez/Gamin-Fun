@@ -49,13 +49,6 @@ const Navigation = ({
             Регистрация
           </Link>
         </li>
-        <li className={getActiveClasses(activeThird, site)}>
-          <Link to={`/${site}/download`}
-            className={`navItem__refer navItem__refer--${site}`}
-            onClick={changeActiveThird}>
-            Скачать
-          </Link>
-        </li>
         <li className={getActiveClasses(activeFourth, site)}>
           <Link to={`/${site}/contacts`} 
             className={`navItem__refer navItem__refer--${site}`}
@@ -81,3 +74,10 @@ const Navigation = ({
 );
 
 export default Navigation;
+        // <li className={getActiveClasses(activeThird, site)}>
+        //   <Link to={`/${site}/download`}
+        //     className={`navItem__refer navItem__refer--${site}`}
+        //     onClick={changeActiveThird}>
+        //     Скачать
+        //   </Link>
+        // </li>
