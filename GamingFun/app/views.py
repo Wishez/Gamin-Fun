@@ -82,10 +82,11 @@ def register(request):
 def log_in(request):
     if request.method == 'GET':
         data = request.GET
-
+        print('before username')
         username = data['username']
         password = data['password']
-
+        print('after username')
+        print('is username =====>', username)
         user = authenticate(
             request,
             username=username,
@@ -240,10 +241,12 @@ def recover_password(request):
     return HttpResponse('Ошибка' )
 
 def change_user_avatar(request):
-    if request.method == 'POST':
+    if request.method == 'POST' and request.FILES['newAvatar']:
         data =  request.POST
+        avatar = request.FILES['newAvatar']
         username = data['username']
-        avatar = data['newAvatar']
+
+        print(avatar)
         site = data['site']
 
         user = User.objects.get(username=username)
@@ -253,11 +256,11 @@ def change_user_avatar(request):
         elif site == 'samp':
             siteUser = user.sampuser
 
-        siteUser.avatar.save(avatar['name'], avatar)
+        siteUser.avatar.save('user_avatar', avatar)
         siteUser.save()
 
         response = {
-            'avatar': siteUser.avatar,
+            'avatar': siteUser.avatar.url,
         }
 
         return JsonResponse(response)

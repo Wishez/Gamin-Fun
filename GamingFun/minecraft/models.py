@@ -2,7 +2,7 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 from django.utils import timezone
-from app.functions import subscribe, replanishBalance
+from app.functions import subscribe, replanishBalance, user_directory_path
 
 class MinecraftNews(models.Model):
     title = models.CharField(
@@ -24,6 +24,7 @@ class MinecraftNews(models.Model):
     class Meta:
         verbose_name = 'Новость'
         verbose_name_plural = 'Новости'
+
 
 class MinecraftUser(models.Model):
 
@@ -51,7 +52,7 @@ class MinecraftUser(models.Model):
     )
     avatar = models.FileField(
         _('Аватар игрока'),
-        upload_to='avatars/users/',
+        upload_to=user_directory_path,
         default='avatars/default/default_avatar.jpg'
     )
     active_until = models.DateTimeField(

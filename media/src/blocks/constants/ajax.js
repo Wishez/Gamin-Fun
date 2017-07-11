@@ -8,7 +8,13 @@ const crossDomainRequest = (xhr, settings, that) => {
 	}
 };
 
-const customAjaxRequest = (url, data, type, ...rest) => {
+const customAjaxRequest = ({
+	url,
+	data,
+	type,
+	...rest
+}) => {
+	
 	$.ajaxSetup({
 		url: url,
 		type: type,

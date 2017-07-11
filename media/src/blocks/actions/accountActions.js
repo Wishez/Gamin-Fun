@@ -77,8 +77,13 @@ export const tryLogin = (site, data) => dispatch => {
 	dispatch(loggining(site));
 	data.site = site;
 
-	customAjaxRequest('/log_in/', data, 'GET');
-
+	console.log(data);
+	customAjaxRequest({
+		url: '/log_in/',
+		data: data,
+		type: 'GET',
+        processData: true
+	});
 	return $.ajax({
 		success: (userData) => {
 			if (userData) {
@@ -139,8 +144,13 @@ export const tryRegister = (site, data) => dispatch => {
 	dispatch(registering(site));
 
 	data.site = site;
-	customAjaxRequest('/register/', data, 'POST');
-	
+
+	customAjaxRequest({
+		url: '/register/',
+		data: data,
+		type: 'POST'
+	});
+
     return $.ajax({
 		success: (registerMessage) => {
 		
@@ -203,7 +213,11 @@ export const tryChangeAccountPassword = (site, data) => dispatch => {
 		return false;
 	} else
 
-	customAjaxRequest('/change_password/', data, 'POST');
+	customAjaxRequest({
+		url: '/change_password/',
+		data: data,
+		type: 'POST'
+	});
 	
     return $.ajax({
 		success: (changePasswordMessage) => {
@@ -249,7 +263,11 @@ export const tryChangeAccountEmail = (site, data) => dispatch => {
 		return false;
 	}
 
-	customAjaxRequest('/change_email/', data, 'POST');
+	customAjaxRequest({
+		url: '/change_email/',
+		data:data,
+		type: 'POST'
+	});
 	
     return $.ajax({
 		success: (changeEmailMessage) => {
@@ -288,7 +306,11 @@ export const trySubscribeAccount = (site, data) => dispatch => {
 	// Серверному сценарию нужно знать о сайте, с которого идёт запрос.
 	data.site = site;
 
-	customAjaxRequest('/subscribe/', data, 'POST');
+	customAjaxRequest({
+		url: '/subscribe/',
+		data: data,
+		type: 'POST'
+	});
 	
     return $.ajax({
 		success: data => {
@@ -323,16 +345,23 @@ const changeUserAvatar = (
 });
 
 export const tryChangeUserAvatar = (site, data) => dispatch => {
-	
-	customAjaxRequest(
-		'/change_user_avatar/',
-		 data, 'POST',
-		{
-			cache: false,
-        	dataType: 'json',
-        	processData: false, 
-       		 contentType: false
-      });
+	let validData = new FormData();
+	validData.append('site', site);
+	validData.append('username', data.username);
+	validData.append('newAvatar', data.newAvatar);
+
+
+	for (const p of validData) {
+		console.log(p);
+	}
+	customAjaxRequest({
+		url: '/change_user_avatar/',
+		data: validData, 
+		type: 'POST',
+		dataType: 'json',
+        processData: false, 
+       	contentType: false
+    });
 
 
 	return $.ajax({

@@ -62,13 +62,12 @@ class UserPanelContainer extends Component {
 
 	submitChangeAvatar = (avatars) => {
 		const { username, site, dispatch, userData} = this.props;	
-
 		const data = {
-			"site": site,
 			"username": username,
 			"oldAvatar": userData.avatar,
 			"newAvatar": avatars[0]
 		};
+		console.log(data, '=====> submit data');
 
 		dispatch(tryChangeUserAvatar(site, data));
 	};

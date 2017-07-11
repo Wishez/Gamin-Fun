@@ -5,7 +5,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.db import models
 from django.utils import timezone
 
-from app.functions import subscribe, replanishBalance
+from app.functions import subscribe, replanishBalance, user_directory_path
 
 # Create your models here.
 class SampNews(models.Model):
@@ -55,7 +55,7 @@ class SampUser(models.Model):
     )
     avatar = models.FileField(
         _('Аватар игрока'),
-        upload_to='avatars/users/',
+        upload_to=user_directory_path,
         default='avatars/default/default_avatar.jpg'
     )
     active_until = models.DateTimeField(
