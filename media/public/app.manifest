@@ -2,9 +2,6 @@ CACHE MANIFEST
 
 CACHE:
 404.html
-django-404.html
-django-base.html
-django-index.html
 index.html
 css/ie-10-up.css
 css/ie9.css
@@ -36,6 +33,16 @@ img/minecraft_icon.png
 img/samp_icon.png
 js/main.js
 js/main.js.map
+fonts/Tahoma/Tahoma-Bold.eot
+fonts/Tahoma/Tahoma-Bold.otf
+fonts/Tahoma/Tahoma-Bold.svg
+fonts/Tahoma/Tahoma-Bold.ttf
+fonts/Tahoma/Tahoma-Bold.woff
+fonts/Tahoma/Tahoma-Regular.eot
+fonts/Tahoma/Tahoma-Regular.otf
+fonts/Tahoma/Tahoma-Regular.svg
+fonts/Tahoma/Tahoma-Regular.ttf
+fonts/Tahoma/Tahoma-Regular.woff
 img/minecraft/chicken.png
 img/minecraft/decor_contacts.png
 img/minecraft/grass.png
@@ -48,16 +55,6 @@ img/samp/helicopter.png
 img/samp/man.png
 img/samp/nigga.png
 img/samp/woman.png
-fonts/Tahoma/Tahoma-Bold.eot
-fonts/Tahoma/Tahoma-Bold.otf
-fonts/Tahoma/Tahoma-Bold.svg
-fonts/Tahoma/Tahoma-Bold.ttf
-fonts/Tahoma/Tahoma-Bold.woff
-fonts/Tahoma/Tahoma-Regular.eot
-fonts/Tahoma/Tahoma-Regular.otf
-fonts/Tahoma/Tahoma-Regular.svg
-fonts/Tahoma/Tahoma-Regular.ttf
-fonts/Tahoma/Tahoma-Regular.woff
 
 NETWORK:
 *
@@ -65,4 +62,4 @@ NETWORK:
 SETTINGS:
 prefer-online
 
-# hash: c0e58abf168bc6bb34f26519a137d88765a123e6cc3648c66431aca456f19fbd
+# hash: 796c3c22cb593fddf95d0f457a1491af17aa65a0ae523acd48f3dad25c88791f

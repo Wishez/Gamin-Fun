@@ -7,6 +7,7 @@ import { changeHeightAwesomeBorder } from './../constants/pureFunctions.js';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { changeSiteIfNeeded } from './../actions/selectedSiteActions.js';
+import { selectNavigationItem } from './../actions/navigationActions.js';
 
 class ContactsContainer extends Component {
 	static PropTypes = {
@@ -16,6 +17,9 @@ class ContactsContainer extends Component {
 	}
 
 	componentDidMount() {
+		const { dispatch } = this.props;
+
+		dispatch(selectNavigationItem('thirdNavItem'));
 	    changeSiteIfNeeded(this.props);
 	    changeHeightAwesomeBorder();
     }

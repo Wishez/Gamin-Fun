@@ -13,6 +13,9 @@ import {
 	trySubscribeAccount 
 } from './../actions/accountActions.js';
 import { changeSiteIfNeeded } from './../actions/selectedSiteActions.js';
+import { cleanActiveState } from './../actions/navigationActions.js';
+import { sites } from './../constants/actionTypes.js';
+
 
 class PersonalRoomContainer extends Component {
 	static PropTypes = {
@@ -33,11 +36,15 @@ class PersonalRoomContainer extends Component {
 	};
 
 	componentDidMount() {
+		const { dispatch } = this.props;
+		dispatch(cleanActiveState());
 		changeSiteIfNeeded(this.props);
    	    changeHeightAwesomeBorder();
     }
 
     componentDidUpdate() {
+       const { dispatch } = this.props;
+	   dispatch(cleanActiveState());
        changeSiteIfNeeded(this.props);
        changeHeightAwesomeBorder();
     }

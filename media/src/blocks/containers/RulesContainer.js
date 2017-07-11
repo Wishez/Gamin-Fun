@@ -5,9 +5,23 @@ import { Container } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { changeHeightAwesomeBorder } from './../constants/pureFunctions.js';
 import { withRouter } from 'react-router-dom';
+import { selectNavigationItem } from './../actions/navigationActions.js';
+import { connect } from 'react-redux';
+import { changeSiteIfNeeded } from './../actions/selectedSiteActions.js';
 
 class RulesContainer extends Component {
+	static PropTypes = {
+		site: PropTypes.string.isRequired,
+		match: PropTypes.object.isRequired,
+		dispatch: PropTypes.func.isRequired
+	}
+
 	componentDidMount() {
+		const { dispatch } = this.props;
+		dispatch(selectNavigationItem('fourthNavItem'));
+		// В измениние стилей сайта при первой загрузки сайта,
+		// проверяется выбранный сайт.
+		changeSiteIfNeeded(this.props); 
 	    changeHeightAwesomeBorder();
     }
 
@@ -27,4 +41,14 @@ class RulesContainer extends Component {
 	}
 }
 
-export default withRouter(RulesContainer);
+const mapStateToProps = state => {
+	const {
+		selectedSite
+	} = state;
+
+	return {
+		site: selectedSite
+	}
+};
+
+export default withRouter(connect(mapStateToProps)(RulesContainer));

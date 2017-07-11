@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import MainPage from './../components/MainPage';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { sites } from './../constants/actionTypes.js';
 
 class MainPageContainer extends Component {
 	static PropTypes = {
@@ -12,7 +13,7 @@ class MainPageContainer extends Component {
 	}
 
 	componentDidUpdate() {
-		this.props.changeSite('main');
+		this.props.changeSite(sites.main);
 	}
 	
 	render() {

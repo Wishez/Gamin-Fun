@@ -9,7 +9,7 @@ import { changeHeightAwesomeBorder } from './../constants/pureFunctions.js';
 import { withRouter } from 'react-router-dom';
 import { fetchNewsIfNeeded } from './../actions/newsActions.js';
 import { changeSiteIfNeeded } from './../actions/selectedSiteActions.js';
-
+import { selectNavigationItem } from './../actions/navigationActions.js';
 
 class NewsContainer extends Component {
 	static PropTypes = {
@@ -22,13 +22,18 @@ class NewsContainer extends Component {
 
 	componentDidMount() {
 		const { dispatch, site } = this.props;
+
+		dispatch(selectNavigationItem('firstNavItem'));
 		changeSiteIfNeeded(this.props);
 	    changeHeightAwesomeBorder();
-
 		dispatch(fetchNewsIfNeeded(site));
     }
 
     componentDidUpdate() {
+
+		const { dispatch } = this.props;
+
+		dispatch(selectNavigationItem('firstNavItem'));
     	changeHeightAwesomeBorder();
     }
 

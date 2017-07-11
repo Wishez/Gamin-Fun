@@ -23,9 +23,13 @@ export const REGISTER = 'REGISTER';
 export const CHANGE_USER_AVATAR = 'CHANGE_USER_AVATAR';
 export const REQUEST_REGISTER = 'REQUEST_REGISTER';
 export const REQUEST_IN_PERSONAL_ROOM = 'REQUEST_IN_PERSONAL_ROOM';
-
-// Plain text for test. I will remove it.
-export const text = '<p>В теле новости будет размещаться информация для игрока, к примеру, о технических' +
-					  'неполадках сервера. Или же информировать игрока о нововведениях на  сервере.</p>' +
-					  '<p>Новость можно будет расскрывать для того, чтобы ощутить её полный объём. Это' +
-					  ' всего-лишь небольшое интро, интригующее игрока.</p>';
+// navigation constans
+export const SELECT_NAVIGATION_ITEM = 'SELECT_NAVIGATION_ITEM';
+export const CLEAN_ACTIVE_STATE = 'CLEAN_ACTIVE_STATE';
+export const navigationItems = {
+	home: 'Главная',
+	registration: 'Регистрация',
+	contacts: 'Контакты',
+	rules: 'Правила',
+	forum: 'Форум'
+};

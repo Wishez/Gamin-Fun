@@ -8,6 +8,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { tryRecoverPassword} from './../actions/accountActions.js';
 import { changeSiteIfNeeded } from './../actions/selectedSiteActions.js';
+import { cleanActiveState } from './../actions/navigationActions.js';
 
 class RecoverPasswordContainer extends Component {
 	static PropTypes = {
@@ -19,11 +20,17 @@ class RecoverPasswordContainer extends Component {
 	}
 
 	componentDidMount() {
+		const { dispatch } = this.props;
+
+		dispatch(cleanActiveState());
 		changeSiteIfNeeded(this.props);
 	    changeHeightAwesomeBorder();
     }
 
     componentDidUpdate() {
+    	const { dispatch } = this.props;
+
+		dispatch(cleanActiveState());
         changeSiteIfNeeded(this.props);
         changeHeightAwesomeBorder();
     }

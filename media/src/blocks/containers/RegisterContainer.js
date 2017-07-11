@@ -9,7 +9,8 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { tryRegister } from './../actions/accountActions.js';
 import { changeSiteIfNeeded } from './../actions/selectedSiteActions.js';
-// match: PropTypes.object.isRequired,
+import { selectNavigationItem } from './../actions/navigationActions.js';
+
 
 class RegisterContainer extends Component {
 	static PropTypes = {
@@ -27,6 +28,9 @@ class RegisterContainer extends Component {
 	}
 
 	componentDidMount() {
+		const { dispatch } = this.props;
+		
+		dispatch(selectNavigationItem('secondNavItem'));
 		changeSiteIfNeeded(this.props);
 	    changeHeightAwesomeBorder();
     }
