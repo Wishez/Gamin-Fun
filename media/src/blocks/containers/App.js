@@ -22,7 +22,7 @@ class App extends Component {
   
   changeSite = site => {
     const { dispatch } = this.props;
-
+    
     dispatch(changeSite(site));
   }
 

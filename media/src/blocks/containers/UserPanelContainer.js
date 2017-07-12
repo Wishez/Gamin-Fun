@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { tryLogin, logOut, tryChangeUserAvatar} from './../actions/accountActions.js'
 import { initAccountState } from './../reducers/account.js';
 import { cookiesHandler } from './../constants/pureFunctions.js';
-
+import { tryGetServerStatus } from './../actions/serverStatusActions.js';
 
 class UserPanelContainer extends Component {
 
@@ -18,12 +18,18 @@ class UserPanelContainer extends Component {
 	    password: PropTypes.string.isRequired,
 	    message: PropTypes.string.isRequired,
 	    userData: PropTypes.object.isRequred,
-	    isLogining: PropTypes.bool.isRequired
+	    isLogining: PropTypes.bool.isRequired,
+	    amountPeople: PropTypes.number.isRequired,
+		totalPeople: PropTypes.number.isRequired,
+		nameServer: PropTypes.string.isRequired,
+		onlineStatus: PropTypes.bool.isRequired
   	}
 
 
   	componentDidMount() {
+  		const { site, dispatch } = this.props;
   		this.loginInIfMay();
+  		dispatch(tryGetServerStatus(site));
   	}
 
   	componentDidUpdate() {
@@ -76,10 +82,6 @@ class UserPanelContainer extends Component {
 				submitLogInForm={this.submitLogInForm}
 				submitChangeAvatar={this.submitChangeAvatar}
 				logOut={this.logOut}
-				totalPeople='40' 
-				amountPeople={
-					Math.round(Math.random() * 40)
-				} 
 				showStatus={this.showStatus}
 			/>
 		);
@@ -99,9 +101,16 @@ const mapStateToProps = state => {
     password,
     message,
     userData,
-	isLogining
+	isLogining,
+	serverData
   } = dataBySite[selectedSite];
-
+	
+  const {
+	amountPeople,
+	totalPeople,
+	nameServer,
+	onlineStatus
+  } = serverData;
 
   return {
     isLogged,
@@ -110,7 +119,11 @@ const mapStateToProps = state => {
     password,
     message,
     userData,
-    isLogining
+    isLogining,
+    amountPeople,
+	totalPeople,
+	nameServer,
+	onlineStatus
   };
 }
 

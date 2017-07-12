@@ -33,3 +33,6 @@ export const navigationItems = {
 	rules: 'Правила',
 	forum: 'Форум'
 };
+
+// Server Status constants.
+export const SET_SERVER_STATUS = 'SET_SERVER_STATUS';

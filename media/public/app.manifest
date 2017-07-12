@@ -3,11 +3,6 @@ CACHE MANIFEST
 CACHE:
 404.html
 index.html
-css/ie-10-up.css
-css/ie9.css
-css/main.css
-css/print.css
-css/screen.css
 fonts/fontawesome-webfont.eot
 fonts/fontawesome-webfont.svg
 fonts/fontawesome-webfont.ttf
@@ -22,11 +17,17 @@ fonts/slick.eot
 fonts/slick.svg
 fonts/slick.ttf
 fonts/slick.woff
+css/ie-10-up.css
+css/ie9.css
+css/main.css
+css/print.css
+css/screen.css
 img/cap.jpg
 img/cat.png
 img/favicon.ico
 img/footer.png
 img/header.png
+img/in_process.jpg
 img/logo.png
 img/logo_main.png
 img/minecraft_icon.png
@@ -62,4 +63,4 @@ NETWORK:
 SETTINGS:
 prefer-online
 
-# hash: 796c3c22cb593fddf95d0f457a1491af17aa65a0ae523acd48f3dad25c88791f
+# hash: c08e90fcfe7e12be30bc95be8d941f9707a39a96440603fbd52d686f9f41f7fa

@@ -14,26 +14,26 @@ import {
  	SET_USER_TO_COOKIES,
  	SUBSCRIBE,
  	REQUEST_IN_PERSONAL_ROOM,
- 	CHANGE_USER_AVATAR
+ 	CHANGE_USER_AVATAR,
+ 	SET_SERVER_STATUS
 } from './../constants/actionTypes.js';
 
 import news, { initNewsState} from './news.js';
 import account, { initAccountState } from './account.js';
-
+import serverStatus, { initServerStatusState } from './serverStatus.js';
 
 // Expilcit better than implicit.
 export const initState = {
-	'main': {
-		...initAccountState,
-		...initNewsState
-	},
+	'main': {},
 	'minecraft': {
 		...initAccountState,
-		...initNewsState
+		...initNewsState,
+		...initServerStatusState
 	},
 	'samp': {
 		...initAccountState,
-		...initNewsState
+		...initNewsState,
+		...initServerStatusState
 	}
 };
 
@@ -181,6 +181,14 @@ const dataBySite = (
 				[site]: {
 					...state[site],
 					...account(state[site], action)
+				}
+			};
+		case SET_SERVER_STATUS:
+			return {
+				...state,
+				[site]: {
+					...state[site],
+					...serverStatus(state[site], action)
 				}
 			};
 		default:

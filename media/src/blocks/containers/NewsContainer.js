@@ -28,7 +28,7 @@ class NewsContainer extends Component {
 		const { dispatch, site } = this.props;
 
 		changeSiteIfNeeded(this.props);
-		console.log('did mount');
+		
 		dispatch(selectNavigationItem('firstNavItem'));
 		dispatch(fetchNewsIfNeeded(site));
 		this.customViewComponent();

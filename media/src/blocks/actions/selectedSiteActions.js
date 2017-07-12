@@ -26,3 +26,4 @@ export const changeSiteIfNeeded = props => {
 	if (site !== 'mine')
 		return changeSiteByMatch(props);	
 };
+
