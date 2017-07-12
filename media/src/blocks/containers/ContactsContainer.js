@@ -18,7 +18,6 @@ class ContactsContainer extends Component {
 
 	componentDidMount() {
 		const { dispatch } = this.props;
-
 		dispatch(selectNavigationItem('thirdNavItem'));
 	    changeSiteIfNeeded(this.props);
 	    changeHeightAwesomeBorder();

@@ -19,29 +19,36 @@ class NewsContainer extends Component {
 		dispatch: PropTypes.func.isRequired,
 		match: PropTypes.object.isRequired
 	}
+	customViewComponent = () => {
+		const { dispatch, site } = this.props;
 
+	    changeHeightAwesomeBorder();
+	}
 	componentDidMount() {
 		const { dispatch, site } = this.props;
 
-		dispatch(selectNavigationItem('firstNavItem'));
 		changeSiteIfNeeded(this.props);
-	    changeHeightAwesomeBorder();
+		console.log('did mount');
+		dispatch(selectNavigationItem('firstNavItem'));
 		dispatch(fetchNewsIfNeeded(site));
+		this.customViewComponent();
     }
 
     componentDidUpdate() {
-
-		const { dispatch } = this.props;
-
-		dispatch(selectNavigationItem('firstNavItem'));
-    	changeHeightAwesomeBorder();
+		
+		changeHeightAwesomeBorder();
     }
 
     componentWillReceiveProps(nextProps) {
-    	if (nextProps.site !== this.props.site) {
-    		const { dispatch, site } = this.props;
-    		dispatch(fetchNewsIfNeeded(site));
-    	}
+ 		
+ 		const nextSite = nextProps.site;
+ 		// При переключение с сайта на сайт, обновляет новости
+ 		if (this.props.site !== nextSite) {
+			const { dispatch } = this.props;
+
+			dispatch(fetchNewsIfNeeded(nextSite));
+		}
+    
     }
 	render() {
 		const { news, site } = this.props;

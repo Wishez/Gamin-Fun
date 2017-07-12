@@ -16,7 +16,6 @@ const changeSiteByMatch = props => {
 	const { site } = match.params;
 	dispatch(changeSite(site));
 
-	return;
 };
 
 export const changeSiteIfNeeded = props => {
@@ -24,6 +23,6 @@ export const changeSiteIfNeeded = props => {
 	const { site } = props;
 	// Загрузилась  не  главная страница, а стили не изменились
 	// из-за значения выбранного сайта. Устанавливаем стили.
-	if (site === 'mine')
-		return changSiteByMatch(props);	
+	if (site !== 'mine')
+		return changeSiteByMatch(props);	
 };
