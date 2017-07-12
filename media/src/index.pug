@@ -1,5 +1,5 @@
 doctype
-html.no-js(lang="ru", manifest='./app.manifest')
+html.no-js(lang="ru", manifest='/media/public/app.manifest')
   head
     meta(charset="UTF-8")
     meta(
@@ -16,24 +16,24 @@ html.no-js(lang="ru", manifest='./app.manifest')
         href="/media/public/img/favicon.ico"
     )
     title Gaming Fun
+    script(src='https://www.google.com/recaptcha/api.js')
   body
     #root
       
 
-    script(async, src="./js/main.js")
+    script(async, src="/media/public/js/main.js")
     link(rel="stylesheet",
          href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css",
          media='none',
          onload='if (media == "none") media = "all"'
     )
-    //- /media/public/
     link(
       rel="stylesheet",
-      href="./css/main.css",
+      href="/media/public/css/main.css",
       media='none',
       onload='if (media == "none") media = "all"'
     ) 
-    //- /media/public/
+
     link(
       rel="stylesheet",
       href="/media/public/css/ie-10-up.css",

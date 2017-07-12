@@ -135,3 +135,6 @@ STATIC_URL = '/static/'
 STATIC_ROOT = 'E:/Dropbox/Dropbox/djangoProjects/GamingFun/static'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = 'E:/Dropbox/Dropbox/djangoProjects/GamingFun/media'
+
+# CSRF
+CSRF_USE_SESSIONS = True

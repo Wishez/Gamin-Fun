@@ -9,7 +9,7 @@ const RecoverPassword = ({
 		<Title block='forgotPassword' 
 			text='Восстановление пароля'
 		/>
-		<ForgotPasswordForm {...rest} />
+		<RecoverPasswordForm {...rest} />
 	</section>
 ); 
 

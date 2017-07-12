@@ -52,11 +52,11 @@ const mapStateToProps = state => {
     selectedSite,
     dataBySite
   } = state;
+  console.log('current state ======>\n', state)
 
   const {
     isLogged
   } = dataBySite[selectedSite];
-
   return {
     isLogged,
     site : selectedSite

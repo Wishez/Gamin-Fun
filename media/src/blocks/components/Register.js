@@ -3,9 +3,9 @@ import Title from './Title';
 import RegisterForm from './RegisterForm';
 
 const Register = ({
-	...rest,
 	registered,
-	message
+	message,
+	...rest
 }) => (
 	<section className='register'>
 

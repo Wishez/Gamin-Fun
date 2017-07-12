@@ -1,0 +1,5 @@
+.listRules {
+	& > li {
+		@extend .prettyTopMargin;
+	}
+}

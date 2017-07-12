@@ -6,12 +6,11 @@ import NotFound from './../components/NotFound';
 import { changeHeightAwesomeBorder } from './../constants/pureFunctions.js';
 import { withRouter } from 'react-router-dom';
 import { changeSiteIfNeeded } from './../actions/selectedSiteActions.js';
-// match: PropTypes.object.isRequired,
-// 		dispatch: PropTypes.func.isRequired
+import { connect } from 'react-redux';
+
  class NotFoundContainer extends Component {
 	static PropTypes = {
 		site: PropTypes.string.isRequired,
-		isLogged: PropTypes.bool.isRequired,
 		match: PropTypes.object.isRequired,
 		dispatch: PropTypes.func.isRequired
 	}
@@ -29,13 +28,19 @@ import { changeSiteIfNeeded } from './../actions/selectedSiteActions.js';
 	render() {
 		return (
 			<div className='contentWrapper'>
-				<UserPanelContainer {...this.props} />
+				<UserPanelContainer />
 				<Container>
-					<NotFound {...this.props} />
+					<NotFound {...this.props}/>
 				</Container>
 			</div>
 		);
 	}
 }
+const mapStateToProps = state => {
+	const { selectedSite } = state;
+	return {
+		site: selectedSite
+	};
+}
 
-export default withRouter(NotFoundContainer);
+export default withRouter(connect(mapStateToProps)(NotFoundContainer));

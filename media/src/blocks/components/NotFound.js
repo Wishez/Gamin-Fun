@@ -1,13 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Image } from 'semantic-ui-react';
-const NotFound = ({site}) => (	
+
+const NotFound = ({ site }) => (	
 	<div className='notFound'>
-		<h3 className='text-center notFound'>
-			На этой странице ничего нет. 
-		</h3>
+		<h1 className='text-center notFound'>
+			В разработке&hellip;
+		</h1>
 		<Image className='notFound__img'
-			src='./../img/cap.jpg' />
+			src='/media/public/img/in_process.jpg' />
 		<Link to={`/${site}`}>На главную</Link>
 	</div>
 );

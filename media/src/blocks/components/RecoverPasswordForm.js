@@ -18,9 +18,9 @@ const RecoverPasswordFrom = ({
 			block='forgotPasswordFormController'
 			placeholder='Ваш email'
 		 />
-		 <br />
 		 {recoverPasswordMessage ? 
 			<strong className='formError'>{recoverPasswordMessage}</strong> : ''}
+		 <br />
 	 	<Button content='Восстановить пароль'
 	 		className='forgotPasswordForm__button submit' 
 	 	/>	

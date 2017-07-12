@@ -1,3 +1,5 @@
+# -*- encoding: utf-8 -*-
+
 # Create your models here.
 from django.utils.translation import ugettext_lazy as _
 from django.db import models

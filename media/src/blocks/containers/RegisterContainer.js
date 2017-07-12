@@ -49,7 +49,7 @@ class RegisterContainer extends Component {
 		
 	}
 
-	allowRegister = () => {
+	allowRegister = e => {
 		this.setState({
 			knowRules: !this.state.knowRules
 		});

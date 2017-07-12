@@ -67,11 +67,14 @@ const Navigation = ({
             {fourthNavItem.name}
           </Link>
         </li>
-        <li className={`navItem navItem--${site}`}>
-          <a className={`navItem__refer navItem__refer--${site} not-follow`}
-            href='#'>
+        <li className={getActiveClasses(fifthNavItem.active, site)}>
+          <Link to={`/${site}/forum`}
+             className={`navItem__refer navItem__refer--${site}`}
+             onClick={() => {
+              changeActiveNavigationItem('fifthNavItem');
+          }}>
             {fifthNavItem.name}
-          </a>
+          </Link>
         </li>
       </ul>
     </nav>
@@ -85,3 +88,4 @@ export default Navigation;
         //     Скачать
         //   </Link>
         // </li>
+        // <a

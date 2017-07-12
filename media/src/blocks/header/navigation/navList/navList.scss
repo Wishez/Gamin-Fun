@@ -5,13 +5,15 @@
     width: 100%;
     float: none;
   }
+  @include breakpoint($xs-up) {
+    display: flex !important;
+  }
   @include breakpoint($xs) {
     display: none;
     position: fixed;
     top: 0;
     left: 0;
     height: 100%;
-    // height: calc(100% - 44px);
     background-color: $darkGray;
     width: 100%;
     margin: 0;

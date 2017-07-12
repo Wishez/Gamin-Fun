@@ -6,7 +6,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from minecraft.models import MinecraftUser
 from samp.models import SampUser
-from django.middleware.csrf import get_token
+from django.views.decorators.cache import cache_page
+from django.views.decorators.csrf import csrf_exempt, csrf_protect
 # Create your views here.
 
 def index(request):
@@ -15,7 +16,11 @@ def index(request):
         'index.html',
         {}
     )
+
+@cache_page(60 * 15)
+@csrf_exempt
 def register(request):
+
     if request.method == 'POST':
 
         data = request.POST
@@ -46,6 +51,8 @@ def register(request):
             # Если есть пользователь с таким именем,
             # возвращается уведомление об этом.
             return HttpResponse('Пользователь с таким именем пользователя уже существует')
+        elif User.objects.filter(email=email).exists():
+            return HttpResponse('Пользователь с таким email-ом уже существует')
         else:
             # Регистрируется один пользователь
             user = User(
@@ -82,11 +89,10 @@ def register(request):
 def log_in(request):
     if request.method == 'GET':
         data = request.GET
-        print('before username')
+
         username = data['username']
         password = data['password']
-        print('after username')
-        print('is username =====>', username)
+
         user = authenticate(
             request,
             username=username,
@@ -225,21 +231,29 @@ def replanish_balance(request):
 
     return HttpResponse(False)
 
+@cache_page(60 * 15)
+@csrf_exempt
 def recover_password(request):
-    if request.method == 'GET':
-        data = request.GET
+    if request.method == 'POST':
+        data = request.POST
         email = data['email']
         site = data['site']
-        user = User.objects.get(email=email)
-        if user is not None:
+        if User.objects.filter(email=email).exists():
             newPassword = User.objects.make_random_password()
+            user = User.objects.get(email=email)
+
             user.set_password(newPassword)
-            #user.email_user('Новый пароль для %s аккаунта' % site, 'Ваш новый пароль %s' % newPassword)
+            subj = 'Новый пароль для %s аккаунта' % site
+            message = 'Ваш новый пароль %s' % newPassword
+            # from: support@gamingfun.ru
+            # to: have gotten email
+            #user.email_user(subj, message)
             return HttpResponse('На почту %s был выслан новый пароль' % email)
         else:
             return HttpResponse('Аккаунта с таким email-ом не существует')
     return HttpResponse('Ошибка' )
 
+@csrf_exempt
 def change_user_avatar(request):
     if request.method == 'POST' and request.FILES['newAvatar']:
         data =  request.POST

@@ -77,12 +77,12 @@ export const tryLogin = (site, data) => dispatch => {
 	dispatch(loggining(site));
 	data.site = site;
 
-	console.log(data);
 	customAjaxRequest({
 		url: '/log_in/',
 		data: data,
 		type: 'GET',
-        processData: true
+        processData: true,
+        cache: true
 	});
 	return $.ajax({
 		success: (userData) => {
@@ -148,7 +148,9 @@ export const tryRegister = (site, data) => dispatch => {
 	customAjaxRequest({
 		url: '/register/',
 		data: data,
-		type: 'POST'
+		type: 'POST',
+		processData: true,
+		cache: true
 	});
 
     return $.ajax({
@@ -216,7 +218,8 @@ export const tryChangeAccountPassword = (site, data) => dispatch => {
 	customAjaxRequest({
 		url: '/change_password/',
 		data: data,
-		type: 'POST'
+		type: 'POST',
+		cache: true
 	});
 	
     return $.ajax({
@@ -265,8 +268,9 @@ export const tryChangeAccountEmail = (site, data) => dispatch => {
 
 	customAjaxRequest({
 		url: '/change_email/',
-		data:data,
-		type: 'POST'
+		data: data,
+		type: 'POST',
+		cache: true
 	});
 	
     return $.ajax({
@@ -309,7 +313,9 @@ export const trySubscribeAccount = (site, data) => dispatch => {
 	customAjaxRequest({
 		url: '/subscribe/',
 		data: data,
-		type: 'POST'
+		type: 'POST',
+		processData: true,
+		cache: true
 	});
 	
     return $.ajax({
@@ -350,10 +356,6 @@ export const tryChangeUserAvatar = (site, data) => dispatch => {
 	validData.append('username', data.username);
 	validData.append('newAvatar', data.newAvatar);
 
-
-	for (const p of validData) {
-		console.log(p);
-	}
 	customAjaxRequest({
 		url: '/change_user_avatar/',
 		data: validData, 
@@ -366,7 +368,6 @@ export const tryChangeUserAvatar = (site, data) => dispatch => {
 
 	return $.ajax({
 		success: response => {
-			console.log('success');
 			dispatch(changeUserAvatar(site, response.avatar))
 		},
 		error: (xhr, errmsg, err) => {
@@ -389,7 +390,12 @@ export const tryRecoverPassword = (site, data) => dispatch => {
 	dispatch(changing(site));
 	data.site = site;
 
-	customAjaxRequest('/recover_password/', data, 'POST');
+	customAjaxRequest({
+		url: '/recover_password/',
+		data: data,
+		type: 'POST',
+		processData: true
+	});
 
 	return $.ajax({
 		success: responseMessage => {

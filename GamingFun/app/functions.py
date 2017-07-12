@@ -3,7 +3,7 @@ from django.utils import timezone
 from datetime import datetime
 def user_directory_path(instance, filename):
     # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
-    return 'avatars/user_{0}/{1}'.format(instance.user.id, filename)
+    return 'avatar/user_{0}/{1}'.format(instance.user.id, filename)
 
 # Функция пополнения баланса
 def replanishBalance(self, credits):
@@ -92,9 +92,9 @@ def subscribe(self, quantity_monthes=0):
         self.save()
         # Сохраняются измённые данные.
         response['message'] = message
-        # response['activeUntil'] = self.active_until
-        # response['status'] = self.status
-        # response['balance'] = self.balance
+        response['activeUntil'] = self.active_until
+        response['status'] = self.status
+        response['balance'] = self.balance
 
         # Транзакция прошла успешно.
         return(response)

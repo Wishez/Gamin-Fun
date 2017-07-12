@@ -9,10 +9,14 @@ import { sites } from './../constants/actionTypes.js';
 class MainPageContainer extends Component {
 	static PropTypes = {
 		site: PropTypes.string.isRequired,
-		changeSite: PropTypes.func.isRequired
+		changeSite: PropTypes.func.isRequired,
+		dispatch: PropTypes.func.isRequired
 	}
-
+	componentDidMount() {
+		this.props.changeSite(sites.main);
+	}
 	componentDidUpdate() {
+
 		this.props.changeSite(sites.main);
 	}
 	

@@ -1,13 +1,10 @@
 $(window).resize(() => {
 
     let $navList = $('#navList');
-    let $closeMenuButton = $('#closeMenuButton');
     if (window.innerWidth > 799) {
       $navList.show('fast');
-      $closeMenuButton.hide();
     } else  {
       $navList.hide('fast');
-      $closeMenuButton.show();
     }
 });
 
@@ -25,6 +22,5 @@ $(function() {
     
     window.open(url);
   }// end openUrlInNewWindow
-  $('#closeMenuButton').hide()
 
 });// end ready

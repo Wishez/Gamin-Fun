@@ -15,12 +15,12 @@ import {
  	surnameLength,
  	nameLength
 } from './../constants/validation.js';
+import Recaptcha from 'react-recaptcha';
 
 const RegisterForm = ({
 	submitRegisterForm,
 	account,
 	handleSubmit,
-	error,
 	allowRegister,
 	knowRules,
 	isRegistering,
@@ -81,12 +81,19 @@ const RegisterForm = ({
 			placeholder='Email'
 			maxLength='100'
 		 />
+		 
 		 <div className='registerFormController'>
 			 <Checkbox onClick={allowRegister}
 			 	className='registerFormController__check'
 			    label={ReactHtmlParser(
 			 	'Вы ознакомились с <a href=`/${site}/rules/` class="not-follow">правилами</a> проекта')} />
-		 </div>
+		 </div> 
+	 	<Recaptcha 
+	 		sitekey='6Lf2rigUAAAAAEb88AaevLR7gTwGhmUb5sQBOoMZ'
+	 		style={{
+	 			'marginTop': '1em'
+	 		}}
+	 	/>
 		 <div className='registerFormButtons'>
 			{registerMessage ? <strong className='formError'>{registerMessage}</strong> : ''}
 			<br />

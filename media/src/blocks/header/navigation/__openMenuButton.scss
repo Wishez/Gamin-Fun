@@ -10,10 +10,10 @@
 }
 
 .navigation__closeMenuButton {
-	z-index: -1000;
 	top: 15px;
 	right: 15px;
+	display: none !important;
 	@include breakpoint($xs) {
-		z-index: 0;
+		display: block !important;
 	}
 }
