@@ -35,8 +35,6 @@ const Main = ({
             component={ContactsContainer} />
         <FadeInRoute path='/:site/rules'
             component={RulesContainer} />   
-        <FadeInRoute path='/:site/forum'
-            component={NotFoundContainer} />  
         {isLogged ?
             <FadeInRoute path='/:site/personal_room'
                 component={PersonalRoomContainer} /> : ''}
@@ -51,5 +49,8 @@ const Main = ({
 );
 
 export default Main;
+// Add component if it is needed.
+// <FadeInRoute path='/:site/forum'
+//     component={NotFoundContainer} />  
 // <FadeInRoute path='/:site/download'
 //     component={DownloadContainer} />  

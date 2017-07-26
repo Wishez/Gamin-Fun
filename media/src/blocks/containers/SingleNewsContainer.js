@@ -8,8 +8,7 @@ import { changeHeightAwesomeBorder } from './../constants/pureFunctions.js';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { changeSiteIfNeeded } from './../actions/selectedSiteActions.js';
-// match: PropTypes.object.isRequired,
-// 		dispatch: PropTypes.func.isRequired
+
 class SingleNewsContainer extends Component {
 	static PropTypes = {
 		site: PropTypes.string.isRequired,

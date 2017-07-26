@@ -68,24 +68,14 @@ const Navigation = ({
           </Link>
         </li>
         <li className={getActiveClasses(fifthNavItem.active, site)}>
-          <Link to={`/${site}/forum`}
-             className={`navItem__refer navItem__refer--${site}`}
-             onClick={() => {
-              changeActiveNavigationItem('fifthNavItem');
-          }}>
+          <a href={site == 'minecraft' ? 
+            'https://minecraft-forum.gamingfun.ru' :
+            'https://samp-forum.gamingfun.ru'}>
             {fifthNavItem.name}
-          </Link>
+          </a>
         </li>
       </ul>
     </nav>
 );
 
 export default Navigation;
-        // <li className={getActiveClasses(activeThird, site)}>
-        //   <Link to={`/${site}/download`}
-        //     className={`navItem__refer navItem__refer--${site}`}
-        //     onClick={changeActiveThird}>
-        //     Скачать
-        //   </Link>
-        // </li>
-        // <a

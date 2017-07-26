@@ -29,7 +29,7 @@ class UserPanelContainer extends Component {
   	componentDidMount() {
   		const { site, dispatch } = this.props;
   		this.loginInIfMay();
-  		dispatch(tryGetServerStatus(site));
+  		//dispatch(tryGetServerStatus(site));
   	}
 
   	componentDidUpdate() {
@@ -120,8 +120,8 @@ const mapStateToProps = state => {
     message,
     userData,
     isLogining,
-    amountPeople,
-	totalPeople,
+    amountPeople: 0,
+	totalPeople: 40,
 	nameServer,
 	onlineStatus
   };

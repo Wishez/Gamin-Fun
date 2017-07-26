@@ -3,6 +3,11 @@ CACHE MANIFEST
 CACHE:
 404.html
 index.html
+css/ie-10-up.css
+css/ie9.css
+css/main.css
+css/print.css
+css/screen.css
 fonts/fontawesome-webfont.eot
 fonts/fontawesome-webfont.svg
 fonts/fontawesome-webfont.ttf
@@ -17,11 +22,6 @@ fonts/slick.eot
 fonts/slick.svg
 fonts/slick.ttf
 fonts/slick.woff
-css/ie-10-up.css
-css/ie9.css
-css/main.css
-css/print.css
-css/screen.css
 img/cap.jpg
 img/cat.png
 img/favicon.ico
@@ -63,4 +63,4 @@ NETWORK:
 SETTINGS:
 prefer-online
 
-# hash: c08e90fcfe7e12be30bc95be8d941f9707a39a96440603fbd52d686f9f41f7fa
+# hash: 62bd8301e6700989ce4a736b2008411ce2bddcf7dc850976cca6206d96eb35df
