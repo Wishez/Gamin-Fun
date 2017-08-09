@@ -1,0 +1,8 @@
+.logInFormButtons {
+	position: relative;
+	@extend .prettyTopMargin;
+	@include susy-clearfix;
+}
+
+@import '__button.scss';
+@import '__forgotPass.scss';

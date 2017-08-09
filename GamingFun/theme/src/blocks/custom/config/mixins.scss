@@ -1,0 +1,111 @@
+@mixin round() {
+  border-radius: 50%;
+}
+@mixin xs-center-text() {
+  @include breakpoint($xs) {
+    text-align: center;
+    display: block;
+    width: span(12);
+  } 
+}
+
+@mixin multy-background($url, $color, $padding-bottom, $max-height) {
+  background-image: url("#{$url}");
+  
+  max-height: #{$max-height};
+  padding-bottom: #{$padding-bottom};
+  &::after {
+    background-color: #{$color};
+  }
+}
+.center-block {
+   margin-left: auto !important;
+   margin-right: auto !important;
+   display: block;
+}
+@mixin center-block {
+  @extend .center-block;
+}
+
+.responsiveBackground {
+  background: center top no-repeat;
+  background-size: cover;
+  
+}
+@mixin responsive-background($padding-bottom: false, $url: false, $attachment: false) {
+  @extend .responsiveBackground;
+
+  @if $attachment {
+	background-attachment: $attachment;
+  }
+  @if $padding-bottom {
+    padding-bottom: #{$padding-bottom};
+  }
+  @if $url {
+    background-image: url('#{$url}');
+  }
+}
+
+.colorsTransition {
+  transition: color 0.5s, background-color 0.5s;
+}
+@mixin smooth-transition-link {
+  @extend .colorsTransition;
+}
+
+.colorsTransitionsWithTransofm {
+  transition: color 0.5s, background-color 0.5s, transform 0.1s;
+}
+@mixin smooth-transition-button($font-color: false, $background-color: false) {
+  @extend .colorsTransitionsWithTransofm;
+  &:hover {
+    @if $font-color {
+      color: #{$font-color};
+    }
+    @if $background-color {
+      background-color: #{$background-color};
+    }
+  }
+  &:active {
+    transform: translateY(3px);
+  }
+}
+
+@mixin flexable($flex, $dir_wrap, $content, $align) {
+  display: #{$flex};
+  flex-flow: #{$dir_wrap};
+  justify-content: #{$content};
+  align-items: #{$align};
+}
+
+@mixin link-colors(
+  $color: $baseLinkColor,
+  $hover-color: $baseHoverLinkColor,
+  $active-color: $baseActiveLinkColor,
+  $visited-color: $baseVisitedLinkColor,
+  $focus-color: $baseFocusLinkColor,
+  $one-color: false
+) {
+
+  @if ($one-color) {
+    $color: $one-color;
+    $hover-color: $one-color;
+    $active-color: $one-color;
+    $visited-color: $one-color;
+    $focus-color: $one-color;
+  }
+
+  color: #{$color};
+  &:hover {
+    color: #{$hover-color};
+  }
+  &:active {
+    color: #{$active-color}; 
+  }
+  &:visited {
+    color: #{$visited-color};  
+  }
+  &:focus {
+    color: #{$focus-color}; 
+  }
+}

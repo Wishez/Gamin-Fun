@@ -1,8 +1,0 @@
-.downloadFiles__file {
-	@extend .onePercentSidePaddings;
-	display: block;
-	max-width: 150px;
-	&:first-of-type {
-		@extend .prettyTopMargin;
-	}
-}

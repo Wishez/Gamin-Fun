@@ -1,0 +1,24 @@
+.footer {
+    @extend .header;
+      border: 0 !important;
+    width: 100%;
+    min-height: 185px;
+    padding-top: 45px;
+  	@include breakpoint($xs) {
+  		min-height: 75px;
+  		padding: (80% / 185 * 10) 0;
+  	}
+  	@include breakpoint($xxs) {
+  		padding: (130% / 185 * 10) 0;
+  	}
+	&--minecraft {
+  		background-color: $darkGreen;	
+	}
+  &--samp {
+      background-color: $blue; 
+  }
+}
+
+@import 'footerContacts/footerContacts.scss';
+@import 'figure/figure.scss';
+

@@ -1,7 +1,0 @@
-.visitCardContact__refer {
-	color: $darkGray;
-	@extend .onePercentSidePaddings;
-	@include breakpoint($xxs) {
-		width: 100%;
-	}
-}

@@ -1,0 +1,10 @@
+.news {
+	@extend .defaultTopMargin;
+	max-width: 600px;
+}
+
+@import '__title.scss';
+@import '__meta.scss';
+@import '__body.scss';
+@import '__nextReading.scss';
+@import '__toMainPage.scss';

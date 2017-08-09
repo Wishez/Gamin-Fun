@@ -1,0 +1,14 @@
+.brand {
+	@include center-block;
+	max-width: 324px;
+	position: relative;
+}
+
+.brand--minecraft {
+	top: 100px;	
+}
+.brand--samp {
+	top: 64px;	
+}
+
+@import '__name.scss';

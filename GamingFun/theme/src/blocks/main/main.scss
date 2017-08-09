@@ -1,0 +1,19 @@
+
+
+.main  {
+	@extend .header;
+	z-index: 1;
+	@include breakpoint($xs) {
+	}
+} 
+
+@import './awesomeBorder.scss';
+@import './contentWrapper.scss';
+@import './userPanel/userPanel.scss';
+@import './news/news.scss';
+@import './register/register.scss';
+@import './download/download.scss';
+@import './contacts/contacts.scss';
+@import './personalRoom/personalRoom.scss';
+@import './forgotPassword/forgotPassword.scss';
+@import './rules/rules.scss';

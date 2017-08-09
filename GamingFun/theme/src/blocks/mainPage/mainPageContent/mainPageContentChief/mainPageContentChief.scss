@@ -1,0 +1,37 @@
+.mainPageContentChief--worlds {
+	position: relative;
+	color: $darkGray;
+	padding-bottom: (120% / 770 * 100);
+	@include breakpoint($sm) {
+		top: -100px;
+	}
+	
+	
+}
+.mainPageContentChief--support {
+	@include center-block;
+	color: $lightGray;
+	padding: (500% / 1804 * 100) 0 (500% / 1804 * 100);
+
+	& .mainPageContentChief__title {
+		@extend .text-center;
+	}
+	@include breakpoint($xs) {
+		padding: (300% / 1804 * 100) 0 (900% / 1804 * 100);
+
+	}
+	@include breakpoint($xxs) {
+		padding: 35% 0 75%;
+
+	}
+}
+.mainPageContentChief {
+	max-width: 600px;
+	@include breakpoint($xs) {
+		padding-left: 5%;
+		padding-right: 5%;
+	}
+}
+
+@import '__title.scss';
+@import '__body.scss';

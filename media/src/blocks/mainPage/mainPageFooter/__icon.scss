@@ -1,7 +1,0 @@
-.mainPageFooter__icon {
-	@extend .vkIcon;
-	color: $limon !important;
-	@include breakpoint($xxs) {
-		display: block;
-	}
-}

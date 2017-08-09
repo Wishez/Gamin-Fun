@@ -1,0 +1,25 @@
+// Стили для .figure в header.
+// Здесь только для вариаций.
+.figure-- {
+	&steve_with_bow {
+		top: -40px;
+		left: (106% / 1366 * 100);
+		max-width: 299px;
+	}
+	&chicken {
+		top: 16px;
+		right: (166% / 1366 * 100);
+		max-width: 127px;
+	}
+	&woman {
+		top: -30px;
+		left: (115% / 1366 * 100);
+		max-width: 102px;
+	}
+	&nigga {
+		top: -28px;
+		right: (180% / 1366 * 100);
+		max-width: 137px;	
+	}
+}
+@import '__img.scss';

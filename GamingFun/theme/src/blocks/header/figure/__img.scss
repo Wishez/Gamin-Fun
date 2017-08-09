@@ -1,0 +1,24 @@
+.figure__img {
+	@include responsive-background;
+	width: 100%;
+	&--steve {
+		padding-bottom: (249% / 187 * 100);
+		background-image: url('../img/minecraft/steve.png');			
+	}
+	&--squid {
+		padding-bottom: (171% / 139 * 100);
+		background-image: url('../img/minecraft/squid.png');				
+	}
+	&--car {
+		padding-bottom: (285% / 441 * 100);
+		background-image: url('../img/samp/car.png');	
+	}
+	&--helicopter {
+		padding-bottom: (141% / 195 * 100);
+		background-image: url('../img/samp/helicopter.png');
+	}
+	&--man {
+		padding-bottom: (253% / 160 * 100);
+		background-image: url('../img/samp/man.png');	
+	}
+}

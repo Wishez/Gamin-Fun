@@ -1,0 +1,26 @@
+.projectsNav__button {
+	padding: 3px 0 ;
+	border: 2px solid $darkBrown;
+	border-radius: 10px;
+	width: span(5);
+	max-width: 100px;
+	color: $darkGray !important;
+	@include smooth-transition-button();
+
+	&--minecraft {
+		background-color: $paleGreen;
+
+		&_active, &:hover  {
+			background-color: $green;
+		}		
+
+	}
+	&--samp {
+		background-color: $brown;
+
+		&_active, &:hover  {
+			background-color: $orange;
+		}		
+
+	}
+}

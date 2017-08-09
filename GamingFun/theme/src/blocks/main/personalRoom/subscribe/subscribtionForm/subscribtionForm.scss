@@ -1,0 +1,5 @@
+.subscribtionForm {
+	@extend .replanishBalanceForm;
+}
+@import '__button.scss';
+@import 'subscribtionFormController/subscribtionFormController.scss';

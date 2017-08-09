@@ -1,0 +1,5 @@
+.subscribtionForm {
+	@extend .registerForm;
+}
+@import '__button.scss';
+@import 'subscribtionFormController/subscribtionFormController.scss';

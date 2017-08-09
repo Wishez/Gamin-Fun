@@ -1,0 +1,7 @@
+.mainPage__refer, .mainPageFooter__icon {
+	@include link-colors($one-color: $limon !important)
+	&:hover {
+		background-color: transparent;
+		color: lighten($limon, 15%) !important;
+	}
+}

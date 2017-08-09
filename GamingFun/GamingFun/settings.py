@@ -26,7 +26,8 @@ SECRET_KEY = 'pi#q+m1n0d+g!0e)g@%)cwz-2ax=omc5j2hrvp66q91_(9pi5&'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'localhost'
+    'localhost',
+    'gaming-fun.ru'
 ]
 
 
@@ -127,14 +128,21 @@ USE_L10N = True
 
 USE_TZ = True
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+DEFAULT_FROM_EMAIL = 'support@gaming-fun.ru'
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_USE_TLS = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = 'E:/Dropbox/Dropbox/djangoProjects/GamingFun/static'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/media/'
-MEDIA_ROOT = 'E:/Dropbox/Dropbox/djangoProjects/GamingFun/media'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # CSRF
 CSRF_USE_SESSIONS = True

@@ -1,0 +1,33 @@
+.mainPage {
+	@extend .header;
+	font-size: (21em / 16);
+	padding-top: (110% / 4096 * 100);
+	@include breakpoint($sm) {
+		padding-top: (300% / 4096 * 100);
+	}
+	@include breakpoint($xs) {
+		padding-top: 0;
+	}
+	@include breakpoint($xxs) {
+		font-size: 1em;
+	}
+}
+
+.mainPageContent, .mainPageHeader {
+	&::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		width: 100%;
+		z-index: -1;
+		height: 100%;
+		@include breakpoint($xs) {
+			content: none;
+		}
+		
+	}
+}
+@import '__refer.scss';
+@import 'mainPageHeader/mainPageHeader.scss';
+@import 'mainPageContent/mainPageContent.scss';
+@import 'mainPageFooter/mainPageFooter.scss';

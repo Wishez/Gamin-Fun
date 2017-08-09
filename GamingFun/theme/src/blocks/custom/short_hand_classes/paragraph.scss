@@ -1,0 +1,11 @@
+.paragraph {
+	font-size: (18em / 16);
+	padding-right: 20%;
+	@include breakpoint($xs) {
+		width: span(10);
+		margin-left: auto;
+		margin-right: auto;
+		padding: 0;
+		word-break: break-all;
+	}
+}

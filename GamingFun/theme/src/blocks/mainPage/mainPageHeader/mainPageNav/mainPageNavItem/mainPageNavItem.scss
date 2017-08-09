@@ -1,0 +1,22 @@
+.mainPageNavItem {
+	width: 50vw;
+	@include breakpoint($xs) {
+		margin: (700% / 4096 * 100) auto 0;
+	}
+}
+
+.mainPageNavItem--samp {
+	max-width: 370px;
+	margin-top: (400% / 4096 * 100);
+
+}
+
+.mainPageNavItem--minecraft {
+	max-width: 460px;
+	margin:  -(70% / 4096 * 100) 0 0 calc(100% - 460px);
+	@include breakpoint($xs) {
+		margin: (700% / 4096 * 100) auto 0;
+
+	}
+}
+@import '__img.scss';

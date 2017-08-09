@@ -1,0 +1,42 @@
+.visitCard {
+	max-width: 575px;
+	background-color: $darkenLightGray;
+	height: 275px;
+	width: 100%;
+	padding: 80px 0 0 130px;
+	position: relative;
+	margin-top: 58px;
+	@include breakpoint($sm) {
+		padding: 85px 10% 10%;
+		margin: 0;
+		height: auto;
+	}
+	&::after {
+		content: '';
+		position: absolute;
+		top: 80px;
+		left: 50px;
+		width: 37px;
+		@include responsive-background;
+		padding-bottom: 38px;
+		@include breakpoint($sm) {
+			top: 30px;
+			left: 10%;
+		}
+	}
+	&--minecraft {
+		&::after {
+			background-image: url('../img/minecraft/decor_contacts.png')
+		}
+	}
+	&--samp {
+		&::after {
+			background-image: url('../img/samp/decor_contacts.png')
+		}
+	}
+}
+
+@import '__contactsList.scss';
+@import '__title.scss';
+@import '__subtitle.scss';
+@import 'visitCardContact/visitCardContact.scss';

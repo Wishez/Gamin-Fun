@@ -1,0 +1,31 @@
+
+.navList {
+  @include span(10 last);
+  @include breakpoint($sm) {
+    width: 100%;
+    float: none;
+  }
+  @include breakpoint($xs-up) {
+    display: flex !important;
+  }
+  @include breakpoint($xs) {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: $darkGray;
+    width: 100%;
+    margin: 0;
+    flex-direction: column;
+    align-items: space-between;
+    z-index: 100;
+    padding-top: 75px;
+  }
+  @include breakpoint($xxs) {
+    padding-top: 100px;
+  }
+}
+
+@import 'navItem.scss';
+@import '__refer.scss';

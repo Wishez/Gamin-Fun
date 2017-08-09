@@ -1,0 +1,120 @@
+// Fonts
+$mainFont: 'Tahoma', sans-serif;
+// $additionalFont: '', cursive;
+
+$nameFont: 'Tahoma';
+$normalFont: '../fonts/Tahoma/Tahoma-Regular';
+// $italicFont: '../fonts/inglobal/Tahoma-Regulare';
+$boldFont: '../fonts/Tahoma/Tahoma-Bold';
+// $boldItalicFont: '../fonts/inglobal/inglobalbi';
+
+@font-face {
+  font-family: $nameFont;
+  font-weight: bold;
+  font-style: normal;
+  src: url('#{$boldFont}.eot');
+  src: local('#{$nameFont}'),
+    url('#{$boldFont}.woff') format('woff'),
+    url('#{$boldFont}.ttf') format('truetype'),
+    url('#{$boldFont}.svg') format('svg');
+}
+@font-face {
+  font-family: $nameFont;
+  font-weight: normal;
+  font-style: normal;
+  src: url('#{$normalFont}.eot');
+  src: local('#{$nameFont}'),
+    url('#{$normalFont}.woff') format('woff'),
+    url('#{$normalFont}.ttf') format('truetype'),
+    url('#{$normalFont}.svg') format('svg');
+}
+@font-face {
+  font-family: 'octicons';
+  font-weight: normal;
+  font-style: normal;
+  src: url('octicons.eot');
+  src: local('../fonts/octicons-local.ttf'),
+    url('../fonts/octicons.woff') format('woff'),
+    url('../fonts/octicons.ttf') format('truetype'),
+    url('../fonts/octicons.svg') format('svg');
+}
+// @font-face {
+//   font-family: $nameFont;
+//   font-weight: bold;
+//   font-style: italic;
+//   src: url('#{$boldItalicFont}.eot');
+//   src: local('#{$nameFont}'),
+//     url('#{$boldItalicFont}.woff') format('woff'),
+//     url('#{$boldItalicFont}.ttf') format('truetype'),
+//     url('#{$boldItalicFont}.svg') format('svg');
+// }
+// @font-face {
+//   font-family: $nameFont;
+//   font-weight: normal;
+//   font-style: italic;
+//   src: url('#{$italicFont}.eot');
+//   src: local('#{$nameFont}'), 
+//     url('#{$italicFont}.woff') format('woff'),
+//     url('#{$italicFont}.ttf') format('truetype'),
+//     url('#{$italicFont}.svg') format('svg');
+// }
+
+
+
+
+
+
+//$secondNameFont: 'inglobal';
+//$secondNormalFont: '../fonts/inglobal/inglobal';
+//$secondItalicFont: '../fonts/inglobal/inglobali';
+//$secondBoldFont: '../fonts/inglobal/inglobalb';
+//$secondBoldItalicFont: '../fonts/inglobal/inglobalbi';
+//@font-face {
+//   font-family: $secondNameFont;
+//   font-weight: bold;
+//   font-style: normal;
+//   src: url('#{$secondBoldFont}.eot');
+//   src: local('#{$secondNameFont}'),
+//     url('#{$secondBoldFont}.woff') format('woff'),
+//     url('#{$secondBoldFont}.ttf') format('truetype'),
+//     url('#{$secondBoldFont}.svg') format('svg');
+// }
+// @font-face {
+//   font-family: $secondNameFont;
+//   font-weight: bold;
+//   font-style: italic;
+//   src: url('#{$secondBoldItalicFont}.eot');
+//   src: local('#{$secondNameFont}'),
+//     url('#{$secondBoldItalicFont}.woff') format('woff'),
+//     url('#{$secondBoldItalicFont}.ttf') format('truetype'),
+//     url('#{$secondBoldItalicFont}.svg') format('svg');
+// }
+// @font-face {
+//   font-family: $secondNameFont;
+//   font-weight: normal;
+//   font-style: italic;
+//   src: url('#{$seconItalicFont}.eot');
+//   src: local('#{$secondNameFont}'), 
+//     url('#{$secondItalicFont}.woff') format('woff'),
+//     url('#{$secondItalicFont}.ttf') format('truetype'),
+//     url('#{$secondItalicFont}.svg') format('svg');
+// }
+// @font-face {
+//   font-family: $secondNameFont;
+//   font-weight: normal;
+//   font-style: normal;
+//   src: url('#{$secondNormalFont}.eot');
+//   src: local('#{$secondNameFont}'),
+//     url('#{$secondNormalFont}.woff') format('woff'),
+//     url('#{$secondNormalFont}.ttf') format('truetype'),
+//     url('#{$secondNormalFont}.svg') format('svg');
+// } 
+// Uncomment, if you need to use font-awsome.
+// @font-face {
+//   font-family:'FontAwesome';
+//   font-weight: normal;
+//   font-style: normal;
+//   src: url('../fonts/fontawesome-webfont.eot');
+//   src: url('../fonts/fontawesome-webfont.eot') format('embedded-opentype'), url('../fonts/fontawesome-webfont.woff2') format('woff2'),url('../fonts/fontawesome-webfont.woff') format('woff'),url('../fonts/fontawesome-webfont.ttf') format('truetype'),url('../fonts/fontawesome-webfont.svg') format('svg');
+// }
+

@@ -1,0 +1,34 @@
+
+.userPanel {
+	@include span(4 last);
+
+	@extend .defaultTopPadding;
+	height: 700px;
+	max-width: 300px;
+	@include breakpoint($lg) {
+		// min-height: 214vh;
+	}
+	& .container{
+		width: 80% !important;
+		@include breakpoint($xs) {
+			max-width: 400px !important;
+			@include center-block;
+		}
+	}
+	$borderUserPanelStyles: 10px solid $darkenLightGray;
+	@include breakpoint($xs) {
+		width: 100%;
+		position: relative;
+		max-width: none;
+		min-height: 0;
+		border: 0;
+		height: auto;
+		border-bottom: $borderUserPanelStyles;
+		margin: 0;
+		padding-bottom: 75px;
+	}
+}
+
+@import 'server/server.scss';
+@import 'logInFrom/logInForm.scss';
+@import 'userCard/userCard.scss';

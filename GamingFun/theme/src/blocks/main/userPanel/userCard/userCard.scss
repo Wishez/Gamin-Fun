@@ -1,0 +1,29 @@
+.userCard {
+	@include center-block;
+}
+
+.userCard, .userCard__avatar {
+	border-radius: 15px !important;
+
+}
+.userCardInfo__name, .userCardInfo__status, .userCardInfo__balance {
+	&--minecraft {
+		color: $darkGray !important;
+	}
+	&--samp {
+		color: $lightGray !important;
+	}
+}
+
+.userCardInfo, .userCardButtons {
+	&--minecraft {
+		background-color: $paleGreen !important;
+	}
+	&--samp {
+		background-color: $blue !important;
+	}
+}
+@import 'userCardInfo/userCardInfo.scss';
+@import 'userCardButtons/userCardButtons.scss';
+@import 'changeAvatarZone/changeAvatarZone.scss';
+@import '__avatar.scss';

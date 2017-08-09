@@ -1,0 +1,58 @@
+.navItem__refer {
+  color: $lightGray !important;
+  font-size: $firstSizeHeading;
+  padding-bottom: 4%;
+  position: relative;
+  &::after {
+    content: "";
+    height: 3px;
+    @include center-block;
+    position: absolute;
+    left: 50%;
+    bottom: -3px;
+    width: 0;
+    transition: width 0.5s, left 0.5s;
+    @include breakpoint($xs) {
+      content: none;
+    }
+  }
+  &--minecraft {
+    &::after {
+      background-color: $green;
+    }
+  }
+  &--samp {
+    &::after {
+      background-color: $orange;
+    }
+  }
+  &:hover {
+    &::after {
+      width: 100%;
+      left: 0;
+    }
+  }
+  @include breakpoint($md-less) {
+     font-size: (18em / 16);
+  }
+  @include breakpoint($xs) {
+    padding-bottom: 0;
+    font-size: $firstSizeHeading;
+  }
+  @include breakpoint($xxs) {
+    
+  }
+  &:visited {
+     color: $lightGray;
+  }
+  &:hover {
+    background-color: transparent;
+  }
+  &:active {
+    color: $lightGray;
+  }
+}
+.navItem__refer, .navItem__refer:hover {
+  border-radius: 0;
+  
+}

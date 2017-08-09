@@ -1,0 +1,8 @@
+.title {
+	font-size: (30em / 16); 
+	@include breakpoint($xs) {
+		text-align: center;
+		font-size: (24em / 16);
+		padding: 0 20px;
+	}
+}

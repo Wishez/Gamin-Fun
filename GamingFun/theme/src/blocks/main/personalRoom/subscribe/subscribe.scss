@@ -1,0 +1,7 @@
+.subscribe {
+	@extend .defaultTopMargin;
+}
+
+@import '__title.scss';
+@import '__decsription.scss';
+@import 'subscribtionForm/subscribtionForm.scss';
