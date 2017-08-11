@@ -29,7 +29,15 @@ class UserPanelContainer extends Component {
   	componentDidMount() {
   		const { site, dispatch } = this.props;
   		this.loginInIfMay();
-  		//dispatch(tryGetServerStatus(site));
+
+  		dispatch(tryGetServerStatus(site));
+  		this.readStatus(dispatch, site);
+  	}
+
+  	readStatus = (dispatch, site) => {
+  		setInterval(() => {
+  			dispatch(tryGetServerStatus(site))
+  		}, 8000)
   	}
 
   	componentDidUpdate() {
@@ -54,7 +62,7 @@ class UserPanelContainer extends Component {
 
 	submitLogInForm = (values, dispatch) => {
 		const { site } = this.props; 	
-	
+		
 		dispatch(tryLogin(site, values));
 	}
 
@@ -104,7 +112,7 @@ const mapStateToProps = state => {
 	isLogining,
 	serverData
   } = dataBySite[selectedSite];
-	
+
   const {
 	amountPeople,
 	totalPeople,
@@ -120,8 +128,8 @@ const mapStateToProps = state => {
     message,
     userData,
     isLogining,
-    amountPeople: 0,
-	totalPeople: 40,
+    amountPeople: amountPeople ? amountPeople : 0,
+	totalPeople: totalPeople ? totalPeople : 40,
 	nameServer,
 	onlineStatus
   };

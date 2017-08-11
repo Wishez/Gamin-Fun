@@ -1,11 +1,12 @@
 import { SET_SERVER_STATUS } from './../constants/actionTypes.js';
 
 
-const setServerStatus = ({
+const setServerStatus = (
 	site,
 	serverData
-}) => ({
+) => ({
 	type: SET_SERVER_STATUS,
+	site,
 	serverData
 });
 
@@ -18,7 +19,6 @@ export const  tryGetServerStatus = site => dispatch => {
 			console.log(err);
 			return;
 		}
-		console.log('server status =====>', status);
 		
 		const serverData = {
 			amountPeople: status.players.now,
@@ -26,7 +26,7 @@ export const  tryGetServerStatus = site => dispatch => {
 			onlineStatus: status.online,
 			nameServer: status.server.name
 		};
-
+	
 		dispatch(setServerStatus(site, serverData));
 
 	});

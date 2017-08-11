@@ -239,12 +239,12 @@ gulp.task('fonts', () => {
 /* Images
 /* ----------------- */
 gulp.task('fastimages', () => {
-  return gulp.src(settings.src + '/img/**/*')
+  gulp.src(settings.src + '/img/**/*.*')
     .pipe(gulp.dest(settings.build + '/img'));
 });
 
 gulp.task('images', () => {
-  return gulp.src(settings.src + '/img/**/*')
+  gulp.src(settings.src + '/img/**/*.*')
     .pipe(image())
     .pipe(gulp.dest(settings.build + '/img'));
 });

@@ -70,8 +70,8 @@ const Navigation = ({
         <li className={getActiveClasses(fifthNavItem.active, site)}>
           <a className={`navItem__refer navItem__refer--${site} not-follow`} 
             href={site == 'minecraft' ? 
-            'https://minecraft-forum.gamingfun.ru' :
-            'https://samp-forum.gamingfun.ru'}>
+            'http://minecraft.gamingfun.ru' :
+            'https://samp.gamingfun.ru'}>
             {fifthNavItem.name}
           </a>
         </li>
