@@ -25,25 +25,45 @@ class UserPanelContainer extends Component {
 		onlineStatus: PropTypes.bool.isRequired
   	}
 
-
+  	static state = {
+  		requestStatus: () => {}
+  	}
   	componentDidMount() {
   		const { site, dispatch } = this.props;
   		this.loginInIfMay();
-
-  		dispatch(tryGetServerStatus(site));
-  		this.readStatus(dispatch, site);
+  		if (site === 'minecraft') {
+  			dispatch(tryGetServerStatus(site));
+  			this.readStatus(dispatch, site);
+  		}
   	}
 
   	readStatus = (dispatch, site) => {
-  		setInterval(() => {
-  			dispatch(tryGetServerStatus(site))
-  		}, 8000)
+  		this.setState({
+  			requestStatus: setInterval(() => {
+  				dispatch(tryGetServerStatus(site))
+  			}, 6000)
+  		});
   	}
-
+  	clearRequsetStatus = () => {
+  		clearInterval(this.state.requestStatus);
+  	}
   	componentDidUpdate() {
   		this.loginInIfMay();
-  	}
 
+
+  	}
+  	componentWillReceiveProps(nextProps) {
+  		const { site, dispatch } = this.props;
+  		
+  		if (site !== nextProps.site) {
+  			if (!!this.state) 
+  				this.clearRequsetStatus(this.state.requestStatus);
+  	
+  			dispatch(tryGetServerStatus(site));
+  			if (site === 'minecraft')
+  				this.readStatus(dispatch, site);
+  		}
+  	}
   	loginInIfMay = () => {
   		const { dispatch, isLogged, site } = this.props;
   		// Функция, возвращающая кэшированные данные пользователя.
@@ -128,8 +148,8 @@ const mapStateToProps = state => {
     message,
     userData,
     isLogining,
-    amountPeople: amountPeople ? amountPeople : 0,
-	totalPeople: totalPeople ? totalPeople : 40,
+    amountPeople: !!amountPeople ? amountPeople : 0,
+	totalPeople: !!totalPeople ? totalPeople : 40,
 	nameServer,
 	onlineStatus
   };

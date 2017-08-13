@@ -37,7 +37,8 @@ const logIn = (
 	data,
 	userData,
 	isLogged,
-	message
+	message,
+	registerMessage
 ) => ({
 	type: LOGIN,
 	site,
@@ -48,7 +49,8 @@ const logIn = (
 	userData: {
 		...userData
 	},
-	message
+	message,
+	registerMessage
 });
 
 
@@ -88,7 +90,7 @@ export const tryLogin = (site, data) => dispatch => {
 		success: (userData) => {
 			if (userData) {
 				// Меняет состояние на удачный заход пользователя в аккаунт
-				dispatch(logIn(site, data, userData, true, ''));
+				dispatch(logIn(site, data, userData, true, '', 'Да прибудет с вами сила!'));
 				dispatch(setUserToCookies(site, data))
 			} else {
 				
@@ -99,7 +101,7 @@ export const tryLogin = (site, data) => dispatch => {
 				// Меняется только сообщение в состояние аккаунта,
 				// не устанавливая неправильно введённый или 
 				// не подходящий логин с паролем.
-				dispatch(logIn(site, data, {}, false, 'Не правильный логин или пароль'));	
+				dispatch(logIn(site, data, {}, false, 'Не правильный логин или пароль', ''));	
 			}
 
 		},
@@ -109,7 +111,7 @@ export const tryLogin = (site, data) => dispatch => {
 				password: ''
 			};
 
-			dispatch(logIn(site, data, {}, false, 'Внутренняя ошибка сервера'));	
+			dispatch(logIn(site, data, {}, false, 'Внутренняя ошибка сервера', ''));	
 			console.log('fail\n', err);
 		}
 	});

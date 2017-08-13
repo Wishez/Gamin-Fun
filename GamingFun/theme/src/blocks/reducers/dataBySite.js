@@ -24,7 +24,11 @@ import serverStatus, { initServerStatusState } from './serverStatus.js';
 
 // Expilcit better than implicit.
 export const initState = {
-	'main': {},
+	'main': {
+		...initAccountState,
+		...initNewsState,
+		...initServerStatusState
+	},
 	'minecraft': {
 		...initAccountState,
 		...initNewsState,

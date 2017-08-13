@@ -24,6 +24,11 @@ html.no-js(manifest="{% static 'gamingfun/app.manifest' %}")
       
 
     script(async, src="{% static 'gamingfun/js/main.js' %}")
+    script.
+        window.recaptchaOptions = {
+            lang: 'ru'
+        }
+
     link(rel="stylesheet",
          href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css",
          media='none',

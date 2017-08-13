@@ -15,7 +15,31 @@ import {
  	surnameLength,
  	nameLength
 } from './../constants/validation.js';
-import Recaptcha from 'react-recaptcha';
+import ReCAPTCHA from 'react-google-recaptcha';
+
+const Captcha = ({
+	input,
+	meta: {
+		touched,
+		error,
+		warning
+	},
+	...rest,
+	block
+
+}) => (
+	<div className={block}>
+		{touched && 
+		 	((error && 
+		 		<span className={`${block}__error`}>{error}</span>) || 
+		 		(warning && <span className={`${block}__error`}>{warning}</span>))}
+		<ReCAPTCHA
+	 		{...input}
+	 		sitekey='6Lf2rigUAAAAAEb88AaevLR7gTwGhmUb5sQBOoMZ'
+	 		{...rest}
+	 	/>
+ 	</div>
+);
 
 const RegisterForm = ({
 	submitRegisterForm,
@@ -87,13 +111,13 @@ const RegisterForm = ({
 			 	className='registerFormController__check'
 			    label={ReactHtmlParser(
 			 	'Вы ознакомились с <a href=`/${site}/rules/` class="not-follow">правилами</a> проекта')} />
-		 </div> 
-	 	<Recaptcha 
-	 		sitekey='6Lf2rigUAAAAAEb88AaevLR7gTwGhmUb5sQBOoMZ'
-	 		style={{
-	 			'marginTop': '1em'
-	 		}}
-	 	/>
+		 </div>
+		 <Field 
+		   component={Captcha}
+		   name='captcha'
+		   block='registerFormController'
+		   validate={[required]} /> 
+
 		 <div className='registerFormButtons'>
 			{registerMessage ? <strong className='formError'>{registerMessage}</strong> : ''}
 			<br />

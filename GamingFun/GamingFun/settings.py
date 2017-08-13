@@ -34,6 +34,7 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = [
+    'captcha',
     'grappelli',
     'rest_framework',
     'api_v0.apps.ApiV0Config',
@@ -146,3 +147,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # CSRF
 CSRF_USE_SESSIONS = True
+
+RECAPTCHA_PUBLIC_KEY = '6Lf2rigUAAAAAEb88AaevLR7gTwGhmUb5sQBOoMZ'
+RECAPTCHA_PRIVATE_KEY = '6Lf2rigUAAAAADYSz_jTT0NDWZjCXQG9RjZS2H7z'

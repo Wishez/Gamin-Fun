@@ -8,6 +8,7 @@ from minecraft.models import MinecraftUser
 from samp.models import SampUser
 from django.views.decorators.cache import cache_page
 from django.views.decorators.csrf import csrf_exempt, csrf_protect
+from pprint import pprint
 # Create your views here.
 
 def index(request):
@@ -24,6 +25,7 @@ def register(request):
     if request.method == 'POST':
 
         data = request.POST
+        pprint(data)
         password = data['password']
         repeated_password = data['repeatedPassword']
         # Проверяем тождество паролей, после чего либо работа продолжается,

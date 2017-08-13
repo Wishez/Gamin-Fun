@@ -44,6 +44,7 @@ const fetchNews = site => dispatch => {
 };
 
 const shouldFetchNews = (state, site) => {
+	if (site === 'main') return false;
 	// Если новости сайта ещё не загруженные,
 	// либо исчезли из объекта состояния конкретного сайта,
 	// то запрашиваем данные.

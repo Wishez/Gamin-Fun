@@ -58,7 +58,7 @@ const account = (
 				},
 				message: action.message,
 				registered: action.registered,
-				registerMessage: 'Да прибудет с вами сила!',
+				registerMessage: action.registerMessage,
 				isLogining: false
 			};
 		case LOGOUT:
