@@ -20,31 +20,41 @@ class RegisterContainer extends Component {
 		dispatch: PropTypes.func.isRequired,
 		registered: PropTypes.bool.isRequired,
 		isRegistering: PropTypes.bool.isRequired,
-		match: PropTypes.object.isRequired
+		match: PropTypes.object.isRequired,
+		location: PropTypes.object.isRequired
 	}
 	// Переменная для чек-бокса.
 	state = {
 		knowRules: false
 	}
 
-	componentDidMount() {
-		const { dispatch } = this.props;
-		
+	customViewComponent = () => {
+		const { dispatch, location } = this.props;
 		dispatch(selectNavigationItem('secondNavItem'));
 		changeSiteIfNeeded(this.props);
-	    changeHeightAwesomeBorder();
+        changeHeightAwesomeBorder('/registration', location.pathname);
+	}
+
+	componentDidMount() {
+		this.customViewComponent();
+		// const { dispatch } = this.props;
+		
+		// dispatch(selectNavigationItem('secondNavItem'));
+		// changeSiteIfNeeded(this.props);
+	 //    changeHeightAwesomeBorder();
     }
 
     componentDidUpdate() {
-       changeSiteIfNeeded(this.props);
-       changeHeightAwesomeBorder();
+    	this.customViewComponent();
+       // changeSiteIfNeeded(this.props);
+       // changeHeightAwesomeBorder();
     }
 
 	submitRegisterForm = (values, dispatch) => {
 
 		const { site } = this.props;
 		values.site = site;
-
+		
 		dispatch(tryRegister(site, values));
 		
 	}

@@ -12,8 +12,7 @@ const Header = ({
   <header className={`header header--${site}`}>
       <Container>
         <Logo site={site} />
-        <NavBetweenProjectsContainer {...rest}
-          site={site} />
+        <NavBetweenProjectsContainer />
         <NavContainer site={site} />
         {site === 'minecraft' ?
           <FiguresList figuresNames={['steve', 'squid']} /> : ''}

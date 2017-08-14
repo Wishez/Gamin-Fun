@@ -13,21 +13,22 @@ class RulesContainer extends Component {
 	static PropTypes = {
 		site: PropTypes.string.isRequired,
 		match: PropTypes.object.isRequired,
-		dispatch: PropTypes.func.isRequired
+		dispatch: PropTypes.func.isRequired,
+		location: PropTypes.object.isRequired
 	}
 
 	componentDidMount() {
-		const { dispatch } = this.props;
+		const { dispatch, location } = this.props;
 		dispatch(selectNavigationItem('fourthNavItem'));
 		// В измениние стилей сайта при первой загрузки сайта,
 		// проверяется выбранный сайт.
 		changeSiteIfNeeded(this.props); 
-	    changeHeightAwesomeBorder();
+	    changeHeightAwesomeBorder('/rules', location.pathname);
     }
 
     componentDidUpdate() {
-
-       changeHeightAwesomeBorder();
+	   const { location } = this.props;
+       changeHeightAwesomeBorder('/rules', location.pathname);
     }
 	render() {
 		return (

@@ -12,17 +12,29 @@ import { connect } from 'react-redux';
 	static PropTypes = {
 		site: PropTypes.string.isRequired,
 		match: PropTypes.object.isRequired,
-		dispatch: PropTypes.func.isRequired
+		dispatch: PropTypes.func.isRequired,
+		location: PropTypes.object.isRequired
 	}
-
-	componentDidMount() {
+	customViewComponent = () => {
+   	    const { location } = this.props;
 		changeSiteIfNeeded(this.props);
    	    changeHeightAwesomeBorder();
+        changeHeightAwesomeBorder('/', location.pathname);
+	}
+	componentDidMount() {
+		this.customViewComponent();
+		// changeSiteIfNeeded(this.props);
+  //  	    changeHeightAwesomeBorder();
+  //  	    const { location } = this.props;
+  //       changeHeightAwesomeBorder('/', location.pathname);
     }
 
     componentDidUpdate() {
-    	changeSiteIfNeeded(this.props);
-        changeHeightAwesomeBorder();
+    	this.customViewComponent();
+    	// changeSiteIfNeeded(this.props);
+     //    changeHeightAwesomeBorder();
+     //    const { location } = this.props;
+     //    changeHeightAwesomeBorder('/', location.pathname);
     }
 
 	render() {

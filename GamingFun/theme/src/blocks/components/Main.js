@@ -1,6 +1,8 @@
 import React, { Component } from 'react'; 
 import { Route, Switch, Redirect } from 'react-router-dom'
-import FadeIn from 'react-fade-in';
+import { RouteTransition } from 'react-router-transition';
+
+
 import NotFoundContainer from './../containers/NotFoundContainer';
 import NewsContainer from './../containers/NewsContainer';
 import SingleNewsContainer from './../containers/SingleNewsContainer';
@@ -11,41 +13,54 @@ import RulesContainer from './../containers/RulesContainer';
 import PersonalRoomContainer from './../containers/PersonalRoomContainer';
 import RecoverPasswordContainer from './../containers/RecoverPasswordContainer';
 import MainPageContainer from './../containers/MainPageContainer';
-import FadeInRoute from './../components/FadeInRoute';
+import MyRoute from './../components/MyRoute';
 
 const Main = ({
     ...rest,
     isLogged,
     site
 }) => (
-  <main className='main'>
-    <Switch>
-        <Route exact path='/' render={() => (
-            <FadeIn>
-                <MainPageContainer {...rest} />                   
-            </FadeIn>
-        )} />
-        <FadeInRoute exact path='/:site'
-            component={NewsContainer} />
-        <FadeInRoute path='/:site/news/:newsId'
-            component={SingleNewsContainer} />
-        <FadeInRoute path='/:site/registration'
-            component={RegisterContainer} />
-        <FadeInRoute path='/:site/contacts'
-            component={ContactsContainer} />
-        <FadeInRoute path='/:site/rules'
-            component={RulesContainer} />   
-        {isLogged ?
-            <FadeInRoute path='/:site/personal_room'
-                component={PersonalRoomContainer} /> : ''}
-        {!isLogged ?
-            <FadeInRoute path='/:site/remember_password'
-                component={RecoverPasswordContainer} /> : ''}
-        <Route render={() => (
-           <Redirect to="/" />
-        )} />
-    </Switch>
-  </main>
+    <main className='main'>
+    <Route render={({ location }) => (
+        <RouteTransition 
+            pathname={location.pathname}
+            atEnter={{ opacity: 0 }}
+            atLeave={{ opacity: 0 }}
+            atActive={{ opacity: 1 }}
+        >
+            <Switch className='test' style={{opacity: 0}}
+             key={location.key} 
+             location={location}>
+                <Route exact path='/' render={props => (
+                        <MainPageContainer 
+                            {...rest}
+                            {...props} 
+                        />                   
+                )} />
+                <MyRoute exact path='/:site'
+                    component={NewsContainer} />
+                <MyRoute path='/:site/news/:newsId'
+                    component={SingleNewsContainer} />
+                <MyRoute path='/:site/registration'
+                    component={RegisterContainer} />
+                <MyRoute path='/:site/contacts'
+                    component={ContactsContainer} />
+                <MyRoute path='/:site/rules'
+                    component={RulesContainer} />   
+                {isLogged ?
+                    <MyRoute path='/:site/personal_room'
+                        component={PersonalRoomContainer} /> : ''}
+                {!isLogged ?
+                    <MyRoute path='/:site/remember_password'
+                        component={RecoverPasswordContainer} /> : ''}
+                    <Route render={() => (
+                        <Redirect to="/" />
+                )}  />
+
+            </Switch>
+      </RouteTransition>
+    )} />
+    </main>
 );
 
 export default Main;

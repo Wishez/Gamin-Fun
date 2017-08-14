@@ -9,6 +9,7 @@ import { testSuccesRegister } from './../tests/accountTests.js';
 import { tryLogin, logOut } from './../actions/accountActions.js'
 import { changeSite } from './../actions/selectedSiteActions.js';
 
+
 // Состояние берётся из redux состояния
 // При загрузки выбранного компонента на сайте,
 // устанавливается значение переменной выбранного сайта
@@ -34,18 +35,23 @@ class App extends Component {
         {isNotMainSite ?
         	<Header site={site} 
             changeSite={this.changeSite}/> : ''}
-        {isNotMainSite ? <div id='awesomeBorder'
+        {isNotMainSite ? <div 
+             style={{
+                'height': $('.contentWrapper').innerHeight()
+             }}
+              id='awesomeBorder'
              className='awesomeBorder'></div> : ''}
 
-      	<Main site={site} 
+        <Main site={site} 
           isLogged={isLogged}
-          changeSite={this.changeSite}/>	
+          changeSite={this.changeSite}/>  
 
-      	{isNotMainSite ? <Footer site={site} /> : ''}
+        {isNotMainSite ? <Footer site={site} /> : ''}
       </div>
     );
   }
 }
+        // <Router></Router>
 
 const mapStateToProps = state => {
   const { 
@@ -56,6 +62,7 @@ const mapStateToProps = state => {
   const {
     isLogged
   } = dataBySite[selectedSite];
+  
   return {
     isLogged,
     site : selectedSite

@@ -1,9 +1,10 @@
 .projectsNav__button {
-	padding: 3px 0 ;
-	border: 2px solid $darkBrown;
-	border-radius: 10px;
+	padding: 1% 0 ;
+	// border: 2px solid $darkBrown;
+	border-radius: 5px;
 	width: span(5);
 	max-width: 100px;
+	box-shadow: 0 5px 15px;
 	color: $darkGray !important;
 	@include smooth-transition-button();
 

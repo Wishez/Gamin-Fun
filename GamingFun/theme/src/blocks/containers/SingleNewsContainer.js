@@ -15,16 +15,27 @@ class SingleNewsContainer extends Component {
 		isLogged: PropTypes.bool.isRequired,
 		news: PropTypes.array.isRequired,
 		match: PropTypes.object.isRequired,
-		dispatch: PropTypes.func.isRequired
+		dispatch: PropTypes.func.isRequired,
+		location: PropTypes.object.isRequired
 	}
-	componentDidMount() {
+
+	customViewComponent = () => {
+		const { location } = this.props;
 		changeSiteIfNeeded(this.props);
 	    changeHeightAwesomeBorder();
+        changeHeightAwesomeBorder('/news/', location.pathname);
+	}
+
+	componentDidMount() {
+		this.customViewComponent();
+		// changeSiteIfNeeded(this.props);
+	 //    changeHeightAwesomeBorder();
     }
 
     componentDidUpdate() {
-       changeSiteIfNeeded(this.props);
-       changeHeightAwesomeBorder();
+    	this.customViewComponent();
+       // changeSiteIfNeeded(this.props);
+       // changeHeightAwesomeBorder();
     }
 	render() {
 		const { newsId } = this.props.match.params;

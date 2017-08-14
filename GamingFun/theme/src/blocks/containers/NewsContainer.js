@@ -17,12 +17,12 @@ class NewsContainer extends Component {
 		isLogged: PropTypes.bool.isRequired,
 		news: PropTypes.array.isRequired,
 		dispatch: PropTypes.func.isRequired,
-		match: PropTypes.object.isRequired
+		match: PropTypes.object.isRequired,
+		location: PropTypes.object.isRequired
 	}
 	customViewComponent = () => {
-		const { dispatch, site } = this.props;
-
-	    changeHeightAwesomeBorder();
+		const { location, site } = this.props;
+        changeHeightAwesomeBorder(`/${site}`, location.pathname);
 	}
 	componentDidMount() {
 		const { dispatch, site } = this.props;
@@ -35,8 +35,7 @@ class NewsContainer extends Component {
     }
 
     componentDidUpdate() {
-		
-		changeHeightAwesomeBorder();
+		this.customViewComponent();
     }
 
     componentWillReceiveProps(nextProps) {

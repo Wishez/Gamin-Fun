@@ -10,14 +10,18 @@ class MainPageContainer extends Component {
 	static PropTypes = {
 		site: PropTypes.string.isRequired,
 		changeSite: PropTypes.func.isRequired,
-		dispatch: PropTypes.func.isRequired
+		dispatch: PropTypes.func.isRequired,
+		location: PropTypes.object.isRequired
 	}
 	componentDidMount() {
-		this.props.changeSite(sites.main);
+		const { location } = this.props;
+		if (location.pathname === '')
+			this.props.changeSite(sites.main);
 	}
 	componentDidUpdate() {
-
-		this.props.changeSite(sites.main);
+		const { location } = this.props;
+		if (location.pathname === '')
+			this.props.changeSite(sites.main);
 	}
 	
 	render() {

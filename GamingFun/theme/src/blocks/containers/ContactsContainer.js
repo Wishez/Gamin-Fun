@@ -13,19 +13,22 @@ class ContactsContainer extends Component {
 	static PropTypes = {
 		site: PropTypes.string.isRequired,
 		match: PropTypes.object.isRequired,
-		dispatch: PropTypes.func.isRequired
+		dispatch: PropTypes.func.isRequired,
+		location: PropTypes.object.isRequired
 	}
 
 	componentDidMount() {
-		const { dispatch } = this.props;
+		const { dispatch, location } = this.props;
 		dispatch(selectNavigationItem('thirdNavItem'));
 	    changeSiteIfNeeded(this.props);
-	    changeHeightAwesomeBorder();
+	    changeHeightAwesomeBorder('contacts', location.pathname);
     }
 
     componentDidUpdate() {
+    	const { location } = this.props;
+        changeHeightAwesomeBorder('contacts', location.pathname);
+    	
         changeSiteIfNeeded(this.props);
-        changeHeightAwesomeBorder();
     }
 	
 	render() {

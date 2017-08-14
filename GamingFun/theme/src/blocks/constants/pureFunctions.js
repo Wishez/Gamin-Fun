@@ -6,18 +6,18 @@ export const cookiesHandler = {
 		username,
 		password
 	}) => {
-		Cookies.set(`${site}Password`, password);
-		Cookies.set(`${site}Username`, username);
+		localStorage.setItem(`${site}Password`, password);
+		localStorage.setItem(`${site}Username`, username);
 	},
 	getUsernameAndPasswordFromCookies: site => (
 		{
-			username: Cookies.get(`${site}Username`),
-			password: Cookies.get(`${site}Password`)
+			username: localStorage.getItem(`${site}Username`),
+			password: localStorage.getItem(`${site}Password`)
 		}
 	),
 	clearCookies: site => {
-		Cookies.remove(`${site}Username`);
-		Cookies.remove(`${site}Password`);
+		localStorage.removeItem(`${site}Username`);
+		localStorage.removeItem(`${site}Password`);
 	}
 
 };
@@ -29,7 +29,13 @@ export const convertDate = date => {
 		second: 'numeric'
 	});	
 };
-export const changeHeightAwesomeBorder = () => {
-    $('#awesomeBorder').css('height', $('#root').innerHeight());
+export const changeHeightAwesomeBorder = (path, currentPath) => {
+	setTimeout(() => {
+		if (new RegExp(path, 'ig').test(currentPath))
+	    	$('#awesomeBorder').css({
+	    		'height': $('.contentWrapper').innerHeight(),
+	    		'top': $('.header').innerHeight()
+	    	});
+	}, 1000)
 };
 

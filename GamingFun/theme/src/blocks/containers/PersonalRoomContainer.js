@@ -28,25 +28,34 @@ class PersonalRoomContainer extends Component {
 		username: PropTypes.string.isRequired,
 		password: PropTypes.string.isRequired,
 		match: PropTypes.object.isRequired,
-		dispatch: PropTypes.func.isRequired
+		dispatch: PropTypes.func.isRequired,
+		location: PropTypes.object.isRequired
 	}
 	state =  {
 		subscribeState: '1 месяц = 150 кредитов',
 		replanishCost: '1 рубль = 1 кредит'
 	};
-
-	componentDidMount() {
-		const { dispatch } = this.props;
+	
+	customViewComponent = () => {
+		const { dispatch, location } = this.props;
 		dispatch(cleanActiveState());
 		changeSiteIfNeeded(this.props);
-   	    changeHeightAwesomeBorder();
+        changeHeightAwesomeBorder('/personal_room', location.pathname);
+	}
+	componentDidMount() {
+		this.customViewComponent();
+		// const { dispatch } = this.props;
+		// dispatch(cleanActiveState());
+		// changeSiteIfNeeded(this.props);
+  //  	    changeHeightAwesomeBorder();
     }
 
     componentDidUpdate() {
-       const { dispatch } = this.props;
-	   dispatch(cleanActiveState());
-       changeSiteIfNeeded(this.props);
-       changeHeightAwesomeBorder();
+    	this.customViewComponent();
+    //    const { dispatch } = this.props;
+	   // dispatch(cleanActiveState());
+    //    changeSiteIfNeeded(this.props);
+    //    changeHeightAwesomeBorder();
     }
     // Функция высшего порядка, принимающая полученные с формы значения(values).
     // dispatch - перенаправление к состоянию и 

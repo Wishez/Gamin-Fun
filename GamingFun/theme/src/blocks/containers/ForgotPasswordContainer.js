@@ -9,14 +9,17 @@ import { withRouter } from 'react-router-dom';
 class ForgotPasswordContainer extends Component {
 	static PropTypes = {
 		site: PropTypes.string.isRequired,
-		isLogged: PropTypes.bool.isRequired
+		isLogged: PropTypes.bool.isRequired,
+		location: PropTypes.object.isRequired
 	}
 	componentDidMount() {
-	    changeHeightAwesomeBorder();
+		const { location } = this.props;
+        changeHeightAwesomeBorder('remember_password', location.pathname);
     }
 
     componentDidUpdate() {
-       changeHeightAwesomeBorder();
+    	const { location } = this.props;
+        changeHeightAwesomeBorder('remember_password', location.pathname);
     }
 	
 	submitForgotPasswordForm = (values, dispatch) => {

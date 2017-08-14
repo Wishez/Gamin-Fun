@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { selectNavigationItem } from './../actions/navigationActions.js';
+import { withRouter } from 'react-router-dom';
 
 class NavContainer extends Component {
   static PropTypes = { 
@@ -90,4 +91,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(NavContainer);
+export default withRouter(connect(mapStateToProps)(NavContainer));

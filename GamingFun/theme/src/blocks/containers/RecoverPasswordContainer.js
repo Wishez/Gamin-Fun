@@ -16,23 +16,34 @@ class RecoverPasswordContainer extends Component {
 		recoverPasswordMessage: PropTypes.string.isRequired,
 		isChanging: PropTypes.bool.isRequired,
 		match: PropTypes.object.isRequired,
-		dispatch: PropTypes.func.isRequired
+		dispatch: PropTypes.func.isRequired,
+		location: PropTypes.object.isRequired
 	}
-
-	componentDidMount() {
-		const { dispatch } = this.props;
+	customViewComponent = () => {
+		const { dispatch, location } = this.props;
 
 		dispatch(cleanActiveState());
 		changeSiteIfNeeded(this.props);
-	    changeHeightAwesomeBorder();
+
+        changeHeightAwesomeBorder('/revover_password', location.pathname);
+	}
+
+	componentDidMount() {
+		this.customViewComponent()
+		// const { dispatch } = this.props;
+
+		// dispatch(cleanActiveState());
+		// changeSiteIfNeeded(this.props);
+	 //    changeHeightAwesomeBorder();
     }
 
     componentDidUpdate() {
-    	const { dispatch } = this.props;
+    	this.customViewComponent()
+  //   	const { dispatch } = this.props;
 
-		dispatch(cleanActiveState());
-        changeSiteIfNeeded(this.props);
-        changeHeightAwesomeBorder();
+		// dispatch(cleanActiveState());
+  //       changeSiteIfNeeded(this.props);
+  //       changeHeightAwesomeBorder();
     }
 	
 	submitRecoverPasswordForm = (values, dispatch) => {

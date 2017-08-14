@@ -28,7 +28,7 @@ const Captcha = ({
 	block
 
 }) => (
-	<div className={block}>
+	<div className={`${block}`}>
 		{touched && 
 		 	((error && 
 		 		<span className={`${block}__error`}>{error}</span>) || 

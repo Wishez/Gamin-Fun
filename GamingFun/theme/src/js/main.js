@@ -5,7 +5,7 @@
 ***********/
 
 import 'jquery';
-import 'bootstrap-sass';
+// require('bootstrap-sass');
 import 'babel-polyfill';
 import 'whatwg-fetch';
 // import './../libs/object-watch.js';
