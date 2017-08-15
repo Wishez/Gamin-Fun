@@ -1,11 +1,19 @@
 // Fonts
-$mainFont: 'Tahoma', sans-serif;
+// $mainFont: 'Tahoma', sans-serif;
+$mainFont: 'Comic Sans', sans-serif;
 // $additionalFont: '', cursive;
 
-$nameFont: 'Tahoma';
-$normalFont: '../fonts/Tahoma/Tahoma-Regular';
-// $italicFont: '../fonts/inglobal/Tahoma-Regulare';
-$boldFont: '../fonts/Tahoma/Tahoma-Bold';
+// $nameFont: 'Tahoma';
+// $normalFont: '../fonts/Tahoma/Tahoma-Regular';
+// $italicFont: '../fonts/inglobal/Tahoma-Regular';
+// $boldFont: '../fonts/Tahoma/Tahoma-Bold';
+// $boldItalicFont: '../fonts/inglobal/inglobalbi';
+// $mainFont: 'Tahoma', sans-serif;
+// $additionalFont: '', cursive;
+$nameFont: 'Comic Sans';
+$normalFont: '../fonts/comic/comic';
+// $italicFont: '../fonts/comic/comic-Medium';
+$boldFont: '../fonts/comic/comic-bold';
 // $boldItalicFont: '../fonts/inglobal/inglobalbi';
 
 @font-face {

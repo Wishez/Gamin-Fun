@@ -25,7 +25,7 @@ def register(request):
     if request.method == 'POST':
 
         data = request.POST
-  
+
         password = data['password']
         repeated_password = data['repeatedPassword']
         # Проверяем тождество паролей, после чего либо работа продолжается,

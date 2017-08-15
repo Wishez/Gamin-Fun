@@ -23,16 +23,16 @@ const Constacts = ({
 				</li>
 				<li className='visitCardContact'>
 					Тех-поддержка:&thinsp;
-					<a className={`not-follow visitCardContact__refer visitCardContact__refer--${site}`}
-					   href='mailto:tech-supprot@domain.ru'>
-						tech-&nbsp;supprot@domain.ru
+					<a className={`visitCardContact__refer visitCardContact__refer--${site}`}
+					   href='mailto:support@gamingfun.ru'>
+						support@gamingfun.ru
 					</a>
 				</li>
 				<li className='visitCardContact'>
 					Сотрудничество:&thinsp;
-					<a className={`not-follow visitCardContact__refer visitCardContact__refer--${site}`}
-					   href='mailto:will-be-friends@domain.ru'>
-						will-&nbsp;be-&nbsp;friends@domain.ru
+					<a className={`visitCardContact__refer visitCardContact__refer--${site}`}
+					   href='mailto:cooperation@gamingfun.ru'>
+						cooperation@gamingfun.ru
 					</a>
 				</li>
 			</ul>
