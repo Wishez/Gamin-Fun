@@ -1,10 +1,9 @@
 @import '__refer.scss';
 
 .navItem {
-  // @include span(2 last);
   width: 15%;
-  display: inline-block;
-  text-align: center;
+  @extend %inline-block;
+  @extend .text-center;
   @include breakpoint($xs) {
     width: span(8);
     padding: 4%;
@@ -22,21 +21,22 @@
   }
   &.active {
     @include breakpoint($xs) {
-      
       background-color: $darkenDrakGray;
     }
     
   }
   &.active .navItem__refer {
+    @extend %navItemShadow--active;
     border-bottom: 3px solid;
     &--minecraft {
-      border-bottom-color: $green;
+      border-bottom-color: $mineBlue;
     }
     &--samp {
       border-bottom-color: $orange;
     }
     @include breakpoint($xs) {
       border: none;
+      box-shadow: none $i;
     }
   	&::after {
   		content: none;

@@ -4,18 +4,22 @@
  }
 // Общие стили
 .footerContacts__icon--minecraft i, .author__refer--minecraft {
-	@include link-colors($one-color: $green !important);
+	@include link-colors($one-color: $mineOrange $i);
 	&:hover {
-		color: lighten($green, 15%) !important;
+		color: lighten($mineOrange, 15%) $i;
 	}
 }
 .footerContacts__icon--samp i, .author__refer--samp {
-	@include link-colors($one-color: $orange !important);
+	@include link-colors($one-color: $orange $i);
 	&:hover {
-		color: lighten($orange, 15%) !important;
+		color: lighten($orange, 15%) $i;
 	}
 }
 .footerContacts__icon, .author__refer {
+  @include smooth-transition-link;	
+}
+
+.footerContacts__icon , .author__refer {
 	&:hover {
 		background-color: transparent;
 	}

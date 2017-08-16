@@ -1,14 +1,19 @@
 .userCardButtons__button {
 	font-size: (14em / 16);
 	&:hover {
-		background-color: transparent !important;
-		color: darken($lightGray, 10%) !important;	
+		background-color: transparent $i;
 	}
 	&--minecraft {
-		color: $lightGray !important;
+		color: $mineOrange $i;
+		&:hover {
+			color: lighten($mineOrange, 10%) $i;
+		}
 	}
 	&--samp {
 		color: lighten($orange, 10%) !important;
+		&:hover {
+			color: lighten($orange, 20%) $i;
+		}
 	}
 	&--personalRoom {
 		@extend .floatLeft;

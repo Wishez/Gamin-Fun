@@ -1,6 +1,6 @@
 .subscribtionFormController__dropdown {
 	@extend .registerFormController__input;
-	background-color: $darkenLightGray !important;
+	background-color: $gray $i;
 	padding-top: 3% !important;
 	border: 0 !important;
 	border-radius: 0 !important;
@@ -8,5 +8,16 @@
 		font-size: 50px !important;
 		padding: 0 !important;
 		top: 30px !important;
+	}
+	
+	font-size: (12em / 16);
+	color: $lightGray $i;
+	box-shadow: 0 0 10px $shadow $i;
+	transition: box-shadow 0.5s, background-color 0.5s, color 0.5s $i;
+	@include placehodler-color-focus($gray $i);
+	&:focus {
+		color: $darkGray $i;
+		@extend %buttonShadow;
+		background-color: $darkenLightGray $i;
 	}
 }

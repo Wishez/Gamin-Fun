@@ -1,21 +1,36 @@
 // Fonts
-// $mainFont: 'Tahoma', sans-serif;
-$mainFont: 'Comic Sans', sans-serif;
-// $additionalFont: '', cursive;
+$mainFont: 'Proxima Nova', serif;
 
-// $nameFont: 'Tahoma';
-// $normalFont: '../fonts/Tahoma/Tahoma-Regular';
-// $italicFont: '../fonts/inglobal/Tahoma-Regular';
-// $boldFont: '../fonts/Tahoma/Tahoma-Bold';
-// $boldItalicFont: '../fonts/inglobal/inglobalbi';
-// $mainFont: 'Tahoma', sans-serif;
 // $additionalFont: '', cursive;
-$nameFont: 'Comic Sans';
-$normalFont: '../fonts/comic/comic';
-// $italicFont: '../fonts/comic/comic-Medium';
-$boldFont: '../fonts/comic/comic-bold';
-// $boldItalicFont: '../fonts/inglobal/inglobalbi';
+$nameFont: 'Proxima Nova';
+$normalFont: '../fonts/ProximaNova/ProximaNovaR';
+$italicFont: '../fonts/ProximaNova/ProximaNovaRI';
+$boldFont: '../fonts/ProximaNova/ProximaNovaB';
+$boldItalicFont: '../fonts/ProximaNova/ProximaNovaBI';
+$lightFont: '../fonts/ProximaNova/ProximaNovaL';
+$lightItalicFont: '../fonts/ProximaNova/ProximaNovaLI';
 
+
+@font-face {
+  font-family: $nameFont;
+  font-weight: normal;
+  font-style: normal;
+  src: url('#{$normalFont}.eot');
+  src: local('#{$nameFont}'),
+    url('#{$normalFont}.woff') format('woff'),
+    url('#{$normalFont}.ttf') format('truetype'),
+    url('#{$normalFont}.svg') format('svg');
+}
+@font-face {
+  font-family: $nameFont;
+  font-weight: normal;
+  font-style: italic;
+  src: url('#{$italicFont}.eot');
+  src: local('#{$nameFont}'), 
+    url('#{$italicFont}.woff') format('woff'),
+    url('#{$italicFont}.ttf') format('truetype'),
+    url('#{$italicFont}.svg') format('svg');
+}
 @font-face {
   font-family: $nameFont;
   font-weight: bold;
@@ -28,14 +43,40 @@ $boldFont: '../fonts/comic/comic-bold';
 }
 @font-face {
   font-family: $nameFont;
-  font-weight: normal;
-  font-style: normal;
-  src: url('#{$normalFont}.eot');
+  font-weight: bold;
+  font-style: italic;
+  src: url('#{$boldItalicFont}.eot');
   src: local('#{$nameFont}'),
-    url('#{$normalFont}.woff') format('woff'),
-    url('#{$normalFont}.ttf') format('truetype'),
-    url('#{$normalFont}.svg') format('svg');
+    url('#{$boldItalicFont}.woff') format('woff'),
+    url('#{$boldItalicFont}.ttf') format('truetype'),
+    url('#{$boldItalicFont}.svg') format('svg');
 }
+@font-face {
+  font-family: $nameFont;
+  font-weight: bold;
+  font-style: italic;
+  src: url('#{$lightFont}.eot');
+  src: local('#{$nameFont}'),
+    url('#{$lightFont}.woff') format('woff'),
+    url('#{$lightFont}.ttf') format('truetype'),
+    url('#{$lightFont}.svg') format('svg');
+}
+
+@font-face {
+  font-family: $nameFont;
+  font-weight: 300;
+  font-style: italic;
+  src: url('#{$lightItalicFont}.eot');
+  src: local('#{$nameFont}'), 
+    url('#{$lightItalicFont}.woff') format('woff'),
+    url('#{$lightItalicFont}.ttf') format('truetype'),
+    url('#{$lightItalicFont}.svg') format('svg');
+}
+
+
+
+
+
 @font-face {
   font-family: 'octicons';
   font-weight: normal;
@@ -46,26 +87,6 @@ $boldFont: '../fonts/comic/comic-bold';
     url('../fonts/octicons.ttf') format('truetype'),
     url('../fonts/octicons.svg') format('svg');
 }
-// @font-face {
-//   font-family: $nameFont;
-//   font-weight: bold;
-//   font-style: italic;
-//   src: url('#{$boldItalicFont}.eot');
-//   src: local('#{$nameFont}'),
-//     url('#{$boldItalicFont}.woff') format('woff'),
-//     url('#{$boldItalicFont}.ttf') format('truetype'),
-//     url('#{$boldItalicFont}.svg') format('svg');
-// }
-// @font-face {
-//   font-family: $nameFont;
-//   font-weight: normal;
-//   font-style: italic;
-//   src: url('#{$italicFont}.eot');
-//   src: local('#{$nameFont}'), 
-//     url('#{$italicFont}.woff') format('woff'),
-//     url('#{$italicFont}.ttf') format('truetype'),
-//     url('#{$italicFont}.svg') format('svg');
-// }
 
 
 

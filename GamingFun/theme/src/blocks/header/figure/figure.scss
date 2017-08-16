@@ -1,19 +1,19 @@
 .figure {
-	position: absolute;
+	@extend %absolute;
 	width: 100%;
 	z-index: -1;
 	@include breakpoint($xs) { 
 		display: none;
 	}
-	&--steve {
-		max-width: 187px;
-		top: (99% / 387) * 100;
-		left: (110% / 1366 * 100);
+	&--steve_with_bow {
+		bottom: 0;
+		left: (106% / 1366 * 100);
+		max-width: 299px;
 	}
-	&--squid {
-		max-width: 139px;
-		top: 99px;
-		right: (219% / 1366 * 100);
+	&--chicken {
+		bottom: 70px;
+		right: (166% / 1366 * 100);
+		max-width: 127px;
 	}
 	&--car {
 		top: 39px;

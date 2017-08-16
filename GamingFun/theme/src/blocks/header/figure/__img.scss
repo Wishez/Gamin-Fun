@@ -1,13 +1,22 @@
 .figure__img {
 	@include responsive-background;
 	width: 100%;
-	&--steve {
-		padding-bottom: (249% / 187 * 100);
-		background-image: url('../img/minecraft/steve.png');			
+	// &--steve {
+	// 	padding-bottom: (249% / 187 * 100);
+	// 	background-image: url('../img/minecraft/steve.png');			
+	// }
+	// &--squid {
+	// 	padding-bottom: (171% / 139 * 100);
+	// 	background-image: url('../img/minecraft/squid.png');				
+	// }
+	&--steve_with_bow {
+		background-image: url('../img/minecraft/steve_with_bow.png');
+		padding-bottom: (225% / 299 * 100);
+		// transform: rotate(-10deg);
 	}
-	&--squid {
-		padding-bottom: (171% / 139 * 100);
-		background-image: url('../img/minecraft/squid.png');				
+	&--chicken {
+		background-image: url('../img/minecraft/chicken.png');
+		padding-bottom: (153% / 127 * 100);		
 	}
 	&--car {
 		padding-bottom: (285% / 441 * 100);

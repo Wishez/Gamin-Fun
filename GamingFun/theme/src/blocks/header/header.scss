@@ -1,26 +1,16 @@
 .header {
-	position: relative;
+	@extend %relative;
 	z-index: 2;
+	@extend %navItemShadow;
 }
 .header--minecraft, .header--samp {
 	border-bottom: 3px solid;
 }	
 .header--minecraft {
+	padding-top: 75px;
 	min-height: 387px;
-	background-color: $darkGreen;	
-	border-bottom-color: $paleGreen;
-	&::after {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		margin: 0;
-		background: url('../img/minecraft/grass.png') repeat center;
-		background-size: 216px 175px;
-		height: 175px;
-		z-index: -1;
-	}
+	background-color: $mineBrown;	
+	border-bottom-color: $mineDarkenBrown;
 }
 
 .header--samp {

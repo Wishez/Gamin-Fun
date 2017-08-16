@@ -17,13 +17,19 @@ $brown: #754a00;
 $shadow: rgba(0, 0, 0, .6);
 $purple: #30014c;
 $limon: #cbc963;
+$mineBlue: #0b384d;
+$mineLightenBlue: lighten($mineBlue, 15%);
+$mineBrown: #302319;
+$mineDarkenBrown: #241a13;
+$mineLightenBrown: lighten($mineBrown, 15%);
+$mineOrange: #a98545;
 
 
 // font
 $baseColorFont: $darkGray;
 $baseLinkColor: $gray !important;
 $baseHoverLinkColor: $lightGray !important;
-$baseHoverLinkBackgroundColor:  #917569;
+$baseHoverLinkBackgroundColor:  #ad966e;
 $baseVisitedLinkColor:$darkGray;
 $baseActiveLinkColor: $darkGray;
 $baseFocusLinkColor: $darkGray;

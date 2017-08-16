@@ -1,5 +1,9 @@
+%round {
+   border-radius: 50%;
+}
+
 @mixin round() {
-  border-radius: 50%;
+  @extend %round;
 }
 @mixin xs-center-text() {
   @include breakpoint($xs) {
@@ -18,22 +22,22 @@
     background-color: #{$color};
   }
 }
-.center-block {
+%center-block {
    margin-left: auto !important;
    margin-right: auto !important;
    display: block;
 }
 @mixin center-block {
-  @extend .center-block;
+  @extend %center-block;
 }
 
-.responsiveBackground {
+%responsiveBackground {
   background: center top no-repeat;
   background-size: cover;
   
 }
 @mixin responsive-background($padding-bottom: false, $url: false, $attachment: false) {
-  @extend .responsiveBackground;
+  @extend %responsiveBackground;
 
   @if $attachment {
 	background-attachment: $attachment;
@@ -46,18 +50,18 @@
   }
 }
 
-.colorsTransition {
+%colorsTransition {
   transition: color 0.5s, background-color 0.5s;
 }
 @mixin smooth-transition-link {
-  @extend .colorsTransition;
+  @extend %colorsTransition;
 }
 
-.colorsTransitionsWithTransofm {
-  transition: color 0.5s, background-color 0.5s, transform 0.1s;
+%colorsTransitions--props_color-background-transform-shadow {
+  transition: color 0.5s, background-color 0.5s, transform 0.1s, box-shadow, 0.5s;
 }
 @mixin smooth-transition-button($font-color: false, $background-color: false) {
-  @extend .colorsTransitionsWithTransofm;
+  @extend %colorsTransitions--props_color-background-transform-shadow;
   &:hover {
     @if $font-color {
       color: #{$font-color};
@@ -107,5 +111,62 @@
   }
   &:focus {
     color: #{$focus-color}; 
+  }
+}
+
+@mixin base-perspective-roof($bg: false) {
+  @extend %basePerspectiveRoof;
+  &::after {
+    @if $bg {
+      background-color: $bg;  
+    } @else {
+      background-color: $gray; 
+    }
+  }
+}
+
+@mixin placehodler-color($color) {
+
+  ::-webkit-input-placeholder {
+      color: $color;
+  }
+
+  :-ms-input-placeholder {
+      color: $color;
+  }
+
+  ::-moz-placeholder {
+      color: $color;
+  }
+
+  :-moz-placeholder {
+      color: $color;
+  }
+
+  :placeholder-shown {
+      color: $color;
+  }
+
+
+
+}
+@mixin placehodler-color-focus($color) {
+  &:focus::-webkit-input-placeholder {
+      color: $color;
+  }
+
+  &:focus:-ms-input-placeholder {
+      color: $color;
+  }
+
+  &:focus::-moz-placeholder {
+      color: $color;
+  }
+
+  &:focus:-moz-placeholder {
+      color: $color;
+  }
+  :placeholder-shown {
+      color: $color;
   }
 }

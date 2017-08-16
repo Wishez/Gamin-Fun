@@ -4,8 +4,9 @@
 	height: 275px;
 	width: 100%;
 	padding: 80px 0 0 130px;
-	position: relative;
+	@extend %relative;
 	margin-top: 58px;
+	@extend %navItemShadow;
 	@include breakpoint($sm) {
 		padding: 85px 10% 10%;
 		margin: 0;
@@ -13,12 +14,12 @@
 	}
 	&::after {
 		content: '';
-		position: absolute;
+		@extend %absolute;
 		top: 80px;
 		left: 50px;
-		width: 37px;
+		width: 50px;
 		@include responsive-background;
-		padding-bottom: 38px;
+		padding-bottom: 50px;
 		@include breakpoint($sm) {
 			top: 30px;
 			left: 10%;

@@ -8,10 +8,8 @@ const Footer = ({site}) => (
   <footer className={'footer footer--' + site}> 
     <Container>
       <FooterContacts site={site} />
-      {site === 'minecraft' ?
-          <FiguresList figuresNames={['steve_with_bow', 'chicken']} /> : ''}
-        {site === 'samp' ?
-          <FiguresList figuresNames={['woman', 'nigga']} /> : ''}
+   	  {site === 'samp' ?
+        <FiguresList figuresNames={['woman', 'nigga']} /> : ''}
     </Container>
   </footer>
 );

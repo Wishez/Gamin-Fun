@@ -13,6 +13,7 @@
 	}
 	color: $lightGray !important;
 	@extend .text-center;
+	@extend %buttonShadow;
 	$darkenGray: darken($gray, 5%) !important;
 	@include smooth-transition-button($background-color: $darkenGray);
 }	

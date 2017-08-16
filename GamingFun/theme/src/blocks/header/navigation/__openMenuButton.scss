@@ -1,5 +1,5 @@
 .navigation__closeMenuButton, .navigation__openMenuButton {
-	position: absolute;
+	@extend %absolute;
 	color: $lightGray;
 }
 .navigation__openMenuButton {
@@ -7,6 +7,10 @@
   left: 100%;
   margin-left: calc(-48.5% + -27px);
   background-color: transparent;
+  @include breakpoint($xs) {
+  	left: 125%;
+	display: block !important;
+  }
 }
 
 .navigation__closeMenuButton {

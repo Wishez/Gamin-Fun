@@ -1,0 +1,9 @@
+%buttonShadow {
+	box-shadow: 0 5px 10px $shadow $i;
+}
+%navItemShadow {
+	box-shadow: 0 10px 15px $shadow;
+}
+%navItemShadow--active {
+	box-shadow: 0 0 10px $shadow;
+}

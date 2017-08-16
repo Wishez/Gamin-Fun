@@ -1,5 +1,6 @@
 .author {
-	margin-top: 1em;
+	@extend .prettyTopMargin;
+	font-weight: bold;
 	@include breakpoint($xs) {
 		margin-top: 0;
 	}

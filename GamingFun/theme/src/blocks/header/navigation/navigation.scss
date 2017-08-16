@@ -1,24 +1,27 @@
 .navigaton {
   width: span(12);
-  margin-top: (14% / 387) * 100;
   z-index: 3;
   @include breakpoint($xs) {
     position: absolute;
-    bottom: 25px;
-    left: 0;
     width: 100%; 
     margin: 0;
     height: 44px;
+    left: 0;
   }
 }
 .navigation--minecraft {
+  @include breakpoint($xs) {
+    top: 50px;
+    
+  }
 }
 .navigation--samp {
-  @include breakpoint($md) {
-     margin-top: (17% / 387) * 100;
-  }
+  margin-top: (35% / 387) * 100;
   @include breakpoint($sm) {
-     margin-top: (23% / 387) * 100;
+     margin-top: (40% / 387) * 100;
+  }
+  @include breakpoint($xxs) {
+    bottom: 25px;
   }
 }
 

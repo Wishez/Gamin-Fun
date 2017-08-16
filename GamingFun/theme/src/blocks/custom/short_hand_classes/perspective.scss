@@ -1,0 +1,14 @@
+%basePerspectiveRoof {
+	perspective: 800px;
+	transform-style: 3d-preverse;
+	@extend %relative;
+	&:after {
+		content: "";
+		@extend %absolute;
+		transform: rotateX(60deg);
+		width: span(12);
+		height: 100%;
+		top: -22px;
+		left: 2px;
+	}
+}

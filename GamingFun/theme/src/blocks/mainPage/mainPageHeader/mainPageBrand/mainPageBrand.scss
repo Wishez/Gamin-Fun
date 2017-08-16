@@ -3,7 +3,9 @@
 	@include center-block;
 	width: 	50vw;
 	min-width: 465px;
-	// @include border-rig
+	@include breakpoint($xs) {
+		min-width:  405px;
+	}
 	@include breakpoint($xxs) {
 		min-width:  330px;
 	}

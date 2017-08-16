@@ -1,9 +1,16 @@
 .formInput {
 	width: 100%;
-	background-color: $darkenLightGray;	
+	background-color: $gray;	
 	font-size: (12em / 16);
 	color: $darkGray;
 	height: 40px;
 	padding-left: 15px;
 	@extend .prettyTopMargin;
+	@extend %navItemShadow--active;
+	transition: transform 0.5s, box-shadow 0.5s, background-color 0.5, color 0.5s;
+	&:focus {
+		@include base-perspective-roof;
+		@extend %buttonShadow;
+		background-color: $darkenLightGray;
+	}
 }

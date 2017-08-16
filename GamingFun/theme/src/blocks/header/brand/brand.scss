@@ -1,11 +1,11 @@
 .brand {
 	@include center-block;
-	max-width: 324px;
-	position: relative;
+	max-width: 345px;
+	@extend %relative;
 }
 
 .brand--minecraft {
-	top: 100px;	
+	top: 80px;	
 }
 .brand--samp {
 	top: 64px;	

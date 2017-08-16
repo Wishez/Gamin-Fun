@@ -10,15 +10,22 @@ const Header = ({
   ...rest
 }) => (
   <header className={`header header--${site}`}>
-      <Container>
-        <Logo site={site} />
-        <NavBetweenProjectsContainer />
-        <NavContainer site={site} />
-        {site === 'minecraft' ?
-          <FiguresList figuresNames={['steve', 'squid']} /> : ''}
-        {site === 'samp' ?
-          <FiguresList figuresNames={['car', 'helicopter', 'man']} /> : ''}
-      </Container>
+      {site === 'minecraft' ?
+        <Container>
+          <NavBetweenProjectsContainer />
+          <NavContainer site={site} />
+          <Logo site={site} />
+          <FiguresList figuresNames={['steve_with_bow', 'chicken']} />
+        </Container>
+         : ''}
+      {site === 'samp' ?
+        <Container>
+          <Logo site={site} />
+          <NavBetweenProjectsContainer />
+          <NavContainer site={site} />
+          <FiguresList figuresNames={['car', 'helicopter', 'man']} />
+        </Container>
+        : ''}
   </header>
 );
 

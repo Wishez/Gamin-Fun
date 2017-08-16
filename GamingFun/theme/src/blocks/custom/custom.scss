@@ -1,12 +1,12 @@
-
+$i: !important;
 @import 'config/grid.scss';
 @import 'config/fonts.scss';
 @import 'config/colors.scss';
 @import 'config/breakpoints.scss';
-@import 'config/mixins.scss';
 @import 'config/sizes.scss';
 @import 'config/animation.scss';
 @import 'config/flex.scss';
+@import 'config/mixins.scss';
 
 @import 'short_hand_classes/margins.scss';
 @import 'short_hand_classes/visible.scss';
@@ -18,6 +18,11 @@
 @import 'short_hand_classes/float.scss';
 @import 'short_hand_classes/paddings.scss';
 @import 'short_hand_classes/form.scss';
+@import 'short_hand_classes/shadows.scss';
+@import 'short_hand_classes/perspective.scss';
+@import 'short_hand_classes/display.scss';
+@import 'short_hand_classes/position.scss';
+
 
 // Custom styles
 html, body {
@@ -91,19 +96,19 @@ a {
     background-color: $baseHoverLinkBackgroundColor;
   }
 }
+@include placehodler-color($lightGray);
+// ::-webkit-input-placeholder {
+//     color: $lightGray;
+// }
 
-::-webkit-input-placeholder {
-    color: $gray;
-}
+// :-ms-input-placeholder {
+//     color: $lightGray;
+// }
 
-:-ms-input-placeholder {
-    color: $gray;
-}
+// ::-moz-placeholder {
+//     color: $lightGray;
+// }
 
-::-moz-placeholder {
-    color: $gray;
-}
-
-:-moz-placeholder {
-    color: $gray;
-}
+// :-moz-placeholder {
+//     color: $lightGray;
+// }

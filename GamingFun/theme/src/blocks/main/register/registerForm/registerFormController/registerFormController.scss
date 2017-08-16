@@ -1,5 +1,5 @@
 .registerFormController {
-	@extend .prettyTopMargin;
+	@extend %controller;
 }
 
 @import '__input.scss';

@@ -1,6 +1,6 @@
 .projectsNav__button {
 	padding: 1% 0 ;
-	// border: 2px solid $darkBrown;
+	@extend .prettyTopMargin;
 	border-radius: 5px;
 	width: span(5);
 	max-width: 100px;
@@ -9,10 +9,10 @@
 	@include smooth-transition-button();
 
 	&--minecraft {
-		background-color: $paleGreen;
+		background-color: $mineBlue;
 
 		&_active, &:hover  {
-			background-color: $green;
+			background-color: $mineLightenBlue;
 		}		
 
 	}

@@ -1,21 +1,24 @@
 .server__status {
-	position: relative;
-	@extend .defaultTopMargin;
+	@include base-perspective-roof($mineLightenBrown);
+	@extend %buttonShadow;
+	margin-top: 45px $i;
 	&, > .bar {
 		height: 30px !important;
 		border-radius: 0 !important;
 	}
 	&--text {
-		position: absolute;
+		color: $lightGray;
+		@extend %absolute;
 		top: -28px;
 		left: 45%;
 	}
 }
 
 .server__status--minecraft {
-	background-color: $paleGreen !important;
+	background-color: $mineBrown $i;
+	@extend .defaultTopMargin;
 	& > .bar {
-		background-color: $green !important;
+		background-color: $mineOrange $i;
 	} 
 
 }
