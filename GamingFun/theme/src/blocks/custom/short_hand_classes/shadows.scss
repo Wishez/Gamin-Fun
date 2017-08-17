@@ -4,6 +4,9 @@
 %navItemShadow {
 	box-shadow: 0 10px 15px $shadow;
 }
+%importantNavItemShadow {
+	box-shadow: 0 10px 15px $shadow $i;
+}
 %navItemShadow--active {
 	box-shadow: 0 0 10px $shadow;
 }

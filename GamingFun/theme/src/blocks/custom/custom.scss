@@ -97,18 +97,29 @@ a {
   }
 }
 @include placehodler-color($lightGray);
-// ::-webkit-input-placeholder {
-//     color: $lightGray;
-// }
 
-// :-ms-input-placeholder {
-//     color: $lightGray;
-// }
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  background-color: $mineOrange $i;
+  -webkit-text-fill-color: $darkGray $i;
+}
 
-// ::-moz-placeholder {
-//     color: $lightGray;
-// }
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {
+  margin-right: 10px;
+  display: block;
+  cursor: pointer;
+}
 
-// :-moz-placeholder {
-//     color: $lightGray;
-// }
+input[type=number]:hover::-webkit-inner-spin-button, 
+input[type=number]:hover::-webkit-outer-spin-button {
+  width: 20px;
+  height: 20px;
+}

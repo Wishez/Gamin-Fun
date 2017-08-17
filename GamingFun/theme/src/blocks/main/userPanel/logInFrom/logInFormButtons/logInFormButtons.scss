@@ -1,6 +1,6 @@
 .logInFormButtons {
-	position: relative;
-	@extend .prettyTopMargin;
+	@extend %relative;
+	@extend %largeTopMargin;
 	@include susy-clearfix;
 }
 

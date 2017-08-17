@@ -58,7 +58,7 @@
 }
 
 %colorsTransitions--props_color-background-transform-shadow {
-  transition: color 0.5s, background-color 0.5s, transform 0.1s, box-shadow, 0.5s;
+  transition: color 0.5s, background-color 0.5s, transform 0.1s, box-shadow, 0.5s $i;
 }
 @mixin smooth-transition-button($font-color: false, $background-color: false) {
   @extend %colorsTransitions--props_color-background-transform-shadow;

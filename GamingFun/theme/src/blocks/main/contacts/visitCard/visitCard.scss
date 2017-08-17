@@ -12,6 +12,11 @@
 		margin: 0;
 		height: auto;
 	}
+	@include breakpoint($xxs) {
+		padding: 85px 10% 10%;
+		margin: 0;
+		height: auto;
+	}
 	&::after {
 		content: '';
 		@extend %absolute;
@@ -21,6 +26,10 @@
 		@include responsive-background;
 		padding-bottom: 50px;
 		@include breakpoint($sm) {
+			top: 30px;
+			left: 10%;
+		}
+		@include breakpoint($xxs) {
 			top: 30px;
 			left: 10%;
 		}

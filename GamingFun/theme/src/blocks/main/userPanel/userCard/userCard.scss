@@ -1,5 +1,7 @@
 .userCard {
 	@include center-block;
+	margin-top: 2em $i;
+	@extend %importantNavItemShadow;
 }
 
 .userCard, .userCard__avatar {

@@ -30,12 +30,14 @@ export const convertDate = date => {
 	});	
 };
 export const changeHeightAwesomeBorder = (path, currentPath) => {
+	const height = $('.contentWrapper').innerHeight();
+	// console.log(height);
 	setTimeout(() => {
 		if (new RegExp(path, 'ig').test(currentPath))
 	    	$('#awesomeBorder').css({
-	    		'height': $('.contentWrapper').innerHeight(),
+	    		'height': height,
 	    		'top': $('.header').innerHeight()
 	    	});
-	}, 1500)
+	}, 1000)
 };
 

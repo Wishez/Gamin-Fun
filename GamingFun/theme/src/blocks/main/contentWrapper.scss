@@ -1,8 +1,9 @@
 .contentWrapper {
 	@include susy-clearfix;
+	padding-bottom: 185px;
 	& > .container {
 		@include span(9);
-		padding: 75px 0 75px 20%;
+		padding: 75px 0 0 20%;
 		@include breakpoint($lg) {
 			padding-left: 30%;
 		}

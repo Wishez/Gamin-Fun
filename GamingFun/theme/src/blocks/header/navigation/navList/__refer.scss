@@ -5,6 +5,7 @@
   @extend %relative;
   @extend %block;
   @extend %navItemShadow;
+  @include smooth-transition-button;
   &::after {
     content: "";
     height: 3px;
@@ -18,10 +19,8 @@
       content: none;
     }
   }
-  @include smooth-transition-button;
   &--minecraft {
       background-color: $mineLightenBrown;
-      // border-radius: 5px;
     &::after {
       background-color: $mineBlue;
     }
@@ -47,16 +46,15 @@
     color: $lightGray;
     @extend %navItemShadow--active;
   }
+  // .navItem__refer @media
   @include breakpoint($md-less) {
      font-size: (18em / 16);
   }
   @include breakpoint($xs) {
-    padding-bottom: 0;
+    padding: 0;
     font-size: $firstSizeHeading;
     background-color: transparent;
     box-shadow: none $i;
-  }
-  @include breakpoint($xxs) {
-    
+
   }
 }

@@ -7,21 +7,23 @@
     margin: 0;
     height: 44px;
     left: 0;
+    top: 50px;
   }
 }
 .navigation--minecraft {
-  @include breakpoint($xs) {
-    top: 50px;
-    
-  }
+
 }
 .navigation--samp {
   margin-top: (35% / 387) * 100;
-  @include breakpoint($sm) {
+  @include breakpoint($md) {
      margin-top: (40% / 387) * 100;
   }
-  @include breakpoint($xxs) {
-    bottom: 25px;
+  @include breakpoint($sm) {
+     margin-top: (50% / 387) * 100;
+  }
+  @include breakpoint($xs) {
+    margin-top: 0;
+    z-index: -1;
   }
 }
 

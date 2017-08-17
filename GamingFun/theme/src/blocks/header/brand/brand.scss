@@ -5,10 +5,16 @@
 }
 
 .brand--minecraft {
-	top: 80px;	
+	top: 80px;
+	@include breakpoint($xxs) {
+		top: 90px;	
+	}	
 }
 .brand--samp {
-	top: 64px;	
+	top: 64px;
+	@include breakpoint($xs) {
+		top: 145px;	
+	}	
 }
 
 @import '__name.scss';

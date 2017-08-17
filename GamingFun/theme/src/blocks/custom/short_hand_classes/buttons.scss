@@ -1,19 +1,19 @@
 .smallGrayButton {
-	border-radius: 0 !important;
+	border-radius: 0 $i;
 	width: 100%;
 	max-width: 100px;
-	padding: 6px 0 0 !important;
+	padding: 6px 0 0 $i;
 	height: 35px;
-	background-color: $gray !important;
-	font-size: (12em / 16) !important;
+	background-color: $gray $i;
+	font-size: (12em / 16) $i;
 	font: {
 		family: $mainFont;
-		size: (12em / 16) !important;
+		size: (12em / 16) $i;
 		weight: bold;
 	}
-	color: $lightGray !important;
+	color: $lightGray $i;
 	@extend .text-center;
 	@extend %buttonShadow;
-	$darkenGray: darken($gray, 5%) !important;
+	$darkenGray: darken($gray, 5%) $i;
 	@include smooth-transition-button($background-color: $darkenGray);
 }	
