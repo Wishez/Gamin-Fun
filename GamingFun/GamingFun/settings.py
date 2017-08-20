@@ -32,8 +32,9 @@ ALLOWED_HOSTS = [
 
 
 # Application definition
-
+# 'robokassa',
 INSTALLED_APPS = [
+    'robokassa',
     'captcha',
     'grappelli',
     'rest_framework',
@@ -88,7 +89,7 @@ WSGI_APPLICATION = 'GamingFun.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'new',
+        'NAME': 'gm',
         'USER': 'gm',
         'PASSWORD': 'demonstration',
         'HOST': '',
@@ -150,3 +151,23 @@ CSRF_USE_SESSIONS = True
 
 RECAPTCHA_PUBLIC_KEY = '6Lf2rigUAAAAAEb88AaevLR7gTwGhmUb5sQBOoMZ'
 RECAPTCHA_PRIVATE_KEY = '6Lf2rigUAAAAADYSz_jTT0NDWZjCXQG9RjZS2H7z'
+
+
+ROBOKASSA_LOGIN = 'gamingfun'
+ROBOKASSA_PASSWORD1 = 'vAq0WmIWY1dqa07W9miw'
+ROBOKASSA_PASSWORD2 = 'x9Op3Esv3mJpXa43qkTO'
+ROBOKASSA_TEST_PASSWORD1 = 'kxlT5Y1zmfYV2jDzmA73'
+ROBOKASSA_TEST_PASSWORD2 = 'tNF79oTAcU6M33MzLuPv'
+# Используется ли метод POST при приеме результатов от ROBOKASSA. По умолчанию - True. Считается, что для Result URL, Success URL и Fail URL выбран один и тот же метод.
+ROBOKASSA_USE_POST = True
+
+# Использовать ли строгую проверку (требовать предварительного уведомления на ResultURL). По умолчанию - True.
+ROBOLASSA_STRICT_CHECK = True
+
+ROBOKASSA_TEST_MODE = False
+
+# Cписок (list) названий дополнительных параметров, которые будут передаваться вместе с запросами. “Shp” к ним приписывать не нужно.
+ROBOKASSA_EXTRA_PARAMS = ['username']
+
+# url робокассы для тестового режима. Настройка предназначена для случая, когда в распоряжении не имеется доступного в интернете домена (например разработка на localhost) и вместо сервера робокассы необходимо использовать свой.
+# ROBOKASSA_TEST_FORM_TARGET = ''

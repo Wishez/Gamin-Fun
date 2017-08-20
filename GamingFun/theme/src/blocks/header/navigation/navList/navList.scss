@@ -1,6 +1,7 @@
 
 .navList {
-  @include span(10 last);
+  @include flexable('inline-flex', 'row nowrap', 'space-between', 'center');
+  @include span(12 last);
   @include breakpoint($sm) {
     width: 100%;
     float: none;

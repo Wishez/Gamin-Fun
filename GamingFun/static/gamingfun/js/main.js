@@ -105364,7 +105364,7 @@ var tryRecoverPassword = exports.tryRecoverPassword = function tryRecoverPasswor
 	};
 };
 
-},{"./../constants/actionTypes.js":1518,"./../constants/ajax.js":1519,"./../constants/pureFunctions.js":1521,"./../reducers/dataBySite.js":1540,"superagent":1459}],1476:[function(require,module,exports){
+},{"./../constants/actionTypes.js":1519,"./../constants/ajax.js":1520,"./../constants/pureFunctions.js":1522,"./../reducers/dataBySite.js":1543,"superagent":1459}],1476:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -105387,7 +105387,7 @@ var cleanActiveState = exports.cleanActiveState = function cleanActiveState() {
 	};
 };
 
-},{"./../constants/actionTypes.js":1518}],1477:[function(require,module,exports){
+},{"./../constants/actionTypes.js":1519}],1477:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -105474,7 +105474,64 @@ var fetchNewsIfNeeded = exports.fetchNewsIfNeeded = function fetchNewsIfNeeded(s
 	};
 };
 
-},{"./../constants/actionTypes.js":1518}],1478:[function(require,module,exports){
+},{"./../constants/actionTypes.js":1519}],1478:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.moveUserToPaynment = undefined;
+
+var _robokassaTypes = require('./../constants/robokassaTypes.js');
+
+var _ajax = require('./../constants/ajax.js');
+
+var _ajax2 = _interopRequireDefault(_ajax);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var proceedToPaynment = function proceedToPaynment(data, robokassaMessage) {
+	return {
+		type: _robokassaTypes.PROCEED_TO_PAYMENT,
+		data: data,
+		robokassaMessage: robokassaMessage
+	};
+};
+var failurePaynment = function failurePaynment(data, robokassaMessage) {
+	return {
+		type: _robokassaTypes.FAILURE_PAYNMENT,
+		data: data,
+		robokassaMessage: robokassaMessage
+	};
+};
+// Делает запрос к серверу и переводит пользователя на страницу
+// оплаты платёжного агрегатор ー robokassa. Перевод пользователя
+// происходит в django приложение robokassa. 
+var moveUserToPaynment = exports.moveUserToPaynment = function moveUserToPaynment(data) {
+	return function (dispatch) {
+		(0, _ajax2.default)({
+			url: '/payment/proceed_to_payment/',
+			data: data,
+			type: 'GET',
+			processData: true,
+			cache: true
+		});
+
+		dispatch(proceedToPaynment(data, 'Перенаправление...'));
+		// success не обрабатывается, потому что пользователь перенаправляется
+		// на страницу другого сайта.
+		return $.ajax({
+			success: function success(url) {
+				window.location = url;
+			},
+			error: function error(xhr, errmsg, err) {
+				dispatch(failurePaynment(data, 'Внутренняя ошибка сервера'));
+			}
+		});
+	};
+};
+
+},{"./../constants/ajax.js":1520,"./../constants/robokassaTypes.js":1523}],1479:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -105514,7 +105571,7 @@ var changeSiteIfNeeded = exports.changeSiteIfNeeded = function changeSiteIfNeede
 	if (site !== 'mine') return changeSiteByMatch(props);
 };
 
-},{"./../constants/actionTypes.js":1518}],1479:[function(require,module,exports){
+},{"./../constants/actionTypes.js":1519}],1480:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -105567,7 +105624,7 @@ var tryGetServerStatus = exports.tryGetServerStatus = function tryGetServerStatu
 	};
 };
 
-},{"./../constants/actionTypes.js":1518}],1480:[function(require,module,exports){
+},{"./../constants/actionTypes.js":1519}],1481:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -105633,7 +105690,7 @@ exports.default = (0, _reduxForm.reduxForm)({
 	form: 'changeEmailForm'
 })(ChangeEmailForm);
 
-},{"./../constants/validation.js":1522,"./RenderController":1509,"react":1140,"redux-form":1199,"semantic-ui-react":1349}],1481:[function(require,module,exports){
+},{"./../constants/validation.js":1524,"./RenderController":1510,"react":1140,"redux-form":1199,"semantic-ui-react":1349}],1482:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -105707,7 +105764,7 @@ exports.default = (0, _reduxForm.reduxForm)({
 	form: 'сhangePasswordForm'
 })(ChangePasswordForm);
 
-},{"./../constants/validation.js":1522,"./RenderController":1509,"react":1140,"redux-form":1199,"semantic-ui-react":1349}],1482:[function(require,module,exports){
+},{"./../constants/validation.js":1524,"./RenderController":1510,"react":1140,"redux-form":1199,"semantic-ui-react":1349}],1483:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -105785,7 +105842,7 @@ var Constacts = function Constacts(_ref) {
 
 exports.default = Constacts;
 
-},{"./Title":1515,"react":1140,"semantic-ui-react":1349}],1483:[function(require,module,exports){
+},{"./Title":1516,"react":1140,"semantic-ui-react":1349}],1484:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -105880,7 +105937,7 @@ var Download = function Download(_ref) {
 
 exports.default = Download;
 
-},{"./Title":1515,"react":1140,"semantic-ui-react":1349}],1484:[function(require,module,exports){
+},{"./Title":1516,"react":1140,"semantic-ui-react":1349}],1485:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -105925,7 +105982,7 @@ var DropdownController = function DropdownController(_ref) {
 
 exports.default = DropdownController;
 
-},{"react":1140,"semantic-ui-react":1349}],1485:[function(require,module,exports){
+},{"react":1140,"semantic-ui-react":1349}],1486:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -105949,7 +106006,7 @@ var Figure = function Figure(_ref) {
 
 exports.default = Figure;
 
-},{"react":1140}],1486:[function(require,module,exports){
+},{"react":1140}],1487:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -105984,7 +106041,7 @@ var FiguresList = function FiguresList(_ref) {
 
 exports.default = FiguresList;
 
-},{"./Figure":1485,"./News.js":1498,"react":1140}],1487:[function(require,module,exports){
+},{"./Figure":1486,"./News.js":1499,"react":1140}],1488:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -106023,7 +106080,7 @@ var Footer = function Footer(_ref) {
 
 exports.default = Footer;
 
-},{"./FiguresList":1486,"./FooterContacts":1488,"react":1140,"semantic-ui-react":1349}],1488:[function(require,module,exports){
+},{"./FiguresList":1487,"./FooterContacts":1489,"react":1140,"semantic-ui-react":1349}],1489:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -106069,7 +106126,7 @@ var FooterContacts = function FooterContacts(_ref) {
 
 exports.default = FooterContacts;
 
-},{"react":1140,"semantic-ui-react":1349}],1489:[function(require,module,exports){
+},{"react":1140,"semantic-ui-react":1349}],1490:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -106112,25 +106169,25 @@ var Header = function Header(_ref) {
     site === 'minecraft' ? _react2.default.createElement(
       _semanticUiReact.Container,
       null,
-      _react2.default.createElement(_NavBetweenProjectsContainer2.default, null),
       _react2.default.createElement(_NavContainer2.default, { site: site }),
       _react2.default.createElement(_Logo2.default, { site: site }),
       _react2.default.createElement(_FiguresList2.default, { figuresNames: ['steve_with_bow', 'chicken'] })
-    ) : '',
-    site === 'samp' ? _react2.default.createElement(
-      _semanticUiReact.Container,
-      null,
-      _react2.default.createElement(_Logo2.default, { site: site }),
-      _react2.default.createElement(_NavBetweenProjectsContainer2.default, null),
-      _react2.default.createElement(_NavContainer2.default, { site: site }),
-      _react2.default.createElement(_FiguresList2.default, { figuresNames: ['car', 'helicopter', 'man'] })
     ) : ''
   );
 };
 
+// <NavBetweenProjectsContainer />
+// {site === 'samp' ?
+//        <Container>
+//          <Logo site={site} />
+//          <NavBetweenProjectsContainer />
+//          <NavContainer site={site} />
+//          <FiguresList figuresNames={['car', 'helicopter', 'man']} />
+//        </Container>
+//        : ''}
 exports.default = Header;
 
-},{"./../containers/NavBetweenProjectsContainer":1527,"./../containers/NavContainer.js":1528,"./FiguresList":1486,"./Logo":1492,"react":1140,"semantic-ui-react":1349}],1490:[function(require,module,exports){
+},{"./../containers/NavBetweenProjectsContainer":1529,"./../containers/NavContainer.js":1530,"./FiguresList":1487,"./Logo":1493,"react":1140,"semantic-ui-react":1349}],1491:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -106166,7 +106223,7 @@ var LinkImage = function LinkImage(_ref) {
 
 exports.default = LinkImage;
 
-},{"react":1140,"react-router-dom":1099}],1491:[function(require,module,exports){
+},{"react":1140,"react-router-dom":1099}],1492:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -106251,7 +106308,7 @@ exports.default = (0, _reduxForm.reduxForm)({
 	form: 'logInForm'
 })(LogInForm);
 
-},{"./../constants/validation.js":1522,"./RenderController":1509,"react":1140,"react-router-dom":1099,"redux-form":1199,"semantic-ui-react":1349}],1492:[function(require,module,exports){
+},{"./../constants/validation.js":1524,"./RenderController":1510,"react":1140,"react-router-dom":1099,"redux-form":1199,"semantic-ui-react":1349}],1493:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -106286,7 +106343,7 @@ var Logo = function Logo(_ref) {
 
 exports.default = Logo;
 
-},{"react":1140,"react-router-dom":1099}],1493:[function(require,module,exports){
+},{"react":1140,"react-router-dom":1099}],1494:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -106407,7 +106464,7 @@ exports.default = Main;
 // <FadeInRoute path='/:site/download'
 //     component={DownloadContainer} />
 
-},{"./../components/MyRoute":1495,"./../containers/ContactsContainer":1524,"./../containers/DownloadContainer":1525,"./../containers/MainPageContainer":1526,"./../containers/NewsContainer":1529,"./../containers/NotFoundContainer":1530,"./../containers/PersonalRoomContainer":1531,"./../containers/RecoverPasswordContainer":1532,"./../containers/RegisterContainer":1533,"./../containers/RulesContainer":1534,"./../containers/SingleNewsContainer":1535,"react":1140,"react-router-dom":1099,"react-router-transition":1102}],1494:[function(require,module,exports){
+},{"./../components/MyRoute":1496,"./../containers/ContactsContainer":1526,"./../containers/DownloadContainer":1527,"./../containers/MainPageContainer":1528,"./../containers/NewsContainer":1531,"./../containers/NotFoundContainer":1532,"./../containers/PersonalRoomContainer":1533,"./../containers/RecoverPasswordContainer":1534,"./../containers/RegisterContainer":1535,"./../containers/RulesContainer":1537,"./../containers/SingleNewsContainer":1538,"react":1140,"react-router-dom":1099,"react-router-transition":1102}],1495:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -106434,6 +106491,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
+// <LinkImage block='mainPageNavItem'
+// 	site='samp'
+// 	changeSite={changeSite}
+// 	modifier='samp'
+// />
 var MainPage = function MainPage(_ref) {
 	var rest = _objectWithoutProperties(_ref, []),
 	    _changeSite = _ref.changeSite,
@@ -106459,11 +106521,6 @@ var MainPage = function MainPage(_ref) {
 					'nav',
 					{ className: 'mainPageNav' },
 					_react2.default.createElement(_LinkImage2.default, { block: 'mainPageNavItem',
-						site: 'samp',
-						changeSite: _changeSite,
-						modifier: 'samp'
-					}),
-					_react2.default.createElement(_LinkImage2.default, { block: 'mainPageNavItem',
 						site: 'minecraft',
 						changeSite: _changeSite,
 						modifier: 'minecraft'
@@ -106481,14 +106538,14 @@ var MainPage = function MainPage(_ref) {
 					'section',
 					{ className: 'mainPageContentChief mainPageContentChief--worlds' },
 					_react2.default.createElement(_Title2.default, { block: 'mainPageContentChief',
-						text: '\u041C\u0438\u0440\u044B' }),
+						text: '\u041E \u0434\u0438\u0432\u043D\u044B\u0439 \u043D\u043E\u0432\u044B\u0439 \u043C\u0438\u0440' }),
 					_react2.default.createElement(
 						'div',
 						{ className: 'mainPageContentChief__body' },
 						_react2.default.createElement(
 							'p',
 							null,
-							'\u0412\u044B \u043C\u043E\u0436\u0435\u0442\u0435 \u0432\u044B\u0431\u0440\u0430\u0442\u044C \u043E\u0434\u0438\u043D \u0438\u0437 \u0434\u0432\u0443\u0445 \u043C\u0438\u0440\u043E\u0432, \u0433\u0434\u0435 \u0432\u0430\u0441 \u0436\u0434\u0443\u0442 \u2014 \u043D\u0435\u043F\u043E\u0441\u0442\u044F\u0436\u0438\u043C\u044B\u0435 \u043F\u0440\u043E\u0441\u0442\u043E\u0440\u044B Minecraft \u0438\u043B\u0438 \u0437\u0430\u0445\u0432\u0430\u0442\u044B\u0432\u0430\u044E\u0449\u0438\u0439 \u0441\u0432\u043E\u0435\u0439 \u0431\u0443\u0440\u043D\u043E\u0439 \u0436\u0438\u0437\u043D\u044C\u044E \u043C\u0438\u0440 San Andreas.'
+							'\u0412\u0430\u0441 \u0436\u0434\u0443\u0442 \u043F\u0440\u043E\u0441\u0442\u043E\u0440\u044B \u043C\u0438\u0440\u0430 Minecraft \u0441 \u0440\u0430\u0437\u043D\u043E\u043E\u0431\u0440\u0430\u0437\u043D\u044B\u043C\u0438 \u043C\u043E\u0434\u0430\u043C\u0438 \u0438 \u043A\u0430\u0447\u0435\u0441\u0442\u0432\u0435\u043D\u043D\u044B\u043C \u043A\u043E\u043C\u044C\u044E\u043D\u0438\u0442\u0438, \u0433\u0434\u0435 \u0432\u0430\u0448\u0438 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0435 \u043E\u0433\u0440\u0430\u043D\u0438\u0447\u0435\u043D\u043D\u044B \u0442\u043E\u043B\u044C\u043A\u043E \u0432\u0430\u0448\u0438\u043C \u0432\u043E\u043E\u0431\u0440\u0430\u0436\u0435\u043D\u0435\u043C, \u043D\u0443 \u0438 \u0442\u0440\u0435\u0431\u043E\u0432\u0430\u043D\u0438\u044F\u043C\u0438 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u0438.'
 						)
 					)
 				),
@@ -106503,30 +106560,21 @@ var MainPage = function MainPage(_ref) {
 						_react2.default.createElement(
 							'p',
 							null,
-							'\u0417\u0430 \u043D\u0435\u0431\u043E\u043B\u044C\u0448\u0443\u044E \u043F\u043B\u0430\u0442\u0443 \u0432 \u043C\u0435\u0441\u044F\u0446, \u043C\u044B \u0433\u0430\u0440\u0430\u043D\u0442\u0438\u0440\u0443\u0435\u043C \u0432\u0430\u043C \u043A\u043E\u043C\u0444\u043E\u0440\u0442\u043D\u043E\u0435 \u0432\u0440\u0435\u043C\u044F\u043F\u0440\u043E\u0432\u043E\u0436\u0434\u0435\u043D\u0438\u0435 \u043D\u0430 \u0441\u0435\u0440\u0432\u0435\u0440\u0430\u0445 \u0434\u043E\u0441\u0442\u0443\u043F\u043D\u044B\u0445 24 \u0447\u0430\u0441\u0430 \u0432 \u0441\u0443\u0442\u043A\u0438.'
+							'\u0417\u0430 \u043D\u0435\u0431\u043E\u043B\u044C\u0448\u0443\u044E \u043F\u043B\u0430\u0442\u0443 \u0432 \u043C\u0435\u0441\u044F\u0446, \u043C\u044B \u0433\u0430\u0440\u0430\u043D\u0442\u0438\u0440\u0443\u0435\u043C \u0432\u0430\u043C \u043A\u043E\u043C\u0444\u043E\u0440\u0442\u043D\u043E\u0435 \u0432\u0440\u0435\u043C\u044F\u043F\u0440\u043E\u0432\u043E\u0436\u0434\u0435\u043D\u0438\u0435 \u043D\u0430 \u0441\u0435\u0440\u0432\u0435\u0440\u0435 \u0434\u043E\u0441\u0442\u0443\u043F\u043D\u043E\u043C 24 \u0447\u0430\u0441\u0430 \u0432 \u0441\u0443\u0442\u043A\u0438.'
 						),
 						_react2.default.createElement(
 							'p',
 							null,
-							'\u0423 \u043A\u0430\u0436\u0434\u043E\u0433\u043E \u043C\u0438\u0440\u0430 \u0435\u0441\u0442\u044C \u0441\u0432\u043E\u0438 \u043F\u0440\u0430\u0432\u0438\u043B\u0430 \u2014 (',
-							_react2.default.createElement(
-								_reactRouterDom.Link,
-								{ onClick: function onClick() {
-										_changeSite('samp');
-									},
-									to: '/samp/rules', className: 'mainPage__refer' },
-								'samp'
-							),
-							'/',
+							'\u041F\u0440\u043E\u0435\u043A\u0442 \u0438\u043C\u0435\u0435\u0442 \u0441\u0432\u043E\u0438',
 							_react2.default.createElement(
 								_reactRouterDom.Link,
 								{ onClick: function onClick() {
 										_changeSite('minecraft');
 									},
 									to: '/minecraft/rules', className: 'mainPage__refer' },
-								'minecraft'
+								'\u2009\u043F\u0440\u0430\u0432\u0438\u043B\u0430'
 							),
-							'). \u0412\u044B \u043C\u043E\u0436\u0435\u0442\u0435 \u0437\u0430\u0434\u0430\u0432\u0430\u0442\u044C \u0442\u0435\u0445\u043D\u0438\u0447\u0435\u0441\u043A\u0438\u0435 \u0432\u043E\u043F\u0440\u043E\u0441\u044B \u043D\u0430\u0448\u0435\u0439 \u0441\u043F\u0440\u0430\u0432\u0435\u0434\u043B\u0438\u0432\u043E\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u0438, \u0430 \u0442\u0430\u043A\u0436\u0435, \u0438\u0433\u0440\u043E\u0432\u044B\u0435 \u043A\u043E\u043D\u0444\u043B\u0438\u043A\u0442\u044B, \u0441 \u043D\u0430\u0440\u0443\u0448\u0435\u043D\u0438\u0435\u043C \u043F\u0440\u0430\u0432\u0438\u043B, \u043D\u0435 \u043E\u0441\u0442\u0430\u043D\u0443\u0442\u0441\u044F \u0431\u0435\u0437 \u0432\u043D\u0438\u043C\u0430\u043D\u0438\u044F. '
+							', \u043A\u043E\u0442\u043E\u0440\u044B\u0435 \u0432\u0430\u043C \u0441\u043B\u0435\u0434\u0443\u0435\u0442 \u0441\u043E\u0431\u043B\u044E\u0434\u0430\u0442\u044C \u0434\u043B\u044F \u043A\u043E\u043C\u0444\u043E\u0440\u0442\u043D\u043E\u0439 \u0438\u0433\u0440\u044B. \u0412\u044B \u043C\u043E\u0436\u0435\u0442\u0435 \u0437\u0430\u0434\u0430\u0432\u0430\u0442\u044C \u0442\u0435\u0445\u043D\u0438\u0447\u0435\u0441\u043A\u0438\u0435 \u0432\u043E\u043F\u0440\u043E\u0441\u044B \u043D\u0430\u0448\u0435\u0439 \u0441\u043F\u0440\u0430\u0432\u0435\u0434\u043B\u0438\u0432\u043E\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u0438, \u0430 \u0442\u0430\u043A\u0436\u0435, \u0438\u0433\u0440\u043E\u0432\u044B\u0435 \u043A\u043E\u043D\u0444\u043B\u0438\u043A\u0442\u044B, \u0441 \u043D\u0430\u0440\u0443\u0448\u0435\u043D\u0438\u0435\u043C \u043F\u0440\u0430\u0432\u0438\u043B, \u043D\u0435 \u043E\u0441\u0442\u0430\u043D\u0443\u0442\u0441\u044F \u0431\u0435\u0437 \u0432\u043D\u0438\u043C\u0430\u043D\u0438\u044F. '
 						)
 					)
 				)
@@ -106564,7 +106612,7 @@ var MainPage = function MainPage(_ref) {
 
 exports.default = MainPage;
 
-},{"./LinkImage":1490,"./Title":1515,"react":1140,"react-router-dom":1099,"semantic-ui-react":1349}],1495:[function(require,module,exports){
+},{"./LinkImage":1491,"./Title":1516,"react":1140,"react-router-dom":1099,"semantic-ui-react":1349}],1496:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -106593,7 +106641,7 @@ var MyRoute = function MyRoute(_ref) {
 };
 exports.default = MyRoute;
 
-},{"react":1140,"react-router-dom":1099}],1496:[function(require,module,exports){
+},{"react":1140,"react-router-dom":1099}],1497:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -106639,7 +106687,7 @@ var NavBetweenProjects = function NavBetweenProjects(_ref) {
 
 exports.default = NavBetweenProjects;
 
-},{"./ProjectSwitcher":1504,"react":1140,"semantic-ui-react":1349}],1497:[function(require,module,exports){
+},{"./ProjectSwitcher":1505,"react":1140,"semantic-ui-react":1349}],1498:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -106758,7 +106806,7 @@ var Navigation = function Navigation(_ref) {
 
 exports.default = Navigation;
 
-},{"prop-types":911,"react":1140,"react-router-dom":1099,"semantic-ui-react":1349}],1498:[function(require,module,exports){
+},{"prop-types":911,"react":1140,"react-router-dom":1099,"semantic-ui-react":1349}],1499:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -106815,7 +106863,7 @@ var News = function News(_ref) {
 
 exports.default = News;
 
-},{"./NewsMeta":1500,"./Paragraph":1502,"./Title":1515,"react":1140,"react-html-parser":1054,"react-router-dom":1099}],1499:[function(require,module,exports){
+},{"./NewsMeta":1501,"./Paragraph":1503,"./Title":1516,"react":1140,"react-html-parser":1054,"react-router-dom":1099}],1500:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -106856,7 +106904,7 @@ var NewsList = function NewsList(_ref) {
 
 exports.default = NewsList;
 
-},{"./News.js":1498,"react":1140}],1500:[function(require,module,exports){
+},{"./News.js":1499,"react":1140}],1501:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -106886,7 +106934,7 @@ var NewsMeta = function NewsMeta(_ref) {
 
 exports.default = NewsMeta;
 
-},{"./../constants/pureFunctions.js":1521,"react":1140}],1501:[function(require,module,exports){
+},{"./../constants/pureFunctions.js":1522,"react":1140}],1502:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -106925,7 +106973,7 @@ var NotFound = function NotFound(_ref) {
 
 exports.default = NotFound;
 
-},{"react":1140,"react-router-dom":1099,"semantic-ui-react":1349}],1502:[function(require,module,exports){
+},{"react":1140,"react-router-dom":1099,"semantic-ui-react":1349}],1503:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -106954,7 +107002,7 @@ var Paragraph = function Paragraph(_ref) {
 
 exports.default = Paragraph;
 
-},{"react":1140,"react-html-parser":1054}],1503:[function(require,module,exports){
+},{"react":1140,"react-html-parser":1054}],1504:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -106971,9 +107019,9 @@ var _reactHtmlParser = require('react-html-parser');
 
 var _reactHtmlParser2 = _interopRequireDefault(_reactHtmlParser);
 
-var _ReplanishBalanceForm = require('./ReplanishBalanceForm');
+var _Robokassa = require('./../containers/Robokassa');
 
-var _ReplanishBalanceForm2 = _interopRequireDefault(_ReplanishBalanceForm);
+var _Robokassa2 = _interopRequireDefault(_Robokassa);
 
 var _SubscribtionForm = require('./SubscribtionForm');
 
@@ -106997,33 +107045,23 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 
 var PersonalRoom = function PersonalRoom(_ref) {
 	var submitChangePassword = _ref.submitChangePassword,
-	    submitReplanishBalance = _ref.submitReplanishBalance,
 	    submitSubscribtionForm = _ref.submitSubscribtionForm,
 	    submitChangeEmailForm = _ref.submitChangeEmailForm,
 	    subscribeState = _ref.subscribeState,
 	    onQuantityMonthesChange = _ref.onQuantityMonthesChange,
-	    onChangeReplanishCost = _ref.onChangeReplanishCost,
 	    replanishCost = _ref.replanishCost,
-	    rest = _objectWithoutProperties(_ref, ['submitChangePassword', 'submitReplanishBalance', 'submitSubscribtionForm', 'submitChangeEmailForm', 'subscribeState', 'onQuantityMonthesChange', 'onChangeReplanishCost', 'replanishCost']);
+	    email = _ref.email,
+	    username = _ref.username,
+	    rest = _objectWithoutProperties(_ref, ['submitChangePassword', 'submitSubscribtionForm', 'submitChangeEmailForm', 'subscribeState', 'onQuantityMonthesChange', 'replanishCost', 'email', 'username']);
 
 	return _react2.default.createElement(
 		'section',
 		{ className: 'personalRoom' },
-		_react2.default.createElement(
-			'div',
-			{ className: 'replanishBalance' },
-			_react2.default.createElement(_Title2.default, { block: 'replanishBalance',
-				text: '\u041F\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u044C \u0431\u0430\u043B\u0430\u043D\u0441' }),
-			_react2.default.createElement(
-				'p',
-				{ className: 'replanishBlance__description' },
-				replanishCost
-			),
-			_react2.default.createElement(_ReplanishBalanceForm2.default, _extends({
-				submitReplanishBalance: submitReplanishBalance,
-				onChangeReplanishCost: onChangeReplanishCost
-			}, rest))
-		),
+		_react2.default.createElement(_Robokassa2.default, {
+			InvDesc: '\u041F\u043E\u043A\u0443\u043F\u043A\u0430 \u043A\u0440\u0435\u0434\u0438\u0442\u043E\u0432',
+			Email: email,
+			username: username
+		}),
 		_react2.default.createElement(
 			'div',
 			{ className: 'subscribe' },
@@ -107060,7 +107098,7 @@ var PersonalRoom = function PersonalRoom(_ref) {
 
 exports.default = PersonalRoom;
 
-},{"./ChangeEmailForm":1480,"./ChangePasswordForm":1481,"./ReplanishBalanceForm":1510,"./SubscribtionForm":1514,"./Title":1515,"react":1140,"react-html-parser":1054}],1504:[function(require,module,exports){
+},{"./../containers/Robokassa":1536,"./ChangeEmailForm":1481,"./ChangePasswordForm":1482,"./SubscribtionForm":1515,"./Title":1516,"react":1140,"react-html-parser":1054}],1505:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -107094,7 +107132,7 @@ var ProjectSwitcher = function ProjectSwitcher(_ref) {
 
 exports.default = ProjectSwitcher;
 
-},{"react":1140,"react-router-dom":1099}],1505:[function(require,module,exports){
+},{"react":1140,"react-router-dom":1099}],1506:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -107132,7 +107170,7 @@ var RecoverPassword = function RecoverPassword(_ref) {
 
 exports.default = RecoverPassword;
 
-},{"./RecoverPasswordForm":1506,"./Title":1515,"react":1140}],1506:[function(require,module,exports){
+},{"./RecoverPasswordForm":1507,"./Title":1516,"react":1140}],1507:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -107184,7 +107222,7 @@ exports.default = (0, _reduxForm.reduxForm)({
 	form: 'recoverPasswordFrom'
 })(RecoverPasswordFrom);
 
-},{"./RenderController":1509,"react":1140,"redux-form":1199,"semantic-ui-react":1349}],1507:[function(require,module,exports){
+},{"./RenderController":1510,"react":1140,"redux-form":1199,"semantic-ui-react":1349}],1508:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -107231,7 +107269,7 @@ var Register = function Register(_ref) {
 
 exports.default = Register;
 
-},{"./RegisterForm":1508,"./Title":1515,"react":1140}],1508:[function(require,module,exports){
+},{"./RegisterForm":1509,"./Title":1516,"react":1140}],1509:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -107389,7 +107427,7 @@ exports.default = (0, _reduxForm.reduxForm)({
 	form: 'registerForm'
 })(RegisterForm);
 
-},{"./../constants/validation.js":1522,"./RenderController":1509,"react":1140,"react-google-recaptcha":1043,"react-html-parser":1054,"redux-form":1199,"semantic-ui-react":1349}],1509:[function(require,module,exports){
+},{"./../constants/validation.js":1524,"./RenderController":1510,"react":1140,"react-google-recaptcha":1043,"react-html-parser":1054,"redux-form":1199,"semantic-ui-react":1349}],1510:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -107434,7 +107472,7 @@ var RenderController = function RenderController(_ref) {
 
 exports.default = RenderController;
 
-},{"react":1140}],1510:[function(require,module,exports){
+},{"react":1140}],1511:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -107455,11 +107493,11 @@ var _RenderController2 = _interopRequireDefault(_RenderController);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var ReplanishBalanceForm = function ReplanishBalanceForm(_ref) {
+var RobokassaForm = function RobokassaForm(_ref) {
 	var submitReplanishBalance = _ref.submitReplanishBalance,
 	    handleSubmit = _ref.handleSubmit,
-	    replanishBalanceMessage = _ref.replanishBalanceMessage,
-	    isChanging = _ref.isChanging,
+	    robokassaMessage = _ref.robokassaMessage,
+	    isRedirecting = _ref.isRedirecting,
 	    onChangeReplanishCost = _ref.onChangeReplanishCost;
 	return _react2.default.createElement(
 		'form',
@@ -107467,7 +107505,7 @@ var ReplanishBalanceForm = function ReplanishBalanceForm(_ref) {
 			onSubmit: handleSubmit(submitReplanishBalance.bind(undefined)),
 			className: 'replanishBalanceForm' },
 		_react2.default.createElement(_reduxForm.Field, { component: _RenderController2.default,
-			name: 'quantityCredits',
+			name: 'OutSum',
 			type: 'number',
 			min: '1',
 			max: '1000000',
@@ -107477,13 +107515,13 @@ var ReplanishBalanceForm = function ReplanishBalanceForm(_ref) {
 			maxLength: '17',
 			id: 'replanishBalanceInput'
 		}),
-		replanishBalanceMessage ? _react2.default.createElement(
+		robokassaMessage ? _react2.default.createElement(
 			'strong',
 			{ className: 'formError' },
-			replanishBalanceMessage
+			robokassaMessage
 		) : '',
 		_react2.default.createElement('br', null),
-		_react2.default.createElement(_semanticUiReact.Button, { loading: isChanging,
+		_react2.default.createElement(_semanticUiReact.Button, { loading: isRedirecting,
 			content: '\u041F\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u044C',
 			className: 'replanishBalanceForm__button submit'
 		})
@@ -107491,10 +107529,10 @@ var ReplanishBalanceForm = function ReplanishBalanceForm(_ref) {
 };
 
 exports.default = (0, _reduxForm.reduxForm)({
-	form: 'replanishBalanceForm'
-})(ReplanishBalanceForm);
+	form: 'robokassaForm'
+})(RobokassaForm);
 
-},{"./RenderController":1509,"react":1140,"redux-form":1199,"semantic-ui-react":1349}],1511:[function(require,module,exports){
+},{"./RenderController":1510,"react":1140,"redux-form":1199,"semantic-ui-react":1349}],1512:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -107821,7 +107859,7 @@ var Rules = function Rules(_ref) {
 
 exports.default = Rules;
 
-},{"./Paragraph":1502,"./Title":1515,"react":1140,"react-html-parser":1054,"semantic-ui-react":1349}],1512:[function(require,module,exports){
+},{"./Paragraph":1503,"./Title":1516,"react":1140,"react-html-parser":1054,"semantic-ui-react":1349}],1513:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -107868,7 +107906,7 @@ var ServerStatus = function ServerStatus(_ref) {
 
 exports.default = ServerStatus;
 
-},{"./Title":1515,"react":1140,"semantic-ui-react":1349}],1513:[function(require,module,exports){
+},{"./Title":1516,"react":1140,"semantic-ui-react":1349}],1514:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -107925,7 +107963,7 @@ var SingleNews = function SingleNews(_ref) {
 
 exports.default = SingleNews;
 
-},{"./NewsMeta":1500,"./Paragraph":1502,"./Title":1515,"react":1140,"react-html-parser":1054,"react-router-dom":1099}],1514:[function(require,module,exports){
+},{"./NewsMeta":1501,"./Paragraph":1503,"./Title":1516,"react":1140,"react-html-parser":1054,"react-router-dom":1099}],1515:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -107987,7 +108025,7 @@ exports.default = (0, _reduxForm.reduxForm)({
 	form: 'subscribtionForm'
 })(SubscribtionForm);
 
-},{"./../constants/options.js":1520,"./DropdownController":1484,"./RenderController":1509,"react":1140,"redux-form":1199,"semantic-ui-react":1349}],1515:[function(require,module,exports){
+},{"./../constants/options.js":1521,"./DropdownController":1485,"./RenderController":1510,"react":1140,"redux-form":1199,"semantic-ui-react":1349}],1516:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -108016,7 +108054,7 @@ var Title = function Title(_ref) {
 
 exports.default = Title;
 
-},{"react":1140,"react-html-parser":1054}],1516:[function(require,module,exports){
+},{"react":1140,"react-html-parser":1054}],1517:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -108114,7 +108152,7 @@ var UserCard = function UserCard(_ref) {
 
 exports.default = UserCard;
 
-},{"./../constants/pureFunctions.js":1521,"react":1140,"react-dropzone":1042,"react-router-dom":1099,"semantic-ui-react":1349}],1517:[function(require,module,exports){
+},{"./../constants/pureFunctions.js":1522,"react":1140,"react-dropzone":1042,"react-router-dom":1099,"semantic-ui-react":1349}],1518:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -108164,7 +108202,7 @@ var UserPanel = function UserPanel(_ref) {
 
 exports.default = UserPanel;
 
-},{"./LogInForm":1491,"./ServerStatus":1512,"./UserCard":1516,"react":1140,"semantic-ui-react":1349}],1518:[function(require,module,exports){
+},{"./LogInForm":1492,"./ServerStatus":1513,"./UserCard":1517,"react":1140,"semantic-ui-react":1349}],1519:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -108209,7 +108247,7 @@ var navigationItems = exports.navigationItems = {
 // Server Status constants.
 var SET_SERVER_STATUS = exports.SET_SERVER_STATUS = 'SET_SERVER_STATUS';
 
-},{}],1519:[function(require,module,exports){
+},{}],1520:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -108261,7 +108299,7 @@ var customAjaxRequest = function customAjaxRequest(_ref) {
 
 exports.default = customAjaxRequest;
 
-},{"js-cookie":553}],1520:[function(require,module,exports){
+},{"js-cookie":553}],1521:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -108269,7 +108307,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 var subsctibtionOptions = exports.subsctibtionOptions = [{ key: '1', value: '1', text: '1 месяц' }, { key: '3', value: '3', text: '3 месяца' }, { key: '6', value: '6', text: '6 месяцев (6% скидка)' }, { key: '12', value: '12', text: '12 месяцев (11% скидка)' }];
 
-},{}],1521:[function(require,module,exports){
+},{}],1522:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -108314,16 +108352,26 @@ var convertDate = exports.convertDate = function convertDate(date) {
 };
 var changeHeightAwesomeBorder = exports.changeHeightAwesomeBorder = function changeHeightAwesomeBorder(path, currentPath) {
 	var height = $('.contentWrapper').innerHeight();
-
+	// console.log(height);
 	setTimeout(function () {
 		if (new RegExp(path, 'ig').test(currentPath)) $('#awesomeBorder').css({
 			'height': height,
 			'top': $('.header').innerHeight()
 		});
-	}, 1000);
+	}, 1500);
 };
 
-},{"js-cookie":553}],1522:[function(require,module,exports){
+},{"js-cookie":553}],1523:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var PROCEED_TO_PAYMENT = exports.PROCEED_TO_PAYMENT = 'PROCEED_TO_PAYMENT';
+var SUCCESS_PAYNMENT = exports.SUCCESS_PAYNMENT = 'SUCCESS_PAYNMENT';
+var FAILURE_PAYNMENT = exports.FAILURE_PAYNMENT = 'FAILURE_PAYNMENT';
+
+},{}],1524:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -108360,7 +108408,7 @@ var nameLength = exports.nameLength = function nameLength(value) {
 	return value && !(value.length < 2) ? undefined : 'Имя должно быть не меньше 2символов и не больше 20.';
 };
 
-},{}],1523:[function(require,module,exports){
+},{}],1525:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -108483,7 +108531,7 @@ var mapStateToProps = function mapStateToProps(state) {
 
 exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(App));
 
-},{"./../actions/accountActions.js":1475,"./../actions/selectedSiteActions.js":1478,"./../components/Footer":1487,"./../components/Header":1489,"./../components/Main":1493,"./../tests/accountTests.js":1547,"prop-types":911,"react":1140,"react-redux":1082,"react-router-dom":1099}],1524:[function(require,module,exports){
+},{"./../actions/accountActions.js":1475,"./../actions/selectedSiteActions.js":1479,"./../components/Footer":1488,"./../components/Header":1490,"./../components/Main":1494,"./../tests/accountTests.js":1551,"prop-types":911,"react":1140,"react-redux":1082,"react-router-dom":1099}],1526:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -108594,7 +108642,7 @@ var mapStateToProps = function mapStateToProps(state) {
 
 exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(ContactsContainer));
 
-},{"./../actions/navigationActions.js":1476,"./../actions/selectedSiteActions.js":1478,"./../components/Contacts":1482,"./../constants/pureFunctions.js":1521,"./UserPanelContainer":1536,"prop-types":911,"react":1140,"react-redux":1082,"react-router-dom":1099,"semantic-ui-react":1349}],1525:[function(require,module,exports){
+},{"./../actions/navigationActions.js":1476,"./../actions/selectedSiteActions.js":1479,"./../components/Contacts":1483,"./../constants/pureFunctions.js":1522,"./UserPanelContainer":1539,"prop-types":911,"react":1140,"react-redux":1082,"react-router-dom":1099,"semantic-ui-react":1349}],1527:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -108675,7 +108723,7 @@ var DownloadContainer = function (_Component) {
 
 exports.default = (0, _reactRouterDom.withRouter)(DownloadContainer);
 
-},{"./../actions/selectedSiteActions.js":1478,"./../components/Download":1483,"./../constants/pureFunctions.js":1521,"./UserPanelContainer":1536,"react":1140,"react-router-dom":1099,"semantic-ui-react":1349}],1526:[function(require,module,exports){
+},{"./../actions/selectedSiteActions.js":1479,"./../components/Download":1484,"./../constants/pureFunctions.js":1522,"./UserPanelContainer":1539,"react":1140,"react-router-dom":1099,"semantic-ui-react":1349}],1528:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -108764,7 +108812,7 @@ var mapStateToProps = function mapStateToProps(state) {
 
 exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(MainPageContainer));
 
-},{"./../components/MainPage":1494,"./../constants/actionTypes.js":1518,"prop-types":911,"react":1140,"react-redux":1082,"react-router-dom":1099,"semantic-ui-react":1349}],1527:[function(require,module,exports){
+},{"./../components/MainPage":1495,"./../constants/actionTypes.js":1519,"prop-types":911,"react":1140,"react-redux":1082,"react-router-dom":1099,"semantic-ui-react":1349}],1529:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -108871,7 +108919,7 @@ var mapStateToProps = function mapStateToProps(state) {
 
 exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(NavBetweenProjectsContainer));
 
-},{"./../actions/selectedSiteActions.js":1478,"./../components/NavBetweenProjects":1496,"classnames":27,"prop-types":911,"react":1140,"react-redux":1082,"react-router-dom":1099}],1528:[function(require,module,exports){
+},{"./../actions/selectedSiteActions.js":1479,"./../components/NavBetweenProjects":1497,"classnames":27,"prop-types":911,"react":1140,"react-redux":1082,"react-router-dom":1099}],1530:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -109009,7 +109057,7 @@ var mapStateToProps = function mapStateToProps(state) {
 
 exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(NavContainer));
 
-},{"./../actions/navigationActions.js":1476,"./../components/Navigation":1497,"classnames":27,"prop-types":911,"react":1140,"react-redux":1082,"react-router-dom":1099}],1529:[function(require,module,exports){
+},{"./../actions/navigationActions.js":1476,"./../components/Navigation":1498,"classnames":27,"prop-types":911,"react":1140,"react-redux":1082,"react-router-dom":1099}],1531:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -109170,7 +109218,7 @@ var mapStateToProps = function mapStateToProps(state) {
 
 exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(NewsContainer));
 
-},{"./../actions/navigationActions.js":1476,"./../actions/newsActions.js":1477,"./../actions/selectedSiteActions.js":1478,"./../components/NewsList":1499,"./../components/Title":1515,"./../constants/pureFunctions.js":1521,"./UserPanelContainer":1536,"prop-types":911,"react":1140,"react-redux":1082,"react-router-dom":1099,"semantic-ui-react":1349}],1530:[function(require,module,exports){
+},{"./../actions/navigationActions.js":1476,"./../actions/newsActions.js":1477,"./../actions/selectedSiteActions.js":1479,"./../components/NewsList":1500,"./../components/Title":1516,"./../constants/pureFunctions.js":1522,"./UserPanelContainer":1539,"prop-types":911,"react":1140,"react-redux":1082,"react-router-dom":1099,"semantic-ui-react":1349}],1532:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -109290,7 +109338,7 @@ var mapStateToProps = function mapStateToProps(state) {
 
 exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(NotFoundContainer));
 
-},{"./../actions/selectedSiteActions.js":1478,"./../components/NotFound":1501,"./../constants/pureFunctions.js":1521,"./UserPanelContainer":1536,"prop-types":911,"react":1140,"react-redux":1082,"react-router-dom":1099,"semantic-ui-react":1349}],1531:[function(require,module,exports){
+},{"./../actions/selectedSiteActions.js":1479,"./../components/NotFound":1502,"./../constants/pureFunctions.js":1522,"./UserPanelContainer":1539,"prop-types":911,"react":1140,"react-redux":1082,"react-router-dom":1099,"semantic-ui-react":1349}],1533:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -109305,27 +109353,27 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _reactRouterDom = require('react-router-dom');
+
 var _semanticUiReact = require('semantic-ui-react');
 
 var _reduxForm = require('redux-form');
 
+var _reactRedux = require('react-redux');
+
 var _UserPanelContainer = require('./UserPanelContainer');
 
 var _UserPanelContainer2 = _interopRequireDefault(_UserPanelContainer);
-
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
 
 var _PersonalRoom = require('./../components/PersonalRoom');
 
 var _PersonalRoom2 = _interopRequireDefault(_PersonalRoom);
 
 var _pureFunctions = require('./../constants/pureFunctions.js');
-
-var _reactRouterDom = require('react-router-dom');
-
-var _reactRedux = require('react-redux');
 
 var _accountActions = require('./../actions/accountActions.js');
 
@@ -109358,7 +109406,7 @@ var PersonalRoomContainer = function (_Component) {
 		}
 
 		return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = PersonalRoomContainer.__proto__ || Object.getPrototypeOf(PersonalRoomContainer)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-			subscribeState: '1 месяц = 150 кредитов',
+			subscribeState: '1 месяц = 199 кредитов',
 			replanishCost: '1 рубль = 1 кредит'
 		}, _this.customViewComponent = function () {
 			var _this$props = _this.props,
@@ -109382,39 +109430,10 @@ var PersonalRoomContainer = function (_Component) {
 			_this.executeActionInPersonalRoom(values, dispatch, _accountActions.tryChangeAccountPassword);
 		}, _this.submitChangeEmailForm = function (values, dispatch) {
 			_this.executeActionInPersonalRoom(values, dispatch, _accountActions.tryChangeAccountEmail);
-		}, _this.submitReplanishBalance = function (values, dispatch) {}, _this.submitSubscribtionForm = function (values, dispatch) {
+		}, _this.submitSubscribtionForm = function (values, dispatch) {
 			_this.executeActionInPersonalRoom(values, dispatch, _accountActions.trySubscribeAccount);
-		}, _this.onChangeReplanishCost = function (e) {
-			var target = e.target;
-			var value = target.value;
-			var declinationRubles = '';
-			var declinationCredits = '';
-
-			// Выбирается склонение.
-			if (+value === 1 || !value) {
-				declinationRubles = 'рубль';
-				declinationCredits = 'кредит';
-				value = 1;
-			} else if (value > 1 && value < 5) {
-				declinationRubles = 'рубля';
-				declinationCredits = 'кредита';
-			} else {
-				declinationRubles = 'рублей';
-				declinationCredits = 'кредитов';
-			}
-
-			// Ограничивает длину строки в целочисленном поле.
-			if (value && value.length > 20) {
-				// Обновление установленного значения.
-				value = value.slice(0, 20);
-			};
-			// Устанавливается состояние сообщеня. Показывает количество кредитов, 
-			// которое получит игрок.
-			_this.setState({
-				replanishCost: value + ' ' + declinationRubles + ' = ' + value + ' ' + declinationCredits
-			});
 		}, _this.onQuantityMonthesChange = function (value) {
-			var cost = value * 150;
+			var cost = value * 199;
 			var monthCase = '';
 			var discount = 0;
 
@@ -109430,11 +109449,11 @@ var PersonalRoomContainer = function (_Component) {
 			switch (value) {
 				case '6':
 					// 7% скидка.
-					discount = 150 / 100 * 6 * value;
+					discount = 199 / 100 * 6 * value;
 					break;
 				case '12':
 					// 11% скидка.
-					discount = 150 / 100 * 11 * value;
+					discount = 199 / 100 * 11 * value;
 					break;
 				default:
 					// Без скидки.
@@ -109442,7 +109461,7 @@ var PersonalRoomContainer = function (_Component) {
 			}
 
 			_this.setState({
-				subscribeState: value + ' ' + monthCase + ' = ' + (+cost - +discount) + ' \u043A\u0440\u0435\u0434\u0438\u0442\u043E\u0432'
+				subscribeState: value + ' ' + monthCase + ' = ' + +(+cost - +discount).toFixed() + ' \u043A\u0440\u0435\u0434\u0438\u0442\u043E\u0432'
 			});
 		}, _temp), _possibleConstructorReturn(_this, _ret);
 	}
@@ -109451,20 +109470,13 @@ var PersonalRoomContainer = function (_Component) {
 		key: 'componentDidMount',
 		value: function componentDidMount() {
 			this.customViewComponent();
-			// const { dispatch } = this.props;
-			// dispatch(cleanActiveState());
-			// changeSiteIfNeeded(this.props);
-			//  	    changeHeightAwesomeBorder();
 		}
 	}, {
 		key: 'componentDidUpdate',
 		value: function componentDidUpdate() {
 			this.customViewComponent();
-			//    const { dispatch } = this.props;
-			// dispatch(cleanActiveState());
-			//    changeSiteIfNeeded(this.props);
-			//    changeHeightAwesomeBorder();
 		}
+
 		// Функция высшего порядка, принимающая полученные с формы значения(values).
 		// dispatch - перенаправление к состоянию и 
 		// функцию как действие, вызваемое внутри dispatch.
@@ -109472,6 +109484,7 @@ var PersonalRoomContainer = function (_Component) {
 	}, {
 		key: 'render',
 		value: function render() {
+			console.log(this.props.email);
 			return _react2.default.createElement(
 				'div',
 				{ className: 'contentWrapper' },
@@ -109481,11 +109494,9 @@ var PersonalRoomContainer = function (_Component) {
 					null,
 					_react2.default.createElement(_PersonalRoom2.default, _extends({}, this.props, this.state, {
 						submitChangePassword: this.submitChangePassword,
-						submitReplanishBalance: this.submitReplanishBalance,
 						submitSubscribtionForm: this.submitSubscribtionForm,
 						submitChangeEmailForm: this.submitChangeEmailForm,
-						onQuantityMonthesChange: this.onQuantityMonthesChange,
-						onChangeReplanishCost: this.onChangeReplanishCost
+						onQuantityMonthesChange: this.onQuantityMonthesChange
 					}))
 				)
 			);
@@ -109497,7 +109508,6 @@ var PersonalRoomContainer = function (_Component) {
 
 PersonalRoomContainer.PropTypes = {
 	site: _propTypes2.default.string.isRequired,
-	replanishBalanceMessage: _propTypes2.default.string.isRequired,
 	subscribeMessage: _propTypes2.default.string.isRequired,
 	changeEmailMessage: _propTypes2.default.string.isRequired,
 	changePasswordMessage: _propTypes2.default.string.isRequired,
@@ -109506,7 +109516,8 @@ PersonalRoomContainer.PropTypes = {
 	password: _propTypes2.default.string.isRequired,
 	match: _propTypes2.default.object.isRequired,
 	dispatch: _propTypes2.default.func.isRequired,
-	location: _propTypes2.default.object.isRequired
+	location: _propTypes2.default.object.isRequired,
+	email: _propTypes2.default.string.isRequired
 };
 
 
@@ -109514,30 +109525,31 @@ var mapStateToProps = function mapStateToProps(state) {
 	var selectedSite = state.selectedSite,
 	    dataBySite = state.dataBySite;
 	var _dataBySite$selectedS = dataBySite[selectedSite],
-	    replanishBalanceMessage = _dataBySite$selectedS.replanishBalanceMessage,
 	    subscribeMessage = _dataBySite$selectedS.subscribeMessage,
 	    changeEmailMessage = _dataBySite$selectedS.changeEmailMessage,
 	    changePasswordMessage = _dataBySite$selectedS.changePasswordMessage,
 	    isChanging = _dataBySite$selectedS.isChanging,
 	    username = _dataBySite$selectedS.username,
-	    password = _dataBySite$selectedS.password;
+	    password = _dataBySite$selectedS.password,
+	    userData = _dataBySite$selectedS.userData;
+	var email = userData.email;
 
 
 	return {
 		site: selectedSite,
-		replanishBalanceMessage: replanishBalanceMessage,
 		subscribeMessage: subscribeMessage,
 		changeEmailMessage: changeEmailMessage,
 		changePasswordMessage: changePasswordMessage,
 		isChanging: isChanging,
 		username: username,
-		password: password
+		password: password,
+		email: email
 	};
 };
 
 exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(PersonalRoomContainer));
 
-},{"./../actions/accountActions.js":1475,"./../actions/navigationActions.js":1476,"./../actions/selectedSiteActions.js":1478,"./../components/PersonalRoom":1503,"./../constants/actionTypes.js":1518,"./../constants/pureFunctions.js":1521,"./UserPanelContainer":1536,"prop-types":911,"react":1140,"react-redux":1082,"react-router-dom":1099,"redux-form":1199,"semantic-ui-react":1349}],1532:[function(require,module,exports){
+},{"./../actions/accountActions.js":1475,"./../actions/navigationActions.js":1476,"./../actions/selectedSiteActions.js":1479,"./../components/PersonalRoom":1504,"./../constants/actionTypes.js":1519,"./../constants/pureFunctions.js":1522,"./UserPanelContainer":1539,"prop-types":911,"react":1140,"react-redux":1082,"react-router-dom":1099,"redux-form":1199,"semantic-ui-react":1349}],1534:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -109684,7 +109696,7 @@ var mapStateToProps = function mapStateToProps(state) {
 
 exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(RecoverPasswordContainer));
 
-},{"./../actions/accountActions.js":1475,"./../actions/navigationActions.js":1476,"./../actions/selectedSiteActions.js":1478,"./../components/RecoverPassword":1505,"./../constants/pureFunctions.js":1521,"./UserPanelContainer":1536,"prop-types":911,"react":1140,"react-redux":1082,"react-router-dom":1099,"semantic-ui-react":1349}],1533:[function(require,module,exports){
+},{"./../actions/accountActions.js":1475,"./../actions/navigationActions.js":1476,"./../actions/selectedSiteActions.js":1479,"./../components/RecoverPassword":1506,"./../constants/pureFunctions.js":1522,"./UserPanelContainer":1539,"prop-types":911,"react":1140,"react-redux":1082,"react-router-dom":1099,"semantic-ui-react":1349}],1535:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -109845,7 +109857,164 @@ var mapStateToProps = function mapStateToProps(state) {
 
 exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(RegisterContainer));
 
-},{"./../actions/accountActions.js":1475,"./../actions/navigationActions.js":1476,"./../actions/selectedSiteActions.js":1478,"./../components/Register":1507,"./../constants/pureFunctions.js":1521,"./UserPanelContainer":1536,"prop-types":911,"react":1140,"react-redux":1082,"react-router-dom":1099,"redux-form":1199,"semantic-ui-react":1349}],1534:[function(require,module,exports){
+},{"./../actions/accountActions.js":1475,"./../actions/navigationActions.js":1476,"./../actions/selectedSiteActions.js":1479,"./../components/Register":1508,"./../constants/pureFunctions.js":1522,"./UserPanelContainer":1539,"prop-types":911,"react":1140,"react-redux":1082,"react-router-dom":1099,"redux-form":1199,"semantic-ui-react":1349}],1536:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _reactRouterDom = require('react-router-dom');
+
+var _reactRedux = require('react-redux');
+
+var _RobokassaForm = require('./../components/RobokassaForm');
+
+var _RobokassaForm2 = _interopRequireDefault(_RobokassaForm);
+
+var _Title = require('./../components/Title');
+
+var _Title2 = _interopRequireDefault(_Title);
+
+var _robokassaActions = require('./../actions/robokassaActions.js');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Robokassa = function (_Component) {
+	_inherits(Robokassa, _Component);
+
+	function Robokassa() {
+		var _ref;
+
+		var _temp, _this, _ret;
+
+		_classCallCheck(this, Robokassa);
+
+		for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+			args[_key] = arguments[_key];
+		}
+
+		return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Robokassa.__proto__ || Object.getPrototypeOf(Robokassa)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+			replanishCost: '1 рубль = 1 кредит'
+		}, _this.submitReplanishBalance = function (values, dispatch) {
+			var _this$props = _this.props,
+			    InvDesc = _this$props.InvDesc,
+			    Email = _this$props.Email,
+			    username = _this$props.username;
+
+			values['InvDesc'] = InvDesc;
+			values['InvId'] = 0;
+			values['Email'] = Email;
+			values['username'] = username;
+			console.log(values);
+
+			dispatch((0, _robokassaActions.moveUserToPaynment)(values));
+		}, _this.onChangeReplanishCost = function (e) {
+			var target = e.target;
+			var value = target.value;
+			var declinationRubles = '';
+			var declinationCredits = '';
+
+			// Выбирается склонение.
+			if (+value === 1 || !value) {
+				declinationRubles = 'рубль';
+				declinationCredits = 'кредит';
+				value = 1;
+			} else if (value > 1 && value < 5) {
+				declinationRubles = 'рубля';
+				declinationCredits = 'кредита';
+			} else {
+				declinationRubles = 'рублей';
+				declinationCredits = 'кредитов';
+			}
+
+			// Ограничивает длину строки в целочисленном поле.
+			if (value && value.length > 20) {
+				// Обновление установленного значения.
+				value = value.slice(0, 20);
+			};
+			// Устанавливается состояние сообщеня. Показывает количество кредитов, 
+			// которое получит игрок.
+			_this.setState({
+				replanishCost: value + ' ' + declinationRubles + ' = ' + value + ' ' + declinationCredits
+			});
+		}, _temp), _possibleConstructorReturn(_this, _ret);
+	}
+
+	_createClass(Robokassa, [{
+		key: 'componentDidMount',
+		value: function componentDidMount() {}
+	}, {
+		key: 'render',
+		value: function render() {
+			var replanishCost = this.state.replanishCost;
+
+
+			return _react2.default.createElement(
+				'div',
+				{ className: 'replanishBalance' },
+				_react2.default.createElement(_Title2.default, { block: 'replanishBalance',
+					text: '\u041F\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u044C \u0431\u0430\u043B\u0430\u043D\u0441' }),
+				_react2.default.createElement(
+					'p',
+					{ className: 'replanishBlance__description' },
+					replanishCost
+				),
+				_react2.default.createElement(_RobokassaForm2.default, _extends({
+					submitReplanishBalance: this.submitReplanishBalance,
+					onChangeReplanishCost: this.onChangeReplanishCost
+				}, this.props))
+			);
+		}
+	}]);
+
+	return Robokassa;
+}(_react.Component);
+
+Robokassa.PorpTypes = {
+	dispatch: _propTypes2.default.func.isRequired,
+	InvDesc: _propTypes2.default.string.isRequired,
+	Email: _propTypes2.default.string,
+	isRedirecting: _propTypes2.default.bool.isRequired,
+	robokassaMessage: _propTypes2.default.string.isRequired,
+	username: _propTypes2.default.string,
+	user_id: _propTypes2.default.number
+};
+
+
+var mapStateToProps = function mapStateToProps(state) {
+	var robokassa = state.robokassa;
+	var isRedirecting = robokassa.isRedirecting,
+	    robokassaMessage = robokassa.robokassaMessage;
+
+
+	return {
+		isRedirecting: isRedirecting,
+		robokassaMessage: robokassaMessage
+	};
+};
+
+exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(Robokassa));
+
+},{"./../actions/robokassaActions.js":1478,"./../components/RobokassaForm":1511,"./../components/Title":1516,"prop-types":911,"react":1140,"react-redux":1082,"react-router-dom":1099}],1537:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -109957,7 +110126,7 @@ var mapStateToProps = function mapStateToProps(state) {
 
 exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(RulesContainer));
 
-},{"./../actions/navigationActions.js":1476,"./../actions/selectedSiteActions.js":1478,"./../components/Rules":1511,"./../constants/pureFunctions.js":1521,"./UserPanelContainer":1536,"prop-types":911,"react":1140,"react-redux":1082,"react-router-dom":1099,"semantic-ui-react":1349}],1535:[function(require,module,exports){
+},{"./../actions/navigationActions.js":1476,"./../actions/selectedSiteActions.js":1479,"./../components/Rules":1512,"./../constants/pureFunctions.js":1522,"./UserPanelContainer":1539,"prop-types":911,"react":1140,"react-redux":1082,"react-router-dom":1099,"semantic-ui-react":1349}],1538:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -110094,7 +110263,7 @@ var mapStateToProps = function mapStateToProps(state) {
 
 exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(SingleNewsContainer));
 
-},{"./../actions/selectedSiteActions.js":1478,"./../components/SingleNews":1513,"./../components/Title":1515,"./../constants/pureFunctions.js":1521,"./UserPanelContainer":1536,"prop-types":911,"react":1140,"react-redux":1082,"react-router-dom":1099,"semantic-ui-react":1349}],1536:[function(require,module,exports){
+},{"./../actions/selectedSiteActions.js":1479,"./../components/SingleNews":1514,"./../components/Title":1516,"./../constants/pureFunctions.js":1522,"./UserPanelContainer":1539,"prop-types":911,"react":1140,"react-redux":1082,"react-router-dom":1099,"semantic-ui-react":1349}],1539:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -110305,7 +110474,7 @@ var mapStateToProps = function mapStateToProps(state) {
 
 exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(UserPanelContainer));
 
-},{"./../actions/accountActions.js":1475,"./../actions/serverStatusActions.js":1479,"./../components/UserPanel":1517,"./../constants/pureFunctions.js":1521,"./../reducers/account.js":1539,"prop-types":911,"react":1140,"react-redux":1082,"react-router-dom":1099}],1537:[function(require,module,exports){
+},{"./../actions/accountActions.js":1475,"./../actions/serverStatusActions.js":1480,"./../components/UserPanel":1518,"./../constants/pureFunctions.js":1522,"./../reducers/account.js":1542,"prop-types":911,"react":1140,"react-redux":1082,"react-router-dom":1099}],1540:[function(require,module,exports){
 'use strict';
 
 $(window).resize(function () {
@@ -110333,7 +110502,7 @@ $(function () {
   } // end openUrlInNewWindow
 }); // end ready
 
-},{}],1538:[function(require,module,exports){
+},{}],1541:[function(require,module,exports){
 'use strict';
 
 var _react = require('react');
@@ -110368,7 +110537,7 @@ var store = (0, _configureStore2.default)();
   )
 ), document.getElementById('root'));
 
-},{"./containers/App":1523,"./store/configureStore.js":1546,"react":1140,"react-dom":914,"react-redux":1082,"react-router-dom":1099}],1539:[function(require,module,exports){
+},{"./containers/App":1525,"./store/configureStore.js":1550,"react":1140,"react-dom":914,"react-redux":1082,"react-router-dom":1099}],1542:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -110498,7 +110667,7 @@ var account = function account() {
 
 exports.default = account;
 
-},{"./../constants/actionTypes.js":1518,"./../constants/pureFunctions.js":1521}],1540:[function(require,module,exports){
+},{"./../constants/actionTypes.js":1519,"./../constants/pureFunctions.js":1522}],1543:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -110586,7 +110755,7 @@ var dataBySite = function dataBySite() {
 
 exports.default = dataBySite;
 
-},{"./../constants/actionTypes.js":1518,"./account.js":1539,"./news.js":1543,"./serverStatus.js":1545}],1541:[function(require,module,exports){
+},{"./../constants/actionTypes.js":1519,"./account.js":1542,"./news.js":1546,"./serverStatus.js":1549}],1544:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -110609,9 +110778,14 @@ var _navigation2 = _interopRequireDefault(_navigation);
 
 var _reduxForm = require('redux-form');
 
+var _robokassa = require('./robokassa.js');
+
+var _robokassa2 = _interopRequireDefault(_robokassa);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var rootReducer = (0, _redux.combineReducers)({
+	robokassa: _robokassa2.default,
 	form: _reduxForm.reducer,
 	selectedSite: _selectedSite2.default,
 	dataBySite: _dataBySite2.default,
@@ -110620,7 +110794,7 @@ var rootReducer = (0, _redux.combineReducers)({
 
 exports.default = rootReducer;
 
-},{"./dataBySite.js":1540,"./navigation.js":1542,"./selectedSite.js":1544,"redux":1243,"redux-form":1199}],1542:[function(require,module,exports){
+},{"./dataBySite.js":1543,"./navigation.js":1545,"./robokassa.js":1547,"./selectedSite.js":1548,"redux":1243,"redux-form":1199}],1545:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -110675,7 +110849,7 @@ var navigation = function navigation() {
 
 exports.default = navigation;
 
-},{"./../constants/actionTypes.js":1518}],1543:[function(require,module,exports){
+},{"./../constants/actionTypes.js":1519}],1546:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -110720,7 +110894,53 @@ var news = function news() {
 
 exports.default = news;
 
-},{"./../constants/actionTypes.js":1518}],1544:[function(require,module,exports){
+},{"./../constants/actionTypes.js":1519}],1547:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.robokassaInitState = undefined;
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _robokassaTypes = require('./../constants/robokassaTypes.js');
+
+var robokassaInitState = exports.robokassaInitState = {
+	InvDesc: '',
+	OutSum: 0,
+	Email: '',
+	robokassaMessage: '',
+	isRedirecting: false
+};
+
+var robokassa = function robokassa() {
+	var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : robokassaInitState;
+	var action = arguments[1];
+
+	switch (action.type) {
+		case _robokassaTypes.PROCEED_TO_PAYMENT:
+			return _extends({}, state, action.data, {
+				robokassaMessage: action.robokassaMessage,
+				isRedirecting: true
+			});
+		case _robokassaTypes.SUCCESS_PAYNMENT:
+			return _extends({}, state, action.data, {
+				robokassaMessage: action.robokassaMessage
+			});
+		case _robokassaTypes.FAILURE_PAYNMENT:
+			return _extends({}, state, action.data, {
+				robokassaMessage: action.robokassaMessage,
+				isRedirecting: false
+			});
+		default:
+			return state;
+	}
+};
+
+exports.default = robokassa;
+
+},{"./../constants/robokassaTypes.js":1523}],1548:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -110743,7 +110963,7 @@ var selectedSite = function selectedSite() {
 
 exports.default = selectedSite;
 
-},{"./../constants/actionTypes.js":1518}],1545:[function(require,module,exports){
+},{"./../constants/actionTypes.js":1519}],1549:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -110780,7 +111000,7 @@ var serverStatus = function serverStatus() {
 
 exports.default = serverStatus;
 
-},{"./../constants/actionTypes.js":1518}],1546:[function(require,module,exports){
+},{"./../constants/actionTypes.js":1519}],1550:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -110808,7 +111028,7 @@ function configureStore(initialState) {
   return store;
 }
 
-},{"../reducers/index.js":1541,"redux":1243,"redux-thunk":1237}],1547:[function(require,module,exports){
+},{"../reducers/index.js":1544,"redux":1243,"redux-thunk":1237}],1551:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -110849,7 +111069,7 @@ var testSuccesRegister = exports.testSuccesRegister = function testSuccesRegiste
     console.log('testSuccesRegister states are equal');
 };
 
-},{"./../actions/accountActions.js":1475,"./../reducers/dataBySite.js":1540,"deep-freeze":468,"expect":498}],1548:[function(require,module,exports){
+},{"./../actions/accountActions.js":1475,"./../reducers/dataBySite.js":1543,"deep-freeze":468,"expect":498}],1552:[function(require,module,exports){
 'use strict';
 
 require('jquery');
@@ -110862,6 +111082,6 @@ require('./../blocks/custom/custom.js');
 
 require('./../blocks/index.js');
 
-},{"./../blocks/custom/custom.js":1537,"./../blocks/index.js":1538,"babel-polyfill":1,"jquery":552,"whatwg-fetch":1474}]},{},[1548])
+},{"./../blocks/custom/custom.js":1540,"./../blocks/index.js":1541,"babel-polyfill":1,"jquery":552,"whatwg-fetch":1474}]},{},[1552])
 
 //# sourceMappingURL=main.js.map

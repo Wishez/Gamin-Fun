@@ -2,13 +2,63 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="665451a4-f8d8-4805-85b4-02e476cfa0ed" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GamingFun/minecraft/migrations/0001_initial.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GamingFun/minecraft/migrations/0002_auto_20170707_0924.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GamingFun/minecraft/migrations/0002_minecraftuser.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GamingFun/minecraft/migrations/0003_auto_20170703_1152.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GamingFun/minecraft/migrations/0003_auto_20170711_1444.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GamingFun/minecraft/migrations/0004_auto_20170703_2029.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GamingFun/samp/migrations/0001_initial.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GamingFun/samp/migrations/0002_auto_20170707_0924.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GamingFun/samp/migrations/0002_sampuser.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GamingFun/samp/migrations/0003_auto_20170703_1152.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GamingFun/samp/migrations/0003_auto_20170711_1444.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GamingFun/theme/src/blocks/components/ReplanishBalanceForm.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GamingFun/theme/src/img/minecraft/grass.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GamingFun/theme/src/img/minecraft/squid.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GamingFun/theme/src/img/minecraft/steve.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GamingFun/theme/src/img/samp/car.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GamingFun/theme/src/img/samp/decor_contacts.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GamingFun/theme/src/img/samp/helicopter.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GamingFun/theme/src/img/samp/man.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GamingFun/theme/src/img/samp/nigga.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GamingFun/theme/src/img/samp/woman.png" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GamingFun/static/gamingfun/img/cap.jpg" afterPath="$PROJECT_DIR$/GamingFun/static/gamingfun/img/cap.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GamingFun/static/gamingfun/img/footer.png" afterPath="$PROJECT_DIR$/GamingFun/static/gamingfun/img/footer.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GamingFun/static/gamingfun/img/header.png" afterPath="$PROJECT_DIR$/GamingFun/static/gamingfun/img/header.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GamingFun/static/gamingfun/img/logo.png" afterPath="$PROJECT_DIR$/GamingFun/static/gamingfun/img/logo.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GamingFun/static/gamingfun/img/logo_main.png" afterPath="$PROJECT_DIR$/GamingFun/static/gamingfun/img/logo_main.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GamingFun/static/gamingfun/img/minecraft_icon.png" afterPath="$PROJECT_DIR$/GamingFun/static/gamingfun/img/minecraft_icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GamingFun/theme/src/img/cap.jpg" afterPath="$PROJECT_DIR$/GamingFun/theme/src/img/cap.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GamingFun/theme/src/img/footer.png" afterPath="$PROJECT_DIR$/GamingFun/theme/src/img/footer.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GamingFun/theme/src/img/header.png" afterPath="$PROJECT_DIR$/GamingFun/theme/src/img/header.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GamingFun/theme/src/img/logo.png" afterPath="$PROJECT_DIR$/GamingFun/theme/src/img/logo.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GamingFun/theme/src/img/logo_main.png" afterPath="$PROJECT_DIR$/GamingFun/theme/src/img/logo_main.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GamingFun/theme/src/img/minecraft_icon.png" afterPath="$PROJECT_DIR$/GamingFun/theme/src/img/minecraft_icon.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GamingFun/GamingFun/settings.py" afterPath="$PROJECT_DIR$/GamingFun/GamingFun/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GamingFun/GamingFun/urls.py" afterPath="$PROJECT_DIR$/GamingFun/GamingFun/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GamingFun/app/views.py" afterPath="$PROJECT_DIR$/GamingFun/app/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GamingFun/static/gamingfun/app.manifest" afterPath="$PROJECT_DIR$/GamingFun/static/gamingfun/app.manifest" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GamingFun/static/gamingfun/css/main.css" afterPath="$PROJECT_DIR$/GamingFun/static/gamingfun/css/main.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GamingFun/static/gamingfun/js/main.js" afterPath="$PROJECT_DIR$/GamingFun/static/gamingfun/js/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GamingFun/static/gamingfun/js/main.js.map" afterPath="$PROJECT_DIR$/GamingFun/static/gamingfun/js/main.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GamingFun/theme/src/blocks/components/MyRoute.js" afterPath="$PROJECT_DIR$/GamingFun/theme/src/blocks/components/MyRoute.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GamingFun/theme/src/blocks/components/Header.js" afterPath="$PROJECT_DIR$/GamingFun/theme/src/blocks/components/Header.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GamingFun/theme/src/blocks/components/MainPage.js" afterPath="$PROJECT_DIR$/GamingFun/theme/src/blocks/components/MainPage.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GamingFun/theme/src/blocks/components/PersonalRoom.js" afterPath="$PROJECT_DIR$/GamingFun/theme/src/blocks/components/PersonalRoom.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GamingFun/theme/src/blocks/constants/pureFunctions.js" afterPath="$PROJECT_DIR$/GamingFun/theme/src/blocks/constants/pureFunctions.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GamingFun/theme/src/blocks/containers/PersonalRoomContainer.js" afterPath="$PROJECT_DIR$/GamingFun/theme/src/blocks/containers/PersonalRoomContainer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GamingFun/theme/src/blocks/header/brand/brand.scss" afterPath="$PROJECT_DIR$/GamingFun/theme/src/blocks/header/brand/brand.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GamingFun/theme/src/blocks/header/figure/figure.scss" afterPath="$PROJECT_DIR$/GamingFun/theme/src/blocks/header/figure/figure.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GamingFun/theme/src/blocks/header/header.scss" afterPath="$PROJECT_DIR$/GamingFun/theme/src/blocks/header/header.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GamingFun/theme/src/blocks/header/navigation/navList/navList.scss" afterPath="$PROJECT_DIR$/GamingFun/theme/src/blocks/header/navigation/navList/navList.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GamingFun/theme/src/blocks/header/navigation/navigation.scss" afterPath="$PROJECT_DIR$/GamingFun/theme/src/blocks/header/navigation/navigation.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GamingFun/theme/src/blocks/header/projectsNav/projectsNav.scss" afterPath="$PROJECT_DIR$/GamingFun/theme/src/blocks/header/projectsNav/projectsNav.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GamingFun/theme/src/blocks/main/main.scss" afterPath="$PROJECT_DIR$/GamingFun/theme/src/blocks/main/main.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GamingFun/theme/src/blocks/main/userPanel/server/__status.scss" afterPath="$PROJECT_DIR$/GamingFun/theme/src/blocks/main/userPanel/server/__status.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GamingFun/theme/src/blocks/main/userPanel/userCard/userCard.scss" afterPath="$PROJECT_DIR$/GamingFun/theme/src/blocks/main/userPanel/userCard/userCard.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GamingFun/theme/src/blocks/main/userPanel/userCard/userCardButtons/__button.scss" afterPath="$PROJECT_DIR$/GamingFun/theme/src/blocks/main/userPanel/userCard/userCardButtons/__button.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GamingFun/theme/src/blocks/mainPage/mainPageHeader/mainPageNav/mainPageNavItem/mainPageNavItem.scss" afterPath="$PROJECT_DIR$/GamingFun/theme/src/blocks/mainPage/mainPageHeader/mainPageNav/mainPageNavItem/mainPageNavItem.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GamingFun/theme/src/blocks/reducers/index.js" afterPath="$PROJECT_DIR$/GamingFun/theme/src/blocks/reducers/index.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,51 +70,23 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/GamingFun/GamingFun/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="481">
-              <caret line="149" column="0" lean-forward="true" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.pug" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GamingFun/theme/src/index.pug">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GamingFun/app/models.py">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GamingFun/app/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="functions.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GamingFun/app/functions.py">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/GamingFun/GamingFun/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-17">
-              <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Temp/scp56029/webapps/gm/gamingfun/app/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="95" column="28" lean-forward="true" selection-start-line="95" selection-start-column="28" selection-end-line="95" selection-end-column="28" />
+            <state relative-caret-position="399">
+              <caret line="166" column="27" lean-forward="false" selection-start-line="166" selection-start-column="27" selection-end-line="166" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -73,11 +95,21 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GamingFun/app/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-17">
-              <caret line="32" column="36" lean-forward="false" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
+            <state relative-caret-position="459">
+              <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
               <folding>
-                <element signature="e#27#62#0" expanded="true" />
+                <element signature="e#1056#1076#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GamingFun/GamingFun/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="9" column="16" lean-forward="true" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -100,13 +132,15 @@
       <list>
         <option value="$USER_HOME$/AppData/Local/Temp/scp38783/webapps/gm/gamingfun/gamingfun/settings.py" />
         <option value="$PROJECT_DIR$/../../set/server/web/gamingfun.conf supervisor" />
-        <option value="$PROJECT_DIR$/GamingFun/GamingFun/urls.py" />
         <option value="$USER_HOME$/AppData/Local/Temp/scp14421/webapps/gm/gamingfun/gamingfun/urls.py" />
         <option value="$USER_HOME$/AppData/Local/Temp/scp16283/webapps/gm/gamingfun/minecraft/models.py" />
         <option value="$PROJECT_DIR$/GamingFun/static/gamingfun/js/main.js" />
         <option value="$PROJECT_DIR$/GamingFun/theme/src/index.pug" />
-        <option value="$PROJECT_DIR$/GamingFun/app/views.py" />
         <option value="$USER_HOME$/AppData/Local/Temp/scp56029/webapps/gm/gamingfun/app/views.py" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp47167/webapps/gm/gamingfun/gamingfun/settings.py" />
+        <option value="$USER_HOME$/Envs/gamingFun/Lib/site-packages/robokassa/urls.py" />
+        <option value="$PROJECT_DIR$/GamingFun/GamingFun/urls.py" />
+        <option value="$PROJECT_DIR$/GamingFun/app/views.py" />
         <option value="$PROJECT_DIR$/GamingFun/GamingFun/settings.py" />
       </list>
     </option>
@@ -121,8 +155,8 @@
     <handled-path value="$PROJECT_DIR$/GamingFun/theme/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="644" />
-    <option name="y" value="66" />
+    <option name="x" value="414" />
+    <option name="y" value="122" />
     <option name="width" value="1170" />
     <option name="height" value="781" />
   </component>
@@ -141,8 +175,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -248,6 +280,10 @@
               <option name="myItemId" value="gamingfun" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -293,17 +329,77 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gamingfun" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gamin-Fun" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gamin-Fun" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="GamingFun" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="minecraft" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gamin-Fun" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gamin-Fun" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GamingFun" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GamingFun" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gamin-Fun" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gamin-Fun" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GamingFun" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Envs/gamingFun/Lib/site-packages/robokassa" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -316,6 +412,156 @@
         </RuleState>
       </list>
     </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Gamin-Fun" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="TARGET" value="" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
+      <node-interpreter value="project" />
+      <working-dir value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="PyBehaveRunConfigurationType" factoryName="Behave">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Gamin-Fun" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PyLettuceRunConfigurationType" factoryName="Lettuce">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Gamin-Fun" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Gamin-Fun" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <module name="Gamin-Fun" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Gamin-Fun" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Gamin-Fun" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;.&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method />
+    </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -331,7 +577,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="644" y="66" width="1170" height="781" extended-state="0" />
+    <frame x="414" y="122" width="1170" height="781" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24956672" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -366,169 +612,35 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/GamingFun/GamingFun/settings.py">
+    <entry file="file://$PROJECT_DIR$/GamingFun/theme/src/index.pug">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="510">
+          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GamingFun/app/templates/index.html">
+    <entry file="file://$PROJECT_DIR$/GamingFun/app/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GamingFun/static/gamingfun/js/main.js.map">
-      <provider editor-type-id="sourcemapFileViewerProvider">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/GamingFun/app/functions.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="34">
+          <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GamingFun/static/gamingfun/js/main.js">
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp56029/webapps/gm/gamingfun/app/views.py" />
+    <entry file="file://$PROJECT_DIR$/GamingFun/app/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="408">
+          <caret line="32" column="36" lean-forward="false" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
           <folding>
-            <marker date="1502744117123" expanded="true" signature="3403961:3405464" ph="[...]" />
-            <marker date="1502744117123" expanded="true" signature="3403994:3405464" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3609722:3609750" ph="{&quot;isLogged&quot;: action.isLogged...}" />
-            <marker date="1502744117123" expanded="true" signature="3609722:3609752" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3609722:3611812" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3609722:3611814" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3609722:3611846" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3609722:3611925" ph="[...]" />
-            <marker date="1502744117123" expanded="true" signature="3609780:3609883" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3609921:3609984" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3609952:3609982" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3610014:3610175" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3610045:3610173" ph="{&quot;registered&quot;: action.registered...}" />
-            <marker date="1502744117123" expanded="true" signature="3610221:3610281" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3610252:3610279" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3610319:3610439" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3610350:3610437" ph="{&quot;recoverPasswordMessage&quot;: action.recoverPasswordMessage...}" />
-            <marker date="1502744117123" expanded="true" signature="3610473:3610664" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3610504:3610662" ph="{&quot;changeEmailMessage&quot;: action.changeEmailMessage...}" />
-            <marker date="1502744117123" expanded="true" signature="3610549:3610581" ph="{&quot;email&quot;: action.email...}" />
-            <marker date="1502744117123" expanded="true" signature="3610701:3610850" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3610732:3610848" ph="{&quot;password&quot;: action.password...}" />
-            <marker date="1502744117123" expanded="true" signature="3610881:3611051" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3610912:3611049" ph="{&quot;subscribeMessage&quot;: action.subscribeMessage...}" />
-            <marker date="1502744117123" expanded="true" signature="3611090:3611189" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3611229:3611328" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3611260:3611326" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3611369:3611781" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3611373:3611661" ph="/*...*/" />
-            <marker date="1502744117123" expanded="true" signature="3611792:3611809" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3611931:3616899" ph="[...]" />
-            <marker date="1502744117123" expanded="true" signature="3611964:3616797" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3612026:3612042" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3613060:3613296" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3613338:3616762" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3613462:3613661" ph="//..." />
-            <marker date="1502744117123" expanded="true" signature="3613734:3616760" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3613768:3613895" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3613929:3614056" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3614090:3614217" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3614255:3614385" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3614412:3614542" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3614583:3614720" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3614748:3614878" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3614916:3615046" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3615076:3615206" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3615252:3615382" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3615420:3615550" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3615584:3615721" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3615758:3615888" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3615925:3616055" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3616086:3616216" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3616255:3616385" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3616425:3616555" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3616594:3616729" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3616740:3616757" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3616905:3617836" ph="[...]" />
-            <marker date="1502744117123" expanded="true" signature="3616938:3617731" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3617556:3617694" ph="{&quot;form&quot;: _reduxForm.reducer...}" />
-            <marker date="1502744117123" expanded="true" signature="3617842:3619581" ph="[...]" />
-            <marker date="1502744117123" expanded="true" signature="3617875:3619541" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3617937:3617953" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3618530:3618598" ph="//..." />
-            <marker date="1502744117123" expanded="true" signature="3618655:3619073" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3618672:3618735" ph="{&quot;name&quot;: _actionTypes.navigationItems.home...}" />
-            <marker date="1502744117123" expanded="true" signature="3618753:3618824" ph="{&quot;name&quot;: _actionTypes.navigationItems.registration...}" />
-            <marker date="1502744117123" expanded="true" signature="3618841:3618908" ph="{&quot;name&quot;: _actionTypes.navigationItems.contacts...}" />
-            <marker date="1502744117123" expanded="true" signature="3618926:3618990" ph="{&quot;name&quot;: _actionTypes.navigationItems.rules...}" />
-            <marker date="1502744117123" expanded="true" signature="3619007:3619071" ph="{&quot;name&quot;: _actionTypes.navigationItems.forum...}" />
-            <marker date="1502744117123" expanded="true" signature="3619115:3619506" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3619270:3619504" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3619315:3619473" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3619484:3619501" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3619587:3620785" ph="[...]" />
-            <marker date="1502744117123" expanded="true" signature="3619620:3620745" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3619682:3619698" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3620102:3620154" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3620184:3620716" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3620333:3620714" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3620367:3620449" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3620398:3620447" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3620483:3620565" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3620514:3620563" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3620599:3620683" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3620630:3620681" ph="{&quot;news&quot;: action.news...}" />
-            <marker date="1502744117123" expanded="true" signature="3620694:3620711" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3620791:3621322" ph="[...]" />
-            <marker date="1502744117123" expanded="true" signature="3620824:3621282" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3620886:3620902" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3621011:3621245" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3621153:3621243" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3621187:3621212" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3621223:3621240" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3621328:3622405" ph="[...]" />
-            <marker date="1502744117123" expanded="true" signature="3621361:3622365" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3621867:3621965" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3621882:3621963" ph="{&quot;nameServer&quot;: ''...}" />
-            <marker date="1502744117123" expanded="true" signature="3622011:3622328" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3622168:3622326" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3622208:3622295" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3622239:3622293" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3622306:3622323" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3622411:3623184" ph="[...]" />
-            <marker date="1502744117123" expanded="true" signature="3622444:3623121" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3622506:3622523" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3623026:3623118" ph="{...}" />
+            <element signature="e#1056#1076#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GamingFun/theme/gulpfile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="24" lean-forward="false" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GamingFun/theme/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1326">
-          <caret line="78" column="11" lean-forward="false" selection-start-line="78" selection-start-column="5" selection-end-line="78" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp16283/webapps/gm/gamingfun/minecraft/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="19" lean-forward="false" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -544,7 +656,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -555,7 +666,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -563,114 +673,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1502744117123" expanded="true" signature="3403961:3405464" ph="[...]" />
-            <marker date="1502744117123" expanded="true" signature="3403994:3405464" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3609722:3609750" ph="{&quot;isLogged&quot;: action.isLogged...}" />
-            <marker date="1502744117123" expanded="true" signature="3609722:3609752" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3609722:3611812" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3609722:3611814" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3609722:3611846" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3609722:3611925" ph="[...]" />
-            <marker date="1502744117123" expanded="true" signature="3609780:3609883" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3609921:3609984" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3609952:3609982" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3610014:3610175" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3610045:3610173" ph="{&quot;registered&quot;: action.registered...}" />
-            <marker date="1502744117123" expanded="true" signature="3610221:3610281" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3610252:3610279" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3610319:3610439" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3610350:3610437" ph="{&quot;recoverPasswordMessage&quot;: action.recoverPasswordMessage...}" />
-            <marker date="1502744117123" expanded="true" signature="3610473:3610664" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3610504:3610662" ph="{&quot;changeEmailMessage&quot;: action.changeEmailMessage...}" />
-            <marker date="1502744117123" expanded="true" signature="3610549:3610581" ph="{&quot;email&quot;: action.email...}" />
-            <marker date="1502744117123" expanded="true" signature="3610701:3610850" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3610732:3610848" ph="{&quot;password&quot;: action.password...}" />
-            <marker date="1502744117123" expanded="true" signature="3610881:3611051" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3610912:3611049" ph="{&quot;subscribeMessage&quot;: action.subscribeMessage...}" />
-            <marker date="1502744117123" expanded="true" signature="3611090:3611189" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3611229:3611328" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3611260:3611326" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3611369:3611781" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3611373:3611661" ph="/*...*/" />
-            <marker date="1502744117123" expanded="true" signature="3611792:3611809" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3611931:3616899" ph="[...]" />
-            <marker date="1502744117123" expanded="true" signature="3611964:3616797" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3612026:3612042" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3613060:3613296" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3613338:3616762" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3613462:3613661" ph="//..." />
-            <marker date="1502744117123" expanded="true" signature="3613734:3616760" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3613768:3613895" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3613929:3614056" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3614090:3614217" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3614255:3614385" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3614412:3614542" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3614583:3614720" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3614748:3614878" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3614916:3615046" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3615076:3615206" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3615252:3615382" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3615420:3615550" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3615584:3615721" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3615758:3615888" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3615925:3616055" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3616086:3616216" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3616255:3616385" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3616425:3616555" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3616594:3616729" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3616740:3616757" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3616905:3617836" ph="[...]" />
-            <marker date="1502744117123" expanded="true" signature="3616938:3617731" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3617556:3617694" ph="{&quot;form&quot;: _reduxForm.reducer...}" />
-            <marker date="1502744117123" expanded="true" signature="3617842:3619581" ph="[...]" />
-            <marker date="1502744117123" expanded="true" signature="3617875:3619541" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3617937:3617953" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3618530:3618598" ph="//..." />
-            <marker date="1502744117123" expanded="true" signature="3618655:3619073" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3618672:3618735" ph="{&quot;name&quot;: _actionTypes.navigationItems.home...}" />
-            <marker date="1502744117123" expanded="true" signature="3618753:3618824" ph="{&quot;name&quot;: _actionTypes.navigationItems.registration...}" />
-            <marker date="1502744117123" expanded="true" signature="3618841:3618908" ph="{&quot;name&quot;: _actionTypes.navigationItems.contacts...}" />
-            <marker date="1502744117123" expanded="true" signature="3618926:3618990" ph="{&quot;name&quot;: _actionTypes.navigationItems.rules...}" />
-            <marker date="1502744117123" expanded="true" signature="3619007:3619071" ph="{&quot;name&quot;: _actionTypes.navigationItems.forum...}" />
-            <marker date="1502744117123" expanded="true" signature="3619115:3619506" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3619270:3619504" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3619315:3619473" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3619484:3619501" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3619587:3620785" ph="[...]" />
-            <marker date="1502744117123" expanded="true" signature="3619620:3620745" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3619682:3619698" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3620102:3620154" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3620184:3620716" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3620333:3620714" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3620367:3620449" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3620398:3620447" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3620483:3620565" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3620514:3620563" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3620599:3620683" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3620630:3620681" ph="{&quot;news&quot;: action.news...}" />
-            <marker date="1502744117123" expanded="true" signature="3620694:3620711" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3620791:3621322" ph="[...]" />
-            <marker date="1502744117123" expanded="true" signature="3620824:3621282" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3620886:3620902" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3621011:3621245" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3621153:3621243" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3621187:3621212" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3621223:3621240" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3621328:3622405" ph="[...]" />
-            <marker date="1502744117123" expanded="true" signature="3621361:3622365" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3621867:3621965" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3621882:3621963" ph="{&quot;nameServer&quot;: ''...}" />
-            <marker date="1502744117123" expanded="true" signature="3622011:3622328" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3622168:3622326" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3622208:3622295" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3622239:3622293" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3622306:3622323" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3622411:3623184" ph="[...]" />
-            <marker date="1502744117123" expanded="true" signature="3622444:3623121" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3622506:3622523" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3623026:3623118" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -678,7 +680,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="24" lean-forward="false" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -686,57 +687,69 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1326">
           <caret line="78" column="11" lean-forward="false" selection-start-line="78" selection-start-column="5" selection-end-line="78" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp16283/webapps/gm/gamingfun/minecraft/models.py">
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp16283/webapps/gm/gamingfun/minecraft/models.py" />
+    <entry file="file://$PROJECT_DIR$/GamingFun/GamingFun/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="19" lean-forward="false" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/GamingFun/app/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GamingFun/static/gamingfun/js/main.js.map">
+      <provider editor-type-id="sourcemapFileViewerProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GamingFun/static/gamingfun/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GamingFun/theme/gulpfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="24" lean-forward="false" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GamingFun/theme/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1326">
+          <caret line="78" column="11" lean-forward="false" selection-start-line="78" selection-start-column="5" selection-end-line="78" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp16283/webapps/gm/gamingfun/minecraft/models.py" />
     <entry file="file://$USER_HOME$/AppData/Local/Temp/scp16555/webapps/gm/gamingfun/samp/models.py" />
     <entry file="file://$USER_HOME$/AppData/Local/Temp/scp16647/webapps/gm/gamingfun/app/models.py" />
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp38783/webapps/gm/gamingfun/gamingfun/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="549">
-          <caret line="140" column="24" lean-forward="false" selection-start-line="140" selection-start-column="24" selection-end-line="140" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp38783/webapps/gm/gamingfun/gamingfun/settings.py" />
     <entry file="file://$PROJECT_DIR$/../../set/server/web/gamingfun.conf supervisor" />
-    <entry file="file://$PROJECT_DIR$/GamingFun/GamingFun/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp14421/webapps/gm/gamingfun/gamingfun/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="78" lean-forward="false" selection-start-line="13" selection-start-column="78" selection-end-line="13" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp14421/webapps/gm/gamingfun/gamingfun/urls.py" />
     <entry file="file://$USER_HOME$/AppData/Local/Temp/scp16555/webapps/gm/gamingfun/samp/models.py" />
     <entry file="file://$USER_HOME$/AppData/Local/Temp/scp16647/webapps/gm/gamingfun/app/models.py" />
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp16283/webapps/gm/gamingfun/minecraft/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="19" lean-forward="false" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp16283/webapps/gm/gamingfun/minecraft/models.py" />
     <entry file="file://$PROJECT_DIR$/GamingFun/app/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -747,7 +760,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -755,114 +767,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1502744117123" expanded="true" signature="3403961:3405464" ph="[...]" />
-            <marker date="1502744117123" expanded="true" signature="3403994:3405464" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3609722:3609750" ph="{&quot;isLogged&quot;: action.isLogged...}" />
-            <marker date="1502744117123" expanded="true" signature="3609722:3609752" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3609722:3611812" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3609722:3611814" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3609722:3611846" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3609722:3611925" ph="[...]" />
-            <marker date="1502744117123" expanded="true" signature="3609780:3609883" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3609921:3609984" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3609952:3609982" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3610014:3610175" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3610045:3610173" ph="{&quot;registered&quot;: action.registered...}" />
-            <marker date="1502744117123" expanded="true" signature="3610221:3610281" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3610252:3610279" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3610319:3610439" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3610350:3610437" ph="{&quot;recoverPasswordMessage&quot;: action.recoverPasswordMessage...}" />
-            <marker date="1502744117123" expanded="true" signature="3610473:3610664" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3610504:3610662" ph="{&quot;changeEmailMessage&quot;: action.changeEmailMessage...}" />
-            <marker date="1502744117123" expanded="true" signature="3610549:3610581" ph="{&quot;email&quot;: action.email...}" />
-            <marker date="1502744117123" expanded="true" signature="3610701:3610850" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3610732:3610848" ph="{&quot;password&quot;: action.password...}" />
-            <marker date="1502744117123" expanded="true" signature="3610881:3611051" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3610912:3611049" ph="{&quot;subscribeMessage&quot;: action.subscribeMessage...}" />
-            <marker date="1502744117123" expanded="true" signature="3611090:3611189" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3611229:3611328" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3611260:3611326" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3611369:3611781" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3611373:3611661" ph="/*...*/" />
-            <marker date="1502744117123" expanded="true" signature="3611792:3611809" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3611931:3616899" ph="[...]" />
-            <marker date="1502744117123" expanded="true" signature="3611964:3616797" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3612026:3612042" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3613060:3613296" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3613338:3616762" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3613462:3613661" ph="//..." />
-            <marker date="1502744117123" expanded="true" signature="3613734:3616760" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3613768:3613895" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3613929:3614056" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3614090:3614217" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3614255:3614385" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3614412:3614542" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3614583:3614720" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3614748:3614878" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3614916:3615046" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3615076:3615206" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3615252:3615382" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3615420:3615550" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3615584:3615721" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3615758:3615888" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3615925:3616055" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3616086:3616216" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3616255:3616385" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3616425:3616555" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3616594:3616729" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3616740:3616757" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3616905:3617836" ph="[...]" />
-            <marker date="1502744117123" expanded="true" signature="3616938:3617731" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3617556:3617694" ph="{&quot;form&quot;: _reduxForm.reducer...}" />
-            <marker date="1502744117123" expanded="true" signature="3617842:3619581" ph="[...]" />
-            <marker date="1502744117123" expanded="true" signature="3617875:3619541" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3617937:3617953" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3618530:3618598" ph="//..." />
-            <marker date="1502744117123" expanded="true" signature="3618655:3619073" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3618672:3618735" ph="{&quot;name&quot;: _actionTypes.navigationItems.home...}" />
-            <marker date="1502744117123" expanded="true" signature="3618753:3618824" ph="{&quot;name&quot;: _actionTypes.navigationItems.registration...}" />
-            <marker date="1502744117123" expanded="true" signature="3618841:3618908" ph="{&quot;name&quot;: _actionTypes.navigationItems.contacts...}" />
-            <marker date="1502744117123" expanded="true" signature="3618926:3618990" ph="{&quot;name&quot;: _actionTypes.navigationItems.rules...}" />
-            <marker date="1502744117123" expanded="true" signature="3619007:3619071" ph="{&quot;name&quot;: _actionTypes.navigationItems.forum...}" />
-            <marker date="1502744117123" expanded="true" signature="3619115:3619506" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3619270:3619504" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3619315:3619473" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3619484:3619501" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3619587:3620785" ph="[...]" />
-            <marker date="1502744117123" expanded="true" signature="3619620:3620745" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3619682:3619698" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3620102:3620154" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3620184:3620716" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3620333:3620714" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3620367:3620449" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3620398:3620447" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3620483:3620565" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3620514:3620563" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3620599:3620683" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3620630:3620681" ph="{&quot;news&quot;: action.news...}" />
-            <marker date="1502744117123" expanded="true" signature="3620694:3620711" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3620791:3621322" ph="[...]" />
-            <marker date="1502744117123" expanded="true" signature="3620824:3621282" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3620886:3620902" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3621011:3621245" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3621153:3621243" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3621187:3621212" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3621223:3621240" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3621328:3622405" ph="[...]" />
-            <marker date="1502744117123" expanded="true" signature="3621361:3622365" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3621867:3621965" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3621882:3621963" ph="{&quot;nameServer&quot;: ''...}" />
-            <marker date="1502744117123" expanded="true" signature="3622011:3622328" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3622168:3622326" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3622208:3622295" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3622239:3622293" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3622306:3622323" ph="..." />
-            <marker date="1502744117123" expanded="true" signature="3622411:3623184" ph="[...]" />
-            <marker date="1502744117123" expanded="true" signature="3622444:3623121" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3622506:3622523" ph="{...}" />
-            <marker date="1502744117123" expanded="true" signature="3623026:3623118" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -870,7 +774,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1326">
           <caret line="78" column="11" lean-forward="false" selection-start-line="78" selection-start-column="5" selection-end-line="78" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -879,33 +782,87 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="19" column="24" lean-forward="false" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/GamingFun/theme/src/index.pug">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
+        <state relative-caret-position="510">
           <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp56029/webapps/gm/gamingfun/app/views.py">
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp56029/webapps/gm/gamingfun/app/views.py" />
+    <entry file="file://$PROJECT_DIR$/GamingFun/app/functions.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="95" column="28" lean-forward="true" selection-start-line="95" selection-start-column="28" selection-end-line="95" selection-end-column="28" />
-          <folding />
+        <state relative-caret-position="34">
+          <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GamingFun/app/views.py">
+    <entry file="file://$PROJECT_DIR$/GamingFun/samp/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-17">
-          <caret line="32" column="36" lean-forward="false" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
+        <state relative-caret-position="51">
+          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Envs/gamingFun/Lib/site-packages/robokassa/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../robokassa_for_me/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../robokassa_for_me/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Envs/gamingFun/Lib/site-packages/robokassa/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="8" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
           <folding>
-            <element signature="e#27#62#0" expanded="true" />
+            <element signature="e#16#48#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../robokassa_for_me/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="43" lean-forward="true" selection-start-line="4" selection-start-column="43" selection-end-line="4" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp47167/webapps/gm/gamingfun/gamingfun/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="34" column="18" lean-forward="false" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GamingFun/minecraft/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GamingFun/minecraft/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="37" lean-forward="false" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="50" />
         </state>
       </provider>
     </entry>
@@ -913,22 +870,48 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GamingFun/app/functions.py">
+    <entry file="file://$PROJECT_DIR$/customs.robokassa">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-17">
-          <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="13" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="17" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GamingFun/app/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GamingFun/app/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+          <folding>
+            <element signature="e#1056#1076#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GamingFun/GamingFun/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="9" column="16" lean-forward="true" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/GamingFun/GamingFun/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="149" column="0" lean-forward="true" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
+        <state relative-caret-position="399">
+          <caret line="166" column="27" lean-forward="false" selection-start-line="166" selection-start-column="27" selection-end-line="166" selection-end-column="27" />
           <folding />
         </state>
       </provider>

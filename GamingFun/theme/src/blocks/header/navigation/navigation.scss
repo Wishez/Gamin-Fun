@@ -13,19 +13,19 @@
 .navigation--minecraft {
 
 }
-.navigation--samp {
-  margin-top: (35% / 387) * 100;
-  @include breakpoint($md) {
-     margin-top: (40% / 387) * 100;
-  }
-  @include breakpoint($sm) {
-     margin-top: (50% / 387) * 100;
-  }
-  @include breakpoint($xs) {
-    margin-top: 0;
-    z-index: -1;
-  }
-}
+// .navigation--samp {
+//   margin-top: (35% / 387) * 100;
+//   @include breakpoint($md) {
+//      margin-top: (40% / 387) * 100;
+//   }
+//   @include breakpoint($sm) {
+//      margin-top: (50% / 387) * 100;
+//   }
+//   @include breakpoint($xs) {
+//     margin-top: 0;
+//     z-index: -1;
+//   }
+// }
 
 @import '__openMenuButton.scss';
 @import 'navList/navList.scss';

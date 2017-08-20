@@ -15,20 +15,20 @@
 		right: (166% / 1366 * 100);
 		max-width: 127px;
 	}
-	&--car {
-		top: 39px;
-		left: 0;
-		max-width: 441px;
-	}
-	&--helicopter {
-		top: 43px;
-		right: (247% / 1366 * 100);
-		max-width: 195px;
-	}
-	&--man {
-		bottom: 0;
-		right: 0;
-		max-width: 160px;	
-	}
+	// &--car {
+	// 	top: 39px;
+	// 	left: 0;
+	// 	max-width: 441px;
+	// }
+	// &--helicopter {
+	// 	top: 43px;
+	// 	right: (247% / 1366 * 100);
+	// 	max-width: 195px;
+	// }
+	// &--man {
+	// 	bottom: 0;
+	// 	right: 0;
+	// 	max-width: 160px;	
+	// }
 }
 @import '__img.scss';

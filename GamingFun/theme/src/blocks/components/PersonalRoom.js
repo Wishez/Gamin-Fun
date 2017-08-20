@@ -1,35 +1,29 @@
 import React from 'react';
 import ReactHtmlParser from 'react-html-parser'
-import ReplanishBalanceForm from './ReplanishBalanceForm';
+import ReplanishBalanceForm from './../containers/Robokassa';
 import SubscribtionForm from './SubscribtionForm';
 import Title from './Title';
 import ChangePasswordForm from './ChangePasswordForm';
 import ChangeEmailForm from './ChangeEmailForm';
-
+import Robokassa from './../containers/Robokassa';
 
 const PersonalRoom = ({
 	submitChangePassword,
-	submitReplanishBalance,
 	submitSubscribtionForm,
 	submitChangeEmailForm,
 	subscribeState,
 	onQuantityMonthesChange,
-	onChangeReplanishCost,
 	replanishCost,
+	email,
+	username,
 	...rest
 }) => (
 	<section className='personalRoom'>
-		<div className='replanishBalance'>
-			<Title block='replanishBalance'
-				text='Пополнить баланс' />
-			<p className='replanishBlance__description'>
-				{replanishCost}
-			</p> 
-			<ReplanishBalanceForm
-				submitReplanishBalance={submitReplanishBalance} 
-				onChangeReplanishCost={onChangeReplanishCost}
-				{...rest}/>
-		</div>
+		<Robokassa
+			InvDesc='Покупка кредитов'
+			Email={email}
+			username={username}
+		/>
 		<div className='subscribe'>
 			<Title block='subscribe'
 				text='Подписаться на сервер' />

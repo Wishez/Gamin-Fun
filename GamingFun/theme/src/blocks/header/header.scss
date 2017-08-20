@@ -3,7 +3,8 @@
 	z-index: 2;
 	@extend %navItemShadow;
 }
-.header--minecraft, .header--samp {
+// .header--samp
+.header--minecraft {
 	border-bottom: 3px solid;
 }	
 .header--minecraft {
@@ -13,17 +14,17 @@
 	border-bottom-color: $mineDarkenBrown;
 }
 
-.header--samp {
-	background-color: $blue;	
-	min-height: 368px;
-	border-bottom-color: $darkBlue;
-}
+// .header--samp {
+// 	background-color: $blue;	
+// 	min-height: 368px;
+// 	border-bottom-color: $darkBlue;
+// }
 
 // Общие классы
-.projectsNav, .navList {
-  @include flexable('inline-flex', 'row nowrap', 'space-between', 'center');
-}
+// .projectsNav, .navList {
+//   @include flexable('inline-flex', 'row nowrap', 'space-between', 'center');
+// }
 @import 'brand/brand.scss';
-@import 'projectsNav/projectsNav.scss';
+// @import 'projectsNav/projectsNav.scss';
 @import 'navigation/navigation.scss';
 @import 'figure/figure.scss';

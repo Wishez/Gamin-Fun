@@ -12,18 +12,18 @@
 	&--minecraft {
 		color: $lightGray $i;
 	}
-	&--samp {
-		color: $lightGray $i;
-	}
+	// &--samp {
+	// 	color: $lightGray $i;
+	// }
 }
 
 .userCardInfo, .userCardButtons {
 	&--minecraft {
 		background-color: $mineBrown $i;
 	}
-	&--samp {
-		background-color: $blue $i;
-	}
+	// &--samp {
+	// 	background-color: $blue $i;
+	// }
 }
 @import 'userCardInfo/userCardInfo.scss';
 @import 'userCardButtons/userCardButtons.scss';

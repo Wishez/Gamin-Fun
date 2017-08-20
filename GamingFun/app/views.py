@@ -18,7 +18,6 @@ def index(request):
         {}
     )
 
-@cache_page(60 * 15)
 @csrf_exempt
 def register(request):
 
@@ -34,20 +33,20 @@ def register(request):
             return HttpResponse('Пароли не совпадают')
         username = data['username']
         email = data['email']
-        site = data['site']
+        #site = data['site']
 
-        isMinecraftSite = site == 'minecraft'
-        isSampSite = site == 'samp'
+        #isMinecraftSite = site == 'minecraft'
+        #isSampSite = site == 'samp'
 
         # Если регистрация на samp сервер
-        if isSampSite:
+        #if isSampSite:
             # То учитываем два дополнительных поля.
-            name = data['name']
-            surname = data['surname']
+         #   name = data['name']
+         #   surname = data['surname']
             # Возможно игрок с таким именем и фамилией уже существует
             # в реальной жизни мира San Andreas.
-            if User.objects.filter(first_name__iexact=name).exists() and User.objects.filter(last_name__iexact=surname).exists():
-                return HttpResponse('Игрок с таким именем и фамилией есть в мире San Andreas')
+         #   if User.objects.filter(first_name__iexact=name).exists() and User.objects.filter(last_name__iexact=surname).exists():
+         #       return HttpResponse('Игрок с таким именем и фамилией есть в мире San Andreas')
         # Проверка на существуещего пользователя
         if User.objects.filter(username=username).exists():
             # Если есть пользователь с таким именем,
@@ -65,18 +64,18 @@ def register(request):
 
             # В форме регистрации на samp сервер
             # есть первое и второе имя.
-            if isSampSite:
-                user.first_name = name
-                user.last_name = surname
+           # if isSampSite:
+               # user.first_name = name
+               # user.last_name = surname
             user.save()
 
             # Создаются аккаунты  для двух игр
-            if isMinecraftSite:
-                MinecraftUser(user=user).save()
-                server = 'Minecraft'
-            elif isSampSite:
-                SampUser(user=user).save()
-                server = 'SAMP'
+            #if isMinecraftSite:
+            MinecraftUser(user=user).save()
+            server = 'Minecraft'
+            #elif isSampSite:
+            #    SampUser(user=user).save()
+             #   server = 'SAMP'
 
 
             subject =  'Успешная регистрация'
@@ -104,14 +103,16 @@ def log_in(request):
         if user is not None:
             login(request, user)
             # Буду получать имя сайта, с которого сделан запрос
-            site = data['site']
+            #site = data['site']
             # Есть ли у переменной user свойство id?
-            if site == 'minecraft':
-                siteUser = MinecraftUser.objects.filter(user=user.id)
+            #if site == 'minecraft':
 
-            if site == 'samp':
-                # if SampUser.objects.get(user=user.id).exist
-                siteUser = SampUser.objects.filter(user=user.id)
+            siteUser = MinecraftUser.objects.filter(user=user.id)
+
+            #if site == 'samp':
+            # if SampUser.objects.get(user=user.id).exist
+            # siteUser = SampUser.objects.filter(user=user.id)
+
             # Если есть аккаунт, то не факт, что пользователь
             # логинится на нужном сайте. Он, может быть, очень рассееный
             # или же у него случилось что-то плохое и он решил поиграть
@@ -198,14 +199,15 @@ def subscribe(request):
         # Получаем имя пользователя, пароль и новый email.
         quantity_monthes = data['quantityMonthes']
         username = data['username']
-        site = data['site']
+        #site = data['site']
 
 
         user = User.objects.get(username=username)
-        if site == 'minecraft':
-            userSite = user.minecraftuser
-        elif site == 'samp':
-            userSite = user.sampuser
+        #if site == 'minecraft':
+        userSite = user.minecraftuser
+       # elif site == 'samp':
+        # userSite = user.sampuser
+
         # Пользователь подписывает и возвращается сообщение об успехе,
         # либо провале, из-за того, что не хватает денег на счету.
         # Но также это проверяется на стороне клиента.
@@ -216,16 +218,16 @@ def subscribe(request):
 def replanish_balance(request):
     if request.method == 'POST':
         data = request.POST
-        site = data['site']
+        # site = data['site']
         username = data['username']
         credits = data['quantityCredits']
 
         user = User.objects.get(username=username)
 
-        if site == 'minecraft':
-            siteUser = MinecraftUser.objects.get(user=user.id)
-        elif site == 'samp':
-            siteUser = SampUser.objects.get(user=user.id)
+        # if site == 'minecraft':
+        siteUser = MinecraftUser.objects.get(user=user.id)
+        # elif site == 'samp':
+        # siteUser = SampUser.objects.get(user=user.id)
 
         siteUser.replanishBalance(credits)
 
@@ -233,7 +235,7 @@ def replanish_balance(request):
 
     return HttpResponse(False)
 
-@cache_page(60 * 15)
+
 @csrf_exempt
 def recover_password(request):
     if request.method == 'POST':
@@ -247,8 +249,7 @@ def recover_password(request):
             user.set_password(newPassword)
             subj = 'Новый пароль для %s аккаунта' % site
             message = 'Ваш новый пароль %s' % newPassword
-            # from: support@gamingfun.ru
-            # to: have gotten email
+
             #user.email_user(subj, message)
             return HttpResponse('На почту %s был выслан новый пароль' % email)
         else:
@@ -262,15 +263,11 @@ def change_user_avatar(request):
         avatar = request.FILES['newAvatar']
         username = data['username']
 
-        print(avatar)
-        site = data['site']
-
         user = User.objects.get(username=username)
 
-        if site == 'minecraft':
-            siteUser= user.minecraftuser
-        elif site == 'samp':
-            siteUser = user.sampuser
+
+        siteUser= user.minecraftuser
+
 
         siteUser.avatar.save('user_avatar', avatar)
         siteUser.save()

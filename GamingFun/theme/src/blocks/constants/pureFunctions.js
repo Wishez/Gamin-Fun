@@ -38,6 +38,6 @@ export const changeHeightAwesomeBorder = (path, currentPath) => {
 	    		'height': height,
 	    		'top': $('.header').innerHeight()
 	    	});
-	}, 1000)
+	}, 1500)
 };
 

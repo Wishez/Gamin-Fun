@@ -9,12 +9,12 @@
 			color: lighten($mineOrange, 10%) $i;
 		}
 	}
-	&--samp {
-		color: lighten($orange, 10%) !important;
-		&:hover {
-			color: lighten($orange, 20%) $i;
-		}
-	}
+	// &--samp {
+	// 	color: lighten($orange, 10%) !important;
+	// 	&:hover {
+	// 		color: lighten($orange, 20%) $i;
+	// 	}
+	// }
 	&--personalRoom {
 		@extend .floatLeft;
 	}

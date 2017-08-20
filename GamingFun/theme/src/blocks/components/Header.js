@@ -12,21 +12,22 @@ const Header = ({
   <header className={`header header--${site}`}>
       {site === 'minecraft' ?
         <Container>
-          <NavBetweenProjectsContainer />
           <NavContainer site={site} />
           <Logo site={site} />
           <FiguresList figuresNames={['steve_with_bow', 'chicken']} />
         </Container>
          : ''}
-      {site === 'samp' ?
-        <Container>
-          <Logo site={site} />
-          <NavBetweenProjectsContainer />
-          <NavContainer site={site} />
-          <FiguresList figuresNames={['car', 'helicopter', 'man']} />
-        </Container>
-        : ''}
+     
   </header>
 );
 
+          // <NavBetweenProjectsContainer />
+ // {site === 'samp' ?
+ //        <Container>
+ //          <Logo site={site} />
+ //          <NavBetweenProjectsContainer />
+ //          <NavContainer site={site} />
+ //          <FiguresList figuresNames={['car', 'helicopter', 'man']} />
+ //        </Container>
+ //        : ''}
 export default Header;

@@ -12,9 +12,7 @@
 } 
 .projects--minecraft {
 }
-.projects--samp {
-	// margin-top: 100px;
-}
+
 
 .projectsNav {
 	width: 100%;
@@ -22,5 +20,6 @@
 	flex-direction: column;
 }
 .projectsNav--minecraft {
+	
 }
 @import '__button.scss';
