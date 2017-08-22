@@ -14,11 +14,13 @@ import PersonalRoomContainer from './../containers/PersonalRoomContainer';
 import RecoverPasswordContainer from './../containers/RecoverPasswordContainer';
 import MainPageContainer from './../containers/MainPageContainer';
 import MyRoute from './../components/MyRoute';
+import SuccessPaymentRoute from './../containers/SuccessPaymentRoute';
 
 const Main = ({
     ...rest,
     isLogged,
-    site
+    site,
+    username
 }) => (
     <main className='main'>
     <Route render={({ location }) => (
@@ -47,14 +49,20 @@ const Main = ({
                     component={ContactsContainer} />
                 <MyRoute path='/:site/rules'
                     component={RulesContainer} />   
-                {isLogged ?
-                    <MyRoute path='/:site/personal_room'
-                        component={PersonalRoomContainer} /> : ''}
+                <MyRoute path='/:site/personal_room'
+                    component={PersonalRoomContainer} />
                 {!isLogged ?
                     <MyRoute path='/:site/remember_password'
                         component={RecoverPasswordContainer} /> : ''}
-                    <Route render={() => (
-                        <Redirect to="/" />
+                
+                <SuccessPaymentRoute 
+                    successUrl='/minecraft/robokassa_success/'
+                    redirectPath='/minecraft/personal_room'
+                    username={username}
+                    getUserDataUrl='/get_user_last_payment/'
+                /> 
+                <Route render={() => (
+                    <Redirect to="/" />
                 )}  />
 
             </Switch>
@@ -64,8 +72,3 @@ const Main = ({
 );
 
 export default Main;
-// Add component if it is needed.
-// <FadeInRoute path='/:site/forum'
-//     component={NotFoundContainer} />  
-// <FadeInRoute path='/:site/download'
-//     component={DownloadContainer} />  

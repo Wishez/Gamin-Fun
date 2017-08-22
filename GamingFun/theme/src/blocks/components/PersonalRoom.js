@@ -19,7 +19,7 @@ const PersonalRoom = ({
 	...rest
 }) => (
 	<section className='personalRoom'>
-		<Robokassa
+		<Robokassa url={rest.site}
 			InvDesc='Покупка кредитов'
 			Email={email}
 			username={username}

@@ -8,6 +8,7 @@ import { moveUserToPaynment } from './../actions/robokassaActions.js';
 
 class Robokassa extends Component {
 	static PorpTypes = {
+		url: PropTypes.string.isRequired,
 		dispatch: PropTypes.func.isRequired,
 		InvDesc: PropTypes.string.isRequired,
 		Email: PropTypes.string,
@@ -26,14 +27,15 @@ class Robokassa extends Component {
 	}
 
 	submitReplanishBalance = (values, dispatch) => {
-		const { InvDesc, Email, username } = this.props;
+		const { InvDesc, Email, username, url } = this.props;
 		values['InvDesc'] = InvDesc;
 		values['InvId'] = 0;
 		values['Email'] = Email;
 		values['username'] = username;
-		console.log(values);
 
-		dispatch(moveUserToPaynment(values));
+		console.log(url);
+
+		dispatch(moveUserToPaynment(values, url));
 
 	}
 

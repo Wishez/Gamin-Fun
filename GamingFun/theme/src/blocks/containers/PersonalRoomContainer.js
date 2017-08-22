@@ -30,7 +30,8 @@ class PersonalRoomContainer extends Component {
 		match: PropTypes.object.isRequired,
 		dispatch: PropTypes.func.isRequired,
 		location: PropTypes.object.isRequired,
-		email: PropTypes.string.isRequired
+		email: PropTypes.string.isRequired,
+		isLogged: PropTypes.bool.isRequired
 	}
 	state =  {
 		subscribeState: '1 месяц = 199 кредитов',
@@ -114,19 +115,21 @@ class PersonalRoomContainer extends Component {
 
 
 	render() {
-		console.log(this.props.email);
+		const { isLogged } = this.props;
 		return (
 			<div className='contentWrapper'>
 				<UserPanelContainer />
 				<Container>
+				{ isLogged ?
 					<PersonalRoom {...this.props}
 						{...this.state}
 						submitChangePassword={this.submitChangePassword}  
 						submitSubscribtionForm={this.submitSubscribtionForm}
 						submitChangeEmailForm={this.submitChangeEmailForm}
 						onQuantityMonthesChange={this.onQuantityMonthesChange}
-					/>
-				</Container>
+					/>  : 
+					<div>Чтобы зайти в свой личный кабинет нужно залогиниться.</div>}
+				</Container> 
 			</div>
 		);
 	}
@@ -145,7 +148,8 @@ const mapStateToProps = state => {
 		isChanging,
 		username,
 		password,
-		userData
+		userData,
+		isLogged
 	} = dataBySite[selectedSite];
 	
 	const  { email } = userData;
@@ -158,7 +162,8 @@ const mapStateToProps = state => {
 		isChanging,
 		username,
 		password,
-		email
+		email,
+		isLogged
 	}
 };
 

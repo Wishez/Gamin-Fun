@@ -1,10 +1,17 @@
 # -*- encoding: utf-8 -*-
-
+#import sys
+#reload(sys)
+#sys.setdefaultencoding('utf-8')
 # Create your models here.
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 from django.utils import timezone
 from app.functions import subscribe, replanishBalance, user_directory_path
+from robokassa.signals import success_page_visited, result_received
+from django.dispatch import receiver
+from django.shortcuts import redirect
+from robokassa.models import SuccessNotification
+
 
 class MinecraftNews(models.Model):
     title = models.CharField(
@@ -67,9 +74,18 @@ class MinecraftUser(models.Model):
         _('Зарегистрировался'),
         auto_now=True
     )
+    last_payment_notification = models.OneToOneField(
+        SuccessNotification,
+        verbose_name=_('Последний платёж'),
+        blank=True,
+        null=True
+    )
 
-    def replanishBalance(self, credits):
-        return replanishBalance(self, credits)
+    # @receiver(result_received)
+    # def setLastPayment(self, handler, InvId, OutSum, **kwargs):
+    #     self.last_payment_notification = SuccessNotification.objcets.get(InvId=InvId)
+    #     self.save()
+
 
     def subscribe(self, quantity_monthes=0):
         return subscribe(self, quantity_monthes)

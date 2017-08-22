@@ -10,6 +10,21 @@ from django.views.decorators.cache import cache_page
 from django.views.decorators.csrf import csrf_exempt, csrf_protect
 from pprint import pprint
 # Create your views here.
+def get_user_last_payment(request):
+    if request.method == 'GET':
+        data = request.GET
+
+        user = User.objects.get(username=data['username'])
+        notification = user.minecraftuser.last_payment_notification
+
+        print(notification)
+
+        return JsonResponse({
+            'OutSum': notification.OutSum
+        })
+
+    return HttpResponse('Внутренняя ошибка')
+
 
 def index(request):
     return render(
@@ -224,10 +239,8 @@ def replanish_balance(request):
 
         user = User.objects.get(username=username)
 
-        # if site == 'minecraft':
         siteUser = MinecraftUser.objects.get(user=user.id)
-        # elif site == 'samp':
-        # siteUser = SampUser.objects.get(user=user.id)
+
 
         siteUser.replanishBalance(credits)
 

@@ -5,5 +5,5 @@ from minecraft.admin import AdminNews, AdminUser
 from .models import *
 # Register your models here.
 
-admin.site.register(SampNews, AdminNews)
-admin.site.register(SampUser, AdminUser)
+#admin.site.register(SampNews, AdminNews)
+#admin.site.register(SampUser, AdminUser)

@@ -1,6 +1,34 @@
 # -*- encoding: utf-8 -*-
 from django.utils import timezone
 from datetime import datetime
+
+from django.contrib.auth.models import User
+from django.dispatch import receiver
+from robokassa.signals import success_page_visited, result_received
+from robokassa.models import SuccessNotification
+from robokassa.views import loggingData
+# При успешном платеже и переводе на страницу, у пользователя пополняется баланс
+@receiver(success_page_visited)
+def successReplatnishBalance(sender, InvId, OutSum, **kwargs):
+    minecraft_user = User.objects.get(username=kwargs['extra']['shp_username']).minecraftuser
+    until = minecraft_user.balance
+    # Success
+    replanishBalance(minecraft_user, OutSum)
+
+    after = minecraft_user.balance
+    data = '%s\n%s\n%s' % ('Signal ====> success_page_visited', str(until), str(after))
+    loggingData('successReplatnishBalance', data)
+
+# Устанавливает пользователю успешно пройденный платёж,
+# по данным которого будет отображаться успешная оплата в интерфейсе.
+@receiver(result_received)
+def setLastPayment(sender, InvId, OutSum, **kwargs):
+    loggingData('setLastPayment', 'Signal ====> result_received')
+    minecraft_user = User.objects.get(username=kwargs['extra']['shp_username']).minecraftuser
+
+    minecraft_user.last_payment_notification = SuccessNotification.objcets.get(InvId=InvId)
+    minecraft_user.save()
+
 def user_directory_path(instance, filename):
     # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
     return 'avatar/user_{0}/{1}'.format(instance.user.id, filename)

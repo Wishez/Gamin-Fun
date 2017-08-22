@@ -162,12 +162,44 @@ ROBOKASSA_TEST_PASSWORD2 = 'tNF79oTAcU6M33MzLuPv'
 ROBOKASSA_USE_POST = True
 
 # Использовать ли строгую проверку (требовать предварительного уведомления на ResultURL). По умолчанию - True.
-ROBOLASSA_STRICT_CHECK = True
+ROBOLASSA_STRICT_CHECK = False
 
-ROBOKASSA_TEST_MODE = False
+ROBOKASSA_TEST_MODE = True
 
 # Cписок (list) названий дополнительных параметров, которые будут передаваться вместе с запросами. “Shp” к ним приписывать не нужно.
 ROBOKASSA_EXTRA_PARAMS = ['username']
 
+ROBOKASSA_SUCCESS_URL = '/minecraft/robokassa_success/'
+ROBOKASSA_FAILURE_URL = '/minecraft/robokassa_failure/'
+
 # url робокассы для тестового режима. Настройка предназначена для случая, когда в распоряжении не имеется доступного в интернете домена (например разработка на localhost) и вместо сервера робокассы необходимо использовать свой.
 # ROBOKASSA_TEST_FORM_TARGET = ''
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'info_logs': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'info_logs.log'),
+        },
+        'debug_logs': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'debug_logs.log'),
+        },
+    },
+    'loggers': {
+        'info': {
+            'handlers': ['info_logs'],
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
+            'propagate': True,
+        },
+        'debug': {
+            'handlers': ['debug_logs'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
+

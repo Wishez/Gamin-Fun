@@ -18,7 +18,8 @@ class App extends Component {
   static PropTypes = {
     site: PropTypes.string.isRequired,
     isLogged: PropTypes.bool.isRequired,
-    dispatch: PropTypes.func.isRequired
+    dispatch: PropTypes.func.isRequired,
+    username: PropTypes.string.isRequired
   }
   
   changeSite = site => {
@@ -28,7 +29,7 @@ class App extends Component {
   }
 
   render() {
-    const { isLogged, site } = this.props;
+    const {site} = this.props;
     const isNotMainSite = site && site !== 'main';
     return (
     	<div>
@@ -36,15 +37,11 @@ class App extends Component {
         	<Header site={site} 
             changeSite={this.changeSite}/> : ''}
         {isNotMainSite ? <div 
-             style={{
-                'height': $('.contentWrapper').innerHeight()
-             }}
-              id='awesomeBorder'
+             id='awesomeBorder'
              className='awesomeBorder'></div> : ''}
 
-        <Main site={site} 
-          isLogged={isLogged}
-          changeSite={this.changeSite}/>  
+        <Main {...this.props}
+          changeSite={this.changeSite} />  
 
         {isNotMainSite ? <Footer site={site} /> : ''}
       </div>
@@ -60,7 +57,8 @@ const mapStateToProps = state => {
   } = state;
 
   const {
-    isLogged
+    isLogged,
+    username
   } = dataBySite[selectedSite];
   
   return {
