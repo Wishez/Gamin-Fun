@@ -1,11 +1,9 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
-import { Container } from 'semantic-ui-react';
-import { SubmissionError } from 'redux-form';
 import { connect } from 'react-redux';
 
-import UserPanelContainer from './UserPanelContainer';
+import ContentWrapperContainer from './ContentWrapperContainer';
 import PersonalRoom from './../components/PersonalRoom';
 import { changeHeightAwesomeBorder } from './../constants/pureFunctions.js';
 import { 
@@ -117,20 +115,17 @@ class PersonalRoomContainer extends Component {
 	render() {
 		const { isLogged } = this.props;
 		return (
-			<div className='contentWrapper'>
-				<UserPanelContainer />
-				<Container>
-				{ isLogged ?
-					<PersonalRoom {...this.props}
-						{...this.state}
-						submitChangePassword={this.submitChangePassword}  
-						submitSubscribtionForm={this.submitSubscribtionForm}
-						submitChangeEmailForm={this.submitChangeEmailForm}
-						onQuantityMonthesChange={this.onQuantityMonthesChange}
-					/>  : 
-					<div>Чтобы зайти в свой личный кабинет нужно залогиниться.</div>}
-				</Container> 
-			</div>
+			<ContentWrapperContainer>
+			{ isLogged ?
+				<PersonalRoom {...this.props}
+					{...this.state}
+					submitChangePassword={this.submitChangePassword}  
+					submitSubscribtionForm={this.submitSubscribtionForm}
+					submitChangeEmailForm={this.submitChangeEmailForm}
+					onQuantityMonthesChange={this.onQuantityMonthesChange}
+				/>  : 
+				<div>Чтобы зайти в свой личный кабинет нужно залогиниться.</div>}
+			</ContentWrapperContainer>
 		);
 	}
 }

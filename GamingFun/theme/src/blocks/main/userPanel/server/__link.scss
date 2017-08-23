@@ -1,0 +1,11 @@
+.server__link {
+	@extend .floatRight;
+	font-size: (15em / 16);
+	@include smooth-transition-link;
+	margin: 1em 0.5em;
+
+	&:hover {
+		background: transparent;
+		color: $darkGray $i;
+	}
+}

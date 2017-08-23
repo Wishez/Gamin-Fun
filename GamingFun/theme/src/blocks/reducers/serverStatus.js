@@ -4,12 +4,10 @@ export const initServerStatusState = {
 	serverData: {
 		amountPeople: 0,
 		totalPeople: 0,
-		onlineStatus: false,
-		nameServer: ''
+		isOnline: false,
+		serverName: ''
 	}
 };
-
-
 
 const serverStatus = (
 	state=initServerStatusState,

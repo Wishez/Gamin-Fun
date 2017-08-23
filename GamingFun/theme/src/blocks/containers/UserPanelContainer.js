@@ -20,9 +20,9 @@ class UserPanelContainer extends Component {
 	    userData: PropTypes.object.isRequred,
 	    isLogining: PropTypes.bool.isRequired,
 	    amountPeople: PropTypes.number.isRequired,
-		totalPeople: PropTypes.number.isRequired,
-		nameServer: PropTypes.string.isRequired,
-		onlineStatus: PropTypes.bool.isRequired
+	   	totalPeople: PropTypes.number.isRequired,
+		  serverName: PropTypes.string.isRequired,
+		  isOnline: PropTypes.bool.isRequired
   	}
 
   	static state = {
@@ -129,15 +129,15 @@ const mapStateToProps = state => {
     password,
     message,
     userData,
-	isLogining,
-	serverData
+  	isLogining,
+  	serverData
   } = dataBySite[selectedSite];
 
   const {
-	amountPeople,
-	totalPeople,
-	nameServer,
-	onlineStatus
+  	amountPeople,
+  	totalPeople,
+  	serverName,
+  	isOnline
   } = serverData;
 
   return {
@@ -149,9 +149,9 @@ const mapStateToProps = state => {
     userData,
     isLogining,
     amountPeople: !!amountPeople ? amountPeople : 0,
-	totalPeople: !!totalPeople ? totalPeople : 40,
-	nameServer,
-	onlineStatus
+	  totalPeople: !!totalPeople ? totalPeople : 0,
+	  serverName,
+	  isOnline
   };
 }
 

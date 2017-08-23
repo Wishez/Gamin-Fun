@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import {Container} from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import UserPanelContainer from './UserPanelContainer';
-import RecoverPassword from './../components/RecoverPassword';
-import { changeHeightAwesomeBorder } from './../constants/pureFunctions.js';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+
+import ContentWrapperContainer from './ContentWrapperContainer';
+import RecoverPassword from './../components/RecoverPassword';
+import { changeHeightAwesomeBorder } from './../constants/pureFunctions.js';
 import { tryRecoverPassword} from './../actions/accountActions.js';
 import { changeSiteIfNeeded } from './../actions/selectedSiteActions.js';
 import { cleanActiveState } from './../actions/navigationActions.js';
@@ -30,20 +30,10 @@ class RecoverPasswordContainer extends Component {
 
 	componentDidMount() {
 		this.customViewComponent()
-		// const { dispatch } = this.props;
-
-		// dispatch(cleanActiveState());
-		// changeSiteIfNeeded(this.props);
-	 //    changeHeightAwesomeBorder();
     }
 
     componentDidUpdate() {
     	this.customViewComponent()
-  //   	const { dispatch } = this.props;
-
-		// dispatch(cleanActiveState());
-  //       changeSiteIfNeeded(this.props);
-  //       changeHeightAwesomeBorder();
     }
 	
 	submitRecoverPasswordForm = (values, dispatch) => {
@@ -53,14 +43,11 @@ class RecoverPasswordContainer extends Component {
 
 	render() {
 		return(
-			<div className='contentWrapper'>
-				<UserPanelContainer/>
-				<Container>
-					<RecoverPassword {...this.props}
-						submitRecoverPasswordForm={this.submitRecoverPasswordForm}
-					/>
-				</Container>
-			</div>
+			<ContentWrapperContainer>
+				<RecoverPassword {...this.props}
+					submitRecoverPasswordForm={this.submitRecoverPasswordForm}
+				/>			
+			</ContentWrapperContainer>
 		);
 	}
 }

@@ -10,7 +10,7 @@ export const initNavigationState = {
 	},
 	secondNavItem: {
 		active: false,
-		name: navigationItems.registration
+		name: navigationItems.inventory
 	},
 	thirdNavItem: {
 		active: false,

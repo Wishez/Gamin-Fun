@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import {Container} from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import UserPanelContainer from './UserPanelContainer';
+import { withRouter } from 'react-router-dom';
+
+import ContentWrapperContainer from './ContentWrapperContainer';
 import ForgotPassword from './../components/ForgotPassword';
 import { changeHeightAwesomeBorder } from './../constants/pureFunctions.js';
-import { withRouter } from 'react-router-dom';
 
 class ForgotPasswordContainer extends Component {
 	static PropTypes = {
@@ -28,14 +28,11 @@ class ForgotPasswordContainer extends Component {
 
 	render() {
 		return(
-			<div className='contentWrapper'>
-				<UserPanelContainer {...this.props} />
-				<Container>
-					<ForgotPassword {...this.props}
-						submitForgotPasswordForm={this.submitForgotPasswordForm}
-					/>
-				</Container>
-			</div>
+			<ContentWrapperContainer>
+				<ForgotPassword {...this.props}
+					submitForgotPasswordForm={this.submitForgotPasswordForm}
+				/>
+			</ContentWrapperContainer>
 		);
 	}
 }

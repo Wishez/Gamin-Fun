@@ -2,12 +2,10 @@ import React, { Component } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom'
 import { RouteTransition } from 'react-router-transition';
 
-
 import NotFoundContainer from './../containers/NotFoundContainer';
 import NewsContainer from './../containers/NewsContainer';
 import SingleNewsContainer from './../containers/SingleNewsContainer';
 import RegisterContainer from './../containers/RegisterContainer';
-import DownloadContainer from './../containers/DownloadContainer';
 import ContactsContainer from './../containers/ContactsContainer';
 import RulesContainer from './../containers/RulesContainer';
 import PersonalRoomContainer from './../containers/PersonalRoomContainer';
@@ -15,6 +13,7 @@ import RecoverPasswordContainer from './../containers/RecoverPasswordContainer';
 import MainPageContainer from './../containers/MainPageContainer';
 import MyRoute from './../components/MyRoute';
 import SuccessPaymentRoute from './../containers/SuccessPaymentRoute';
+import InventoryContainer from './../containers/InventoryContainer';
 
 const Main = ({
     ...rest,
@@ -54,7 +53,8 @@ const Main = ({
                 {!isLogged ?
                     <MyRoute path='/:site/remember_password'
                         component={RecoverPasswordContainer} /> : ''}
-                
+                <MyRoute path='/:site/inventory'
+                        component={InventoryContainer} /> 
                 <SuccessPaymentRoute 
                     successUrl='/minecraft/robokassa_success/'
                     redirectPath='/minecraft/personal_room'

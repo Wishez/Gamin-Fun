@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from './../components/Header';
 import Footer from './../components/Footer';
 import Main from './../components/Main';
+
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';

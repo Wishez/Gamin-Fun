@@ -3,9 +3,7 @@ import ServerStatus from './ServerStatus';
 import { Container } from 'semantic-ui-react';
 import  LogInForm from './LogInForm';
 import UserCard from './UserCard';
-// Server Status
-// User Form
-// SubNav
+
 const UserPanel = ({
 	...rest,
 	isLogged
@@ -16,9 +14,7 @@ const UserPanel = ({
 			{isLogged ? 
 				<UserCard {...rest} />
 				:
-				<LogInForm {...rest} />
-			}
-			
+				<LogInForm {...rest} />}
 		</Container>
 	</aside>
 );

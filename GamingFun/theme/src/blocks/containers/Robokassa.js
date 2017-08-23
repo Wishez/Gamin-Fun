@@ -22,7 +22,6 @@ class Robokassa extends Component {
 	};
 
 	componentDidMount() {
-		
 
 	}
 

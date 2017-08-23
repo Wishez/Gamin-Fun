@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import Navigation from './../components/Navigation';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { selectNavigationItem } from './../actions/navigationActions.js';
 import { withRouter } from 'react-router-dom';
+
+import Navigation from './../components/Navigation';
+import { selectNavigationItem } from './../actions/navigationActions.js';
 
 class NavContainer extends Component {
   static PropTypes = { 
@@ -14,7 +15,8 @@ class NavContainer extends Component {
       thirdNavItem: PropTypes.object.isRequired,
       fourthNavItem: PropTypes.object.isRequired,
       fifthNavItem: PropTypes.object.isRequired,
-      dispatch: PropTypes.func.isRequired
+      dispatch: PropTypes.func.isRequired,
+      isLogged: PropTypes.bool.isRequired
   }
 
   state = {
@@ -71,7 +73,11 @@ class NavContainer extends Component {
 
 
 const mapStateToProps = state => {
-  const { selectedSite, navigation } = state;
+  const { 
+     selectedSite,
+     navigation,
+     dataBySite 
+   } = state;
 
   const {
     firstNavItem,
@@ -80,14 +86,18 @@ const mapStateToProps = state => {
     fourthNavItem,
     fifthNavItem
   } = navigation;
-
+  
+  const {
+    isLogged
+  } = dataBySite[selectedSite];
   return {
     site: selectedSite,
     firstNavItem,
     secondNavItem,
     thirdNavItem,
     fourthNavItem,
-    fifthNavItem
+    fifthNavItem,
+    isLogged
   }
 }
 

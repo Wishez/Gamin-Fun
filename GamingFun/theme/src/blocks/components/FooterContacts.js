@@ -13,9 +13,11 @@ const FooterContacts = ({
 			/>
 		</a>
 		<br/>
- 		<p className='author'>Developed&nbsp;by&nbsp;  
- 			<a href='https://web-renome.ru'
- 			   className={'not-follow author__refer author__refer--' + site }>Renome</a>
+ 		<p className='author' itemScope itemType='http://schema.org/Person'>Developed&nbsp;by&nbsp;  
+ 			<a href='https://web-renome.ru' itemProp='url' 
+ 			   className={'not-follow author__refer author__refer--' + site }>
+ 			   <span itemProp='name'>Filipp Zhuravlev</span>
+ 			  </a>
  		</p>
 	</div>
 );

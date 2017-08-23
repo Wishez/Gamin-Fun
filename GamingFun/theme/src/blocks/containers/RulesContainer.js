@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import Rules from './../components/Rules';
-import UserPanelContainer from './UserPanelContainer';
-import { Container } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { changeHeightAwesomeBorder } from './../constants/pureFunctions.js';
 import { withRouter } from 'react-router-dom';
-import { selectNavigationItem } from './../actions/navigationActions.js';
 import { connect } from 'react-redux';
+
+import Rules from './../components/Rules';
+import ContentWrapperContainer from './ContentWrapperContainer';
+import { changeHeightAwesomeBorder } from './../constants/pureFunctions.js';
+import { selectNavigationItem } from './../actions/navigationActions.js';
 import { changeSiteIfNeeded } from './../actions/selectedSiteActions.js';
 
 class RulesContainer extends Component {
@@ -32,12 +32,9 @@ class RulesContainer extends Component {
     }
 	render() {
 		return (
-			<div className='contentWrapper'>
-				<UserPanelContainer />
-				<Container>
-					<Rules />
-				</Container>
-			</div>
+			<ContentWrapperContainer>
+				<Rules />
+			</ContentWrapperContainer>
 		);
 	}
 }

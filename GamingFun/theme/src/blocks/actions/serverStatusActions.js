@@ -33,12 +33,12 @@ export const  tryGetServerStatus = site => dispatch => {
 			console.log(err);
 			return;
 		}
-		
+
 		const serverData = {
 			amountPeople: status.players.now,
 			totalPeople: status.players.max,
-			onlineStatus: status.online,
-			nameServer: status.server.name
+			isOnline: status.online,
+			serverName: status.motd
 		};
 	
 		dispatch(setServerStatus(site, serverData));

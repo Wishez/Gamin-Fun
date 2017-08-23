@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import {Container} from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import UserPanelContainer from './UserPanelContainer';
-import Contacts from './../components/Contacts';
-import { changeHeightAwesomeBorder } from './../constants/pureFunctions.js';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+
+import ContentWrapperContainer from './ContentWrapperContainer';
+import Contacts from './../components/Contacts';
+import { changeHeightAwesomeBorder } from './../constants/pureFunctions.js';
 import { changeSiteIfNeeded } from './../actions/selectedSiteActions.js';
 import { selectNavigationItem } from './../actions/navigationActions.js';
 
@@ -33,12 +33,9 @@ class ContactsContainer extends Component {
 	
 	render() {
 		return(
-			<div className='contentWrapper'>
-				<UserPanelContainer />
-				<Container>
-					<Contacts {...this.props} />
-				</Container>
-			</div>
+			<ContentWrapperContainer>
+				<Contacts {...this.props} />
+			</ContentWrapperContainer>
 		);
 	}
 }

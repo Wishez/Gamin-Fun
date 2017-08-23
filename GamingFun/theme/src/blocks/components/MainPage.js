@@ -40,7 +40,7 @@ const MainPage = ({
 					<div className='mainPageContentChief__body'>
 						<p>Вас ждут просторы мира Minecraft с разнообразными модами
 						и качественным комьюнити, где ваши действие ограниченны только 
-						вашим воображенем, ну и требованиями администрации.</p>
+						вашим воображением, ну и требованиями администрации.</p>
 					</div>
 				</section>
 				<section className='mainPageContentChief mainPageContentChief--support'>
@@ -50,12 +50,12 @@ const MainPage = ({
 						<p>За небольшую плату в месяц, мы гарантируем
 						вам комфортное времяпровождение на сервере 
 						доступном 24 часа в сутки.</p>
-						<p>Проект имеет свои 
+						<p>Проект имеет свои &thinsp;
 						<Link onClick={() => {
 							changeSite('minecraft');
 						}}
 						to='/minecraft/rules' className='mainPage__refer'>
-							&thinsp;правила
+							правила
 						</Link>, которые вам следует соблюдать для
 						комфортной игры. Вы можете задавать технические вопросы
 						нашей справедливой администрации, а также,
@@ -74,9 +74,9 @@ const MainPage = ({
 						/>
 					</a>
 			 		<p className='mainPageFooter__author floatRight'>Дизайн&nbsp;by&nbsp;  
-			 				<a href='https://web-renome.ru'
+			 				<a href='https://shining-present.ru/'
 			 			   		className='mainPage__refer'>
-			 			   		Renome</a>
+			 			   		Filipp Zhuravlev</a>
 			 		</p>
 			</Container>
 		</footer>

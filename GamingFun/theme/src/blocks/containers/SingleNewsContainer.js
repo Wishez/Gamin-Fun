@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
-import {Container } from 'semantic-ui-react';
-import UserPanelContainer from './UserPanelContainer';
 import PropTypes from 'prop-types';
-import Title from './../components/Title';
-import SingleNews from './../components/SingleNews';
-import { changeHeightAwesomeBorder } from './../constants/pureFunctions.js';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+
+import ContentWrapperContainer from './ContentWrapperContainer';
+import SingleNews from './../components/SingleNews';
+import { changeHeightAwesomeBorder } from './../constants/pureFunctions.js';
 import { changeSiteIfNeeded } from './../actions/selectedSiteActions.js';
 
 class SingleNewsContainer extends Component {
@@ -28,27 +27,20 @@ class SingleNewsContainer extends Component {
 
 	componentDidMount() {
 		this.customViewComponent();
-		// changeSiteIfNeeded(this.props);
-	 //    changeHeightAwesomeBorder();
     }
 
     componentDidUpdate() {
     	this.customViewComponent();
-       // changeSiteIfNeeded(this.props);
-       // changeHeightAwesomeBorder();
     }
 	render() {
 		const { newsId } = this.props.match.params;
 		const { news, site } = this.props;
 
 		return (
-			<div className='contentWrapper'>
-				<UserPanelContainer {...this.props} />
-				<Container>
-					<SingleNews site={site}
-						singleNews={news[newsId]} />	
-				</Container>
-			</div>
+			<ContentWrapperContainer>
+				<SingleNews site={site}
+					singleNews={news[newsId]} />	
+			</ContentWrapperContainer>
 		)
 	}
 }

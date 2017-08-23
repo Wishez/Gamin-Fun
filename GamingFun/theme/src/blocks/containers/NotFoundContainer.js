@@ -23,18 +23,10 @@ import { connect } from 'react-redux';
 	}
 	componentDidMount() {
 		this.customViewComponent();
-		// changeSiteIfNeeded(this.props);
-  //  	    changeHeightAwesomeBorder();
-  //  	    const { location } = this.props;
-  //       changeHeightAwesomeBorder('/', location.pathname);
     }
 
     componentDidUpdate() {
     	this.customViewComponent();
-    	// changeSiteIfNeeded(this.props);
-     //    changeHeightAwesomeBorder();
-     //    const { location } = this.props;
-     //    changeHeightAwesomeBorder('/', location.pathname);
     }
 
 	render() {

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import { Container } from 'semantic-ui-react';
+
 import Logo from './Logo';
 import NavContainer from './../containers/NavContainer.js'; 
-import NavBetweenProjectsContainer from './../containers/NavBetweenProjectsContainer'; 
 import FiguresList from './FiguresList';
-import { Container } from 'semantic-ui-react';
 
 const Header = ({
 	site,
@@ -17,17 +17,7 @@ const Header = ({
           <FiguresList figuresNames={['steve_with_bow', 'chicken']} />
         </Container>
          : ''}
-     
   </header>
 );
 
-          // <NavBetweenProjectsContainer />
- // {site === 'samp' ?
- //        <Container>
- //          <Logo site={site} />
- //          <NavBetweenProjectsContainer />
- //          <NavContainer site={site} />
- //          <FiguresList figuresNames={['car', 'helicopter', 'man']} />
- //        </Container>
- //        : ''}
 export default Header;

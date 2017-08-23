@@ -14,7 +14,8 @@ const Navigation = ({
     changeActiveNavigationItem,
     closeMenu,
     getActiveClasses,
-    site
+    site,
+    isLogged
 }) => (
     <nav className={`navigaton navigation--${site}`}>
       <button id='openMenuButton'
@@ -40,15 +41,16 @@ const Navigation = ({
             {firstNavItem.name}
           </Link>
         </li>
+        {isLogged ? 
         <li className={getActiveClasses(secondNavItem.active, site)}>
-          <Link to={`/${site}/registration`}
+          <Link to={`/${site}/inventory`}
             className={`navItem__refer navItem__refer--${site}`}
             onClick={() => {
               changeActiveNavigationItem('secondNavItem');
             }}>
             {secondNavItem.name}
           </Link>
-        </li>
+        </li> : ''}
         <li className={getActiveClasses(thirdNavItem.active, site)}>
           <Link to={`/${site}/contacts`} 
             className={`navItem__refer navItem__refer--${site}`}
@@ -69,9 +71,7 @@ const Navigation = ({
         </li>
         <li className={getActiveClasses(fifthNavItem.active, site)}>
           <a className={`navItem__refer navItem__refer--${site} not-follow`} 
-            href={site == 'minecraft' ? 
-            'http://minecraft.gamingfun.ru' :
-            'https://samp.gamingfun.ru'}>
+            href='http://minecraft.gamingfun.ru'>
             {fifthNavItem.name}
           </a>
         </li>

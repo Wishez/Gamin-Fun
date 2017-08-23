@@ -6,11 +6,15 @@ const ServerStatus = ({
 	amountPeople,
 	totalPeople,
 	showStatus,
-	site
+	site,
+	serverName,
+	isOnline
 }) => (
 	<div className={`server server--${site}`}>
 		<Title block='server'
-			text='Статус сервера'/>
+			text={serverName} />
+		<a className='server__link not-follow' href='http://minecraftrating.ru/vote/29872/'>Голосовать</a>
+		<a className='server__link' href='#'>О сервере</a>
 		<Progress percent={
 				showStatus(amountPeople, totalPeople)
 		}	
@@ -18,7 +22,11 @@ const ServerStatus = ({
 			className={`server__status server__status--${site}`}
 			active
 		>
-			<span className='server__status--text'>{amountPeople + '/' + totalPeople}</span>
+			<span className='server__status--text'>
+				{isOnline ? 
+					amountPeople + '/' + totalPeople :
+					'Offline'
+				}</span>
 		</Progress>
 	</div>
 );

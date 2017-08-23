@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
-import { Container } from 'semantic-ui-react';
-import { SubmissionError } from 'redux-form';
-import UserPanelContainer from './UserPanelContainer';
 import PropTypes from 'prop-types';
-import Register from './../components/Register';
-import { changeHeightAwesomeBorder } from './../constants/pureFunctions.js';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+
+import ContentWrapperContainer from './ContentWrapperContainer';
+import Register from './../components/Register';
+import { changeHeightAwesomeBorder } from './../constants/pureFunctions.js';
 import { tryRegister } from './../actions/accountActions.js';
 import { changeSiteIfNeeded } from './../actions/selectedSiteActions.js';
 import { selectNavigationItem } from './../actions/navigationActions.js';
@@ -17,9 +16,9 @@ class RegisterContainer extends Component {
 		site: PropTypes.string.isRequired,
 		isLogged: PropTypes.bool.isRequired,
 		message: PropTypes.string.isRequired,
-		dispatch: PropTypes.func.isRequired,
 		registered: PropTypes.bool.isRequired,
 		isRegistering: PropTypes.bool.isRequired,
+		dispatch: PropTypes.func.isRequired,
 		match: PropTypes.object.isRequired,
 		location: PropTypes.object.isRequired
 	}
@@ -30,24 +29,17 @@ class RegisterContainer extends Component {
 
 	customViewComponent = () => {
 		const { dispatch, location } = this.props;
-		dispatch(selectNavigationItem('secondNavItem'));
+		dispatch(selectNavigationItem('firstNavItem'));
 		changeSiteIfNeeded(this.props);
         changeHeightAwesomeBorder('/registration', location.pathname);
 	}
 
 	componentDidMount() {
 		this.customViewComponent();
-		// const { dispatch } = this.props;
-		
-		// dispatch(selectNavigationItem('secondNavItem'));
-		// changeSiteIfNeeded(this.props);
-	 //    changeHeightAwesomeBorder();
     }
 
     componentDidUpdate() {
     	this.customViewComponent();
-       // changeSiteIfNeeded(this.props);
-       // changeHeightAwesomeBorder();
     }
 
 	submitRegisterForm = (values, dispatch) => {
@@ -64,18 +56,16 @@ class RegisterContainer extends Component {
 			knowRules: !this.state.knowRules
 		});
 	}
+
 	render() {
 		return (
-			<div className='contentWrapper'>
-				<UserPanelContainer />
-				<Container>
-					<Register {...this.props}
-						{...this.state}
-						submitRegisterForm={this.submitRegisterForm} 
-						allowRegister={this.allowRegister}
-					/>
-				</Container>
-			</div>
+			<ContentWrapperContainer>
+				<Register {...this.props}
+					{...this.state}
+					submitRegisterForm={this.submitRegisterForm} 
+					allowRegister={this.allowRegister}
+				/>
+			</ContentWrapperContainer>
 		);
 	}
 }
