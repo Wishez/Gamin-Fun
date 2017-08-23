@@ -1,6 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { Button, Checkbox } from 'semantic-ui-react';
+import { Button } from 'semantic-ui-react';
 import RenderController from './RenderController';
 
 const RobokassaForm = ({

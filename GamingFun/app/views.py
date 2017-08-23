@@ -5,25 +5,26 @@ from django.http import HttpResponse, JsonResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from minecraft.models import MinecraftUser
-from samp.models import SampUser
-from django.views.decorators.cache import cache_page
-from django.views.decorators.csrf import csrf_exempt, csrf_protect
-from pprint import pprint
+from django.views.decorators.csrf import csrf_exempt
+from .functions import loggingData
 # Create your views here.
+@csrf_exempt
 def get_user_last_payment(request):
     if request.method == 'GET':
         data = request.GET
 
-        user = User.objects.get(username=data['username'])
-        notification = user.minecraftuser.last_payment_notification
+        username = data['username']
+        notification = User.objects.get(username=username).minecraftuser.last_payment_notification
+        send_data = {
+            'OutSum': int(notification.OutSum)
+        }
 
-        print(notification)
+        log_data = 'username: %s' % username
+        loggingData('get_user_last_payment', log_data)
 
-        return JsonResponse({
-            'OutSum': notification.OutSum
-        })
+        return JsonResponse(send_data)
 
-    return HttpResponse('Внутренняя ошибка')
+    return HttpResponse('Внутренняя ошибка сервера')
 
 
 def index(request):
@@ -48,20 +49,7 @@ def register(request):
             return HttpResponse('Пароли не совпадают')
         username = data['username']
         email = data['email']
-        #site = data['site']
 
-        #isMinecraftSite = site == 'minecraft'
-        #isSampSite = site == 'samp'
-
-        # Если регистрация на samp сервер
-        #if isSampSite:
-            # То учитываем два дополнительных поля.
-         #   name = data['name']
-         #   surname = data['surname']
-            # Возможно игрок с таким именем и фамилией уже существует
-            # в реальной жизни мира San Andreas.
-         #   if User.objects.filter(first_name__iexact=name).exists() and User.objects.filter(last_name__iexact=surname).exists():
-         #       return HttpResponse('Игрок с таким именем и фамилией есть в мире San Andreas')
         # Проверка на существуещего пользователя
         if User.objects.filter(username=username).exists():
             # Если есть пользователь с таким именем,
@@ -76,27 +64,17 @@ def register(request):
                 email=email
             )
             user.set_password(password)
-
-            # В форме регистрации на samp сервер
-            # есть первое и второе имя.
-           # if isSampSite:
-               # user.first_name = name
-               # user.last_name = surname
             user.save()
 
             # Создаются аккаунты  для двух игр
-            #if isMinecraftSite:
+
             MinecraftUser(user=user).save()
+
             server = 'Minecraft'
-            #elif isSampSite:
-            #    SampUser(user=user).save()
-             #   server = 'SAMP'
-
-
             subject =  'Успешная регистрация'
             message = 'Вы зарегистрировались под логином — %s, на %s сервере нашего проекта.' \
                       'Удачной охоты!' % (username, server)
-            #user.email_user(subject, message)
+            user.email_user(subject, message)
             # Возвращается ответ об успешной регистрации.
             return HttpResponse('Вы успешно прошли регистрацию')
             # Посылается сообщение об успехе на почту
@@ -117,16 +95,8 @@ def log_in(request):
 
         if user is not None:
             login(request, user)
-            # Буду получать имя сайта, с которого сделан запрос
-            #site = data['site']
-            # Есть ли у переменной user свойство id?
-            #if site == 'minecraft':
 
             siteUser = MinecraftUser.objects.filter(user=user.id)
-
-            #if site == 'samp':
-            # if SampUser.objects.get(user=user.id).exist
-            # siteUser = SampUser.objects.filter(user=user.id)
 
             # Если есть аккаунт, то не факт, что пользователь
             # логинится на нужном сайте. Он, может быть, очень рассееный
@@ -154,6 +124,7 @@ def log_out(request):
     logout(request)
     return HttpResponse(True)
 
+@csrf_exempt
 def change_password(request):
     if request.method == 'POST':
         data = request.POST
@@ -179,6 +150,7 @@ def change_password(request):
     # Не удалось поменять пароль
     return HttpResponse(False)
 
+@csrf_exempt
 def change_email(request):
     if request.method == 'POST':
         data = request.POST
@@ -207,6 +179,7 @@ def change_email(request):
     # Не удалось поменять email
     return HttpResponse('Не удалось изменить email.')
 
+@csrf_exempt
 def subscribe(request):
 
     if request.method == 'POST':
@@ -214,39 +187,13 @@ def subscribe(request):
         # Получаем имя пользователя, пароль и новый email.
         quantity_monthes = data['quantityMonthes']
         username = data['username']
-        #site = data['site']
-
-
         user = User.objects.get(username=username)
-        #if site == 'minecraft':
-        userSite = user.minecraftuser
-       # elif site == 'samp':
-        # userSite = user.sampuser
 
-        # Пользователь подписывает и возвращается сообщение об успехе,
-        # либо провале, из-за того, что не хватает денег на счету.
-        # Но также это проверяется на стороне клиента.
+        userSite = user.minecraftuser
+
         return JsonResponse(userSite.subscribe(quantity_monthes))
     # Ошибка сервера?
     return HttpResponse('Не удалось подписаться на сервер')
-
-def replanish_balance(request):
-    if request.method == 'POST':
-        data = request.POST
-        # site = data['site']
-        username = data['username']
-        credits = data['quantityCredits']
-
-        user = User.objects.get(username=username)
-
-        siteUser = MinecraftUser.objects.get(user=user.id)
-
-
-        siteUser.replanishBalance(credits)
-
-        return HttpResponse(True)
-
-    return HttpResponse(False)
 
 
 @csrf_exempt
@@ -263,7 +210,7 @@ def recover_password(request):
             subj = 'Новый пароль для %s аккаунта' % site
             message = 'Ваш новый пароль %s' % newPassword
 
-            #user.email_user(subj, message)
+            user.email_user(subj, message)
             return HttpResponse('На почту %s был выслан новый пароль' % email)
         else:
             return HttpResponse('Аккаунта с таким email-ом не существует')

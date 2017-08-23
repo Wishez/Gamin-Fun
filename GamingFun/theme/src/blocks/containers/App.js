@@ -48,7 +48,6 @@ class App extends Component {
     );
   }
 }
-        // <Router></Router>
 
 const mapStateToProps = state => {
   const { 
@@ -57,13 +56,15 @@ const mapStateToProps = state => {
   } = state;
 
   const {
-    isLogged,
-    username
+    isLogged
   } = dataBySite[selectedSite];
+
+  const username = localStorage.getItem(`minecraftUsername`);
   
   return {
     isLogged,
-    site : selectedSite
+    site : selectedSite,
+    username: username ? username : ''
   };
 }
 

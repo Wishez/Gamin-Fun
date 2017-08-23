@@ -34,13 +34,12 @@ class SuccessPaymentRoute extends Component {
 			username: username,
 			user_id: user_id
 		};
-
 		dispatch(getSuccessPaymentData(data, getUserDataUrl));
-    }
+	}
 
 	render() {
 		const { successUrl, redirectPath } = this.props;
-		
+
 		return(
 			<Route path={successUrl} render={() => (
 				<Redirect to={redirectPath}  />

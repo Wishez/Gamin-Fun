@@ -33,7 +33,7 @@ class AdminUser(admin.ModelAdmin):
         }),
         ('Подписка', {
             'fields': (('status', 'active_until',),
-                       ('balance',),)
+                       ('balance', 'last_payment_notification',),)
         }),
     )
 

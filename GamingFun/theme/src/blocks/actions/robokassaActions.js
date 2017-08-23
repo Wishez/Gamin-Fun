@@ -33,7 +33,7 @@ const successPayment = (
 });
 // 
 export const getSuccessPaymentData = (data, url) => dispatch => {
-
+	console.log(data);
 	customAjaxRequest({
 		url: url, // is getUserDataUrl
 		data: data,
@@ -41,6 +41,7 @@ export const getSuccessPaymentData = (data, url) => dispatch => {
         processData: true,
         cache: true
  	});
+ 	
  	return $.ajax({
 		success: data => {
 			dispatch(successPayment(
@@ -57,6 +58,8 @@ export const getSuccessPaymentData = (data, url) => dispatch => {
 // оплаты платёжного агрегатор ー robokassa. Перевод пользователя
 // происходит в django приложение robokassa. 
 export const moveUserToPaynment = data => dispatch => {
+	if (!data.OutSum)
+		dispatch(proceedToPayment(data, 'Введите сумму'));
 
 	customAjaxRequest({
 		url: `/payment/proceed_to_payment/`,

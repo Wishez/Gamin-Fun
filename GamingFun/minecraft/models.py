@@ -81,12 +81,6 @@ class MinecraftUser(models.Model):
         null=True
     )
 
-    # @receiver(result_received)
-    # def setLastPayment(self, handler, InvId, OutSum, **kwargs):
-    #     self.last_payment_notification = SuccessNotification.objcets.get(InvId=InvId)
-    #     self.save()
-
-
     def subscribe(self, quantity_monthes=0):
         return subscribe(self, quantity_monthes)
 

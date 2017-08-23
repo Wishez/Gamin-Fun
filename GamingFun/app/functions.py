@@ -1,32 +1,35 @@
 # -*- encoding: utf-8 -*-
 from django.utils import timezone
-from datetime import datetime
-
 from django.contrib.auth.models import User
 from django.dispatch import receiver
 from robokassa.signals import success_page_visited, result_received
 from robokassa.models import SuccessNotification
-from robokassa.views import loggingData
+from datetime import datetime
+
+def loggingData(filename, data):
+    file = open(filename+'.log', 'w')
+    file.write('%s\n%s' % (timezone.now(), data))
+    file.close()
 # При успешном платеже и переводе на страницу, у пользователя пополняется баланс
 @receiver(success_page_visited)
 def successReplatnishBalance(sender, InvId, OutSum, **kwargs):
     minecraft_user = User.objects.get(username=kwargs['extra']['shp_username']).minecraftuser
-    until = minecraft_user.balance
     # Success
     replanishBalance(minecraft_user, OutSum)
 
-    after = minecraft_user.balance
-    data = '%s\n%s\n%s' % ('Signal ====> success_page_visited', str(until), str(after))
-    loggingData('successReplatnishBalance', data)
+    # after = minecraft_user.balance
+    # data = '%s\n%s\n%s' % ('Signal ====> success_page_visited', str(until), str(after))
+    # loggingData('successReplatnishBalance', data)
 
 # Устанавливает пользователю успешно пройденный платёж,
 # по данным которого будет отображаться успешная оплата в интерфейсе.
 @receiver(result_received)
 def setLastPayment(sender, InvId, OutSum, **kwargs):
-    loggingData('setLastPayment', 'Signal ====> result_received')
-    minecraft_user = User.objects.get(username=kwargs['extra']['shp_username']).minecraftuser
-
-    minecraft_user.last_payment_notification = SuccessNotification.objcets.get(InvId=InvId)
+    username = kwargs['extra']['shp_username']
+    minecraft_user = User.objects.get(username=username).minecraftuser
+    minecraft_user.last_payment_notification = sender
+    data = 'InvId: %s\tOutSum: %s\nuser: %s\nid SN: %s' % (InvId, OutSum, username, minecraft_user.last_payment_notification.id)
+    loggingData('lastPayment', data)
     minecraft_user.save()
 
 def user_directory_path(instance, filename):

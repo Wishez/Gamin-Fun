@@ -33,8 +33,6 @@ class Robokassa extends Component {
 		values['Email'] = Email;
 		values['username'] = username;
 
-		console.log(url);
-
 		dispatch(moveUserToPaynment(values, url));
 
 	}
