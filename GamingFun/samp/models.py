@@ -5,7 +5,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.db import models
 from django.utils import timezone
 
-from app.functions import subscribe, replanishBalance, user_directory_path
+from app.functions import subscribe, user_directory_path
 
 # Create your models here.
 class SampNews(models.Model):
@@ -70,7 +70,7 @@ class SampUser(models.Model):
     )
 
     def replanishBalance(self, credits):
-        replanishBalance(self, credits)
+        pass
 
 
     def subscribe(self, quantity_monthes=0):

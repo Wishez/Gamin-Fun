@@ -1,0 +1,18 @@
+#!/bin/bash
+# /scripts/bash/whitelist.log 
+# --journald=whitelist.log  
+# screen -x root/server -S server -p server -X stuff "`printf "whitelist remove $2\r"`"
+# su root --command "screen -r server -p server -X stuff \"`printf "whitelist remove $2\r"`\""
+
+#
+if [ -n $2 ]; then
+  case $1 in	
+    -a) screen -r minecraft -X stuff "`printf "whitelist add $2\r"`"
+	logger "$2 was added." ;;
+    -r) screen -r minecraft -X stuff "`printf "whitelist remove $2\r"`"
+	logger "$2 was removed." ;;
+    *) echo "Is not an option." ;;
+  esac
+else 
+  echo "Take a first parametr as option -a or -r and a second parametr as a name of user."
+fi

@@ -7,7 +7,7 @@ import ContentWrapperContainer from './ContentWrapperContainer';
 import SingleNews from './../components/SingleNews';
 import { changeHeightAwesomeBorder } from './../constants/pureFunctions.js';
 import { changeSiteIfNeeded } from './../actions/selectedSiteActions.js';
-
+import { fetchNewsIfNeeded } from './../actions/newsActions.js';
 class SingleNewsContainer extends Component {
 	static PropTypes = {
 		site: PropTypes.string.isRequired,
@@ -19,6 +19,7 @@ class SingleNewsContainer extends Component {
 	}
 
 	customViewComponent = () => {
+
 		const { location } = this.props;
 		changeSiteIfNeeded(this.props);
 	    changeHeightAwesomeBorder();
@@ -27,6 +28,8 @@ class SingleNewsContainer extends Component {
 
 	componentDidMount() {
 		this.customViewComponent();
+		const { site } = this.props.match.params;
+		fetchNewsIfNeeded(site);
     }
 
     componentDidUpdate() {

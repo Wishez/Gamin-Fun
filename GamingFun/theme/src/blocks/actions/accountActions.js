@@ -75,6 +75,20 @@ const setUserToCookies = (
 // Делает запрос на сервер, после изменяет состояние приложения
 // в зависимости от ответа сервера.
 export const tryLogin = (site, data) => dispatch => {
+	const empty_data = {
+				username: '',
+				password: ''
+			};
+	// const username = data.username;
+	// const password = data.password;
+	// Проверка на незаполненные данные.
+	// if (!username && !password)
+	// 	dispatch(logIn(site, data, {}, false, 'Ввеедите логин и пароль', ''));	
+	// else if (!username)
+	// 	dispatch(logIn(site, empty_data, {}, false, 'Введите имя пользователя', ''));	
+	// else if (!password)
+	// 	dispatch(logIn(site, empty_data, {}, false, 'Введите пароль', ''));	
+	// else
 
 	dispatch(loggining(site));
 	data.site = site;
@@ -86,6 +100,7 @@ export const tryLogin = (site, data) => dispatch => {
         processData: true,
         cache: true
 	});
+
 	return $.ajax({
 		success: (userData) => {
 			if (userData) {
@@ -93,26 +108,22 @@ export const tryLogin = (site, data) => dispatch => {
 				dispatch(logIn(site, data, userData, true, '', 'Да прибудет с вами сила!'));
 				dispatch(setUserToCookies(site, data))
 			} else {
-				
-				const data = {
-					username: '',
-					password: ''
-				};
 				// Меняется только сообщение в состояние аккаунта,
 				// не устанавливая неправильно введённый или 
 				// не подходящий логин с паролем.
-				dispatch(logIn(site, data, {}, false, 'Неправильный логин или пароль', ''));	
+				dispatch(logIn(site, empty_data, {}, false, 'Неправильный логин или пароль', ''));	
 			}
 
 		},
 		error: (xhr, errmsg, err) => {
-			const data = {
-				username: '',
-				password: ''
-			};
-
-			dispatch(logIn(site, data, {}, false, 'Внутренняя ошибка сервера', ''));	
-			console.log('fail\n', err);
+			dispatch(logIn(
+				site,
+				empty_data, 
+				{},
+				false, 
+				'Внутренняя ошибка сервера',
+				''
+			));	
 		}
 	});
 };

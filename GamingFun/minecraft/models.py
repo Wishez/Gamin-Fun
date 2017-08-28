@@ -1,15 +1,15 @@
 # -*- encoding: utf-8 -*-
-#import sys
-#reload(sys)
-#sys.setdefaultencoding('utf-8')
+
+from django.conf import settings
+if not settings.DEBUG:
+    import sys
+    reload(sys)
+    sys.setdefaultencoding('utf-8')
 # Create your models here.
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 from django.utils import timezone
-from app.functions import subscribe, replanishBalance, user_directory_path
-from robokassa.signals import success_page_visited, result_received
-from django.dispatch import receiver
-from django.shortcuts import redirect
+from app.functions import subscribe, user_directory_path, whitelistAction
 from robokassa.models import SuccessNotification
 
 
@@ -21,6 +21,48 @@ class MinecraftNews(models.Model):
     text = models.TextField(
         _('Новостной текст'),
         max_length=4096
+    )
+    image = models.ImageField(
+        _('Изображение'),
+        upload_to='news/',
+        blank=True,
+        null=True
+    )
+    image1 = models.ImageField(
+        _('Изображение'),
+        upload_to='news/',
+        blank=True,
+        null=True
+    )
+    image2 = models.ImageField(
+        _('Изображение'),
+        upload_to='news/',
+        blank=True,
+        null=True
+    )
+    image3 = models.ImageField(
+        _('Изображение'),
+        upload_to='news/',
+        blank=True,
+        null=True
+    )
+    image4 = models.ImageField(
+        _('Изображение'),
+        upload_to='news/',
+        blank=True,
+        null=True
+    )
+    image5 = models.ImageField(
+        _('Изображение'),
+        upload_to='news/',
+        blank=True,
+        null=True
+    )
+    image6 = models.ImageField(
+        _('Изображение'),
+        upload_to='news/',
+        blank=True,
+        null=True
     )
 
     created_at = models.DateTimeField(
@@ -81,11 +123,26 @@ class MinecraftUser(models.Model):
         null=True
     )
 
+    def unsubscribe(self):
+        whitelistAction('-r', self.user.username)
+        self.active_until = None
+
+    def replanishBalance(self, credits):
+        # Пополнение баланса на указанное колличество кредитов.
+        self.balance += credits
+        # Сохранение изменённого состояния.
+        self.save()
+
+    def setLastPayment(self, last_payment_notification):
+        self.last_payment_notification = last_payment_notification
+        self.save()
+
     def subscribe(self, quantity_monthes=0):
         return subscribe(self, quantity_monthes)
 
     def __str__(self):
         return self.user.username
+
 
     class Meta:
         verbose_name = 'Игрок'

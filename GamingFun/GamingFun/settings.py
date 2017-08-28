@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'captcha',
     'grappelli',
     'rest_framework',
+    'django_cron',
     'api_v0.apps.ApiV0Config',
     'app.apps.AppConfig',
     'minecraft.apps.MinecraftConfig',
@@ -49,6 +50,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -174,32 +178,12 @@ ROBOKASSA_FAILURE_URL = '/minecraft/robokassa_failure/'
 
 # url робокассы для тестового режима. Настройка предназначена для случая, когда в распоряжении не имеется доступного в интернете домена (например разработка на localhost) и вместо сервера робокассы необходимо использовать свой.
 # ROBOKASSA_TEST_FORM_TARGET = ''
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'info_logs': {
-            'level': 'INFO',
-            'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, 'info_logs.log'),
-        },
-        'debug_logs': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, 'debug_logs.log'),
-        },
-    },
-    'loggers': {
-        'info': {
-            'handlers': ['info_logs'],
-            'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
-            'propagate': True,
-        },
-        'debug': {
-            'handlers': ['debug_logs'],
-            'level': 'DEBUG',
-            'propagate': True,
-        },
-    },
-}
 
+# Crons' tasks
+CRON_CLASSES = [
+    "minecraft.crons.WatchForUser",
+]
+
+# Mincraft's app constants
+SUBSCRIBE_COST = 199
+WHITELIST_SCRIPT = "/scripts/bash/whitelist_handler"

@@ -1,4 +1,4 @@
-import { createStore, combineReducers } from 'redux';
+import { combineReducers } from 'redux';
 import selectedSite from './selectedSite.js';
 import dataBySite from './dataBySite.js';
 import navigation from './navigation.js';

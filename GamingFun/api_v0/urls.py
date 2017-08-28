@@ -3,7 +3,6 @@ from .views import  *
 
 router = DefaultRouter()
 
-router.register(r'minecraft/news', MinecraftNewsView, 'minecraft/news')#, 'minecraft/news')
-router.register(r'samp/news', SampNewsView, 'samp/news')#, 'samp/news')
+router.register(r'minecraft/news', MinecraftNewsView, 'minecraft/news')
 
 urlpatterns = router.urls

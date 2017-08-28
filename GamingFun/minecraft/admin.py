@@ -13,7 +13,9 @@ class AdminNews(admin.ModelAdmin):
     fieldsets = (
         (None, {
             'fields': (('title', 'created_at'),
-                       ('text',),)
+                       ('text',),
+                       ('image', 'image1', 'image2',),
+                       ('image3', 'image4', 'image5', 'image6',),)
         }),
     )
 

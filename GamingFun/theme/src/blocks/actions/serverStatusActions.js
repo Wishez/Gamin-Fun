@@ -12,20 +12,6 @@ const setServerStatus = (
 
 
 export const  tryGetServerStatus = site => dispatch => {
-
-	if (site !== 'minecraft') {
-		const serverData = {
-			amountPeople: 0,
-			totalPeople: 0,
-			onlineStatus: false,
-			nameServer: ''
-		};
-
-		dispatch(setServerStatus(site, serverData));
-		return;
-	} 
-
-
 	return MinecraftAPI.getServerStatus('gamingfun.ru', {
 		port: 25565
 	}, (err, status) => {
@@ -33,7 +19,7 @@ export const  tryGetServerStatus = site => dispatch => {
 			console.log(err);
 			return;
 		}
-
+	
 		const serverData = {
 			amountPeople: status.players.now,
 			totalPeople: status.players.max,
@@ -41,7 +27,7 @@ export const  tryGetServerStatus = site => dispatch => {
 			serverName: status.motd
 		};
 	
-		dispatch(setServerStatus(site, serverData));
+		dispatch(setServerStatus('minecraft', serverData));
 
 	});
 };

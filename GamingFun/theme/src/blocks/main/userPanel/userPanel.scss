@@ -5,13 +5,10 @@
 	@extend .defaultTopPadding;
 	height: 700px;
 	max-width: 300px;
-	@include breakpoint($lg) {
-		// min-height: 214vh;
-	}
 	& .container{
-		width: 80% !important;
+		width: 80% $i;
 		@include breakpoint($xs) {
-			max-width: 400px !important;
+			max-width: 290px $i;
 			@include center-block;
 		}
 	}

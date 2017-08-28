@@ -150,7 +150,7 @@ const mapStateToProps = state => {
     isLogining,
     amountPeople: !!amountPeople ? amountPeople : 0,
 	  totalPeople: !!totalPeople ? totalPeople : 0,
-	  serverName,
+	  serverName: serverName ? serverName : 'DireWolf 1.7.10',
 	  isOnline
   };
 }

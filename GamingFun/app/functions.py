@@ -3,8 +3,18 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from django.dispatch import receiver
 from robokassa.signals import success_page_visited, result_received
-from robokassa.models import SuccessNotification
 from datetime import datetime
+from django.conf import settings
+import os
+
+SUBSCRIBE_COST = getattr(settings, 'SUBSCRIBE_COST')
+WHITELIST_SCRIPT =  getattr(settings, 'WHITELIST_SCRIPT')
+
+def whitelistAction(option, username):
+    # Option -r = remove.
+    # Option -a is add.
+    # Username is username.
+    os.spawnlp(os.P_NOWAIT, "bash", "bash", WHITELIST_SCRIPT, option, username)
 
 def loggingData(filename, data):
     file = open(filename+'.log', 'w')
@@ -15,11 +25,7 @@ def loggingData(filename, data):
 def successReplatnishBalance(sender, InvId, OutSum, **kwargs):
     minecraft_user = User.objects.get(username=kwargs['extra']['shp_username']).minecraftuser
     # Success
-    replanishBalance(minecraft_user, OutSum)
-
-    # after = minecraft_user.balance
-    # data = '%s\n%s\n%s' % ('Signal ====> success_page_visited', str(until), str(after))
-    # loggingData('successReplatnishBalance', data)
+    minecraft_user.replanishBalance(OutSum)
 
 # Устанавливает пользователю успешно пройденный платёж,
 # по данным которого будет отображаться успешная оплата в интерфейсе.
@@ -27,22 +33,10 @@ def successReplatnishBalance(sender, InvId, OutSum, **kwargs):
 def setLastPayment(sender, InvId, OutSum, **kwargs):
     username = kwargs['extra']['shp_username']
     minecraft_user = User.objects.get(username=username).minecraftuser
-    minecraft_user.last_payment_notification = sender
-    data = 'InvId: %s\tOutSum: %s\nuser: %s\nid SN: %s' % (InvId, OutSum, username, minecraft_user.last_payment_notification.id)
-    loggingData('lastPayment', data)
-    minecraft_user.save()
+    minecraft_user.setLastPayment(sender)
 
 def user_directory_path(instance, filename):
-    # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
     return 'avatar/user_{0}/{1}'.format(instance.user.id, filename)
-
-# Функция пополнения баланса
-def replanishBalance(self, credits):
-    # Пополнение баланса на указанное колличество кредитов.
-    self.balance += credits
-    # Сохранение изменённого состояния.
-    self.save()
-
 
 # Функция, расчитывающая только время истечения подписки,
 # принимающая модель пользователя и выбранные им коли-
@@ -84,11 +78,11 @@ def payForSubscribe(self, quantity_monthes):
     # Если быть точнее 12m - 13%, 6m - 7%
     # Подписка стоит 150 рублей.
     if quantity_monthes == 12:
-        self.balance -= (quantity_monthes * 150) - ((150 / 100 * 13) * quantity_monthes)
+        self.balance -= (quantity_monthes * SUBSCRIBE_COST) - ((SUBSCRIBE_COST / 100 * 13) * quantity_monthes)
     if quantity_monthes == 6:
-        self.balance -= (quantity_monthes * 150) - - ((150 / 100 * 7) * quantity_monthes)
+        self.balance -= (quantity_monthes * SUBSCRIBE_COST) - ((SUBSCRIBE_COST / 100 * 7) * quantity_monthes)
     else:
-        self.balance -= quantity_monthes * 150
+        self.balance -= quantity_monthes * SUBSCRIBE_COST
 
 # Подписывает пользователя по его желанию
 def subscribe(self, quantity_monthes=0):
@@ -127,10 +121,12 @@ def subscribe(self, quantity_monthes=0):
         response['status'] = self.status
         response['balance'] = self.balance
 
+        whitelistAction('-a', self.user.username,)
+
         # Транзакция прошла успешно.
         return(response)
     # Не хватает денег на счету.
-    response['message'] = 'Не достаточно кредитов на счету. Ваш баланс — %(balance)s' % response
+    response['message'] = 'Не достаточно кредитов на счету. Ваш баланс — %(balance)s кредитов' % response
     return(response)
 
 

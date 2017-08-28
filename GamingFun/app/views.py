@@ -20,7 +20,6 @@ def get_user_last_payment(request):
         }
 
         log_data = 'username: %s' % username
-        loggingData('get_user_last_payment', log_data)
 
         return JsonResponse(send_data)
 
