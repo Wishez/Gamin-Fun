@@ -1,14 +1,18 @@
 # -*- encoding: utf-8 -*-
-from django.utils import timezone
-from django.contrib.auth.models import User
-from django.dispatch import receiver
-from robokassa.signals import success_page_visited, result_received
-from datetime import datetime
-from django.conf import settings
 import os
+from django.utils import timezone
+from datetime import datetime
+
+from django.contrib.auth.models import User
+from robokassa.signals import success_page_visited, result_received
+from django.dispatch import receiver
+from django.db.models.signals import post_delete
+
+from django.conf import settings
 
 SUBSCRIBE_COST = getattr(settings, 'SUBSCRIBE_COST')
 WHITELIST_SCRIPT =  getattr(settings, 'WHITELIST_SCRIPT')
+
 
 def whitelistAction(option, username):
     # Option -r = remove.

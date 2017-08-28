@@ -15,7 +15,7 @@ class WatchForUser(CronJobBase):
         for user in minecraft_users:
             current_time = timezone.now()
             user_time = user.active_until
-            if user_time and user_time >= current_time:
+            if user_time and user_time <= current_time:
                 thread = Thread(target=user.unsubscribe)
                 thread.daemon = True
                 thread.start()

@@ -126,6 +126,8 @@ class MinecraftUser(models.Model):
     def unsubscribe(self):
         whitelistAction('-r', self.user.username)
         self.active_until = None
+        self.status = 'Не оплачено'
+        self.save()
 
     def replanishBalance(self, credits):
         # Пополнение баланса на указанное колличество кредитов.
