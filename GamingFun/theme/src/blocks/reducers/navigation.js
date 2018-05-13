@@ -36,7 +36,7 @@ const navigation = (
 				...initNavigationState,
 				[action.navigationItem]: {
 					...state[action.navigationItem],
-					active: true,
+					active: true
 				}
 			}
 		default:

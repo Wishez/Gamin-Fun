@@ -6,6 +6,6 @@ class MinecraftNewsView(viewsets.ReadOnlyModelViewSet):
     queryset =  MinecraftNews.objects.all()
     serializer_class = MinecraftNewsSerializer
 
-class SampNewsView(viewsets.ReadOnlyModelViewSet):
-    queryset =  SampNews.objects.all()
-    serializer_class = SampNewsSerializer
+# class SampNewsView(viewsets.ReadOnlyModelViewSet):
+#     queryset =  SampNews.objects.all()
+#     serializer_class = SampNewsSerializer

@@ -27,7 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'localhost',
-    'gaming-fun.ru'
+    'gaming-fun.ru',
+    'gamingfun.shining-present.ru'
 ]
 
 
@@ -42,7 +43,6 @@ INSTALLED_APPS = [
     'api_v0.apps.ApiV0Config',
     'app.apps.AppConfig',
     'minecraft.apps.MinecraftConfig',
-    'samp.apps.SampConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

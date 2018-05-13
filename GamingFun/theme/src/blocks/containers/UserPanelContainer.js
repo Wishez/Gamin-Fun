@@ -5,7 +5,6 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { tryLogin, logOut, tryChangeUserAvatar} from './../actions/accountActions.js'
 import { cookiesHandler } from './../constants/pureFunctions.js';
-import { initAccountState } from './../reducers/account.js';
 import { tryGetServerStatus } from './../actions/serverStatusActions.js';
 
 class UserPanelContainer extends Component {
@@ -49,8 +48,6 @@ class UserPanelContainer extends Component {
   	}
   	componentDidUpdate() {
   		this.loginInIfMay();
-
-
   	}
   	componentWillReceiveProps(nextProps) {
   		const { site, dispatch } = this.props;

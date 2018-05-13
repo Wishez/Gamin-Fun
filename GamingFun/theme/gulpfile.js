@@ -121,6 +121,8 @@ gulp.task('source', () => {
 /* STYLES
 /* ----------------- */
 
+
+
 gulp.task('faststyles', () => {
   return gulp.src(settings.src + '/scss/**/*.scss')
     .pipe(sourcemaps.init())
@@ -133,7 +135,7 @@ gulp.task('faststyles', () => {
     }))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(settings.build + '/css'))
-    .pipe(browserSync.stream());
+    //.pipe(browserSync.stream());
 });
 
 gulp.task('styles', () => {
@@ -234,7 +236,7 @@ gulp.task('watch', () => {
 });
 
 gulp.task('lintfastjs', ['lintsource', 'fastjs']);
-gulp.task('fastlintdevelop', ['html', 'lintfastjs', 'faststyles', 'fastmedia']);
+gulp.task('fastlintdevelop', ['html', 'lintfastjs','faststyles',  'fastmedia']);
 
 gulp.task('fastdevelop', ['html', 'fastjs', 'faststyles', 'fastmedia']); 
 gulp.task('production', ['source', 'styles', 'media', 'html', 'manifest']);
